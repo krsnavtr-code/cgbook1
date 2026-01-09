@@ -3,6 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+// Routes
+const authRoutes = require('./routes/auth.route');
+
 const app = express();
 
 // Middleware
@@ -22,6 +25,9 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
     res.json({ message: "Welcome to CG-Projects API" });
 });
+
+// Routes
+app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 

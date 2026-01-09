@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
     "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "express-validator": "^7.3.1",
+    "jsonwebtoken": "^9.0.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.12.0"
