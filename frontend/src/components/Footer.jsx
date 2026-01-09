@@ -1,15 +1,17 @@
 import React from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const Footer = () => {
+  const { darkMode } = useTheme();
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 mt-auto">
+    <footer className=" py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section: Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Column 1: Brand Info */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4 text-white">
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-indigo-600 dark:bg-indigo-500 rounded-lg flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -25,11 +27,11 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <span className="text-xl font-bold tracking-wider">
+              <span className="text-xl font-bold tracking-wider ">
                 CG-Projects
               </span>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm leading-relaxed">
               Explore the best collection of photos and videos. Upload, share,
               and discover visual content from creators around the world.
             </p>
@@ -37,27 +39,39 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">
+            <h3 className=" font-semibold mb-4 uppercase text-sm tracking-wider">
               Discover
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Trending Videos
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   New Photos
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Editors' Choice
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Categories
                 </a>
               </li>
@@ -66,27 +80,39 @@ const Footer = () => {
 
           {/* Column 3: Support */}
           <div>
-            <h3 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">
+            <h3 className=" font-semibold mb-4 uppercase text-sm tracking-wider">
               Support
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Help Center
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Community Guidelines
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="#"
+                  className=" transition-colors"
+                >
                   Terms of Service
                 </a>
               </li>
@@ -95,7 +121,7 @@ const Footer = () => {
 
           {/* Column 4: Social Media */}
           <div>
-            <h3 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">
+            <h3 className=" font-semibold mb-4 uppercase text-sm tracking-wider">
               Follow Us
             </h3>
             <div className="flex space-x-4">
