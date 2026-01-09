@@ -303,6 +303,11 @@ const Navbar = () => {
               Categories
             </Link>
 
+            {/* Admin Panal Button */}
+            {isAuthenticated && isAdmin && (
+              <NavLink to="/admin">Admin Panel</NavLink>
+            )}
+
             {isAuthenticated ? (
               <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
                 <div className="flex items-center px-3 mb-3">
