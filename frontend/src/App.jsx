@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      Hii
+      <Navbar />
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mt-10 text-center">
+          Welcome to Watch Photo Videos
+        </h1>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
