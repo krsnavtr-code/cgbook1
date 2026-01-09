@@ -1,15 +1,21 @@
-import Navbar from "./components/Navbar";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mt-10 text-center">
-          Welcome to Watch Photo Videos
-        </h1>
-      </div>
-    </>
+    <Routes>
+      {/* Layout Route - Iske andar saare pages aayenge */}
+      <Route path="/" element={<Layout />}>
+        {/* Index Route (Default Home Page) */}
+        <Route index element={<Home />} />
+
+        {/* Future mein aur pages yahan add honge, jaise: */}
+        {/* <Route path="videos" element={<Videos />} /> */}
+        {/* <Route path="photos" element={<Photos />} /> */}
+      </Route>
+    </Routes>
   );
 }
 
