@@ -1,24 +1,23 @@
 import React from "react";
-import { useTheme } from "../context/ThemeContext";
+import { Link } from "react-router-dom"; // Use Link for internal navigation
 
 const Footer = () => {
-  const { darkMode } = useTheme();
   return (
-    <footer className=" py-12 mt-auto">
+    <footer className="mt-auto border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-300 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section: Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Column 1: Brand Info */}
-          <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4 text-white">
-              <div className="w-8 h-8 bg-indigo-600 dark:bg-indigo-500 rounded-lg flex items-center justify-center">
+          <div className="col-span-1 md:col-span-1 space-y-4">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-500/20 transition-transform group-hover:scale-105">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={2.5}
                   stroke="currentColor"
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -27,11 +26,11 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <span className="text-xl font-bold tracking-wider ">
+              <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                 CG-Projects
               </span>
-            </div>
-            <p className="text-sm leading-relaxed">
+            </Link>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
               Explore the best collection of photos and videos. Upload, share,
               and discover visual content from creators around the world.
             </p>
@@ -39,96 +38,96 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className=" font-semibold mb-4 uppercase text-sm tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
               Discover
             </h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/videos"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Trending Videos
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/photos"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   New Photos
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/categories"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Editors' Choice
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/categories"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Categories
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Column 3: Support */}
           <div>
-            <h3 className=" font-semibold mb-4 uppercase text-sm tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
               Support
             </h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/help"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Help Center
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/guidelines"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Community Guidelines
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/privacy"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition-colors"
+                <Link
+                  to="/terms"
+                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Social Media */}
           <div>
-            <h3 className=" font-semibold mb-4 uppercase text-sm tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
               Follow Us
             </h3>
             <div className="flex space-x-4">
               {/* Instagram */}
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-sm"
               >
                 <svg
                   className="w-5 h-5"
@@ -146,7 +145,7 @@ const Footer = () => {
               {/* Twitter/X */}
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 transform hover:-translate-y-1 shadow-sm"
               >
                 <svg
                   className="w-5 h-5"
@@ -160,7 +159,7 @@ const Footer = () => {
               {/* YouTube */}
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-sm"
               >
                 <svg
                   className="w-5 h-5"
@@ -180,14 +179,17 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section: Copyright */}
-        <div className="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
           <p>
             &copy; {new Date().getFullYear()} CG-Projects. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <span className="flex items-center gap-1">
-              Made with <span className="text-red-500 text-lg">♥</span> for
-              creators
+            <span className="flex items-center gap-1 group">
+              Made with{" "}
+              <span className="text-red-500 text-lg group-hover:scale-125 transition-transform">
+                ♥
+              </span>{" "}
+              for creators
             </span>
           </div>
         </div>
