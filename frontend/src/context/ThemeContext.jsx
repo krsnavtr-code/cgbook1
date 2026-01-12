@@ -16,11 +16,18 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const root = window.document.documentElement;
 
-    // Purani class hatayein aur nayi lagayein
+    // Remove all theme classes first
     root.classList.remove("light", "dark");
-    root.classList.add(theme);
 
-    // LocalStorage mein save karein
+    // Add the current theme class - Tailwind uses 'dark' class for dark mode
+    if (theme === "dark") {
+      root.classList.add("dark");
+    }
+
+    // For custom properties, we'll keep using data-theme
+    root.setAttribute("data-theme", theme);
+
+    // Save to localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
 

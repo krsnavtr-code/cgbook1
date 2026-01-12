@@ -62,30 +62,24 @@
    ========================================= */
 @layer base {
   :root {
-    /* Colors - Modern Indigo/Blue Palette */
+    /* Light theme colors */
     --primary-color: #4f46e5;       /* Indigo 600 */
     --primary-hover: #4338ca;       /* Indigo 700 */
     --secondary-color: #64748b;     /* Slate 500 */
-    
-    /* Backgrounds */
     --bg-body: #f8fafc;             /* Slate 50 */
     --bg-card: #ffffff;
-    
-    /* Text */
     --text-main: #0f172a;           /* Slate 900 */
     --text-muted: #64748b;          /* Slate 500 */
-    
-    /* Borders & Shadows */
     --border-color: #e2e8f0;
-    
-    /* Spacing & Radius */
     --radius: 8px;
     --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   }
 
-  /* Dark mode overrides */
+  /* Dark theme overrides - using Tailwind's dark: variant */
   .dark {
     --primary-color: #818cf8;       /* Lighter indigo for dark mode */
+    --primary-hover: #a5b4fc;       /* Even lighter indigo for hover */
+    --secondary-color: #94a3b8;     /* Lighter slate for dark mode */
     --bg-body: #0f172a;            /* Dark background */
     --bg-card: #1e293b;            /* Dark card background */
     --text-main: #f8fafc;          /* Light text */
@@ -93,12 +87,33 @@
     --border-color: #334155;       /* Darker border */
   }
 
-  /* Base styles applied to HTML elements */
+  /* Base styles */
   body {
-    font-family: var(--font-family);
     background-color: var(--bg-body);
     color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-family);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  /* Theme utility classes */
+  .bg-theme-body {
+    background-color: var(--bg-body);
+  }
+  
+  .bg-theme-card {
+    background-color: var(--bg-card);
+  }
+  
+  .text-theme-main {
+    color: var(--text-main);
+  }
+  
+  .text-theme-muted {
+    color: var(--text-muted);
+  }
+  
+  .border-theme {
+    border: 1px solid var(--border-color);
   }
 }
 
