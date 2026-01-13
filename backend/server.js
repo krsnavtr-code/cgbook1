@@ -10,6 +10,7 @@ import fs from 'fs';
 import authRoutes from './routes/auth.route.js';
 import mediaRoutes from './routes/media.routes.js';
 import uploadRoutes from './routes/upload.route.js';
+import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
 
@@ -140,7 +141,7 @@ app.get("/api/health", (req, res) => res.status(200).json({ status: "OK", timest
 app.use('/api/auth', authRoutes);
 app.use("/api/media", mediaRoutes);
 app.use("/api/upload", uploadRoutes);
-
+app.use("/api/admin", adminRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

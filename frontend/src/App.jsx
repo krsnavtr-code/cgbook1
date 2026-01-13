@@ -5,12 +5,12 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import PrivateRoute from "./components/PrivateRoute";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import MediaGallery from "./components/admin/MediaUploder.jsx";
 import MediaTags from "./pages/admin/MediaTags.jsx";
 import ImageGallery from "./pages/admin/MediaGallery.jsx";
+import Users from "./pages/admin/Users";
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
         <Route path="media-gallery" element={<ImageGallery />} />
         <Route path="media-gallery/upload" element={<MediaGallery />} />
         <Route path="media/tags" element={<MediaTags />} />
+        <Route path="users" element={<Users />} />
         {/* Add more admin routes here */}
       </Route>
 
