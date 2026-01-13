@@ -155,10 +155,10 @@ const fetchTags = async () => {
   const inputClass =
     "w-full px-4 py-3 bg-[#05081a] border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F47C26] focus:ring-1 focus:ring-[#F47C26] transition-all placeholder-gray-500";
   const labelClass =
-    "block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2";
+    "block text-xs font-bold text-black uppercase tracking-wider mb-2";
 
   return (
-    <div className="min-h-screen bg-[#0a0f2d] text-white p-6 relative overflow-hidden font-sans">
+    <div className="min-h-screen text-black p-6 relative overflow-hidden font-sans">
       {/* Ambience */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F47C26]/5 rounded-full blur-[120px]"></div>
@@ -169,10 +169,10 @@ const fetchTags = async () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
-            <h1 className="text-3xl font-black text-white flex items-center gap-3">
+            <h1 className="text-3xl font-black text-black flex items-center gap-3">
               Media <span className="text-[#F47C26]">Tags</span>
             </h1>
-            <p className="text-gray-400 text-sm mt-1 ml-1">
+            <p className="text-black text-sm mt-1 ml-1">
               Organize assets with smart tagging
             </p>
           </div>
@@ -192,25 +192,25 @@ const fetchTags = async () => {
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-2xl mb-8 flex flex-col md:flex-row gap-4 justify-between items-center shadow-lg">
           {/* Search */}
           <div className="relative w-full md:w-96">
-            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search tags..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-2.5 bg-black/20 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-[#F47C26] transition-colors"
+              className="w-full pl-12 pr-4 py-2.5 bg-black/20 border border-white/10 rounded-xl text-sm text-black focus:outline-none focus:border-[#F47C26] transition-colors"
             />
           </div>
 
           {/* Items Per Page */}
           <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-400 font-medium flex items-center gap-2">
+            <span className="text-sm text-black font-medium flex items-center gap-2">
               <FaFilter className="text-[#F47C26]" /> Show:
             </span>
             <select
               value={itemsPerPage}
               onChange={(e) => setItemsPerPage(Number(e.target.value))}
-              className="bg-black/20 border border-white/10 text-white text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-[#F47C26] cursor-pointer"
+              className="bg-black/20 border border-white/10 text-black text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-[#F47C26] cursor-pointer"
             >
               <option value={10}>10</option>
               <option value={25}>25</option>
@@ -231,19 +231,19 @@ const fetchTags = async () => {
               <table className="w-full text-left">
                 <thead className="bg-white/5 border-b border-white/10">
                   <tr>
-                    <th className="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-4 text-xs font-bold text-black uppercase tracking-wider">
                       Tag Name
                     </th>
-                    <th className="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-4 text-xs font-bold text-black uppercase tracking-wider">
                       Description
                     </th>
-                    <th className="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-4 text-xs font-bold text-black uppercase tracking-wider">
                       Usage
                     </th>
-                    <th className="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-4 text-xs font-bold text-black uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider text-right">
+                    <th className="px-6 py-4 text-xs font-bold text-black uppercase tracking-wider text-right">
                       Actions
                     </th>
                   </tr>
@@ -265,13 +265,13 @@ const fetchTags = async () => {
                               <div className="p-2 rounded-lg bg-[#F47C26]/10 text-[#F47C26]">
                                 <FaHashtag />
                               </div>
-                              <span className="font-bold text-white group-hover:text-[#F47C26] transition-colors">
+                              <span className="font-bold text-black group-hover:text-[#F47C26] transition-colors">
                                 {tag.name}
                               </span>
                             </div>
                           </td>
                           <td className="px-6 py-4">
-                            <span className="text-sm text-gray-400 truncate max-w-xs block">
+                            <span className="text-sm text-black truncate max-w-xs block">
                               {tag.description || "-"}
                             </span>
                           </td>
@@ -286,23 +286,23 @@ const fetchTags = async () => {
                                 Active
                               </span>
                             ) : (
-                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-500/10 text-gray-400 border border-gray-500/20">
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-gray-500/10 text-black border border-gray-500/20">
                                 Inactive
                               </span>
                             )}
                           </td>
                           <td className="px-6 py-4 text-right">
-                            <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="flex items-center justify-end gap-2">
                               <button
                                 onClick={() => openEditModal(tag)}
-                                className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-[#F47C26] transition-colors"
+                                className="p-2 rounded-lg  text-black transition-colors"
                                 title="Edit"
                               >
                                 <FaEdit />
                               </button>
                               <button
                                 onClick={() => handleDelete(tag._id)}
-                                className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-red-500 transition-colors"
+                                className="p-2 rounded-lg  text-black  transition-colors"
                                 title="Delete"
                               >
                                 <FaTrash />
@@ -331,7 +331,7 @@ const fetchTags = async () => {
           {/* Pagination */}
           {totalPages > 1 && (
             <div className="px-6 py-4 bg-black/20 border-t border-white/10 flex items-center justify-between">
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-black">
                 Page <span className="text-white font-bold">{currentPage}</span>{" "}
                 of <span className="text-white font-bold">{totalPages}</span>
               </span>
@@ -382,7 +382,7 @@ const fetchTags = async () => {
                 </h3>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-black hover:text-white transition-colors"
                 >
                   <FaTimes />
                 </button>

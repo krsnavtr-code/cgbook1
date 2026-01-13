@@ -440,11 +440,8 @@ const ImageGallery = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
             <h1 className="text-3xl font-black text-gray-900 dark:text-white">
-              Media <span className="text-[#F47C26]">Gallery</span>
+              Gallery
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
-              Manage your digital assets
-            </p>
           </div>
 
           <div className="flex items-center gap-3">
@@ -482,13 +479,10 @@ const ImageGallery = () => {
                   <FiTag size={16} />
                 </button>
                 {/* Tag Selection Modal */}
-                <AnimatePresence>
+                <div>
                   {showTagModal && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
+                      <div
                         className="bg-white dark:bg-[#0a0f2d] rounded-2xl w-full max-w-md overflow-hidden shadow-xl border border-gray-200 dark:border-white/10"
                       >
                         <div className="p-6">
@@ -575,10 +569,10 @@ const ImageGallery = () => {
                             </button>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                     </div>
                   )}
-                </AnimatePresence>
+                </div>
                 <button
                   onClick={deleteSelectedItems}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg text-red-500 dark:text-red-400 transition-colors"
@@ -716,15 +710,12 @@ const ImageGallery = () => {
                 </button>
               </div>
 
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+              <div
                 className={getContainerClasses()}
               >
-                <AnimatePresence>
+                <div>
                   {items.map((item) => (
-                    <motion.div
+                    <div
                       key={
                         item._id ||
                         item.filename ||
@@ -934,10 +925,10 @@ const ImageGallery = () => {
                           </div>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
-                </AnimatePresence>
-              </motion.div>
+                </div>
+              </div>
             </div>
           ))}
 

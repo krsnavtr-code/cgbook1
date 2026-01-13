@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import slugify from 'slugify';
 
 const mediaTagSchema = new mongoose.Schema({
   name: {
@@ -45,20 +46,13 @@ const mediaTagSchema = new mongoose.Schema({
 });
 
 // Create slug from name before saving
-mediaTagSchema.pre('save', async function(next) {
-  if (!this.isModified('name')) return next();
-  
-  // Create slug from name
-  this.slug = this.name
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove non-word chars
-    .replace(/\s+/g, '-')      // Replace spaces with -
-    .replace(/--+/g, '-')      // Replace multiple - with single -
-    .trim();
-    
-  next();
-});
+mediaTagSchema.pre('save', async function () {
+  // Agar name modify nahi hua hai toh kuch mat karo
+  if (!this.isModified('name')) return;
 
+  // Slug create karo
+  this.slug = slugify(this.name, { lower: true });
+});
 // Prevent duplicate slugs
 mediaTagSchema.index({ slug: 1 }, { unique: true });
 

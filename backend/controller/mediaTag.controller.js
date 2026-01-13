@@ -10,18 +10,68 @@ import catchAsync from '../utils/catchAsync.js';
 export const createMediaTag = catchAsync(async (req, res, next) => {
   const { name, description } = req.body;
   
-  const tag = await MediaTag.create({
-    name,
-    description,
-    createdBy: req.user.id
-  });
+  // Add validation for required fields
+  if (!name) {
+    return next(new AppError('Tag name is required', 400));
+  }
 
-  res.status(201).json({
-    status: 'success',
-    data: {
-      tag
+  // Check if user is authenticated and has admin role
+  if (!req.user || !req.user.id) {
+    return next(new AppError('Not authorized to perform this action', 401));
+  }
+
+  // Verify user has admin role
+  if (req.user.role !== 'admin') {
+    return next(new AppError('Not authorized to create tags', 403));
+  }
+
+  try {
+    console.log('Creating tag with data:', {
+      name: name.trim(),
+      description: description ? description.trim() : undefined,
+      createdBy: req.user.id
+    });
+
+    const tag = await MediaTag.create({
+      name: name.trim(),
+      description: description ? description.trim() : undefined,
+      createdBy: req.user.id
+    });
+
+    // Remove sensitive data from response
+    const tagObj = tag.toObject();
+    delete tagObj.__v;
+
+    console.log('Successfully created tag:', tagObj);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        tag: tagObj
+      }
+    });
+  } catch (error) {
+    console.error('Error creating media tag:', error);
+
+    // Handle duplicate key error (unique constraint on name)
+    if (error.code === 11000) {
+      return next(new AppError('A tag with this name already exists', 400));
     }
-  });
+
+    // Handle validation errors
+    if (error.name === 'ValidationError') {
+      const message = Object.values(error.errors).map(val => val.message);
+      return next(new AppError(`Invalid input: ${message.join(', ')}`, 400));
+    }
+
+    // Handle CastError (invalid ObjectId)
+    if (error.name === 'CastError') {
+      return next(new AppError(`Invalid ID format: ${error.value}`, 400));
+    }
+
+    // For other errors, include the error message in the response
+    next(new AppError(error.message || 'An error occurred while creating the tag', 500));
+  }
 });
 
 /**

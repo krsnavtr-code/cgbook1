@@ -36,7 +36,7 @@ const AdminSidebar = () => {
       ),
     },
     {
-      name: "Gallery",
+      name: "Media Gallery",
       path: "/admin/media-gallery",
       icon: (
         <svg
