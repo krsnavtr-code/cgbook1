@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link, useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { UserIcon, HomeIcon, PhotoIcon, TagIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
 
 const AdminSidebar = () => {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -11,74 +12,35 @@ const AdminSidebar = () => {
       name: "Dashboard",
       path: "/admin",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-        </svg>
+        <HomeIcon className="h-5 w-5" />
       ),
     },
     {
       name: "Users",
       path: "/admin/users",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-        </svg>
+        <UserIcon className="h-5 w-5" />
       ),
     },
     {
       name: "Media Gallery",
       path: "/admin/media-gallery",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <PhotoIcon className="h-5 w-5" />
       ),
     },
     {
       name: "Media Tags",
       path: "/admin/media/tags",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v8a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z" />
-        </svg>
+        <TagIcon className="h-5 w-5" />
       ),
     },
     {
-      name: "Categories",
-      path: "/admin/categories",
+      name: "Owner Info",
+      path: "/admin/owner-info",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-        </svg>
+        <BuildingOffice2Icon className="h-5 w-5" />
       ),
     },
   ];

@@ -11,6 +11,8 @@ import MediaGallery from "./components/admin/MediaUploder.jsx";
 import MediaTags from "./pages/admin/MediaTags.jsx";
 import ImageGallery from "./pages/admin/MediaGallery.jsx";
 import Users from "./pages/admin/Users";
+import OwnerInfo from "./pages/admin/OwnerInfo";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -22,14 +24,18 @@ function App() {
         <Route path="register" element={<Register />} />
       </Route>
 
-      {/* Admin Routes */}
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<AdminDashboard />} />
-        <Route path="media-gallery" element={<ImageGallery />} />
-        <Route path="media-gallery/upload" element={<MediaGallery />} />
-        <Route path="media/tags" element={<MediaTags />} />
-        <Route path="users" element={<Users />} />
-        {/* Add more admin routes here */}
+      {/* Admin Routes - Protected and Admin Only */}
+      <Route element={<ProtectedRoute adminOnly />}>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="media-gallery" element={<ImageGallery />} />
+          <Route path="media-gallery/upload" element={<MediaGallery />} />
+          <Route path="media/tags" element={<MediaTags />} />
+          <Route path="users" element={<Users />} />
+          <Route path="owner-info" element={<OwnerInfo />} />
+
+          {/* Add more admin routes here */}
+        </Route>
       </Route>
 
       {/* Not Found Route */}

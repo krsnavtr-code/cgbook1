@@ -11,6 +11,7 @@ import authRoutes from './routes/auth.route.js';
 import mediaRoutes from './routes/media.routes.js';
 import uploadRoutes from './routes/upload.route.js';
 import adminRoutes from './routes/admin.routes.js';
+import ownerInfoRoutes from './routes/ownerInfo.routes.js';
 
 const app = express();
 
@@ -142,6 +143,7 @@ app.use('/api/auth', authRoutes);
 app.use("/api/media", mediaRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/admin", adminRoutes);
+app.use('/api/owner-info', ownerInfoRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
