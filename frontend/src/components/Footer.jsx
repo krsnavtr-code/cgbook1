@@ -1,75 +1,130 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Use Link for internal navigation
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { getOwnerInfo } from "../api/ownerInfoApi";
 
 const Footer = () => {
+  const [ownerInfo, setOwnerInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOwnerInfo = async () => {
+      try {
+        const data = await getOwnerInfo();
+        const primaryOwner =
+          data.owners?.find((owner) => owner.isPrimary) || data.owners?.[0];
+        if (primaryOwner) {
+          setOwnerInfo(primaryOwner);
+        }
+      } catch (error) {
+        console.error("Error fetching owner info:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOwnerInfo();
+  }, []);
+
+  const formatPhoneNumber = (number) => {
+    if (!number) return "";
+    return number.replace(/^(\+?\d+)[\s-]*(\d+)$/, "$1$2");
+  };
+
+  const phoneNumber = ownerInfo?.callNumber
+    ? formatPhoneNumber(ownerInfo.callNumber)
+    : "";
+
   return (
-    <footer className="mt-auto border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-300 pt-16 pb-8">
+    <footer className="relative mt-auto border-t border-pink-50 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-300 pt-20 pb-10 overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-100/30 dark:bg-pink-900/10 rounded-full blur-3xl -z-10 translate-x-1/2 translate-y-1/2"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Section: Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Column 1: Brand Info */}
-          <div className="col-span-1 md:col-span-1 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="md:col-span-4 space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-500/20 transition-transform group-hover:scale-105">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-                  />
-                </svg>
+              <div className="w-10 h-10 bg-gradient-to-tr from-pink-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-500/20 transition-transform group-hover:rotate-6">
+                <span className="text-xl font-black">J</span>
               </div>
-              <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                CG-Projects
+              <span className="text-2xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-indigo-600 dark:from-pink-400 dark:to-indigo-400">
+                funwithjuli
+                <span className="text-gray-900 dark:text-white">.in</span>
               </span>
             </Link>
-            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              Explore the best collection of photos and videos. Upload, share,
-              and discover visual content from creators around the world.
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed max-w-sm">
+              The ultimate destination for exclusive visual storytelling. Join
+              our premium community and experience creativity like never before.
             </p>
+            <div className="flex items-center gap-4">
+              {/* Instagram */}
+              <a
+                href="#"
+                className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              {/* Telegram */}
+              <a
+                href="#"
+                className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.462 8.87l-1.025 6.703c-.111.489-.47.608-.88.373l-1.611-1.187-.78 0.751c-.086.086-.16.158-.33.158l0.113-1.605 2.926-2.643c0.127-.113-.028-.176-.197-.063l-3.616 2.277-1.558-.487c-.339-.107-.348-.339.07-.503l6.088-2.345c.281-.104.527.063.402.566z" />
+                </svg>
+              </a>
+              {/* Twitter */}
+              <a
+                href="#"
+                className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+            </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Discover
+          {/* Quick Links */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-black text-gray-900 dark:text-white uppercase tracking-widest mb-6">
+              Content
             </h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-4">
               <li>
                 <Link
                   to="/videos"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
-                  Trending Videos
+                  Exclusive Videos
                 </Link>
               </li>
               <li>
                 <Link
                   to="/photos"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
-                  New Photos
+                  HD Photo Sets
                 </Link>
               </li>
               <li>
                 <Link
                   to="/categories"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  Editors' Choice
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/categories"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
                   Categories
                 </Link>
@@ -77,32 +132,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Support */}
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Support
+          {/* Legal/Safety */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-black text-gray-900 dark:text-white uppercase tracking-widest mb-6">
+              Trust & Safety
             </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  to="/help"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  Help Center
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/guidelines"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  Community Guidelines
-                </Link>
-              </li>
+            <ul className="space-y-4">
               <li>
                 <Link
                   to="/privacy"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
                   Privacy Policy
                 </Link>
@@ -110,87 +149,86 @@ const Footer = () => {
               <li>
                 <Link
                   to="/terms"
-                  className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
-                  Terms of Service
+                  Terms of Use
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/help"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
+                >
+                  Support Center
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Social Media */}
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Follow Us
+          {/* Support Column */}
+          <div className="md:col-span-4 bg-pink-50/50 dark:bg-gray-800/50 p-6 rounded-3xl border border-pink-100 dark:border-gray-700">
+            <h3 className="text-sm font-black text-gray-900 dark:text-white uppercase tracking-widest mb-4">
+              Need Assistance?
             </h3>
-            <div className="flex space-x-4">
-              {/* Instagram */}
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+              Our support team is available for any account or billing queries.
+            </p>
+
+            {loading ? (
+              <div className="h-12 w-full bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>
+            ) : phoneNumber ? (
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-sm"
+                href={`tel:${phoneNumber}`}
+                className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-white dark:bg-gray-900 rounded-2xl text-pink-600 dark:text-pink-400 font-bold shadow-sm hover:shadow-md transition-all border border-pink-100 dark:border-gray-700"
               >
                 <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
-                  aria-hidden="true"
                 >
                   <path
-                    fillRule="evenodd"
-                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.77 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.464 2.53c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                    clipRule="evenodd"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
+                {phoneNumber}
               </a>
-              {/* Twitter/X */}
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 transform hover:-translate-y-1 shadow-sm"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </a>
-              {/* YouTube */}
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center hover:bg-red-600 hover:text-white dark:hover:bg-red-600 dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-sm"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 01-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 01-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.506 2.506 0 011.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418zM15.194 12 10 15V9l5.194 3z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </a>
-            </div>
+            ) : (
+              <p className="text-xs font-bold text-gray-400 italic">
+                Direct support currently offline
+              </p>
+            )}
           </div>
         </div>
 
-        {/* Bottom Section: Copyright */}
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()} CG-Projects. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <span className="flex items-center gap-1 group">
-              Made with{" "}
-              <span className="text-red-500 text-lg group-hover:scale-125 transition-transform">
-                ♥
-              </span>{" "}
-              for creators
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-100 dark:border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="text-gray-900 dark:text-white font-bold">
+              funwithjuli.in
             </span>
+            . All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-6">
+            <div className="flex -space-x-2">
+              {/* Payment Icons Placeholder */}
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="w-8 h-5 bg-gray-100 dark:bg-gray-800 border border-white dark:border-gray-900 rounded-sm"
+                ></div>
+              ))}
+            </div>
+            <div className="h-4 w-px bg-gray-200 dark:bg-gray-700"></div>
+            <p className="text-xs font-bold text-gray-400 flex items-center gap-1.5 uppercase tracking-tighter">
+              18+ <span className="w-1 h-1 bg-gray-300 rounded-full"></span>{" "}
+              Adult Content
+            </p>
           </div>
         </div>
       </div>
