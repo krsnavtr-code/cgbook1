@@ -30,8 +30,8 @@ const candidateProfileDir = path.join(publicDir, "candidate_profile");
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://trivixa.in",
-    "https://www.trivixa.com"
+    "https://funwithjuli.in",
+    "https://www.funwithjuli.in"
 ];
 
 // Middleware to handle CORS
