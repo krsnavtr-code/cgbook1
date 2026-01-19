@@ -33,7 +33,7 @@ const allowedOrigins = [
     "http://localhost:5174",
     "https://funwithjuli.in",
     "https://www.funwithjuli.in",
-    "https://api.funwithjuli.in"
+    "https://api.funwithjuli.in/api"
 ];
 
 // CORS middleware
