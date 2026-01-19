@@ -26,37 +26,38 @@ const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, "public");
 const uploadsDir = path.join(__dirname, "public", "uploads");
 const candidateProfileDir = path.join(publicDir, "candidate_profile");
+
 // CORS Configuration
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "https://funwithjuli.in",
-    "https://www.funwithjuli.in"
+    "https://www.funwithjuli.in",
+    "https://api.funwithjuli.in"
 ];
 
-// Middleware to handle CORS
+// CORS middleware
 app.use((req, res, next) => {
     const origin = req.headers.origin;
 
-    // Check if the origin is allowed
-    if (process.env.NODE_ENV !== "production" ||
-        !origin ||
-        allowedOrigins.includes(origin) ||
-        origin.endsWith(".trivixa.com")) {
+    // In development, allow all origins for easier development
+    if (process.env.NODE_ENV !== 'production') {
+        res.setHeader('Access-Control-Allow-Origin', origin || '*');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+    }
+    // In production, only allow specific origins
+    else if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+    }
 
-        // Set CORS headers
-        res.header('Access-Control-Allow-Origin', origin || '*');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-auth-token, x-user-agent, x-client-ip');
-        res.header('Access-Control-Allow-Credentials', 'true');
+    // Common CORS headers
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-auth-token, x-user-agent, x-client-ip');
 
-        // Handle preflight requests
-        if (req.method === 'OPTIONS') {
-            return res.status(200).end();
-        }
-    } else {
-        console.warn("CORS blocked request from origin:", origin);
-        return res.status(403).json({ error: 'Not allowed by CORS' });
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
     }
 
     next();

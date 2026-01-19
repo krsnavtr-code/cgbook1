@@ -1,5 +1,5 @@
 // frontend/src/api/ownerInfoApi.js
-import axios from './axios';
+import axios from '../utils/api';
 
 const handleError = (error) => {
     const errorMessage = error.response?.data?.message || 'An error occurred';
