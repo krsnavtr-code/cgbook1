@@ -2,17 +2,26 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 // Create axios instance with base URL and headers
-// console.log("axios baseURL:", import.meta.env.VITE_API_BASE_URL);
 
 const api = axios.create({
-    baseURL: '/api',
+    baseURL: 'https://api.funwithjuli.in/api',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
     },
     withCredentials: true,
-    timeout: 10000, // 10 seconds timeout
+    timeout: 10000,
 });
+
+// const api = axios.create({
+//     baseURL: '/api',
+//     headers: {
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json',
+//     },
+//     withCredentials: true,
+//     timeout: 10000, // 10 seconds timeout
+// });
 
 // Track if a token refresh is in progress
 let isRefreshing = false;
