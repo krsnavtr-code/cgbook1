@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 // Create axios instance with base URL and headers
 
 const api = axios.create({
-    baseURL: 'https://api.funwithjuli.in/api',
+    baseURL: 'https://api.funwithjuli.in',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
