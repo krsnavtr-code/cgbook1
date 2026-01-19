@@ -2,21 +2,21 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 // Create axios instance with base URL
-// const api = axios.create({
-//     baseURL: 'https://api.funwithjuli.in/api',
-//     withCredentials: true,
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-// });
-
 const api = axios.create({
-    baseURL: '/api',
+    baseURL: 'https://api.funwithjuli.in/api',
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
     },
 });
+
+// const api = axios.create({
+//     baseURL: '/api',
+//     withCredentials: true,
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+// });
 
 // Add a request interceptor to include the auth token
 api.interceptors.request.use(
