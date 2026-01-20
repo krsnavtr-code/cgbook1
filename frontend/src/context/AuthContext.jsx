@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { api } from "../api/axios";
 
 const AuthContext = createContext();
@@ -9,12 +10,17 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   // Set auth token
-  const setAuthToken = (token) => {
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      localStorage.setItem("token", token);
+  const setAuthToken = (newToken) => {
+    if (newToken) {
+      // Update axios instance headers
+      api.defaults.headers.common["Authorization"] = `Bearer ${newToken}`;
+      // Update local state and storage
+      setToken(newToken);
+      localStorage.setItem("token", newToken);
     } else {
-      delete axios.defaults.headers.common["Authorization"];
+      // Remove token from axios instance and storage
+      delete api.defaults.headers.common["Authorization"];
+      setToken(null);
       localStorage.removeItem("token");
     }
   };
@@ -37,14 +43,25 @@ export const AuthProvider = ({ children }) => {
   const register = async (formData) => {
     try {
       const res = await api.post("/auth/register", formData);
-      const { token, user } = res.data;
-      setAuthToken(token);
-      setUser(user);
-      return { success: true };
+      if (res.data && res.data.token) {
+        const { token, user } = res.data;
+        setAuthToken(token);
+        setUser(user);
+        return { success: true };
+      } else {
+        console.error("Unexpected response format:", res.data);
+        return {
+          success: false,
+          message: "Unexpected response from server",
+        };
+      }
     } catch (err) {
+      console.error("Registration error:", err);
       return {
         success: false,
-        message: err.response?.data?.message || "Registration failed",
+        message:
+          err.response?.data?.message ||
+          "Registration failed. Please try again.",
       };
     }
   };
