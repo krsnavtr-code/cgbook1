@@ -32,8 +32,7 @@ const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "https://funwithjuli.in",
-    "https://www.funwithjuli.in",
-    "https://api.funwithjuli.in"
+    "https://www.funwithjuli.in"
 ];
 
 // CORS middleware
@@ -45,7 +44,7 @@ app.use((req, res, next) => {
     if (process.env.NODE_ENV !== 'production') {
         res.setHeader('Access-Control-Allow-Origin', origin || '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-auth-token');
         res.setHeader('Access-Control-Allow-Credentials', 'true');
 
         // Handle preflight requests
@@ -54,16 +53,16 @@ app.use((req, res, next) => {
         }
     }
     // In production, only allow specific origins
-    else if (origin && allowedOrigins.some(allowedOrigin => origin.startsWith(allowedOrigin))) {
+    else if (origin && allowedOrigins.some(allowedOrigin => origin === allowedOrigin || origin.startsWith(allowedOrigin))) {
         res.setHeader('Access-Control-Allow-Origin', origin);
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-auth-token');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
 
         // Handle preflight requests
         if (requestMethod === 'OPTIONS') {
             return res.status(200).end();
         }
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
     }
 
     // Common CORS headers
