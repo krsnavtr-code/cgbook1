@@ -13,7 +13,7 @@ export const getImageUrl = (filename) => {
     ? getFilename(new URL(filename).pathname)
     : getFilename(filename);
 
-  return `/api/upload/file/${encodeURIComponent(cleanFilename)}`;
+  return `/upload/file/${encodeURIComponent(cleanFilename)}`;
 };
 
 // ================= MEDIA LIST =================

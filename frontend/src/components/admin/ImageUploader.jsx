@@ -164,7 +164,7 @@ const ImageUploader = ({
     return (
       <div className={`w-full ${className}`}>
         <motion.div
-          layout
+          layout="position"
           className={`relative w-full border-2 border-dashed rounded-2xl transition-all duration-300 overflow-hidden ${
             dragActive
               ? "border-blue-500 bg-blue-50 dark:bg-blue-500/10 scale-[1.02]"
@@ -197,7 +197,7 @@ const ImageUploader = ({
                   {previewUrls.map((url, index) => (
                     <motion.div
                       key={index}
-                      layout
+                      layout="position"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}

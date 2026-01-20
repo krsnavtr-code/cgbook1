@@ -440,7 +440,7 @@ const ImageGallery = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
             <h1 className="text-3xl font-black text-gray-900 dark:text-white">
-              Gallery
+              Manage Gallery
             </h1>
           </div>
 

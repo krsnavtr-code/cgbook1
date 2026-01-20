@@ -143,7 +143,7 @@ router.post('/video', protect, (req, res, next) => {
                     name: req.file.filename,
                     originalName: req.file.originalname,
                     path: `/uploads/${req.file.filename}`,
-                    url: `/api/upload/file/${encodeURIComponent(req.file.filename)}`,
+                    url: `/upload/file/${encodeURIComponent(req.file.filename)}`,
                     size: req.file.size,
                     sizeMB: fileSizeInMB,
                     mimetype: req.file.mimetype,
@@ -312,7 +312,7 @@ router.get('/files', protect, async (req, res) => {
                 
                 const filePath = path.join(uploadsDir, file);
                 const stats = await fs.stat(filePath);
-                const fileUrl = `/api/upload/file/${encodeURIComponent(file)}`;
+                const fileUrl = `/upload/file/${encodeURIComponent(file)}`;
                 const fullUrl = `${req.protocol}://${req.get('host')}${fileUrl}`;
                 
                 // Determine file type
@@ -370,7 +370,7 @@ router.post('/video', protect, videoUpload.single('file'), async (req, res) => {
 
         // Construct URLs
         const filePath = path.join('uploads', req.file.filename);
-        const fileUrl = `/api/upload/file/${encodeURIComponent(req.file.filename)}`;
+        const fileUrl = `/upload/file/${encodeURIComponent(req.file.filename)}`;
         const fullUrl = `${req.protocol}://${req.get('host')}${fileUrl}`;
 
         console.log('Video uploaded successfully:', {
@@ -415,7 +415,7 @@ router.get('/files', protect, async (req, res) => {
             try {
                 const filePath = path.join(uploadsDir, file);
                 const stats = await fs.stat(filePath);
-                const fileUrl = `/api/upload/file/${encodeURIComponent(file)}`;
+                const fileUrl = `/upload/file/${encodeURIComponent(file)}`;
                 const fullUrl = `${req.protocol}://${req.get('host')}${fileUrl}`;
                 
                 return {
@@ -469,7 +469,7 @@ router.post('/image', protect, imageUpload.single('file'), async (req, res) => {
 
         // Construct URLs
         const filePath = path.join('uploads', req.file.filename);
-        const fileUrl = `/api/upload/file/${encodeURIComponent(req.file.filename)}`;
+        const fileUrl = `/upload/file/${encodeURIComponent(req.file.filename)}`;
         const fullUrl = `${req.protocol}://${req.get('host')}${fileUrl}`;
 
         console.log('File uploaded successfully:', {
