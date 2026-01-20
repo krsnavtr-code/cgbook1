@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import axios from "axios";
+import { api } from "../api/axios";
 
 const AuthContext = createContext();
 
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   const loadUser = async () => {
     try {
       setAuthToken(token);
-      const res = await axios.get("/api/auth/me");
+      const res = await api.get("/auth/me");
       setUser(res.data);
     } catch (err) {
       console.error("Error loading user", err);
@@ -35,14 +35,8 @@ export const AuthProvider = ({ children }) => {
 
   // Register user
   const register = async (formData) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
     try {
-      const res = await axios.post("/api/auth/register", formData, config);
+      const res = await api.post("/auth/register", formData);
       const { token, user } = res.data;
       setAuthToken(token);
       setUser(user);
@@ -57,14 +51,8 @@ export const AuthProvider = ({ children }) => {
 
   // Login user
   const login = async (formData) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
     try {
-      const res = await axios.post("/api/auth/login", formData, config);
+      const res = await api.post("/auth/login", formData);
       const { token, user } = res.data;
       setAuthToken(token);
       setToken(token);

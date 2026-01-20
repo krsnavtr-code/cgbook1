@@ -1,4 +1,4 @@
-import api from './axios';
+import { api } from './axios';
 
 // Helper: extract filename
 const getFilename = (urlOrPath = '') => {

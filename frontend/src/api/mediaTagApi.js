@@ -1,4 +1,4 @@
-import api from '../utils/api';
+import {api} from '../utils/api';
 
 // Get all media tags
 export const getMediaTags = async (params = {}) => {

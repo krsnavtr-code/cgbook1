@@ -7,7 +7,7 @@ import {
   FaCheckCircle,
   FaSpinner,
 } from "react-icons/fa";
-import api from "../../utils/api";
+import { api } from "../../utils/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ImageUploader = ({

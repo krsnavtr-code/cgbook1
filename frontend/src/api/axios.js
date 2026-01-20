@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
-// Create axios instance with base URL and headers
+// Get the API URL from environment variables or use the default
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.funwithjuli.in';
 
+// Create axios instance with base URL and headers
 const api = axios.create({
-    baseURL: 'https://api.funwithjuli.in',
+    baseURL: API_URL,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -12,16 +14,6 @@ const api = axios.create({
     withCredentials: true,
     timeout: 10000,
 });
-
-// const api = axios.create({
-//     baseURL: '/api',
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json',
-//     },
-//     withCredentials: true,
-//     timeout: 10000, // 10 seconds timeout
-// });
 
 // Track if a token refresh is in progress
 let isRefreshing = false;

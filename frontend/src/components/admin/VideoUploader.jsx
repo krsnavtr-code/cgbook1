@@ -8,7 +8,7 @@ import {
   FaSpinner,
   FaVideo,
 } from "react-icons/fa";
-import api from "../../utils/api"; 
+import {api} from "../../utils/api"; 
 import { motion, AnimatePresence } from "framer-motion";
 
 const VideoUploader = ({

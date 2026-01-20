@@ -33,21 +33,36 @@ const allowedOrigins = [
     "http://localhost:5174",
     "https://funwithjuli.in",
     "https://www.funwithjuli.in",
-    "https://api.funwithjuli.in/api"
+    "https://api.funwithjuli.in"
 ];
 
 // CORS middleware
 app.use((req, res, next) => {
     const origin = req.headers.origin;
+    const requestMethod = req.method;
 
     // In development, allow all origins for easier development
     if (process.env.NODE_ENV !== 'production') {
         res.setHeader('Access-Control-Allow-Origin', origin || '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+        // Handle preflight requests
+        if (requestMethod === 'OPTIONS') {
+            return res.status(200).end();
+        }
     }
     // In production, only allow specific origins
-    else if (allowedOrigins.includes(origin)) {
+    else if (origin && allowedOrigins.some(allowedOrigin => origin.startsWith(allowedOrigin))) {
         res.setHeader('Access-Control-Allow-Origin', origin);
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+        // Handle preflight requests
+        if (requestMethod === 'OPTIONS') {
+            return res.status(200).end();
+        }
         res.setHeader('Access-Control-Allow-Credentials', 'true');
     }
 
