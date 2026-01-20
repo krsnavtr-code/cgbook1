@@ -154,11 +154,11 @@ app.get("/api/ping", (req, res) => {
 app.get("/api/health", (req, res) => res.status(200).json({ status: "OK", timestamp: new Date() }));
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use("/api/media", mediaRoutes);
-app.use("/api/upload", uploadRoutes);
-app.use("/api/admin", adminRoutes);
-app.use('/api/owner-info', ownerInfoRoutes);
+app.use('/auth', authRoutes);
+app.use("/media", mediaRoutes);
+app.use("/upload", uploadRoutes);
+app.use("/admin", adminRoutes);
+app.use('/owner-info', ownerInfoRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
