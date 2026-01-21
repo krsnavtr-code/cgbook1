@@ -65,11 +65,15 @@ const Banner = () => {
                 rel="noopener noreferrer"
                 disabled={!ownerInfo}
                 className={`px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-pink-500 to-rose-600 rounded-2xl shadow-xl shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-1 transition-all ${
-                  !ownerInfo ? 'opacity-70 cursor-not-allowed' : ''
+                  !ownerInfo ? "opacity-70 cursor-not-allowed" : ""
                 }`}
-                title={!ownerInfo ? 'WhatsApp number not available' : 'Contact on WhatsApp'}
+                title={
+                  !ownerInfo
+                    ? "WhatsApp number not available"
+                    : "Contact on WhatsApp"
+                }
               >
-                {loading ? 'Loading...' : 'Book Now'}
+                {loading ? "Loading..." : "Book Now"}
               </a>
               <Link
                 to="/videos"
@@ -130,7 +134,7 @@ const Banner = () => {
                 {/* Replace with actual image of Juli/Content */}
                 <div className="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
                   <img
-                    src="https://via.placeholder.com/600x800"
+                    src="http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm--1--21012026-0640.jpeg"
                     alt="Featured Content"
                     className="w-full h-full object-cover"
                   />

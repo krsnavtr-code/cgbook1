@@ -6,60 +6,39 @@ const MeetingsByLocation = () => {
 
   const cities = [
     {
-      id: 1,
-      name: "Mumbai",
-      profiles: "240+",
-      img: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&w=400&q=80",
-      trending: true,
-    },
-    {
       id: 2,
       name: "Delhi",
       profiles: "180+",
-      img: "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=400&q=80",
+      img: "http://api.funwithjuli.in/upload/file/delhi-21012026-0714.jpg",
       trending: true,
     },
     {
       id: 3,
-      name: "Bangalore",
+      name: "Gurugram",
       profiles: "150+",
-      img: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=400&q=80",
+      img: "http://api.funwithjuli.in/upload/file/gurugram-21012026-0714.jpg",
       trending: false,
     },
     {
       id: 4,
-      name: "Pune",
+      name: "Noida",
       profiles: "90+",
-      img: "https://images.unsplash.com/photo-1502209524164-acea936639a2?auto=format&fit=crop&w=400&q=80",
+      img: "http://api.funwithjuli.in/upload/file/noida-21012026-0714.jpg",
       trending: false,
     },
     {
       id: 5,
-      name: "Hyderabad",
+      name: "Greater Noida",
       profiles: "110+",
-      img: "https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?auto=format&fit=crop&w=400&q=80",
+      img: "http://api.funwithjuli.in/upload/file/grater-noida-21012026-0714.jpg",
       trending: false,
     },
     {
       id: 6,
-      name: "Goa",
+      name: "Ghaziabad",
       profiles: "70+",
-      img: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=400&q=80",
+      img: "http://api.funwithjuli.in/upload/file/ghaziabad-21012026-0713.jpg",
       trending: true,
-    },
-    {
-      id: 7,
-      name: "Kolkata",
-      profiles: "85+",
-      img: "https://images.unsplash.com/photo-1558431382-bb74a8d10e24?auto=format&fit=crop&w=400&q=80",
-      trending: false,
-    },
-    {
-      id: 8,
-      name: "Chennai",
-      profiles: "95+",
-      img: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=400&q=80",
-      trending: false,
     },
   ];
 
@@ -108,7 +87,7 @@ const MeetingsByLocation = () => {
         </div>
 
         {/* ================= CITIES GRID ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {filteredCities.map((city) => (
             <Link
               to={`/meetings/${city.name.toLowerCase()}`}

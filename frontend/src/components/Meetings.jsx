@@ -10,7 +10,7 @@ const Meetings = () => {
       location: "Mumbai",
       status: "Online",
       tags: ["Premium", "Verified"],
-      img: "https://via.placeholder.com/300x400",
+      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm-21012026-0640.jpeg",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Meetings = () => {
       location: "Delhi",
       status: "Online",
       tags: ["Indepentent"],
-      img: "https://via.placeholder.com/300x400",
+      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.55-pm--1--21012026-0640.jpeg",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Meetings = () => {
       location: "Bangalore",
       status: "Offline",
       tags: ["Verified"],
-      img: "https://via.placeholder.com/300x400",
+      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.00-pm-21012026-0640.jpeg",
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const Meetings = () => {
       location: "Mumbai",
       status: "Online",
       tags: ["Hot"],
-      img: "https://via.placeholder.com/300x400",
+      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.55-pm--2--21012026-0640.jpeg",
     },
   ];
 
