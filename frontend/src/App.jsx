@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PhotoGallery from "./pages/PhotoGallery";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import MediaGallery from "./components/admin/MediaUploder.jsx";
@@ -22,6 +23,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="photos" element={<PhotoGallery />} />
       </Route>
 
       {/* Admin Routes - Protected and Admin Only */}

@@ -46,7 +46,7 @@ app.use((req, res, next) => {
     // In development, allow all origins for easier development
     if (process.env.NODE_ENV !== 'production') {
         res.setHeader('Access-Control-Allow-Origin', origin || '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-auth-token');
         res.setHeader('Access-Control-Allow-Credentials', 'true');
 
@@ -58,7 +58,7 @@ app.use((req, res, next) => {
     // In production, only allow specific origins
     else if (origin && allowedOrigins.some(allowedOrigin => origin === allowedOrigin || origin.startsWith(allowedOrigin))) {
         res.setHeader('Access-Control-Allow-Origin', origin);
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-auth-token');
         res.setHeader('Access-Control-Allow-Credentials', 'true');
 
