@@ -58,7 +58,7 @@ const ImageGallery = () => {
   const [isUpdatingTags, setIsUpdatingTags] = useState(false);
 
   // View Modes
-  const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useState("comfortable");
 
   // Animation Variants
   const containerVariants = {
@@ -482,9 +482,7 @@ const ImageGallery = () => {
                 <div>
                   {showTagModal && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                      <div
-                        className="bg-white dark:bg-[#0a0f2d] rounded-2xl w-full max-w-md overflow-hidden shadow-xl border border-gray-200 dark:border-white/10"
-                      >
+                      <div className="bg-white dark:bg-[#0a0f2d] rounded-2xl w-full max-w-md overflow-hidden shadow-xl border border-gray-200 dark:border-white/10">
                         <div className="p-6">
                           <div className="flex justify-between items-center mb-4">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">
@@ -710,9 +708,7 @@ const ImageGallery = () => {
                 </button>
               </div>
 
-              <div
-                className={getContainerClasses()}
-              >
+              <div className={getContainerClasses()}>
                 <div>
                   {items.map((item) => (
                     <div
@@ -731,8 +727,8 @@ const ImageGallery = () => {
                         viewMode === "list"
                           ? "flex items-center gap-4 p-2 mb-2 h-16"
                           : viewMode === "comfortable"
-                          ? "mb-4"
-                          : "aspect-square"
+                            ? "mb-4"
+                            : "aspect-square"
                       }`}
                       onClick={(e) => handleMediaClick(item, e)}
                     >
@@ -759,6 +755,28 @@ const ImageGallery = () => {
                             : "w-full h-full"
                         } overflow-hidden relative bg-gray-100 dark:bg-black/20`}
                       >
+                        {/* Tags on top of media */}
+                        {viewMode !== "list" &&
+                          item.tags &&
+                          item.tags.length > 0 && (
+                            <div className="absolute top-10 left-0 right-0 z-10 p-1.5 flex flex-wrap gap-1 max-h-1/2 overflow-hidden bg-gradient-to-b from-black/50 to-transparent">
+                              {item.tags.slice(0, 3).map((tag) => (
+                                <span
+                                  key={tag._id}
+                                  className="inline-flex text-xl items-center px-1.5 py-0.5 rounded text-[10px] bg-yellow-200 text-black backdrop-blur-sm"
+                                  title={tag.name}
+                                >
+                                  <FiTagIcon size={16} className="mr-1" />
+                                  {tag.name}
+                                </span>
+                              ))}
+                              {item.tags.length > 3 && (
+                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-white/20 text-white/90">
+                                  +{item.tags.length - 3}
+                                </span>
+                              )}
+                            </div>
+                          )}
                         {item.type === "video" ? (
                           <div className="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                             <FaPlay className="text-gray-400 dark:text-white/30 text-2xl group-hover:text-[#F47C26] transition-colors relative z-10" />
