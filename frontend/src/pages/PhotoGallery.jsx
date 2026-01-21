@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { getUploadedImages, getImageUrl } from "../api/imageApi";
-import { FiMaximize2, FiRefreshCw, FiX, FiDownload } from "react-icons/fi";
+import { useEffect, useState, useCallback } from "react";
+import { getImageUrl, getUploadedImages } from "../api/imageApi";
+import { getMediaTags } from "../api/mediaTagApi";
+import { FiRefreshCw, FiX, FiMaximize2 } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 const PhotoGallery = () => {
@@ -8,132 +9,171 @@ const PhotoGallery = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await getUploadedImages();
-      const imageData = (response.data || [])
-        .filter(
-          (item) =>
-            item.type === "image" || item.mimetype?.startsWith("image/"),
-        )
-        .map((item) => ({
-          ...item,
-          url: item.url || getImageUrl(item.name || item.filename),
-          thumbnailUrl:
-            item.thumbnailUrl ||
-            item.url ||
-            getImageUrl(item.name || item.filename),
-        }));
+      
+      // 1. Fetch Tags & Find 'photos-page'
+      const response = await getMediaTags();
+      const tags = Array.isArray(response) ? response : response?.data?.tags || response?.data || [];
+      const photosPageTag = tags.find((tag) => tag?.slug === "photos-page");
+
+      if (!photosPageTag?.mediaFiles?.length) {
+        setImages([]);
+        return;
+      }
+
+      // 2. Fetch All Media
+      const allMediaResponse = await getUploadedImages();
+      const allMedia = Array.isArray(allMediaResponse) ? allMediaResponse : allMediaResponse.data || [];
+
+      // 3. Match and Format
+      const imageData = allMedia
+        .filter((media) => {
+          const fileName = media.url?.split("/").pop() || media.filename || media.name;
+          return photosPageTag.mediaFiles.some((tagUrl) => tagUrl.includes(fileName));
+        })
+        .map((media) => {
+          const url = media.url || getImageUrl(media.name || media.filename);
+          return {
+            ...media,
+            id: media._id || media.id || Math.random().toString(36),
+            url,
+            thumbnailUrl: url, 
+          };
+        });
+
       setImages(imageData);
     } catch (error) {
-      console.error("Error fetching images:", error);
+      console.error("Gallery Error:", error);
+      setImages([]);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchImages();
+  }, [fetchImages]);
+
+  // Keyboard Escape to close lightbox
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center">
-        <div className="text-center">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-            className="inline-block p-4 rounded-full bg-pink-50 dark:bg-pink-900/20 mb-4"
-          >
-            <FiRefreshCw className="h-10 w-10 text-pink-600" />
-          </motion.div>
-          <p className="text-gray-500 dark:text-gray-400 font-bold animate-pulse">
-            Curating your gallery...
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
       {/* --- HEADER --- */}
-      <div className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-64 bg-gradient-to-b from-pink-500/10 to-transparent blur-3xl opacity-50"></div>
+      <header className="relative py-24 px-4 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-pink-500/10 via-indigo-500/5 to-transparent blur-3xl opacity-60" />
+        
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6"
+            transition={{ duration: 0.8 }}
           >
-            HD{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-600">
-              Photo Gallery
-            </span>
-          </motion.h1>
-          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto font-medium">
-            Explore high-quality visual stories and exclusive captures from our
-            premium collection.
-          </p>
+            <h1 className="text-6xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
+              HD <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-500">Photo Gallery</span>
+            </h1>
+            <p className="text-gray-500 dark:text-gray-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
+              A curated visual journey through our premium collections and exclusive captures.
+            </p>
+          </motion.div>
         </div>
-      </div>
+      </header>
 
-      {/* --- MASONRY GRID --- */}
-      <div className="max-w-7xl mx-auto px-4 pb-24">
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-          {images.map((item, index) => (
-            <motion.div
-              key={item.id || item.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="relative group break-inside-avoid rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-900 shadow-xl border border-gray-100 dark:border-gray-800"
-            >
-              <img
-                src={item.thumbnailUrl}
-                alt={item.name || "Gallery Photo"}
-                className="w-full h-auto object-cover transition-transform duration-700 cursor-pointer"
+      {/* --- CONTENT AREA --- */}
+      <main className="max-w-7xl mx-auto px-6 pb-32">
+        {isLoading ? (
+          /* Skeleton Loader Grid */
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="w-full bg-gray-200 dark:bg-gray-800 rounded-3xl animate-pulse" style={{ height: `${Math.floor(Math.random() * (400 - 200 + 1) + 200)}px` }} />
+            ))}
+          </div>
+        ) : images.length > 0 ? (
+          /* Masonry Grid */
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            {images.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="relative group break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in bg-gray-100 dark:bg-gray-900 border border-transparent dark:border-gray-800 hover:border-pink-500/30 transition-all duration-300"
                 onClick={() => setSelectedImage(item)}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+              >
+                <img
+                  src={item.thumbnailUrl}
+                  alt={item.name || "Gallery image"}
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white">
+                    <FiMaximize2 size={24} />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          /* Empty State */
+          <div className="text-center py-20">
+            <p className="text-gray-400 italic text-lg">No images found in the gallery collection.</p>
+            <button 
+              onClick={fetchImages}
+              className="mt-4 text-pink-500 hover:text-pink-600 font-medium flex items-center gap-2 mx-auto"
+            >
+              <FiRefreshCw /> Retry Loading
+            </button>
+          </div>
+        )}
+      </main>
 
-      {/* --- LIGHTBOX (Selected Image) --- */}
+      {/* --- LIGHTBOX --- */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
             onClick={() => setSelectedImage(null)}
           >
-            {/* Lightbox Controls */}
-            <div className="absolute top-6 right-6 flex gap-4 z-[110]">
-              <button
-                className="p-4 bg-pink-600 hover:bg-pink-700 rounded-2xl text-white transition-all shadow-lg shadow-pink-600/20"
-                onClick={() => setSelectedImage(null)}
-              >
-                <FiX size={24} />
-              </button>
-            </div>
+            {/* Close Button */}
+            <motion.button
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              className="absolute top-8 right-8 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors z-[110]"
+              onClick={() => setSelectedImage(null)}
+            >
+              <FiX size={28} />
+            </motion.button>
 
             <motion.div
-              initial={{ scale: 0.8, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.8, y: 20 }}
-              className="relative max-w-5xl w-full h-full flex items-center justify-center"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative max-w-7xl w-full max-h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selectedImage.url}
-                alt="Full View"
-                className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain border border-white/10"
+                alt="Full preview"
+                className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain"
               />
+              
+              {/* Optional: Info bar at bottom of lightbox */}
+              <div className="absolute -bottom-12 left-0 right-0 text-center text-white/60 text-sm">
+                {selectedImage.name || 'Untitled Capture'}
+              </div>
             </motion.div>
           </motion.div>
         )}

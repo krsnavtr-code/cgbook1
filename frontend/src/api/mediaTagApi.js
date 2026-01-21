@@ -49,6 +49,16 @@ export const deleteMediaTag = async (id) => {
   }
 };
 
+// Get tag by slug
+export const getMediaTagBySlug = async (slug) => {
+  try {
+    const response = await api.get(`/media/tags/slug/${slug}`);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data?.message || 'Error fetching tag by slug';
+  }
+};
+
 // Get media items by tag
 export const getMediaByTag = async (id, params = {}) => {
   try {
