@@ -110,6 +110,30 @@ const Footer = () => {
                   to="/videos"
                   className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/photos"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
+                >
+                  Help Center
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/categories"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/videos"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
+                >
                   Exclusive Videos
                 </Link>
               </li>
@@ -119,14 +143,6 @@ const Footer = () => {
                   className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
                   HD Photo Sets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/categories"
-                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
-                >
-                  Categories
                 </Link>
               </li>
             </ul>
@@ -156,10 +172,26 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  to="/terms"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
+                >
+                  Cookies Policy 
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/help"
                   className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
                 >
                   Support Center
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/help"
+                  className="text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 font-medium transition-colors"
+                >
+                  Scam Report
                 </Link>
               </li>
             </ul>
