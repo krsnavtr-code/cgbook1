@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getOwnerInfo } from "../api/ownerInfoApi";
 
 const TopRatedMeetings = () => {
+  const [ownerInfo, setOwnerInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOwnerInfo = async () => {
+      try {
+        const ownerResponse = await getOwnerInfo();
+        const ownerData =
+          ownerResponse.data?.ownerInfo || ownerResponse.data || ownerResponse;
+        setOwnerInfo(ownerData);
+      } catch (error) {
+        console.log("Owner info not available:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOwnerInfo();
+  }, []);
+
+  // Create contact links
+  const whatsappNumber =
+    ownerInfo?.whatsappNumber ||
+    ownerInfo?.owners?.[0]?.whatsappNumber ||
+    ownerInfo?.callNumber ||
+    ownerInfo?.owners?.[0]?.callNumber;
+
+  const whatsappLink = whatsappNumber
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
+    : null;
+
   const topProfiles = [
     {
       id: 1,
@@ -127,9 +159,28 @@ const TopRatedMeetings = () => {
                     </p>
                   </div>
 
-                  <button className="w-full py-4 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-black hover:bg-amber-500 dark:hover:bg-amber-500 dark:hover:text-white transition-all transform active:scale-95">
-                    Book Appointment
-                  </button>
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    disabled={!ownerInfo || loading}
+                    className={`w-full py-4 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-black hover:bg-amber-500 dark:hover:bg-amber-500 dark:hover:text-white transition-all transform active:scale-95 text-center block ${
+                      !ownerInfo || loading
+                        ? "opacity-70 cursor-not-allowed"
+                        : ""
+                    }`}
+                    title={
+                      !ownerInfo || loading
+                        ? "Contact number not available"
+                        : "Book on WhatsApp"
+                    }
+                  >
+                    {loading
+                      ? "Loading..."
+                      : ownerInfo
+                        ? "Book Appointment"
+                        : "Unavailable"}
+                  </a>
                 </div>
               </div>
             </div>

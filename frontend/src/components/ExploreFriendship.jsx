@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getOwnerInfo } from "../api/ownerInfoApi";
 
 const ExploreFriendship = () => {
+  const [ownerInfo, setOwnerInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOwnerInfo = async () => {
+      try {
+        const ownerResponse = await getOwnerInfo();
+        const ownerData =
+          ownerResponse.data?.ownerInfo || ownerResponse.data || ownerResponse;
+        setOwnerInfo(ownerData);
+      } catch (error) {
+        console.log("Owner info not available:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOwnerInfo();
+  }, []);
+
+  // Create contact links
+  const whatsappNumber =
+    ownerInfo?.whatsappNumber ||
+    ownerInfo?.owners?.[0]?.whatsappNumber ||
+    ownerInfo?.callNumber ||
+    ownerInfo?.owners?.[0]?.callNumber;
+
+  const whatsappLink = whatsappNumber
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
+    : null;
+
   const categories = [
     {
       id: 1,
@@ -46,11 +78,11 @@ const ExploreFriendship = () => {
               experiences.
             </p>
           </div>
-          <div className="mt-8 md:mt-0">
+          {/* <div className="mt-8 md:mt-0">
             <button className="px-8 py-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-bold rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-sm">
               Explore All Categories
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Feature Cards */}
@@ -74,7 +106,7 @@ const ExploreFriendship = () => {
                 {cat.description}
               </p>
 
-              <button className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-bold group-hover:gap-4 transition-all">
+              {/* <button className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-bold group-hover:gap-4 transition-all">
                 Browse Profiles
                 <svg
                   className="w-5 h-5"
@@ -89,7 +121,7 @@ const ExploreFriendship = () => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </button>
+              </button> */}
 
               {/* Decorative background element */}
               <div className="absolute top-0 right-0 p-4 opacity-5">
@@ -111,9 +143,26 @@ const ExploreFriendship = () => {
                 for high-end companionship and social dates.
               </p>
             </div>
-            <button className="whitespace-nowrap px-10 py-5 bg-white text-indigo-600 font-black rounded-2xl shadow-xl hover:scale-105 transition-transform active:scale-95">
-              Get At Today Night
-            </button>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              disabled={!ownerInfo || loading}
+              className={`whitespace-nowrap px-10 py-5 bg-white text-indigo-600 font-black rounded-2xl shadow-xl hover:scale-105 transition-transform active:scale-95 text-center block ${
+                !ownerInfo || loading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
+              title={
+                !ownerInfo || loading
+                  ? "Contact number not available"
+                  : "Contact on WhatsApp"
+              }
+            >
+              {loading
+                ? "Loading..."
+                : ownerInfo
+                  ? "Get At Today Night"
+                  : "Unavailable"}
+            </a>
           </div>
 
           {/* Abstract Shapes */}
