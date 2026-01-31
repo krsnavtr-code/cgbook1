@@ -32,6 +32,7 @@ const Profiles = () => {
     img: "",
     rating: 4.9,
     isActive: true,
+    isNew: false,
     title: "",
     shortContent: "",
     longContent: "",
@@ -71,6 +72,7 @@ const Profiles = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Submitting formData:", formData); // Debug log
       if (editingProfile) {
         await updateProfile(editingProfile._id || editingProfile.id, formData);
       } else {
@@ -88,6 +90,7 @@ const Profiles = () => {
         img: "",
         rating: 4.9,
         isActive: true,
+        isNew: false,
         title: "",
         shortContent: "",
         longContent: "",
@@ -116,6 +119,7 @@ const Profiles = () => {
       img: profile.img,
       rating: profile.rating || 4.9,
       isActive: profile.isActive !== false,
+      isNew: profile.isNew || false,
       title: profile.title || "",
       shortContent: profile.shortContent || "",
       longContent: profile.longContent || "",
@@ -519,22 +523,42 @@ const Profiles = () => {
                   />
                 </div>
 
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="isActive"
-                    checked={formData.isActive}
-                    onChange={(e) =>
-                      setFormData({ ...formData, isActive: e.target.checked })
-                    }
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                  />
-                  <label
-                    htmlFor="isActive"
-                    className="ml-2 block text-sm text-gray-900 dark:text-white"
-                  >
-                    Active
-                  </label>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="isActive"
+                      checked={formData.isActive}
+                      onChange={(e) =>
+                        setFormData({ ...formData, isActive: e.target.checked })
+                      }
+                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    />
+                    <label
+                      htmlFor="isActive"
+                      className="ml-2 block text-sm text-gray-900 dark:text-white"
+                    >
+                      Active
+                    </label>
+                  </div>
+
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="isNew"
+                      checked={formData.isNew}
+                      onChange={(e) =>
+                        setFormData({ ...formData, isNew: e.target.checked })
+                      }
+                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    />
+                    <label
+                      htmlFor="isNew"
+                      className="ml-2 block text-sm text-gray-900 dark:text-white"
+                    >
+                      New Arrival
+                    </label>
+                  </div>
                 </div>
 
                 <div className="flex justify-end space-x-3 pt-4">
@@ -552,6 +576,7 @@ const Profiles = () => {
                         img: "",
                         rating: 4.9,
                         isActive: true,
+                        isNew: false,
                         title: "",
                         shortContent: "",
                         longContent: "",
@@ -675,6 +700,11 @@ const Profiles = () => {
                         ? "Active"
                         : "Inactive"}
                     </span>
+                    {selectedProfile.isNew && (
+                      <span className="inline-flex px-3 py-1 text-sm font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                        New Arrival
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

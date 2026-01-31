@@ -1,40 +1,102 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getOwnerInfo } from "../api/ownerInfoApi";
+import { getProfiles } from "../api/profileApi";
 
 const NewArrivals = () => {
-  const newCreators = [
-    {
-      id: 1,
-      name: "Kiara",
-      joined: "2 hours ago",
-      location: "Mumbai",
-      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.56-pm--2--21012026-0640.jpeg",
-      type: "Video",
-    },
-    {
-      id: 2,
-      name: "Mehak",
-      joined: "5 hours ago",
-      location: "Pune",
-      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm--1--21012026-0640.jpeg",
-      type: "Photos",
-    },
-    {
-      id: 3,
-      name: "Zoya",
-      joined: "1 day ago",
-      location: "Delhi",
-      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm-21012026-0640.jpeg",
-      type: "Video",
-    },
-    {
-      id: 4,
-      name: "Tanya",
-      joined: "1 day ago",
-      location: "Goa",
-      img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.00-pm--1--21012026-0640.jpeg",
-      type: "Live",
-    },
-  ];
+  const [ownerInfo, setOwnerInfo] = useState(null);
+  const [newCreators, setNewCreators] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch owner info for contact details
+        const ownerResponse = await getOwnerInfo();
+        const ownerData =
+          ownerResponse.data?.ownerInfo || ownerResponse.data || ownerResponse;
+        setOwnerInfo(ownerData);
+
+        // Fetch profiles and filter for new arrivals
+        const profilesResponse = await getProfiles();
+        const profilesData =
+          profilesResponse.data?.profiles || profilesResponse.data || [];
+
+        // Filter only profiles where isNew is true
+        const newProfiles = profilesData
+          .filter((profile) => profile.isNew === true)
+          .slice(0, 4) // Limit to 4 new arrivals
+          .map((profile, index) => ({
+            id: profile._id || profile.id,
+            name: profile.name,
+            joined:
+              index === 0
+                ? "2 hours ago"
+                : index === 1
+                  ? "5 hours ago"
+                  : index === 2
+                    ? "1 day ago"
+                    : "2 days ago",
+            location: profile.location,
+            img: profile.img,
+            type: index % 2 === 0 ? "Video" : "Photos",
+          }));
+
+        setNewCreators(newProfiles);
+      } catch (error) {
+        console.log("Error fetching data:", error);
+        // Fallback to hardcoded data if API fails
+        setNewCreators([
+          {
+            id: 1,
+            name: "Kiara",
+            joined: "2 hours ago",
+            location: "Mumbai",
+            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.56-pm--2--21012026-0640.jpeg",
+            type: "Video",
+          },
+          {
+            id: 2,
+            name: "Mehak",
+            joined: "5 hours ago",
+            location: "Pune",
+            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm--1--21012026-0640.jpeg",
+            type: "Photos",
+          },
+          {
+            id: 3,
+            name: "Zoya",
+            joined: "1 day ago",
+            location: "Delhi",
+            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm-21012026-0640.jpeg",
+            type: "Video",
+          },
+          {
+            id: 4,
+            name: "Tanya",
+            joined: "2 days ago",
+            location: "Bangalore",
+            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.03-pm-21012026-0640.jpeg",
+            type: "Photos",
+          },
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Create contact links
+  const whatsappNumber =
+    ownerInfo?.whatsappNumber ||
+    ownerInfo?.owners?.[0]?.whatsappNumber ||
+    ownerInfo?.callNumber ||
+    ownerInfo?.owners?.[0]?.callNumber;
+
+  const whatsappLink = whatsappNumber
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
+    : null;
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-950 overflow-hidden">
@@ -109,9 +171,22 @@ const NewArrivals = () => {
 
               {/* Quick Action Hover Button */}
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10 w-full px-8">
-                <button className="w-full py-3 bg-pink-600 text-white rounded-xl font-bold shadow-xl shadow-pink-500/40 text-sm">
-                  View Profile
-                </button>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  disabled={!ownerInfo || loading}
+                  className={`w-full py-3 bg-pink-600 text-white rounded-xl font-bold shadow-xl shadow-pink-500/40 text-sm text-center block transition-all ${
+                    !ownerInfo || loading ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
+                  title={
+                    !ownerInfo || loading
+                      ? "Contact number not available"
+                      : "Call on WhatsApp"
+                  }
+                >
+                  {loading ? "Loading..." : "WhatsApp Call"}
+                </a>
               </div>
             </div>
           ))}

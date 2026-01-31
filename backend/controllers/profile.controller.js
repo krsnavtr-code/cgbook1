@@ -16,15 +16,17 @@ export const createProfile = catchAsync(async (req, res, next) => {
     tags,
     img,
     rating,
+    isActive,
+    isNew,
     title,
     shortContent,
     longContent,
     metaTitle,
     metaKeywords,
-    metaDescription,
-    isActive
+    metaDescription
   } = req.body;
   
+
   const profile = await Profile.create({
     name,
     age,
@@ -33,15 +35,17 @@ export const createProfile = catchAsync(async (req, res, next) => {
     tags,
     img,
     rating,
+    isActive,
+    isNew,
     title,
     shortContent,
     longContent,
     metaTitle,
     metaKeywords,
     metaDescription,
-    isActive,
     createdBy: req.user.id
   });
+
 
   res.status(201).json({
     status: 'success',
@@ -126,6 +130,7 @@ export const updateProfile = catchAsync(async (req, res, next) => {
     img,
     rating,
     isActive,
+    isNew,
     title,
     shortContent,
     longContent,
@@ -145,6 +150,7 @@ export const updateProfile = catchAsync(async (req, res, next) => {
       img,
       rating,
       isActive,
+      isNew,
       title,
       shortContent,
       longContent,

@@ -40,6 +40,10 @@ const profileSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  isNew: {
+    type: Boolean,
+    default: false
+  },
   // SEO and Content Fields
   title: {
     type: String,
