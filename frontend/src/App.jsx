@@ -18,6 +18,7 @@ import Users from "./pages/admin/Users";
 import OwnerInfo from "./pages/admin/OwnerInfo";
 import Profiles from "./pages/admin/Profiles";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import AgeGate from "./components/AgeGate";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import CookiesPolicy from "./pages/CookiesPolicy";
@@ -34,10 +35,6 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="photos" element={<PhotoGallery />} />
-        <Route path="profile/:id" element={<ProfileDetail />} />
-        <Route path="meetings/:city" element={<CityProfiles />} />
-        <Route path="new-arrivals" element={<AllNewArrivals />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route path="cookies-policy" element={<CookiesPolicy />} />
@@ -45,6 +42,14 @@ function App() {
         <Route path="help-center" element={<HelpCenter />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="scam-report" element={<ScamReport />} />
+
+        {/* Age Restricted Routes */}
+        <Route element={<AgeGate />}>
+          <Route path="photos" element={<PhotoGallery />} />
+          <Route path="profile/:id" element={<ProfileDetail />} />
+          <Route path="meetings/:city" element={<CityProfiles />} />
+          <Route path="new-arrivals" element={<AllNewArrivals />} />
+        </Route>
       </Route>
 
       {/* Admin Routes - Protected and Admin Only */}
