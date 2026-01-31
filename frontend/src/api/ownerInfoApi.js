@@ -1,5 +1,5 @@
 // frontend/src/api/ownerInfoApi.js
-import { api as axios } from '../utils/api';
+import { api } from './axios';
 
 const handleError = (error) => {
     const errorMessage = error.response?.data?.message || 'An error occurred';
@@ -8,7 +8,7 @@ const handleError = (error) => {
 
 export const getOwnerInfo = async () => {
     try {
-        const response = await axios.get('/owner-info');
+        const response = await api.get('/owner-info');
         return response.data;
     } catch (error) {
         handleError(error);
@@ -17,7 +17,7 @@ export const getOwnerInfo = async () => {
 
 export const getAllOwnerInfo = async () => {
     try {
-        const response = await axios.get('/owner-info/all');
+        const response = await api.get('/owner-info/all');
         return response.data;
     } catch (error) {
         handleError(error);
@@ -49,7 +49,7 @@ export const createOrUpdateOwnerInfo = async (data) => {
             owners
         };
         
-        const response = await axios.post('/owner-info', payload);
+        const response = await api.post('/owner-info', payload);
         return response.data;
     } catch (error) {
         handleError(error);
@@ -58,7 +58,7 @@ export const createOrUpdateOwnerInfo = async (data) => {
 
 export const toggleStatus = async (id, isActive) => {
     try {
-        const response = await axios.patch(`/owner-info/${id}/status`, { isActive });
+        const response = await api.patch(`/owner-info/${id}/status`, { isActive });
         return response.data;
     } catch (error) {
         handleError(error);
@@ -67,7 +67,7 @@ export const toggleStatus = async (id, isActive) => {
 
 export const deleteOwner = async (ownerId) => {
     try {
-        const response = await axios.delete(`/owner-info/owner/${ownerId}`);
+        const response = await api.delete(`/owner-info/owner/${ownerId}`);
         return response.data;
     } catch (error) {
         handleError(error);
