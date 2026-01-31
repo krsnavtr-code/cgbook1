@@ -11,13 +11,15 @@ import { protect, authorize } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Apply authentication to all routes
+// Public GET route for all media tags (for photos page)
+router.get('/', getAllMediaTags);
+
+// Apply authentication to all other routes
 router.use(protect);
 
 // Routes for media tags
 router
   .route('/')
-  .get(getAllMediaTags)
   .post(authorize('admin'), createMediaTag);
 
 router

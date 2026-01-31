@@ -299,8 +299,8 @@ router.get('/file/:filename', async (req, res) => {
 
 // @desc    Get all uploaded media files (images and videos)
 // @route   GET /files
-// @access  Private
-router.get('/files', protect, async (req, res) => {
+// @access  Public
+router.get('/files', async (req, res) => {
     try {
         console.log('Fetching list of uploaded media files');
         const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
@@ -400,54 +400,6 @@ router.post('/video', protect, videoUpload.single('file'), async (req, res) => {
             message: 'Error uploading video',
             error: error.message,
             stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-        });
-    }
-});
-
-// Get all uploaded files (images and videos)
-router.get('/files', protect, async (req, res) => {
-    try {
-        console.log('Fetching list of uploaded files');
-        const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
-        const files = await fs.readdir(uploadsDir);
-        
-        const filesList = await Promise.all(files.map(async (file) => {
-            try {
-                const filePath = path.join(uploadsDir, file);
-                const stats = await fs.stat(filePath);
-                const fileUrl = `/upload/file/${encodeURIComponent(file)}`;
-                const fullUrl = `${req.protocol}://${req.get('host')}${fileUrl}`;
-                
-                return {
-                    name: file,
-                    url: fullUrl,
-                    path: fileUrl,
-                    size: stats.size,
-                    uploadedAt: stats.birthtime,
-                    mimetype: getMimeType(file)
-                };
-            } catch (err) {
-                console.error(`Error processing file ${file}:`, err);
-                return null;
-            }
-        }));
-        
-        // Filter out any null values from failed file processing
-        const validFiles = filesList.filter(file => file !== null);
-        
-        console.log(`Found ${validFiles.length} valid files`);
-        
-        res.json({
-            success: true,
-            count: validFiles.length,
-            data: validFiles
-        });
-    } catch (error) {
-        console.error('Error getting files:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Error getting files',
-            error: error.message
         });
     }
 });
@@ -559,93 +511,5 @@ function getMimeType(filename) {
     
     return mimeTypes[ext] || 'application/octet-stream';
 }
-
-// Get list of uploaded files
-router.get('/files', protect, async (req, res) => {
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
-    
-    try {
-        console.log('Fetching files...');
-        console.log('Uploads directory:', uploadsDir);
-
-        // Ensure uploads directory exists
-        if (!fsSync.existsSync(uploadsDir)) {
-            console.log('Uploads directory does not exist, creating...');
-            try {
-                await fs.mkdir(uploadsDir, { recursive: true });
-                console.log('Created uploads directory');
-                return res.status(200).json({
-                    success: true,
-                    data: []
-                });
-            } catch (mkdirError) {
-                console.error('Error creating uploads directory:', mkdirError);
-                return res.status(500).json({
-                    success: false,
-                    message: 'Failed to create uploads directory',
-                    error: process.env.NODE_ENV === 'development' ? mkdirError.message : 'Internal server error'
-                });
-            }
-        }
-
-        // Read directory contents
-        let files;
-        try {
-            files = await fs.readdir(uploadsDir);
-            console.log(`Found ${files.length} files`);
-        } catch (readDirError) {
-            console.error('Error reading uploads directory:', readDirError);
-            return res.status(500).json({
-                success: false,
-                message: 'Failed to read uploads directory',
-                error: process.env.NODE_ENV === 'development' ? readDirError.message : 'Internal server error'
-            });
-        }
-
-        // Get file details
-        console.log('Getting file details...');
-        const fileDetails = await Promise.all(
-            files.map(async (file) => {
-                try {
-                    const filePath = path.join(uploadsDir, file);
-                    const stats = await fs.stat(filePath);
-
-                    return {
-                        name: file,
-                        size: stats.size,
-                        url: `/uploads/${file}`,
-                        createdAt: stats.birthtime,
-                        updatedAt: stats.mtime,
-                        type: path.extname(file).toLowerCase().replace('.', '') || 'file'
-                    };
-                } catch (fileError) {
-                    console.error(`Error processing file ${file}:`, fileError);
-                    return null;
-                }
-            })
-        );
-        // Filter out any null entries from failed file processing
-        const validFileDetails = fileDetails.filter(file => file !== null);
-        console.log(`Successfully processed ${validFileDetails.length} files`);
-        // Sort by most recent first
-        validFileDetails.sort((a, b) => b.updatedAt - a.updatedAt);
-        console.log('Sending response with file details');
-        res.status(200).json({
-            success: true,
-            data: validFileDetails
-        });
-    } catch (error) {
-        console.error('Unexpected error in /files endpoint:', {
-            message: error.message,
-            stack: error.stack,
-            name: error.name
-        });
-        res.status(500).json({
-            success: false,
-            message: 'Internal server error while listing files',
-            error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
-        });
-    }
-});
 
 export default router;

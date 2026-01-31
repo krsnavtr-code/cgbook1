@@ -39,11 +39,13 @@ api.interceptors.request.use(
             '/auth/refresh-token',
             '/auth/forgot-password',
             '/auth/reset-password',
-            '/categories' // Add public endpoints that don't require auth
+            '/categories', // Add public endpoints that don't require auth
+            '/media/tags', // Public media tags endpoint
+            '/upload/files' // Public upload files endpoint
         ];
 
         // Don't modify the config for public endpoints
-        if (publicEndpoints.some(endpoint => config.url.endsWith(endpoint))) {
+        if (publicEndpoints.some(endpoint => config.url.includes(endpoint))) {
             return config;
         }
 

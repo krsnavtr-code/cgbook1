@@ -15,23 +15,31 @@ const PhotoGallery = () => {
       
       // 1. Fetch Tags & Find 'photos-page'
       const response = await getMediaTags();
-      const tags = Array.isArray(response) ? response : response?.data?.tags || response?.data || [];
+      const tags = Array.isArray(response)
+        ? response
+        : response?.data?.tags || response?.data || [];
       const photosPageTag = tags.find((tag) => tag?.slug === "photos-page");
 
       if (!photosPageTag?.mediaFiles?.length) {
+        console.log("No photos-page tag found or no media files in tag");
         setImages([]);
         return;
       }
 
       // 2. Fetch All Media
       const allMediaResponse = await getUploadedImages();
-      const allMedia = Array.isArray(allMediaResponse) ? allMediaResponse : allMediaResponse.data || [];
+      const allMedia = Array.isArray(allMediaResponse)
+        ? allMediaResponse
+        : allMediaResponse.data || [];
 
       // 3. Match and Format
       const imageData = allMedia
         .filter((media) => {
-          const fileName = media.url?.split("/").pop() || media.filename || media.name;
-          return photosPageTag.mediaFiles.some((tagUrl) => tagUrl.includes(fileName));
+          const fileName =
+            media.url?.split("/").pop() || media.filename || media.name;
+          return photosPageTag.mediaFiles.some((tagUrl) =>
+            tagUrl.includes(fileName),
+          );
         })
         .map((media) => {
           const url = media.url || getImageUrl(media.name || media.filename);
@@ -39,7 +47,7 @@ const PhotoGallery = () => {
             ...media,
             id: media._id || media.id || Math.random().toString(36),
             url,
-            thumbnailUrl: url, 
+            thumbnailUrl: url,
           };
         });
 
