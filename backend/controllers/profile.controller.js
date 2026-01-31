@@ -8,7 +8,22 @@ import catchAsync from '../utils/catchAsync.js';
  * @access  Private/Admin
  */
 export const createProfile = catchAsync(async (req, res, next) => {
-  const { name, age, location, status, tags, img, rating } = req.body;
+  const {
+    name,
+    age,
+    location,
+    status,
+    tags,
+    img,
+    rating,
+    title,
+    shortContent,
+    longContent,
+    metaTitle,
+    metaKeywords,
+    metaDescription,
+    isActive
+  } = req.body;
   
   const profile = await Profile.create({
     name,
@@ -18,6 +33,13 @@ export const createProfile = catchAsync(async (req, res, next) => {
     tags,
     img,
     rating,
+    title,
+    shortContent,
+    longContent,
+    metaTitle,
+    metaKeywords,
+    metaDescription,
+    isActive,
     createdBy: req.user.id
   });
 
@@ -95,7 +117,22 @@ export const getProfile = catchAsync(async (req, res, next) => {
  * @access  Private/Admin
  */
 export const updateProfile = catchAsync(async (req, res, next) => {
-  const { name, age, location, status, tags, img, rating, isActive } = req.body;
+  const {
+    name,
+    age,
+    location,
+    status,
+    tags,
+    img,
+    rating,
+    isActive,
+    title,
+    shortContent,
+    longContent,
+    metaTitle,
+    metaKeywords,
+    metaDescription
+  } = req.body;
   
   const profile = await Profile.findByIdAndUpdate(
     req.params.id,
@@ -108,6 +145,12 @@ export const updateProfile = catchAsync(async (req, res, next) => {
       img,
       rating,
       isActive,
+      title,
+      shortContent,
+      longContent,
+      metaTitle,
+      metaKeywords,
+      metaDescription,
       updatedBy: req.user.id
     },
     {

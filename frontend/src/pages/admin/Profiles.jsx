@@ -14,6 +14,7 @@ import {
   MapPinIcon,
   StarIcon,
   CheckBadgeIcon,
+  EyeIcon,
 } from "@heroicons/react/24/solid";
 
 const Profiles = () => {
@@ -31,7 +32,15 @@ const Profiles = () => {
     img: "",
     rating: 4.9,
     isActive: true,
+    title: "",
+    shortContent: "",
+    longContent: "",
+    metaTitle: "",
+    metaKeywords: "",
+    metaDescription: "",
   });
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [selectedProfile, setSelectedProfile] = useState(null);
 
   // Fetch profiles and images on component mount
   useEffect(() => {
@@ -79,6 +88,12 @@ const Profiles = () => {
         img: "",
         rating: 4.9,
         isActive: true,
+        title: "",
+        shortContent: "",
+        longContent: "",
+        metaTitle: "",
+        metaKeywords: "",
+        metaDescription: "",
       });
       fetchData(); // Refresh the list
     } catch (error) {
@@ -101,8 +116,19 @@ const Profiles = () => {
       img: profile.img,
       rating: profile.rating || 4.9,
       isActive: profile.isActive !== false,
+      title: profile.title || "",
+      shortContent: profile.shortContent || "",
+      longContent: profile.longContent || "",
+      metaTitle: profile.metaTitle || "",
+      metaKeywords: profile.metaKeywords || "",
+      metaDescription: profile.metaDescription || "",
     });
     setIsModalOpen(true);
+  };
+
+  const handleViewDetails = (profile) => {
+    setSelectedProfile(profile);
+    setIsDetailsModalOpen(true);
   };
 
   const handleDelete = async (profileId) => {
@@ -235,14 +261,23 @@ const Profiles = () => {
                   <td className="px-6 py-5 text-right">
                     <div className="flex justify-end gap-2">
                       <button
+                        onClick={() => handleViewDetails(profile)}
+                        className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
+                        title="View Details"
+                      >
+                        <EyeIcon className="h-5 w-5" />
+                      </button>
+                      <button
                         onClick={() => handleEdit(profile)}
                         className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-lg transition-all"
+                        title="Edit Profile"
                       >
                         <PencilSquareIcon className="h-5 w-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(profile._id || profile.id)}
                         className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-all"
+                        title="Delete Profile"
                       >
                         <TrashIcon className="h-5 w-5" />
                       </button>
@@ -388,6 +423,102 @@ const Profiles = () => {
                   />
                 </div>
 
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.title}
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e.target.value })
+                    }
+                    placeholder="Profile title for SEO"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Short Content
+                  </label>
+                  <textarea
+                    value={formData.shortContent}
+                    onChange={(e) =>
+                      setFormData({ ...formData, shortContent: e.target.value })
+                    }
+                    placeholder="Brief description (150 chars max)"
+                    maxLength="150"
+                    rows="2"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Long Content
+                  </label>
+                  <textarea
+                    value={formData.longContent}
+                    onChange={(e) =>
+                      setFormData({ ...formData, longContent: e.target.value })
+                    }
+                    placeholder="Detailed profile description"
+                    rows="4"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Meta Title
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.metaTitle}
+                    onChange={(e) =>
+                      setFormData({ ...formData, metaTitle: e.target.value })
+                    }
+                    placeholder="SEO meta title (60 chars max)"
+                    maxLength="60"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Meta Keywords
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.metaKeywords}
+                    onChange={(e) =>
+                      setFormData({ ...formData, metaKeywords: e.target.value })
+                    }
+                    placeholder="Comma-separated keywords"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Meta Description
+                  </label>
+                  <textarea
+                    value={formData.metaDescription}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        metaDescription: e.target.value,
+                      })
+                    }
+                    placeholder="SEO meta description (160 chars max)"
+                    maxLength="160"
+                    rows="2"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                  />
+                </div>
+
                 <div className="flex items-center">
                   <input
                     type="checkbox"
@@ -421,6 +552,12 @@ const Profiles = () => {
                         img: "",
                         rating: 4.9,
                         isActive: true,
+                        title: "",
+                        shortContent: "",
+                        longContent: "",
+                        metaTitle: "",
+                        metaKeywords: "",
+                        metaDescription: "",
                       });
                     }}
                     className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
@@ -435,6 +572,214 @@ const Profiles = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Details Modal */}
+      {isDetailsModalOpen && selectedProfile && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+          <div className="relative top-10 mx-auto p-5 border w-full max-w-4xl shadow-lg rounded-md bg-white dark:bg-gray-800 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Profile Details - {selectedProfile.name}
+              </h3>
+              <button
+                onClick={() => {
+                  setIsDetailsModalOpen(false);
+                  setSelectedProfile(null);
+                }}
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+              >
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Basic Info */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={selectedProfile.img}
+                    alt={selectedProfile.name}
+                    className="h-20 w-20 rounded-2xl object-cover ring-2 ring-gray-100 dark:ring-gray-700"
+                  />
+                  <div>
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {selectedProfile.name}, {selectedProfile.age}
+                    </h4>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <MapPinIcon className="h-4 w-4" />
+                      {selectedProfile.location}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <StarIcon className="h-4 w-4 text-amber-400" />
+                      <span className="font-semibold">
+                        {selectedProfile.rating || 4.9}
+                      </span>
+                      <span
+                        className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                          selectedProfile.status === "Online"
+                            ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                            : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                        }`}
+                      >
+                        {selectedProfile.status}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Tags
+                  </h5>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProfile.tags?.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium rounded-md"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Profile Status
+                  </h5>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
+                        selectedProfile.isActive !== false
+                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                          : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                      }`}
+                    >
+                      {selectedProfile.isActive !== false
+                        ? "Active"
+                        : "Inactive"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Details */}
+              <div className="space-y-4">
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Title
+                  </h5>
+                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                    {selectedProfile.title || "No title set"}
+                  </p>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Short Content
+                  </h5>
+                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                    {selectedProfile.shortContent || "No short content set"}
+                  </p>
+                  {selectedProfile.shortContent && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      {selectedProfile.shortContent.length}/150 characters
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Long Content
+                  </h5>
+                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md whitespace-pre-wrap">
+                    {selectedProfile.longContent || "No long content set"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* SEO Details */}
+            <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                SEO Information
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Meta Title
+                  </h5>
+                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                    {selectedProfile.metaTitle || "No meta title set"}
+                  </p>
+                  {selectedProfile.metaTitle && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      {selectedProfile.metaTitle.length}/60 characters
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Meta Keywords
+                  </h5>
+                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                    {selectedProfile.metaKeywords || "No meta keywords set"}
+                  </p>
+                </div>
+
+                <div className="md:col-span-2">
+                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Meta Description
+                  </h5>
+                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                    {selectedProfile.metaDescription ||
+                      "No meta description set"}
+                  </p>
+                  {selectedProfile.metaDescription && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      {selectedProfile.metaDescription.length}/160 characters
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-3 mt-6">
+              <button
+                onClick={() => {
+                  setIsDetailsModalOpen(false);
+                  setSelectedProfile(null);
+                }}
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+              >
+                Close
+              </button>
+              <button
+                onClick={() => {
+                  setIsDetailsModalOpen(false);
+                  handleEdit(selectedProfile);
+                }}
+                className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+              >
+                Edit Profile
+              </button>
             </div>
           </div>
         </div>

@@ -40,6 +40,35 @@ const profileSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  // SEO and Content Fields
+  title: {
+    type: String,
+    trim: true,
+    maxlength: 200
+  },
+  shortContent: {
+    type: String,
+    trim: true,
+    maxlength: 150
+  },
+  longContent: {
+    type: String,
+    trim: true
+  },
+  metaTitle: {
+    type: String,
+    trim: true,
+    maxlength: 60
+  },
+  metaKeywords: {
+    type: String,
+    trim: true
+  },
+  metaDescription: {
+    type: String,
+    trim: true,
+    maxlength: 160
+  },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
