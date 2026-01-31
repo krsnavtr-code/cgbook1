@@ -3,14 +3,25 @@ import {
   XMarkIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
+import { getCookie, setCookie } from "../utils/cookies";
 
 const AgeVerification = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDeclined, setIsDeclined] = useState(false);
 
   useEffect(() => {
-    // Always show age verification on every page load
-    setIsVisible(true);
+    // Check if user has already verified today
+    const checkDailyVerification = () => {
+      const today = new Date().toDateString();
+      const lastVerificationDate = getCookie("lastVerificationDate");
+
+      if (lastVerificationDate !== today) {
+        // Show verification if not verified today
+        setIsVisible(true);
+      }
+    };
+
+    checkDailyVerification();
   }, []);
 
   useEffect(() => {
@@ -28,6 +39,9 @@ const AgeVerification = () => {
   }, [isVisible]);
 
   const handleAccept = () => {
+    // Set today's date as verification date
+    const today = new Date().toDateString();
+    setCookie("lastVerificationDate", today, 1); // Cookie lasts 1 day
     setIsVisible(false);
   };
 
