@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getOwnerInfo } from "../api/ownerInfoApi";
 import { getProfiles } from "../api/profileApi";
 
 const NewArrivals = () => {
+  const navigate = useNavigate();
   const [ownerInfo, setOwnerInfo] = useState(null);
   const [newCreators, setNewCreators] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -115,7 +117,10 @@ const NewArrivals = () => {
               Fresh faces and new content added daily.
             </p>
           </div>
-          <button className="hidden sm:block px-6 py-2 border-2 border-pink-500 text-pink-500 font-bold rounded-xl hover:bg-pink-500 hover:text-white transition-all">
+          <button
+            onClick={() => navigate("/new-arrivals")}
+            className="hidden sm:block px-6 py-2 border-2 border-pink-500 text-pink-500 font-bold rounded-xl hover:bg-pink-500 hover:text-white transition-all"
+          >
             See All New
           </button>
         </div>
@@ -194,7 +199,10 @@ const NewArrivals = () => {
 
         {/* Mobile-only See All */}
         <div className="mt-10 sm:hidden">
-          <button className="w-full py-4 border-2 border-pink-500 text-pink-500 font-bold rounded-2xl">
+          <button
+            onClick={() => navigate("/new-arrivals")}
+            className="w-full py-4 border-2 border-pink-500 text-pink-500 font-bold rounded-2xl"
+          >
             See All New Arrivals
           </button>
         </div>

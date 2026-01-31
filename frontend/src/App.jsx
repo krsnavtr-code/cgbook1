@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import PhotoGallery from "./pages/PhotoGallery";
 import ProfileDetail from "./pages/ProfileDetail";
 import CityProfiles from "./pages/CityProfiles";
+import AllNewArrivals from "./pages/AllNewArrivals";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import MediaGallery from "./components/admin/MediaUploder.jsx";
@@ -29,6 +30,7 @@ function App() {
         <Route path="photos" element={<PhotoGallery />} />
         <Route path="profile/:id" element={<ProfileDetail />} />
         <Route path="meetings/:city" element={<CityProfiles />} />
+        <Route path="new-arrivals" element={<AllNewArrivals />} />
       </Route>
 
       {/* Admin Routes - Protected and Admin Only */}
