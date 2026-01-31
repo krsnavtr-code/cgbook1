@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import { setAgeVerified } from '../utils/cookies';
+import { setAgeVerified, isAgeVerified } from "../utils/cookies";
 
 const AgeVerification = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDeclined, setIsDeclined] = useState(false);
 
   useEffect(() => {
-    const ageVerified = localStorage.getItem('ageVerified') || 
-                      document.cookie.includes('ageVerified=true');
-    
-    if (!ageVerified) {
+    if (!isAgeVerified()) {
       setIsVisible(true);
     }
   }, []);

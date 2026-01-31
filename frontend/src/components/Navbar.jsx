@@ -95,7 +95,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center space-x-6">
               <NavLink to="/">Home</NavLink>
-              <NavLink to="/photos">Photos</NavLink>
+              <NavLink to="/photos">HD Photos</NavLink>
 
               {/* Refined Dropdown */}
               <div className="relative group py-4">
@@ -110,7 +110,7 @@ const Navbar = () => {
                   {["Noida", "Delhi", "Ghaziabad", "Gurugram"].map((city) => (
                     <Link
                       key={city}
-                      to={`/${city.toLowerCase().replace(" ", "-")}`}
+                      to={`/meetings/${city.toLowerCase().replace(" ", "-")}`}
                       className="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-pink-50 dark:hover:bg-pink-900/20 hover:text-pink-600"
                     >
                       {city}
@@ -119,16 +119,16 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact-us">Contact</NavLink>
             </div>
 
             <div className="flex items-center pl-6 border-l border-gray-100 dark:border-gray-800 gap-4">
-              <button
+              {/* <button
                 onClick={toggleTheme}
                 className="p-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-pink-500 transition-all"
               >
                 {mounted && (darkMode ? <Moon size={20} /> : <Sun size={20} />)}
-              </button>
+              </button> */}
 
               {loading ? (
                 <div className="w-32 h-11 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
