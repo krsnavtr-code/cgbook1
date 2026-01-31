@@ -1,13 +1,19 @@
 import { Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Layout = () => {
   const location = useLocation();
 
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // In paths par Navbar aur Footer hidden rahenge
   const hideNavAndFooter = ["/login", "/register", "/admin"].some((path) =>
-    location.pathname.startsWith(path)
+    location.pathname.startsWith(path),
   );
 
   return (
@@ -27,6 +33,7 @@ const Layout = () => {
 
       {/* Conditional Footer */}
       {!hideNavAndFooter && <Footer />}
+
     </div>
   );
 };
