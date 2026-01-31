@@ -13,6 +13,7 @@ import MediaTags from "./pages/admin/MediaTags.jsx";
 import ImageGallery from "./pages/admin/MediaGallery.jsx";
 import Users from "./pages/admin/Users";
 import OwnerInfo from "./pages/admin/OwnerInfo";
+import Profiles from "./pages/admin/Profiles";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="media-gallery/upload" element={<MediaGallery />} />
           <Route path="media/tags" element={<MediaTags />} />
           <Route path="users" element={<Users />} />
+          <Route path="profiles" element={<Profiles />} />
           <Route path="owner-info" element={<OwnerInfo />} />
 
           {/* Add more admin routes here */}

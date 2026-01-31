@@ -12,6 +12,7 @@ import mediaRoutes from './routes/media.routes.js';
 import uploadRoutes from './routes/upload.route.js';
 import adminRoutes from './routes/admin.routes.js';
 import ownerInfoRoutes from './routes/ownerInfo.routes.js';
+import profileRoutes from './routes/profile.routes.js';
 
 const app = express();
 
@@ -162,6 +163,7 @@ app.use("/media", mediaRoutes);
 app.use("/upload", uploadRoutes);
 app.use("/admin", adminRoutes);
 app.use('/owner-info', ownerInfoRoutes);
+app.use('/profiles', profileRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

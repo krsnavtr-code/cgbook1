@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { UserIcon, HomeIcon, PhotoIcon, TagIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
+import {
+  UserIcon,
+  HomeIcon,
+  PhotoIcon,
+  TagIcon,
+  BuildingOffice2Icon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 
 const AdminSidebar = () => {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -11,37 +18,32 @@ const AdminSidebar = () => {
     {
       name: "Dashboard",
       path: "/admin",
-      icon: (
-        <HomeIcon className="h-5 w-5" />
-      ),
+      icon: <HomeIcon className="h-5 w-5" />,
     },
     {
       name: "Users",
       path: "/admin/users",
-      icon: (
-        <UserIcon className="h-5 w-5" />
-      ),
+      icon: <UserIcon className="h-5 w-5" />,
+    },
+    {
+      name: "Profiles",
+      path: "/admin/profiles",
+      icon: <UserGroupIcon className="h-5 w-5" />,
     },
     {
       name: "Media Gallery",
       path: "/admin/media-gallery",
-      icon: (
-        <PhotoIcon className="h-5 w-5" />
-      ),
+      icon: <PhotoIcon className="h-5 w-5" />,
     },
     {
       name: "Media Tags",
       path: "/admin/media/tags",
-      icon: (
-        <TagIcon className="h-5 w-5" />
-      ),
+      icon: <TagIcon className="h-5 w-5" />,
     },
     {
       name: "Owner Info",
       path: "/admin/owner-info",
-      icon: (
-        <BuildingOffice2Icon className="h-5 w-5" />
-      ),
+      icon: <BuildingOffice2Icon className="h-5 w-5" />,
     },
   ];
 

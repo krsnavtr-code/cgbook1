@@ -177,11 +177,6 @@ const PhotoGallery = () => {
                 alt="Full preview"
                 className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain"
               />
-              
-              {/* Optional: Info bar at bottom of lightbox */}
-              <div className="absolute -bottom-12 left-0 right-0 text-center text-white/60 text-sm">
-                {selectedImage.name || 'Untitled Capture'}
-              </div>
             </motion.div>
           </motion.div>
         )}
