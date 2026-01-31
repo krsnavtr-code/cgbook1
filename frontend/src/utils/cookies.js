@@ -4,7 +4,7 @@ export const setCookie = (name, value, days) => {
   const expires = new Date();
   expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
   const expiresString = "expires=" + expires.toUTCString();
-  document.cookie = name + "=" + value + ";" + expiresString + ";path=/";
+  document.cookie = name + "=" + value + ";" + expiresString + ";path=/;SameSite=Lax";
 };
 
 export const getCookie = (name) => {

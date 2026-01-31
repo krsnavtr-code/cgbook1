@@ -42,14 +42,10 @@ function App() {
         <Route path="help-center" element={<HelpCenter />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="scam-report" element={<ScamReport />} />
-
-        {/* Age Restricted Routes */}
-        <Route element={<AgeGate />}>
-          <Route path="photos" element={<PhotoGallery />} />
-          <Route path="profile/:id" element={<ProfileDetail />} />
-          <Route path="meetings/:city" element={<CityProfiles />} />
-          <Route path="new-arrivals" element={<AllNewArrivals />} />
-        </Route>
+        <Route path="photos" element={<PhotoGallery />} />
+        <Route path="profile/:id" element={<ProfileDetail />} />
+        <Route path="meetings/:city" element={<CityProfiles />} />
+        <Route path="new-arrivals" element={<AllNewArrivals />} />
       </Route>
 
       {/* Admin Routes - Protected and Admin Only */}
