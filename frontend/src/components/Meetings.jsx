@@ -26,7 +26,12 @@ const Meetings = () => {
         const profilesResponse = await getProfiles();
         const profilesData =
           profilesResponse.data?.profiles || profilesResponse.data || [];
-        setProfiles(profilesData);
+
+        // Filter only profiles where isNew is false (not new arrivals)
+        const filteredProfiles = profilesData.filter(
+          (profile) => profile.isNew !== true,
+        );
+        setProfiles(filteredProfiles);
 
         // Fetch available locations
         try {
