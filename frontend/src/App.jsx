@@ -18,6 +18,13 @@ import Users from "./pages/admin/Users";
 import OwnerInfo from "./pages/admin/OwnerInfo";
 import Profiles from "./pages/admin/Profiles";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import CookiesPolicy from "./pages/CookiesPolicy";
+import SupportCenter from "./pages/SupportCenter";
+import HelpCenter from "./pages/HelpCenter";
+import ContactUs from "./pages/ContactUs";
+import ScamReport from "./pages/ScamReport";
 
 function App() {
   return (
@@ -31,6 +38,13 @@ function App() {
         <Route path="profile/:id" element={<ProfileDetail />} />
         <Route path="meetings/:city" element={<CityProfiles />} />
         <Route path="new-arrivals" element={<AllNewArrivals />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-of-use" element={<TermsOfUse />} />
+        <Route path="cookies-policy" element={<CookiesPolicy />} />
+        <Route path="support-center" element={<SupportCenter />} />
+        <Route path="help-center" element={<HelpCenter />} />
+        <Route path="contact-us" element={<ContactUs />} />
+        <Route path="scam-report" element={<ScamReport />} />
       </Route>
 
       {/* Admin Routes - Protected and Admin Only */}
