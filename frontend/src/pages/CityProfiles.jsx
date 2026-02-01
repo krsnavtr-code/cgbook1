@@ -59,8 +59,8 @@ const CityProfiles = () => {
                        ownerInfo?.callNumber ||
                        ownerInfo?.owners?.[0]?.callNumber;
 
-  const whatsappLink = whatsappNumber 
-    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}` 
+  const whatsappLink = whatsappNumber
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I'm interested in your city profile`
     : null;
 
   const phoneLink = whatsappNumber 

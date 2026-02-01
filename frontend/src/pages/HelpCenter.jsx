@@ -51,7 +51,7 @@ const HelpCenter = () => {
     ownerInfo?.owners?.[0]?.callNumber;
 
   const whatsappLink = whatsappNumber
-    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I need help with your service`
     : null;
 
   const helpCategories = [

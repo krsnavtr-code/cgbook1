@@ -49,7 +49,7 @@ const AllNewArrivals = () => {
   }, []);
 
   const whatsappNumber = ownerInfo?.whatsappNumber || "";
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`;
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I'm interested in your new arrivals`;
 
   if (loading) {
     return (

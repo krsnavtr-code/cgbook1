@@ -51,7 +51,7 @@ const ContactUs = () => {
     ownerInfo?.owners?.[0]?.callNumber;
 
   const whatsappLink = whatsappNumber
-    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I have a question about your service`
     : null;
 
   const phoneLink = whatsappNumber
