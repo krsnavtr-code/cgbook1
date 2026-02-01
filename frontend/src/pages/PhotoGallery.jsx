@@ -1,13 +1,21 @@
 import { useEffect, useState, useCallback } from "react";
 import { getImageUrl, getUploadedImages } from "../api/imageApi";
 import { getMediaTags } from "../api/mediaTagApi";
-import { FiRefreshCw, FiX, FiMaximize2 } from "react-icons/fi";
+import { getOwnerInfo } from "../api/ownerInfoApi";
+import {
+  FiRefreshCw,
+  FiX,
+  FiMaximize2,
+  FiPhone,
+  FiMessageCircle,
+} from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 const PhotoGallery = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [ownerInfo, setOwnerInfo] = useState(null);
 
   const fetchImages = useCallback(async () => {
     try {
@@ -80,6 +88,19 @@ const PhotoGallery = () => {
   useEffect(() => {
     fetchImages();
   }, [fetchImages]);
+
+  // Fetch owner info
+  useEffect(() => {
+    const fetchOwnerInfo = async () => {
+      try {
+        const response = await getOwnerInfo();
+        setOwnerInfo(response);
+      } catch (error) {
+        console.error("Error fetching owner info:", error);
+      }
+    };
+    fetchOwnerInfo();
+  }, []);
 
   // Keyboard Escape to close lightbox
   useEffect(() => {
@@ -156,9 +177,41 @@ const PhotoGallery = () => {
                   </div>
                 )}
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white">
-                    <FiMaximize2 size={24} />
+                <div className="absolute inset-0 bg-black/20 transition-opacity duration-300">
+                  <div className="absolute top-3 right-3 flex flex-col gap-2 z-20">
+                    {/* Call Button */}
+                    {ownerInfo?.owners?.[0]?.callNumber && (
+                      <motion.a
+                        href={`tel:${ownerInfo.owners[0].callNumber}`}
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        className="p-2 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors shadow-lg z-20"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <FiPhone size={16} />
+                      </motion.a>
+                    )}
+                    {/* Chat Button */}
+                    {ownerInfo?.owners?.[0]?.whatsappNumber && (
+                      <motion.a
+                        href={`https://wa.me/${ownerInfo.owners[0].whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I'm interested in image code: ${item.code}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        className="p-2 bg-green-600 hover:bg-green-700 text-white rounded-full transition-colors shadow-lg z-20"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <FiMessageCircle size={16} />
+                      </motion.a>
+                    )}
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white">
+                      <FiMaximize2 size={24} />
+                    </div>
                   </div>
                 </div>
               </motion.div>
