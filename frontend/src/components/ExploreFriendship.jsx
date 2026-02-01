@@ -61,7 +61,7 @@ const ExploreFriendship = () => {
   ];
 
   return (
-    <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden">
+    <section className="pb-24 pt-14 bg-white dark:bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 text-center md:text-left">
@@ -130,6 +130,44 @@ const ExploreFriendship = () => {
             </div>
           ))}
         </div>
+
+        <section className="bg-gray-50 dark:bg-gray-950">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* HEADER & SEARCH */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              <div>
+                <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+                  Easy Booking &{" "}
+                  <span className="text-pink-600">100% Discreet Support</span>
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-400">
+                  Our platform offers an <strong>easy booking process</strong>{" "}
+                  designed to save time while maintaining full privacy. Users
+                  can browse verified profiles, choose their preference, and
+                  connect through a secure system without unnecessary
+                  complications.
+                  <br />
+                  We provide <strong>100% discreet support</strong>, ensuring
+                  that every inquiry and booking is handled confidentially. Our
+                  support team is available to assist with questions,
+                  coordination, and general guidance, making the process smooth
+                  and reliable.
+                  <br />
+                  Privacy is our priority, which is why we avoid sharing
+                  personal information and focus on secure communication. This
+                  makes our <strong>escort booking service</strong> suitable for
+                  users who value discretion and professionalism.
+                  <br />
+                  With fast responses, clear communication, and dedicated
+                  assistance, our platform delivers a stress-free experience.
+                  Whether you are booking a <strong>call girl service</strong>{" "}
+                  or a premium escort option, our discreet support ensures peace
+                  of mind at every step.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Community Invite Banner */}
         <div className="mt-20 bg-gradient-to-r from-indigo-600 to-blue-700 rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl">

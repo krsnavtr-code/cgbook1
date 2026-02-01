@@ -105,7 +105,7 @@ const NewArrivals = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="flex items-center justify-between mb-12">
-          <div>
+          <div className="flex-1">
             <h2 className="text-3xl font-black text-gray-900 dark:text-white flex items-center gap-3">
               New Arrivals
               <span className="flex h-3 w-3">
@@ -114,7 +114,11 @@ const NewArrivals = () => {
               </span>
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">
-              Fresh faces and new content added daily.
+              Our call <strong>girls and escort service in NCR</strong> focuses on transparency
+              and professionalism. Profiles include clear details so users can
+              make informed choices without confusion or miscommunication. This
+              approach helps reduce risks and builds long-term trust with our
+              audience.
             </p>
           </div>
           <button

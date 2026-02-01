@@ -51,13 +51,39 @@ const MeetingsByLocation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADER & SEARCH */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
+          <div>
             <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
-              Explore Meetings by{" "}
-              <span className="text-pink-600">Location</span>
+              Verified Call Girls in{" "}
+              <span className="text-pink-600">Delhi, Noida, Gurgaon & NCR</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Select your city to find verified independent companions near you.
+              We provide access to{" "}
+              <strong>
+                verified call girls in Delhi, Noida, Gurgaon, and NCR
+              </strong>
+              , ensuring a trusted and professional experience. Each profile
+              listed on our platform is carefully reviewed to maintain
+              authenticity, quality, and reliability. This verification process
+              helps users feel confident while booking escort services across
+              Delhi NCR.
+              <br />
+              Our <strong>call girls and escort service in NCR</strong> focuses
+              on transparency and professionalism. Profiles include clear
+              details so users can make informed choices without confusion or
+              miscommunication. This approach helps reduce risks and builds
+              long-term trust with our audience.
+              <br />
+              Whether you are searching for{" "}
+              <strong>call girls in Delhi, escort service in Noida</strong>, or
+              premium companions in Gurgaon, our platform ensures consistent
+              service standards across all cities. We prioritize respectful
+              interactions and privacy protection for both users and service
+              providers.
+              <br />
+              By offering <strong>verified escort services in Delhi NCR</strong>
+              , we create a safe environment where clients can book with
+              confidence, knowing they are choosing a reliable and discreet
+              platform.
             </p>
           </div>
         </div>
@@ -74,6 +100,9 @@ const MeetingsByLocation = () => {
               <img
                 src={city.img}
                 alt={city.name}
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
 
