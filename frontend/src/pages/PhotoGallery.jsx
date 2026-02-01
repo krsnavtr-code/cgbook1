@@ -12,7 +12,7 @@ const PhotoGallery = () => {
   const fetchImages = useCallback(async () => {
     try {
       setIsLoading(true);
-      
+
       // 1. Fetch Tags & Find 'photos-page'
       const response = await getMediaTags();
       const tags = Array.isArray(response)
@@ -41,13 +41,30 @@ const PhotoGallery = () => {
             tagUrl.includes(fileName),
           );
         })
-        .map((media) => {
+        .map((media, index) => {
           const url = media.url || getImageUrl(media.name || media.filename);
+          // Generate consistent random code based on filename
+          const generateConsistentCode = (url) => {
+            const filename = url?.split("/").pop() || "";
+
+            // Create a hash from the filename to generate consistent code
+            let hash = 0;
+            for (let i = 0; i < filename.length; i++) {
+              const char = filename.charCodeAt(i);
+              hash = (hash << 5) - hash + char;
+              hash = hash & hash; // Convert to 32-bit integer
+            }
+
+            // Convert hash to 5-digit code (ensure it's positive and 5 digits)
+            const code = Math.abs(hash % 100000);
+            return String(code).padStart(5, "0");
+          };
           return {
             ...media,
             id: media._id || media.id || Math.random().toString(36),
             url,
             thumbnailUrl: url,
+            code: generateConsistentCode(url),
           };
         });
 
@@ -78,7 +95,7 @@ const PhotoGallery = () => {
       {/* --- HEADER --- */}
       <header className="relative py-24 px-4 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-pink-500/10 via-indigo-500/5 to-transparent blur-3xl opacity-60" />
-        
+
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -86,10 +103,14 @@ const PhotoGallery = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-6xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
-              HD <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-500">Photo Gallery</span>
+              HD{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-500">
+                Photo Gallery
+              </span>
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
-              A curated visual journey through our premium collections and exclusive captures.
+              A curated visual journey through our premium collections and
+              exclusive captures.
             </p>
           </motion.div>
         </div>
@@ -101,7 +122,13 @@ const PhotoGallery = () => {
           /* Skeleton Loader Grid */
           <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
             {[...Array(8)].map((_, i) => (
-              <div key={i} className="w-full bg-gray-200 dark:bg-gray-800 rounded-3xl animate-pulse" style={{ height: `${Math.floor(Math.random() * (400 - 200 + 1) + 200)}px` }} />
+              <div
+                key={i}
+                className="w-full bg-gray-200 dark:bg-gray-800 rounded-3xl animate-pulse"
+                style={{
+                  height: `${Math.floor(Math.random() * (400 - 200 + 1) + 200)}px`,
+                }}
+              />
             ))}
           </div>
         ) : images.length > 0 ? (
@@ -122,6 +149,12 @@ const PhotoGallery = () => {
                   alt={item.name || "Gallery image"}
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                {/* Code Badge */}
+                {item.code && (
+                  <div className="absolute top-3 left-3 px-3 py-1 bg-black/70 backdrop-blur-sm text-white text-sm font-bold rounded-lg z-10">
+                    {item.code}
+                  </div>
+                )}
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white">
@@ -134,8 +167,10 @@ const PhotoGallery = () => {
         ) : (
           /* Empty State */
           <div className="text-center py-20">
-            <p className="text-gray-400 italic text-lg">No images found in the gallery collection.</p>
-            <button 
+            <p className="text-gray-400 italic text-lg">
+              No images found in the gallery collection.
+            </p>
+            <button
               onClick={fetchImages}
               className="mt-4 text-pink-500 hover:text-pink-600 font-medium flex items-center gap-2 mx-auto"
             >
