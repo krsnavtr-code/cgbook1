@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import MetaTags from "../components/MetaTags";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +37,15 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <>
+      <MetaTags
+        title="Login - Access Your FunwithJuli Account"
+        description="Login to your FunwithJuli account to access premium escort services in Delhi NCR. Secure and discreet login for verified members."
+        keywords="login FunwithJuli, escort service login, Delhi escort login, NCR escort login, premium escort account, secure login"
+        canonicalUrl="https://funwithjuli.com/login"
+        noIndex={true}
+      />
+      <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* ================= BACKGROUND EFFECTS ================= */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-indigo-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
@@ -221,7 +230,8 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

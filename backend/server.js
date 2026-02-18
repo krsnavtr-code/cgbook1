@@ -14,6 +14,12 @@ import adminRoutes from './routes/admin.routes.js';
 import ownerInfoRoutes from './routes/ownerInfo.routes.js';
 import profileRoutes from './routes/profile.routes.js';
 
+import dns from 'dns';
+// Only set DNS in development/local environment
+if (process.env.NODE_ENV !== 'production') {
+    dns.setServers(['8.8.8.8', '8.8.4.4']);
+}
+
 const app = express();
 
 // Middleware
