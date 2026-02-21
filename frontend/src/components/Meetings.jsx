@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProfiles, getLocations } from "../api/profileApi";
+import { LOCATIONS_WITH_ALL } from "../constants/locations";
 
 const Meetings = () => {
   const navigate = useNavigate();
   // State for selected city filter
   const [selectedCity, setSelectedCity] = useState("All Cities");
   const [profiles, setProfiles] = useState([]);
-  const [availableLocations, setAvailableLocations] = useState([
-    "All Cities",
-    "Delhi",
-    "Noida",
-    "Ghaziabad",
-    "Gurugram",
-  ]);
+  const [availableLocations, setAvailableLocations] =
+    useState(LOCATIONS_WITH_ALL);
   const [loading, setLoading] = useState(true);
 
   // Fetch profiles and locations on component mount
@@ -23,7 +19,7 @@ const Meetings = () => {
         setLoading(true);
 
         // Fetch profiles
-        const profilesResponse = await getProfiles();
+        const profilesResponse = await getProfiles({ limit: 1000 });
         const profilesData =
           profilesResponse.data?.profiles || profilesResponse.data || [];
 
@@ -36,13 +32,8 @@ const Meetings = () => {
         // Fetch available locations
         try {
           const locationsResponse = await getLocations();
-          const locationsData = locationsResponse.data?.locations || [
-            "All Cities",
-            "Delhi",
-            "Noida",
-            "Ghaziabad",
-            "Gurugram",
-          ];
+          const locationsData =
+            locationsResponse.data?.locations || LOCATIONS_WITH_ALL;
           setAvailableLocations(locationsData);
         } catch (error) {
           console.log("Using default locations:", error);
@@ -108,6 +99,20 @@ const Meetings = () => {
                 {city}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* How many Profile */}
+        <div className="mb-8">
+          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+            <span className="text-lg font-semibold">
+              {filteredProfiles.length}
+            </span>
+            <span className="text-sm">
+              {selectedCity === "All Cities"
+                ? "profiles available"
+                : `profiles available in ${selectedCity}`}
+            </span>
           </div>
         </div>
 

@@ -15,6 +15,7 @@ import {
   LogOut,
   ShieldCheck,
 } from "lucide-react";
+import { LOCATIONS } from "../constants/locations";
 
 const Navbar = () => {
   const { darkMode, toggleTheme } = useTheme();
@@ -107,7 +108,7 @@ const Navbar = () => {
                   />
                 </button>
                 <div className="absolute top-full left-0 w-48 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 py-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
-                  {["Noida", "Delhi", "Ghaziabad", "Gurugram"].map((city) => (
+                  {LOCATIONS.map((city) => (
                     <Link
                       key={city}
                       to={`/meetings/${city.toLowerCase().replace(" ", "-")}`}

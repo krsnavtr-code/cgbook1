@@ -25,7 +25,7 @@ const CityProfiles = () => {
         setLoading(true);
 
         // Fetch all profiles
-        const profilesResponse = await getProfiles();
+        const profilesResponse = await getProfiles({ limit: 1000 });
         const profilesData =
           profilesResponse.data?.profiles || profilesResponse.data || [];
 

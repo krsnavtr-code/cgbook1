@@ -25,7 +25,7 @@ const AllNewArrivals = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const profilesResponse = await getProfiles();
+        const profilesResponse = await getProfiles({ limit: 1000 });
         const profilesData =
           profilesResponse.data?.profiles || profilesResponse.data || [];
 

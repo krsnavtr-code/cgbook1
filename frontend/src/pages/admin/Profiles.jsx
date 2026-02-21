@@ -4,8 +4,10 @@ import {
   createProfile,
   updateProfile,
   deleteProfile,
+  getLocations,
 } from "../../api/profileApi";
 import { getUploadedImages } from "../../api/imageApi";
+import { LOCATIONS } from "../../constants/locations";
 import {
   UserGroupIcon,
   PlusIcon,
@@ -20,6 +22,8 @@ import {
 const Profiles = () => {
   const [profiles, setProfiles] = useState([]);
   const [images, setImages] = useState([]);
+  const [locations, setLocations] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("All Cities");
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProfile, setEditingProfile] = useState(null);
@@ -29,6 +33,7 @@ const Profiles = () => {
     location: "",
     status: "Online",
     tags: [],
+    tagsInput: "",
     img: "",
     rating: 4.9,
     isActive: true,
@@ -48,12 +53,26 @@ const Profiles = () => {
     fetchData();
   }, []);
 
+  // Refetch data when location filter changes
+  useEffect(() => {
+    fetchData();
+  }, [selectedLocation]);
+
   const fetchData = async () => {
     try {
       setLoading(true);
 
-      // Fetch profiles
-      const profilesResponse = await getProfiles();
+      // Fetch locations
+      const locationsResponse = await getLocations();
+      const locationsData = locationsResponse.data?.locations || [];
+      setLocations(locationsData);
+
+      // Fetch profiles with location filter
+      const params = { limit: 1000 };
+      if (selectedLocation && selectedLocation !== "All Cities") {
+        params.location = selectedLocation;
+      }
+      const profilesResponse = await getProfiles(params);
       const profilesData =
         profilesResponse.data?.profiles || profilesResponse.data || [];
       setProfiles(profilesData);
@@ -73,10 +92,23 @@ const Profiles = () => {
     e.preventDefault();
     try {
       console.log("Submitting formData:", formData); // Debug log
+
+      // Process tagsInput into tags array for submission
+      const submissionData = {
+        ...formData,
+        tags: formData.tagsInput
+          .split(",")
+          .map((tag) => tag.trim())
+          .filter((tag) => tag.length > 0),
+      };
+
       if (editingProfile) {
-        await updateProfile(editingProfile._id || editingProfile.id, formData);
+        await updateProfile(
+          editingProfile._id || editingProfile.id,
+          submissionData,
+        );
       } else {
-        await createProfile(formData);
+        await createProfile(submissionData);
       }
 
       setIsModalOpen(false);
@@ -87,6 +119,7 @@ const Profiles = () => {
         location: "",
         status: "Online",
         tags: [],
+        tagsInput: "",
         img: "",
         rating: 4.9,
         isActive: true,
@@ -110,12 +143,14 @@ const Profiles = () => {
 
   const handleEdit = (profile) => {
     setEditingProfile(profile);
+    const tagsArray = Array.isArray(profile.tags) ? profile.tags : [];
     setFormData({
       name: profile.name,
       age: profile.age,
       location: profile.location,
       status: profile.status,
-      tags: profile.tags || [],
+      tags: tagsArray,
+      tagsInput: tagsArray.join(", "),
       img: profile.img,
       rating: profile.rating || 4.9,
       isActive: profile.isActive !== false,
@@ -151,11 +186,8 @@ const Profiles = () => {
   };
 
   const handleTagsChange = (e) => {
-    const tags = e.target.value
-      .split(",")
-      .map((tag) => tag.trim())
-      .filter((tag) => tag);
-    setFormData({ ...formData, tags });
+    const inputValue = e.target.value || "";
+    setFormData({ ...formData, tagsInput: inputValue });
   };
 
   if (loading) {
@@ -169,7 +201,7 @@ const Profiles = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8">
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Profiles{" "}
@@ -181,13 +213,31 @@ const Profiles = () => {
             {profiles.length} total profiles active on the platform.
           </p>
         </div>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center justify-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95"
-        >
-          <PlusIcon className="h-5 w-5 mr-2" />
-          New Profile
-        </button>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative">
+            <select
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              className="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white py-2 pl-10 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+              {locations.map((location) => (
+                <option key={location} value={location}>
+                  {location}
+                </option>
+              ))}
+            </select>
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <MapPinIcon className="h-5 w-5 text-gray-400" />
+            </div>
+          </div>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-flex items-center justify-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95"
+          >
+            <PlusIcon className="h-5 w-5 mr-2" />
+            New Profile
+          </button>
+        </div>
       </div>
 
       {/* Main Content: Table Container */}
@@ -343,15 +393,21 @@ const Profiles = () => {
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Location
                   </label>
-                  <input
-                    type="text"
+                  <select
                     required
                     value={formData.location}
                     onChange={(e) =>
                       setFormData({ ...formData, location: e.target.value })
                     }
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  />
+                  >
+                    <option value="">Select a location</option>
+                    {LOCATIONS.map((location) => (
+                      <option key={location} value={location}>
+                        {location}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
@@ -376,7 +432,7 @@ const Profiles = () => {
                   </label>
                   <input
                     type="text"
-                    value={formData.tags.join(", ")}
+                    value={formData.tagsInput}
                     onChange={handleTagsChange}
                     placeholder="Premium, Verified, Hot"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"

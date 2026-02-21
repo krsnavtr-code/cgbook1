@@ -19,7 +19,7 @@ const NewArrivals = () => {
         setOwnerInfo(ownerData);
 
         // Fetch profiles and filter for new arrivals
-        const profilesResponse = await getProfiles();
+        const profilesResponse = await getProfiles({ limit: 1000 });
         const profilesData =
           profilesResponse.data?.profiles || profilesResponse.data || [];
 
@@ -114,11 +114,11 @@ const NewArrivals = () => {
               </span>
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">
-              Our call <strong>girls and escort service in NCR</strong> focuses on transparency
-              and professionalism. Profiles include clear details so users can
-              make informed choices without confusion or miscommunication. This
-              approach helps reduce risks and builds long-term trust with our
-              audience.
+              Our call <strong>girls and escort service in NCR</strong> focuses
+              on transparency and professionalism. Profiles include clear
+              details so users can make informed choices without confusion or
+              miscommunication. This approach helps reduce risks and builds
+              long-term trust with our audience.
             </p>
           </div>
           <button
