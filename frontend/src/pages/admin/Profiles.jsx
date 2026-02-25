@@ -247,6 +247,9 @@ const Profiles = () => {
             <thead>
               <tr className="bg-gray-50/50 dark:bg-gray-900/50 border-b border-gray-100 dark:border-gray-700">
                 <th className="px-6 py-4 text-xs font-bold uppercase text-gray-400 tracking-wider">
+                  S.No
+                </th>
+                <th className="px-6 py-4 text-xs font-bold uppercase text-gray-400 tracking-wider">
                   User
                 </th>
                 <th className="px-6 py-4 text-xs font-bold uppercase text-gray-400 tracking-wider">
@@ -261,11 +264,12 @@ const Profiles = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
-              {profiles.map((profile) => (
+              {profiles.map((profile, index) => (
                 <tr
                   key={profile._id || profile.id}
                   className="hover:bg-gray-50/80 dark:hover:bg-gray-700/30 transition-colors"
                 >
+                  <td className="px-6 py-5">{index + 1}</td>
                   <td className="px-6 py-5">
                     <div className="flex items-center gap-4">
                       <div className="relative">

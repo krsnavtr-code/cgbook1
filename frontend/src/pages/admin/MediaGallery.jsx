@@ -18,10 +18,6 @@ import {
   FiUpload,
   FiTrash2,
   FiSearch,
-  FiGrid,
-  FiList,
-  FiLayers,
-  FiLayout,
   FiCheckSquare,
   FiSquare,
   FiX,
@@ -59,8 +55,8 @@ const ImageGallery = () => {
   const [selectedTagIds, setSelectedTagIds] = useState(new Set());
   const [isUpdatingTags, setIsUpdatingTags] = useState(false);
 
-  // View Modes
-  const [viewMode, setViewMode] = useState("comfortable");
+  // View Modes - Fixed to list only
+  const viewMode = "list";
 
   // Rename Management
   const [renamingItem, setRenamingItem] = useState(null);
@@ -256,8 +252,6 @@ const ImageGallery = () => {
   };
 
   const handleDelete = async (filename, e) => {
-    if (e) e.stopPropagation();
-
     try {
       const usageCheck = await checkMediaUsage(getImageUrl(filename));
 
@@ -296,8 +290,6 @@ const ImageGallery = () => {
   };
 
   const handleRename = async (oldFilename, e) => {
-    if (e) e.stopPropagation();
-
     if (!newFilename.trim()) {
       toast.error("Please enter a valid filename");
       return;
@@ -326,7 +318,6 @@ const ImageGallery = () => {
   };
 
   const startRenaming = (item, e) => {
-    if (e) e.stopPropagation();
     setRenamingItem(item.name || item.filename);
     setNewFilename((item.name || item.filename).replace(/\.[^/.]+$/, ""));
   };
@@ -338,7 +329,6 @@ const ImageGallery = () => {
 
   // --- Logic: Selection ---
   const toggleMediaSelection = (url, event) => {
-    if (event) event.stopPropagation();
     setSelectedItems((prev) => {
       const newSelection = new Set(prev);
       if (newSelection.has(url)) newSelection.delete(url);
@@ -353,8 +343,6 @@ const ImageGallery = () => {
 
   // --- New Logic: Date Group Selection ---
   const toggleDateGroupSelection = (items, event) => {
-    if (event) event.stopPropagation();
-
     // Check if all items in this group are currently selected
     const allSelected = items.every((item) => selectedItems.has(item.url));
 
@@ -454,16 +442,7 @@ const ImageGallery = () => {
   );
 
   const getContainerClasses = () => {
-    switch (viewMode) {
-      case "comfortable":
-        return "columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4 block";
-      case "compact":
-        return "grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2";
-      case "list":
-        return "grid grid-cols-1 gap-2";
-      default:
-        return "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4";
-    }
+    return "grid grid-cols-1 gap-2";
   };
 
   // --- Render ---
@@ -688,29 +667,6 @@ const ImageGallery = () => {
           </div>
 
           <div className="flex items-center gap-4 w-full xl:w-auto">
-            {/* View Switcher */}
-            <div className="flex bg-gray-100 dark:bg-black/20 p-1 rounded-xl shrink-0">
-              {[
-                { id: "grid", icon: <FiGrid />, title: "Grid" },
-                { id: "comfortable", icon: <FiLayout />, title: "Masonry" },
-                { id: "compact", icon: <FiLayers />, title: "Compact" },
-                { id: "list", icon: <FiList />, title: "List" },
-              ].map((mode) => (
-                <button
-                  key={mode.id}
-                  onClick={() => setViewMode(mode.id)}
-                  title={mode.title}
-                  className={`p-2 rounded-lg transition-all ${
-                    viewMode === mode.id
-                      ? "bg-white dark:bg-white/10 text-[#F47C26] shadow-sm"
-                      : "text-gray-400 hover:text-gray-700 dark:hover:text-white"
-                  }`}
-                >
-                  {mode.icon}
-                </button>
-              ))}
-            </div>
-
             {/* Search */}
             <div className="relative w-full xl:w-64">
               <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -767,16 +723,10 @@ const ImageGallery = () => {
                       }
                       variants={itemVariants}
                       layout
-                      className={`group relative bg-white dark:bg-[#05081a] border rounded-xl overflow-hidden cursor-pointer transition-all shadow-sm hover:shadow-xl break-inside-avoid ${
+                      className={`group relative bg-white dark:bg-[#05081a] border rounded-xl overflow-hidden cursor-pointer transition-all shadow-sm hover:shadow-xl break-inside-avoid flex items-center gap-4 p-2 mb-2 h-16 ${
                         selectedItems.has(item.url)
                           ? "border-blue-500 ring-2 ring-blue-500 dark:border-blue-400 dark:ring-blue-400"
                           : "border-gray-200 dark:border-white/5 hover:border-[#F47C26]/50"
-                      } ${
-                        viewMode === "list"
-                          ? "flex items-center gap-4 p-2 mb-2 h-16"
-                          : viewMode === "comfortable"
-                            ? "mb-4"
-                            : "aspect-square"
                       }`}
                       onClick={(e) => handleMediaClick(item, e)}
                     >
@@ -796,38 +746,10 @@ const ImageGallery = () => {
                       )}
 
                       {/* Thumbnail */}
-                      <div
-                        className={`${
-                          viewMode === "list"
-                            ? "w-12 h-12 rounded-lg shrink-0"
-                            : "w-full h-full"
-                        } overflow-hidden relative bg-gray-100 dark:bg-black/20`}
-                      >
-                        {/* Tags on top of media */}
-                        {viewMode !== "list" &&
-                          item.tags &&
-                          item.tags.length > 0 && (
-                            <div className="absolute top-10 left-0 right-0 z-10 p-1.5 flex flex-wrap gap-1 max-h-1/2 overflow-hidden bg-gradient-to-b from-black/50 to-transparent">
-                              {item.tags.slice(0, 3).map((tag) => (
-                                <span
-                                  key={tag._id}
-                                  className="inline-flex text-xl items-center px-1.5 py-0.5 rounded text-[10px] bg-yellow-200 text-black backdrop-blur-sm"
-                                  title={tag.name}
-                                >
-                                  <FiTagIcon size={16} className="mr-1" />
-                                  {tag.name}
-                                </span>
-                              ))}
-                              {item.tags.length > 3 && (
-                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-white/20 text-white/90">
-                                  +{item.tags.length - 3}
-                                </span>
-                              )}
-                            </div>
-                          )}
+                      <div className="w-12 h-12 rounded-lg shrink-0 overflow-hidden relative bg-gray-100 dark:bg-black/20">
                         {item.type === "video" ? (
                           <div className="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                            <FaPlay className="text-gray-400 dark:text-white/30 text-2xl group-hover:text-[#F47C26] transition-colors relative z-10" />
+                            <FaPlay className="text-gray-400 dark:text-white/30 text-lg group-hover:text-[#F47C26] transition-colors relative z-10" />
                             <video
                               src={item.url}
                               className="absolute inset-0 w-full h-full object-cover opacity-60"
@@ -844,188 +766,132 @@ const ImageGallery = () => {
                           <img
                             src={item.url || item.thumbnailUrl}
                             alt={item.name}
-                            className={`w-full transition-transform duration-500 group-hover:scale-110 ${
-                              viewMode === "comfortable"
-                                ? "h-auto"
-                                : "h-full object-cover"
-                            }`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             loading="lazy"
                           />
-                        )}
-
-                        {/* Hover Overlay */}
-                        {viewMode !== "list" && (
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <p className="text-xs text-white font-bold truncate">
-                              {item.name || item.filename}
-                            </p>
-                            <p className="text-[10px] text-gray-300 mb-1">
-                              {(item.size / 1024).toFixed(1)} KB
-                            </p>
-                            {item.tags && item.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {item.tags.slice(0, 3).map((tag) => (
-                                  <span
-                                    key={tag._id}
-                                    className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-white/10 text-white/80"
-                                    title={tag.name}
-                                  >
-                                    <FiTagIcon size={8} className="mr-1" />
-                                    {tag.name}
-                                  </span>
-                                ))}
-                                {item.tags.length > 3 && (
-                                  <span className="text-[10px] text-white/60">
-                                    +{item.tags.length - 3} more
-                                  </span>
-                                )}
-                              </div>
-                            )}
-                            {item.tags && item.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {item.tags.slice(0, 3).map((tag, idx) => (
-                                  <span
-                                    key={idx}
-                                    className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-white/10 text-white/80"
-                                  >
-                                    <FiTagIcon size={8} className="mr-1" />
-                                    {tag.name}
-                                  </span>
-                                ))}
-                                {item.tags.length > 3 && (
-                                  <span className="text-[10px] text-white/60">
-                                    +{item.tags.length - 3} more
-                                  </span>
-                                )}
-                              </div>
-                            )}
-                          </div>
                         )}
                       </div>
 
                       {/* List View Info */}
-                      {viewMode === "list" && (
-                        <div className="flex-1 min-w-0 flex justify-between items-center pr-4">
-                          <div>
-                            {renamingItem === (item.name || item.filename) ? (
-                              <div className="flex items-center gap-2">
-                                <input
-                                  type="text"
-                                  value={newFilename}
-                                  onChange={(e) =>
-                                    setNewFilename(e.target.value)
+                      <div className="flex-1 z-10 flex justify-between items-center pr-4">
+                        <div>
+                          {renamingItem === (item.name || item.filename) ? (
+                            <div className="flex items-center gap-2">
+                              <input
+                                type="text"
+                                value={newFilename}
+                                onChange={(e) => {
+                                  setNewFilename(e.target.value);
+                                }}
+                                onKeyDown={(e) => {
+                                  if (e.key === "Enter") {
+                                    handleRename(
+                                      selectedMedia.name ||
+                                        selectedMedia.filename,
+                                      e,
+                                    );
+                                  } else if (e.key === "Escape") {
+                                    cancelRenaming();
                                   }
-                                  onKeyDown={(e) => {
-                                    if (e.key === "Enter") {
-                                      handleRename(
-                                        item.name || item.filename,
-                                        e,
-                                      );
-                                    } else if (e.key === "Escape") {
-                                      cancelRenaming();
-                                    }
-                                  }}
-                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 dark:border-white/20 rounded bg-white dark:bg-black/40 text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26]"
-                                  autoFocus
-                                />
-                                <button
-                                  onClick={(e) =>
-                                    handleRename(item.name || item.filename, e)
-                                  }
-                                  disabled={isRenaming}
-                                  className="px-2 py-1 text-xs bg-green-500 hover:bg-green-600 text-white rounded disabled:opacity-50"
-                                >
-                                  {isRenaming ? "Saving..." : "Save"}
-                                </button>
-                                <button
-                                  onClick={cancelRenaming}
-                                  className="px-2 py-1 text-xs bg-gray-500 hover:bg-gray-600 text-white rounded"
-                                >
-                                  Cancel
-                                </button>
-                              </div>
-                            ) : (
-                              <>
-                                <p className="font-bold text-gray-900 dark:text-gray-200 truncate">
-                                  {item.name || item.filename}
-                                </p>
-                                <p className="text-xs text-gray-500">
-                                  {item.type} • {(item.size / 1024).toFixed(1)}{" "}
-                                  KB
-                                </p>
-                                {item.tags && item.tags.length > 0 && (
-                                  <div className="flex flex-wrap gap-1 mt-1">
-                                    {item.tags.slice(0, 2).map((tag) => (
-                                      <span
-                                        key={tag._id}
-                                        className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
-                                        title={tag.name}
-                                      >
-                                        <FiTagIcon size={8} className="mr-1" />
-                                        {tag.name}
-                                      </span>
-                                    ))}
-                                    {item.tags.length > 2 && (
-                                      <span className="text-[10px] text-gray-400">
-                                        +{item.tags.length - 2} more
-                                      </span>
-                                    )}
-                                  </div>
-                                )}
-                                {item.tags && item.tags.length > 0 && (
-                                  <div className="flex flex-wrap gap-1 mt-1">
-                                    {item.tags.slice(0, 2).map((tag, idx) => (
-                                      <span
-                                        key={idx}
-                                        className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
-                                      >
-                                        <FiTagIcon size={8} className="mr-1" />
-                                        {tag.name}
-                                      </span>
-                                    ))}
-                                    {item.tags.length > 2 && (
-                                      <span className="text-[10px] text-gray-400">
-                                        +{item.tags.length - 2} more
-                                      </span>
-                                    )}
-                                  </div>
-                                )}
-                              </>
-                            )}
-                          </div>
-                          <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                startRenaming(item, e);
-                              }}
-                              className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                              title="Rename"
-                            >
-                              <FiEdit />
-                            </button>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                copyToClipboard(item.url);
-                              }}
-                              className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                              title="Copy Link"
-                            >
-                              <FiCopy />
-                            </button>
-                            <button
-                              onClick={(e) =>
-                                handleDelete(item.name || item.filename, e)
-                              }
-                              className="p-2 hover:bg-red-50 dark:hover:bg-red-500/20 rounded text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500"
-                              title="Delete"
-                            >
-                              <FiTrash2 />
-                            </button>
-                          </div>
+                                }}
+                                className="flex-1 px-2 py-1 text-sm border border-gray-300 dark:border-white/20 rounded bg-white dark:bg-black/40 text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26]"
+                              />
+                              <button
+                                onClick={(e) => {
+                                  handleRename(item.name || item.filename, e);
+                                }}
+                                disabled={isRenaming}
+                                className="px-2 py-1 text-xs bg-green-500 hover:bg-green-600 text-white rounded disabled:opacity-50"
+                              >
+                                {isRenaming ? "Saving..." : "Save"}
+                              </button>
+                              <button
+                                onClick={(e) => {
+                                  cancelRenaming();
+                                }}
+                                className="px-2 py-1 text-xs bg-gray-500 hover:bg-gray-600 text-white rounded"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          ) : (
+                            <>
+                              <p className="font-bold text-gray-900 dark:text-gray-200 truncate">
+                                {item.name || item.filename}
+                              </p>
+                              <p className="text-xs text-gray-500">
+                                {item.type} • {(item.size / 1024).toFixed(1)} KB
+                              </p>
+                              {item.tags && item.tags.length > 0 && (
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {item.tags.slice(0, 2).map((tag) => (
+                                    <span
+                                      key={tag._id}
+                                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
+                                      title={tag.name}
+                                    >
+                                      <FiTagIcon size={8} className="mr-1" />
+                                      {tag.name}
+                                    </span>
+                                  ))}
+                                  {item.tags.length > 2 && (
+                                    <span className="text-[10px] text-gray-400">
+                                      +{item.tags.length - 2} more
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                              {item.tags && item.tags.length > 0 && (
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {item.tags.slice(0, 2).map((tag, idx) => (
+                                    <span
+                                      key={idx}
+                                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
+                                    >
+                                      <FiTagIcon size={8} className="mr-1" />
+                                      {tag.name}
+                                    </span>
+                                  ))}
+                                  {item.tags.length > 2 && (
+                                    <span className="text-[10px] text-gray-400">
+                                      +{item.tags.length - 2} more
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                            </>
+                          )}
                         </div>
-                      )}
+                        <div className="flex gap-2">
+                          <button
+                            onClick={(e) => {
+                              startRenaming(item, e);
+                            }}
+                            className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                            title="Rename"
+                          >
+                            <FiEdit />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              copyToClipboard(item.url);
+                            }}
+                            className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                            title="Copy Link"
+                          >
+                            <FiCopy />
+                          </button>
+                          <button
+                            onClick={(e) =>
+                              handleDelete(item.name || item.filename, e)
+                            }
+                            className="p-2 hover:bg-red-50 dark:hover:bg-red-500/20 rounded text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500"
+                            title="Delete"
+                          >
+                            <FiTrash2 />
+                          </button>
+                        </div>
+                      </div>
 
                       {/* Status Indicators */}
                       <div className="absolute top-2 right-2 flex gap-1 z-10">
@@ -1037,11 +903,9 @@ const ImageGallery = () => {
                             <FaCheckCircle size={10} /> Used
                           </div>
                         )}
-                        {viewMode !== "list" && (
-                          <div className="px-1.5 py-0.5 bg-white/80 dark:bg-black/60 text-gray-700 dark:text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded">
-                            {item.type === "video" ? "VID" : "IMG"}
-                          </div>
-                        )}
+                        <div className="px-1.5 py-0.5 bg-white/80 dark:bg-black/60 text-gray-700 dark:text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded">
+                          {item.type === "video" ? "VID" : "IMG"}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -1081,7 +945,6 @@ const ImageGallery = () => {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               className="relative max-w-6xl w-full max-h-[90vh] bg-white dark:bg-[#0a0f2d] rounded-2xl overflow-hidden border border-gray-700 dark:border-white/10 flex flex-col shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
             >
               {/* Lightbox Header */}
               <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/20">
@@ -1143,7 +1006,9 @@ const ImageGallery = () => {
                       <input
                         type="text"
                         value={newFilename}
-                        onChange={(e) => setNewFilename(e.target.value)}
+                        onChange={(e) => {
+                          setNewFilename(e.target.value);
+                        }}
                         onKeyDown={(e) => {
                           if (e.key === "Enter") {
                             handleRename(
