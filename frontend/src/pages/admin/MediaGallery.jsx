@@ -4,6 +4,7 @@ import {
   getImageUrl,
   deleteMediaFile,
   checkMediaUsage,
+  renameMediaFile,
 } from "../../api/imageApi";
 import {
   getMediaTags,
@@ -29,6 +30,7 @@ import {
   FiFolder,
   FiTag,
   FiTag as FiTagIcon,
+  FiEdit,
 } from "react-icons/fi";
 import {
   FaPlay,
@@ -60,6 +62,11 @@ const ImageGallery = () => {
   // View Modes
   const [viewMode, setViewMode] = useState("comfortable");
 
+  // Rename Management
+  const [renamingItem, setRenamingItem] = useState(null);
+  const [newFilename, setNewFilename] = useState("");
+  const [isRenaming, setIsRenaming] = useState(false);
+
   // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,7 +96,7 @@ const ImageGallery = () => {
       mediaItems.map(async (item) => {
         const filename = item.name || item.filename;
         usageMap[filename] = await checkMediaItemUsage(filename);
-      })
+      }),
     );
     setMediaInUse(usageMap);
   };
@@ -142,7 +149,7 @@ const ImageGallery = () => {
           slug: tag.slug,
         }));
     },
-    [tags]
+    [tags],
   );
 
   // Add tags to media items
@@ -166,13 +173,13 @@ const ImageGallery = () => {
 
     // Get tags from the first selected item
     const firstItemTags = new Set(
-      getTagsForMedia(selectedMedia[0].url || "").map((tag) => tag._id)
+      getTagsForMedia(selectedMedia[0].url || "").map((tag) => tag._id),
     );
 
     // Find intersection with other selected items' tags
     for (let i = 1; i < selectedMedia.length; i++) {
       const currentItemTags = new Set(
-        getTagsForMedia(selectedMedia[i].url || "").map((tag) => tag._id)
+        getTagsForMedia(selectedMedia[i].url || "").map((tag) => tag._id),
       );
       // Keep only tags that exist in both sets
       for (const tagId of firstItemTags) {
@@ -215,7 +222,7 @@ const ImageGallery = () => {
 
       // Update each selected media item
       const updatePromises = Array.from(selectedItems).map((mediaUrl) =>
-        updateMediaTags(mediaUrl, tagIdsArray)
+        updateMediaTags(mediaUrl, tagIdsArray),
       );
       await Promise.all(updatePromises);
       toast.success(`Updated tags for ${selectedItems.size} item(s)`);
@@ -259,13 +266,13 @@ const ImageGallery = () => {
         if (usageCheck.data.usageDetails?.environments?.local) {
           usageInfo.push(
             `Local: ${getUsageDetails(
-              usageCheck.data.usageDetails.environments.local
-            )}`
+              usageCheck.data.usageDetails.environments.local,
+            )}`,
           );
         }
 
         const confirmMsg = `File is in use:\n${usageInfo.join(
-          "\n"
+          "\n",
         )}\nDelete anyway?`;
         if (!window.confirm(confirmMsg)) return;
       } else if (!window.confirm("Delete permanently?")) {
@@ -286,6 +293,47 @@ const ImageGallery = () => {
       console.error(error);
       toast.error("Delete failed");
     }
+  };
+
+  const handleRename = async (oldFilename, e) => {
+    if (e) e.stopPropagation();
+
+    if (!newFilename.trim()) {
+      toast.error("Please enter a valid filename");
+      return;
+    }
+
+    // Add file extension if not present
+    const oldExt = oldFilename.split(".").pop();
+    let finalNewFilename = newFilename.trim();
+    if (!finalNewFilename.includes(".")) {
+      finalNewFilename = `${finalNewFilename}.${oldExt}`;
+    }
+
+    try {
+      setIsRenaming(true);
+      await renameMediaFile(oldFilename, finalNewFilename);
+      toast.success("File renamed successfully");
+      setRenamingItem(null);
+      setNewFilename("");
+      fetchMedia();
+    } catch (error) {
+      console.error("Error renaming file:", error);
+      toast.error(error.response?.data?.message || "Rename failed");
+    } finally {
+      setIsRenaming(false);
+    }
+  };
+
+  const startRenaming = (item, e) => {
+    if (e) e.stopPropagation();
+    setRenamingItem(item.name || item.filename);
+    setNewFilename((item.name || item.filename).replace(/\.[^/.]+$/, ""));
+  };
+
+  const cancelRenaming = () => {
+    setRenamingItem(null);
+    setNewFilename("");
   };
 
   // --- Logic: Selection ---
@@ -402,7 +450,7 @@ const ImageGallery = () => {
 
   const groupedMedia = useMemo(
     () => groupMediaByDate(filteredMedia),
-    [filteredMedia]
+    [filteredMedia],
   );
 
   const getContainerClasses = () => {
@@ -859,51 +907,103 @@ const ImageGallery = () => {
                       {viewMode === "list" && (
                         <div className="flex-1 min-w-0 flex justify-between items-center pr-4">
                           <div>
-                            <p className="font-bold text-gray-900 dark:text-gray-200 truncate">
-                              {item.name || item.filename}
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              {item.type} • {(item.size / 1024).toFixed(1)} KB
-                            </p>
-                            {item.tags && item.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {item.tags.slice(0, 2).map((tag) => (
-                                  <span
-                                    key={tag._id}
-                                    className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
-                                    title={tag.name}
-                                  >
-                                    <FiTagIcon size={8} className="mr-1" />
-                                    {tag.name}
-                                  </span>
-                                ))}
-                                {item.tags.length > 2 && (
-                                  <span className="text-[10px] text-gray-400">
-                                    +{item.tags.length - 2} more
-                                  </span>
-                                )}
+                            {renamingItem === (item.name || item.filename) ? (
+                              <div className="flex items-center gap-2">
+                                <input
+                                  type="text"
+                                  value={newFilename}
+                                  onChange={(e) =>
+                                    setNewFilename(e.target.value)
+                                  }
+                                  onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                      handleRename(
+                                        item.name || item.filename,
+                                        e,
+                                      );
+                                    } else if (e.key === "Escape") {
+                                      cancelRenaming();
+                                    }
+                                  }}
+                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 dark:border-white/20 rounded bg-white dark:bg-black/40 text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26]"
+                                  autoFocus
+                                />
+                                <button
+                                  onClick={(e) =>
+                                    handleRename(item.name || item.filename, e)
+                                  }
+                                  disabled={isRenaming}
+                                  className="px-2 py-1 text-xs bg-green-500 hover:bg-green-600 text-white rounded disabled:opacity-50"
+                                >
+                                  {isRenaming ? "Saving..." : "Save"}
+                                </button>
+                                <button
+                                  onClick={cancelRenaming}
+                                  className="px-2 py-1 text-xs bg-gray-500 hover:bg-gray-600 text-white rounded"
+                                >
+                                  Cancel
+                                </button>
                               </div>
-                            )}
-                            {item.tags && item.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {item.tags.slice(0, 2).map((tag, idx) => (
-                                  <span
-                                    key={idx}
-                                    className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
-                                  >
-                                    <FiTagIcon size={8} className="mr-1" />
-                                    {tag.name}
-                                  </span>
-                                ))}
-                                {item.tags.length > 2 && (
-                                  <span className="text-[10px] text-gray-400">
-                                    +{item.tags.length - 2} more
-                                  </span>
+                            ) : (
+                              <>
+                                <p className="font-bold text-gray-900 dark:text-gray-200 truncate">
+                                  {item.name || item.filename}
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                  {item.type} • {(item.size / 1024).toFixed(1)}{" "}
+                                  KB
+                                </p>
+                                {item.tags && item.tags.length > 0 && (
+                                  <div className="flex flex-wrap gap-1 mt-1">
+                                    {item.tags.slice(0, 2).map((tag) => (
+                                      <span
+                                        key={tag._id}
+                                        className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
+                                        title={tag.name}
+                                      >
+                                        <FiTagIcon size={8} className="mr-1" />
+                                        {tag.name}
+                                      </span>
+                                    ))}
+                                    {item.tags.length > 2 && (
+                                      <span className="text-[10px] text-gray-400">
+                                        +{item.tags.length - 2} more
+                                      </span>
+                                    )}
+                                  </div>
                                 )}
-                              </div>
+                                {item.tags && item.tags.length > 0 && (
+                                  <div className="flex flex-wrap gap-1 mt-1">
+                                    {item.tags.slice(0, 2).map((tag, idx) => (
+                                      <span
+                                        key={idx}
+                                        className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
+                                      >
+                                        <FiTagIcon size={8} className="mr-1" />
+                                        {tag.name}
+                                      </span>
+                                    ))}
+                                    {item.tags.length > 2 && (
+                                      <span className="text-[10px] text-gray-400">
+                                        +{item.tags.length - 2} more
+                                      </span>
+                                    )}
+                                  </div>
+                                )}
+                              </>
                             )}
                           </div>
                           <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                startRenaming(item, e);
+                              }}
+                              className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                              title="Rename"
+                            >
+                              <FiEdit />
+                            </button>
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -1037,29 +1137,79 @@ const ImageGallery = () => {
                   </span>
                 </div>
                 <div className="flex gap-3 w-full sm:w-auto">
-                  <a
-                    href={selectedMedia.url}
-                    download
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
-                  >
-                    <FiDownload /> Download
-                  </a>
-                  <a
-                    href={selectedMedia.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
-                  >
-                    <FiExternalLink /> Open
-                  </a>
-                  <button
-                    onClick={() => copyToClipboard(selectedMedia.url)}
-                    className="flex-1 sm:flex-none px-6 py-2 bg-[#F47C26] hover:bg-[#d5671f] text-white text-sm font-bold rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2"
-                  >
-                    <FiCopy /> Copy Link
-                  </button>
+                  {renamingItem ===
+                  (selectedMedia.name || selectedMedia.filename) ? (
+                    <div className="flex items-center gap-2 flex-1">
+                      <input
+                        type="text"
+                        value={newFilename}
+                        onChange={(e) => setNewFilename(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            handleRename(
+                              selectedMedia.name || selectedMedia.filename,
+                              e,
+                            );
+                          } else if (e.key === "Escape") {
+                            cancelRenaming();
+                          }
+                        }}
+                        className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-white/20 rounded bg-white dark:bg-black/40 text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26]"
+                        placeholder="Enter new filename"
+                        autoFocus
+                      />
+                      <button
+                        onClick={(e) =>
+                          handleRename(
+                            selectedMedia.name || selectedMedia.filename,
+                            e,
+                          )
+                        }
+                        disabled={isRenaming}
+                        className="px-3 py-2 text-sm bg-green-500 hover:bg-green-600 text-white rounded disabled:opacity-50"
+                      >
+                        {isRenaming ? "Saving..." : "Save"}
+                      </button>
+                      <button
+                        onClick={cancelRenaming}
+                        className="px-3 py-2 text-sm bg-gray-500 hover:bg-gray-600 text-white rounded"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => startRenaming(selectedMedia)}
+                        className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+                      >
+                        <FiEdit /> Rename
+                      </button>
+                      <a
+                        href={selectedMedia.url}
+                        download
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+                      >
+                        <FiDownload /> Download
+                      </a>
+                      <a
+                        href={selectedMedia.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+                      >
+                        <FiExternalLink /> Open
+                      </a>
+                      <button
+                        onClick={() => copyToClipboard(selectedMedia.url)}
+                        className="flex-1 sm:flex-none px-6 py-2 bg-[#F47C26] hover:bg-[#d5671f] text-white text-sm font-bold rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2"
+                      >
+                        <FiCopy /> Copy Link
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>
