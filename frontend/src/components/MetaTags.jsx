@@ -14,7 +14,7 @@ const MetaTags = ({
 }) => {
   const siteName = "FunwithJuli";
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-  const baseUrl = "https://funwithjuli.com";
+  const baseUrl = "https://funwithjuli.in";
   const defaultOgImage = `${baseUrl}/og-image.jpg`;
 
   // Force meta tag updates by adding timestamp

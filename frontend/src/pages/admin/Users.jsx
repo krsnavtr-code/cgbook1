@@ -96,7 +96,7 @@ const Users = () => {
         title="Users Management - Admin Panel | FunwithJuli"
         description="Manage users in FunwithJuli admin panel. View, edit, and manage user accounts and permissions."
         keywords="admin users, user management, FunwithJuli admin, manage accounts, user permissions"
-        canonicalUrl="https://funwithjuli.com/admin/users"
+        canonicalUrl="https://funwithjuli.in/admin/users"
         noIndex={true}
       />
       <div className="p-6">

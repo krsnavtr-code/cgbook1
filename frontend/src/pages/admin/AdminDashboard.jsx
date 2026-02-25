@@ -8,7 +8,7 @@ const AdminDashboard = () => {
         title="Admin Dashboard - FunwithJuli Admin Panel"
         description="Admin dashboard for managing FunwithJuli escort service platform. Manage users, profiles, media, and settings."
         keywords="admin dashboard, FunwithJuli admin, escort service admin, platform management, admin panel"
-        canonicalUrl="https://funwithjuli.com/admin"
+        canonicalUrl="https://funwithjuli.in/admin"
         noIndex={true}
       />
       <div className="space-y-8">

@@ -103,7 +103,7 @@ const ContactUs = () => {
         title="Contact Us - Get in Touch with FunwithJuli Escort Service"
         description="Contact FunwithJuli for premium escort services in Delhi NCR. Call or message us for bookings, inquiries, and support. Safe, discreet, and professional service."
         keywords="contact escort service, call FunwithJuli, Delhi escort contact, NCR escort service contact, escort booking, premium escort contact"
-        canonicalUrl="https://funwithjuli.com/contact-us"
+        canonicalUrl="https://funwithjuli.in/contact-us"
       />
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         {/* Header */}

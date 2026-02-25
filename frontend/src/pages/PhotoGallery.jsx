@@ -24,11 +24,11 @@ const PhotoGallery = () => {
     name: "FunwithJuli Photo Gallery",
     description:
       "Browse our exclusive photo gallery featuring premium escort companions in Delhi NCR",
-    url: "https://funwithjuli.com/photos",
+    url: "https://funwithjuli.in/photos",
     provider: {
       "@type": "LocalBusiness",
       name: "FunwithJuli",
-      url: "https://funwithjuli.com",
+      url: "https://funwithjuli.in",
     },
   };
 
@@ -132,7 +132,7 @@ const PhotoGallery = () => {
         title="Photo Gallery - Premium Escort Companions in Delhi NCR"
         description="Browse our exclusive photo gallery featuring premium escort companions in Delhi NCR. View verified profiles and photos of our elite call girls and escorts."
         keywords="photo gallery, escort photos, Delhi escorts, NCR escorts, call girls photos, premium companions, verified escorts, escort gallery"
-        canonicalUrl="https://funwithjuli.com/photos"
+        canonicalUrl="https://funwithjuli.in/photos"
         structuredData={structuredData}
       />
       <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">

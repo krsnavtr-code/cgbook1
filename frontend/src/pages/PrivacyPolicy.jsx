@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
         title="Privacy Policy - FunwithJuli Escort Service"
         description="Read FunwithJuli's comprehensive privacy policy. Learn how we protect your personal information and ensure discretion in our premium escort services."
         keywords="privacy policy, data protection, escort service privacy, personal information security, discreet escort service, FunwithJuli privacy"
-        canonicalUrl="https://funwithjuli.com/privacy-policy"
+        canonicalUrl="https://funwithjuli.in/privacy-policy"
         noIndex={true}
       />
       <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">

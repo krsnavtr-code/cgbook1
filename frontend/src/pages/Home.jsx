@@ -15,7 +15,7 @@ const Home = () => {
     name: "FunwithJuli - Premium Escort Service",
     description:
       "Premium escort service in Delhi NCR offering safe, private meetings with verified companions",
-    url: "https://funwithjuli.com",
+    url: "https://funwithjuli.in",
     telephone: "+91-XXXXXXXXXX",
     address: {
       "@type": "PostalAddress",
@@ -34,7 +34,7 @@ const Home = () => {
         title="Premium Escort Service in Delhi NCR | Safe & Private Meetings"
         description="Premium escort service in Delhi NCR offering safe, private meetings with verified companions. Professional escort services in Delhi, Noida, Gurgaon, Ghaziabad, and Greater Noida."
         keywords="escort service Delhi, call girls Delhi NCR, premium escort service, private meetings, safe escort service, Delhi escort, Noida escort, Gurgaon escort, Ghaziabad escort, Greater Noida escort, verified companions, discreet escort service"
-        canonicalUrl="https://funwithjuli.com/"
+        canonicalUrl="https://funwithjuli.in/"
         structuredData={structuredData}
       />
       <div className="relative isolate overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">

@@ -62,7 +62,7 @@ const SupportCenter = () => {
         title="Support Center - 24/7 Help | FunwithJuli Escort Service"
         description="Get instant help and support for FunwithJuli escort services. 24/7 customer support, FAQs, and assistance for premium escort bookings in Delhi NCR."
         keywords="escort support, customer service, help center, FunwithJuli support, escort service help, Delhi escort support, 24/7 escort assistance"
-        canonicalUrl="https://funwithjuli.com/support-center"
+        canonicalUrl="https://funwithjuli.in/support-center"
         noIndex={true}
       />
       <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">

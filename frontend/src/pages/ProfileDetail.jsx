@@ -103,7 +103,7 @@ const ProfileDetail = () => {
         title={`${profile?.name || "Profile"} - Premium Escort Companion | FunwithJuli`}
         description={`Meet ${profile?.name || "our premium companion"}, a verified escort offering exclusive services in ${profile?.location || "Delhi NCR"}. Professional, discreet, and high-quality companion services.`}
         keywords={`${profile?.name} escort, ${profile?.location} companion, premium escort service, verified companion, Delhi NCR escorts, professional escort ${profile?.name}`}
-        canonicalUrl={`https://funwithjuli.com/profile/${id}`}
+        canonicalUrl={`https://funwithjuli.in/profile/${id}`}
         ogImage={profile?.images?.[0] || ""}
       />
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

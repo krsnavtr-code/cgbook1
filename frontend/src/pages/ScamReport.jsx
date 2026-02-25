@@ -51,7 +51,7 @@ const ScamReport = () => {
         title="Scam Report - Report Fraud | FunwithJuli Escort Service"
         description="Report scams, fraud, or suspicious activity on FunwithJuli. Help us maintain a safe escort platform. Your report will be handled confidentially."
         keywords="scam report, fraud report, escort scam, report suspicious activity, FunwithJuli safety, escort platform security, report fake profiles"
-        canonicalUrl="https://funwithjuli.com/scam-report"
+        canonicalUrl="https://funwithjuli.in/scam-report"
         noIndex={true}
       />
       <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300 pb-20">

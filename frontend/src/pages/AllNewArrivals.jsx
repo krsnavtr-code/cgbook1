@@ -71,7 +71,7 @@ const AllNewArrivals = () => {
         title="New Arrivals - Latest Escort Companions in Delhi NCR | FunwithJuli"
         description="Discover the newest escort companions in Delhi NCR. Fresh profiles daily with verified photos and premium services. Meet our latest arrivals for exclusive experiences."
         keywords="new arrivals, latest escorts, new companions Delhi, fresh escort profiles, premium escorts NCR, verified new escorts, Delhi escort service"
-        canonicalUrl="https://funwithjuli.com/new-arrivals"
+        canonicalUrl="https://funwithjuli.in/new-arrivals"
       />
       <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
         {/* --- Adaptive Navigation --- */}
