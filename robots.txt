@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://funwithjuli.in/sitemap.xml
+
+# Disallow admin areas from search engine indexing (optional)
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /profile/
+Disallow: /profile/*
+
+# Allow specific important paths
+Allow: /photos
+Allow: /new-arrivals
+Allow: /meetings/*
+Allow: /support-center
+Allow: /help-center
+Allow: /contact-us
+
+# Crawl delay (optional - adjust based on server capacity)
+Crawl-delay: 1

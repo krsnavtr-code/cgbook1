@@ -53,7 +53,7 @@ const Banner = () => {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0">
-              Join the exclusive community of **funwithjuli.in**. Discover
+              Join the exclusive community of funwithjuli. Discover
               premium videos, high-quality photos, and behind-the-scenes content
               you won't find anywhere else.
             </p>
