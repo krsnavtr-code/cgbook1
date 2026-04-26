@@ -13,11 +13,10 @@ export const getImageUrl = (filename) => {
     ? getFilename(new URL(filename).pathname)
     : getFilename(filename);
 
-  // Get the API URL from environment variables
-  const API_URL = import.meta.env.VITE_API_URL;
+  // Always return URLs starting with https://funwithjuli.in/api/ as requested
+  const baseUrl = "https://funwithjuli.in/api";
 
-  // Return full HTTPS URL to avoid mixed content issues
-  return `${API_URL}/upload/file/${encodeURIComponent(cleanFilename)}`;
+  return `${baseUrl}/upload/file/${encodeURIComponent(cleanFilename)}`;
 };
 
 // ================= MEDIA LIST =================
@@ -27,14 +26,27 @@ export const getUploadedImages = async () => {
   const response = await api.get("/upload/files");
 
   if (response.data?.data) {
-    response.data.data = response.data.data.map((file) => ({
-      ...file,
-      type:
-        file.type || (file.mimetype?.startsWith("video/") ? "video" : "image"),
-      url: file.url || getImageUrl(file.name || file.path),
-      thumbnailUrl:
-        file.thumbnailUrl || file.url || getImageUrl(file.name || file.path),
-    }));
+    response.data.data = response.data.data.map((file) => {
+      // Ensure URLs use the correct base URL
+      const ensureCorrectBaseUrl = (url) => {
+        if (!url) return getImageUrl(file.name || file.path);
+        // If URL doesn't start with the correct base, update it
+        if (!url.startsWith("https://funwithjuli.in/api/")) {
+          const filename = getFilename(url);
+          return `https://funwithjuli.in/api/upload/file/${encodeURIComponent(filename)}`;
+        }
+        return url;
+      };
+
+      return {
+        ...file,
+        type:
+          file.type ||
+          (file.mimetype?.startsWith("video/") ? "video" : "image"),
+        url: ensureCorrectBaseUrl(file.url),
+        thumbnailUrl: ensureCorrectBaseUrl(file.thumbnailUrl || file.url),
+      };
+    });
   }
 
   return response.data;
