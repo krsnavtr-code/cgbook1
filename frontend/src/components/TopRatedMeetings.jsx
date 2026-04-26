@@ -41,7 +41,7 @@ const TopRatedMeetings = () => {
       reviews: 124,
       category: "Elite",
       price: "₹₹₹",
-      img: "https://funwithjuli.in/api/upload/file/14-25022026-0528.jpeg",
+      img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.41-pm-26042026-1110.jpeg",
       verified: true,
     },
     {
@@ -51,7 +51,7 @@ const TopRatedMeetings = () => {
       reviews: 98,
       category: "Independent",
       price: "₹₹",
-      img: "https://funwithjuli.in/api/upload/file/22-21012026-0640.jpeg",
+      img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.42-pm--2--26042026-1110.jpeg",
       verified: true,
     },
     {
@@ -61,7 +61,7 @@ const TopRatedMeetings = () => {
       reviews: 156,
       category: "Superhost",
       price: "₹₹₹",
-      img: "https://funwithjuli.in/api/upload/file/29-21012026-0640.jpeg",
+      img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.42-pm-26042026-1110.jpeg",
       verified: true,
     },
   ];
