@@ -447,24 +447,68 @@ const Profiles = () => {
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Profile Image
                   </label>
-                  <select
-                    required
-                    value={formData.img}
-                    onChange={(e) =>
-                      setFormData({ ...formData, img: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  >
-                    <option value="">Select an image</option>
-                    {images.map((image) => (
-                      <option
-                        key={image.url || image.name}
-                        value={image.url || image.name}
-                      >
-                        {image.name || image.url}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="border border-gray-300 dark:border-gray-600 rounded-md p-3 max-h-48 overflow-y-auto dark:bg-gray-700">
+                    <div className="grid grid-cols-4 gap-2">
+                      {images.map((image, index) => (
+                        <div
+                          key={image.url || image.name}
+                          onClick={() =>
+                            setFormData({
+                              ...formData,
+                              img: image.url || image.name,
+                            })
+                          }
+                          className={`relative cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                            formData.img === (image.url || image.name)
+                              ? "border-indigo-500 ring-2 ring-indigo-200"
+                              : "border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500"
+                          }`}
+                        >
+                          <img
+                            src={image.url || image.thumbnailUrl}
+                            alt={image.name || `Image ${index + 1}`}
+                            className="w-full h-16 object-cover"
+                            onError={(e) => {
+                              e.target.src =
+                                "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMSAzMkwyOCAyNUwzNiAzMkwyOCAzOUwyMSAzMloiIGZpbGw9IiM5Q0EzQUYiLz4KPGNpcmNsZSBjeD0iMzIiIGN5PSIyNCIgcj0iMiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K";
+                            }}
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs text-center py-1">
+                            {index + 1}
+                          </div>
+                          {formData.img === (image.url || image.name) && (
+                            <div className="absolute top-1 right-1 bg-indigo-500 rounded-full p-1">
+                              <svg
+                                className="w-3 h-3 text-white"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    {images.length === 0 && (
+                      <div className="text-center text-gray-500 dark:text-gray-400 py-4">
+                        No images available
+                      </div>
+                    )}
+                  </div>
+                  {formData.img && (
+                    <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                      Selected:{" "}
+                      {images.find(
+                        (img) => (img.url || img.name) === formData.img,
+                      )?.name ||
+                        `Image ${images.findIndex((img) => (img.url || img.name) === formData.img) + 1}`}
+                    </div>
+                  )}
                 </div>
 
                 <div>
