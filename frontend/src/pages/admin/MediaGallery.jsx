@@ -865,6 +865,7 @@ const ImageGallery = () => {
                         <div className="flex gap-2">
                           <button
                             onClick={(e) => {
+                              e.stopPropagation();
                               startRenaming(item, e);
                             }}
                             className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -874,6 +875,7 @@ const ImageGallery = () => {
                           </button>
                           <button
                             onClick={(e) => {
+                              e.stopPropagation();
                               copyToClipboard(item.url);
                             }}
                             className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -882,9 +884,10 @@ const ImageGallery = () => {
                             <FiCopy />
                           </button>
                           <button
-                            onClick={(e) =>
-                              handleDelete(item.name || item.filename, e)
-                            }
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDelete(item.name || item.filename, e);
+                            }}
                             className="p-2 hover:bg-red-50 dark:hover:bg-red-500/20 rounded text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500"
                             title="Delete"
                           >
