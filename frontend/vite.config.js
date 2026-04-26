@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }) => {
       proxy: {
         // Proxy API requests to the backend
         '^/api': {
-          target: env.VITE_API_URL || 'https://api.funwithjuli.in',
+          target: env.VITE_API_URL,
           changeOrigin: true,
           secure: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
@@ -21,7 +21,7 @@ export default defineConfig(({ command, mode }) => {
     },
     // Make environment variables available to the client
     define: {
-      'process.env.VITE_API_URL': JSON.stringify(env.VITE_API_URL || 'https://api.funwithjuli.in'),
+      'process.env.VITE_API_URL': JSON.stringify(env.VITE_API_URL),
     },
   };
 });

@@ -53,7 +53,7 @@ const NewArrivals = () => {
             name: "Kiara",
             joined: "2 hours ago",
             location: "Mumbai",
-            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.56-pm--2--21012026-0640.jpeg",
+            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.29.56-pm--2--21012026-0640.jpeg",
             type: "Video",
           },
           {
@@ -61,7 +61,7 @@ const NewArrivals = () => {
             name: "Mehak",
             joined: "5 hours ago",
             location: "Pune",
-            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm--1--21012026-0640.jpeg",
+            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm--1--21012026-0640.jpeg",
             type: "Photos",
           },
           {
@@ -69,7 +69,7 @@ const NewArrivals = () => {
             name: "Zoya",
             joined: "1 day ago",
             location: "Delhi",
-            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm-21012026-0640.jpeg",
+            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm-21012026-0640.jpeg",
             type: "Video",
           },
           {
@@ -77,7 +77,7 @@ const NewArrivals = () => {
             name: "Tanya",
             joined: "2 days ago",
             location: "Bangalore",
-            img: "http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.03-pm-21012026-0640.jpeg",
+            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.30.03-pm-21012026-0640.jpeg",
             type: "Photos",
           },
         ]);

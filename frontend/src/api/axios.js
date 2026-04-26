@@ -2,7 +2,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 // Get the API URL from environment variables or use the default
-const API_URL = import.meta.env.VITE_API_URL || 'https://api.funwithjuli.in';
+const API_URL = import.meta.env.VITE_API_URL;
 
 // Create axios instance with base URL and headers
 const api = axios.create({
