@@ -13,7 +13,11 @@ export const getImageUrl = (filename) => {
     ? getFilename(new URL(filename).pathname)
     : getFilename(filename);
 
-  return `/upload/file/${encodeURIComponent(cleanFilename)}`;
+  // Get the API URL from environment variables
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  // Return full HTTPS URL to avoid mixed content issues
+  return `${API_URL}/upload/file/${encodeURIComponent(cleanFilename)}`;
 };
 
 // ================= MEDIA LIST =================
