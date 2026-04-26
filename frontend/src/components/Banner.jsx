@@ -134,7 +134,7 @@ const Banner = () => {
                 {/* Replace with actual image of Juli/Content */}
                 <div className="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
                   <img
-                    src="http://api.funwithjuli.in/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm--1--21012026-0640.jpeg"
+                    src="http://api.funwithjuli.in/upload/file/one-25022026-0528.jpeg"
                     alt="Featured Content"
                     className="w-full h-full object-cover"
                   />
