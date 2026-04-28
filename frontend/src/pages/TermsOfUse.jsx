@@ -29,9 +29,9 @@ const TermsOfUse = () => {
         canonicalUrl="https://funwithjuli.in/terms-of-use"
         noIndex={true}
       />
-      <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+      <div className="min-h-screen bg-white  text-zinc-900  transition-colors duration-300">
         {/* --- Aesthetic Header --- */}
-        <div className="relative overflow-hidden bg-zinc-50 dark:bg-zinc-900/50 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="relative overflow-hidden bg-zinc-50  border-b border-zinc-200 ">
           <div className="max-w-5xl mx-auto px-6 py-16 relative z-10">
             <button
               onClick={() => navigate(-1)}
@@ -55,7 +55,7 @@ const TermsOfUse = () => {
                   Terms of <span className="text-zinc-400">Use</span>
                 </h1>
               </div>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-xs font-medium leading-relaxed">
+              <p className="text-sm text-zinc-500  max-w-xs font-medium leading-relaxed">
                 By accessing funwithjuli.in, you agree to follow these
                 guidelines. Last updated: Jan 2026.
               </p>
@@ -69,7 +69,7 @@ const TermsOfUse = () => {
           {/* --- Quick Summary Bento --- */}
           <div className="lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-              <div className="p-8 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-[2.5rem] shadow-2xl">
+              <div className="p-8 bg-zinc-900  text-white  rounded-[2.5rem] shadow-2xl">
                 <h3 className="text-xl font-bold mb-6">The TL;DR</h3>
                 <ul className="space-y-6">
                   {summaryPoints.map((item, i) => (
@@ -83,7 +83,7 @@ const TermsOfUse = () => {
                 </ul>
               </div>
 
-              <div className="p-8 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] flex flex-col items-center text-center">
+              <div className="p-8 border border-zinc-200  rounded-[2.5rem] flex flex-col items-center text-center">
                 <CheckBadgeIcon className="h-10 w-10 text-zinc-300 mb-4" />
                 <p className="text-xs text-zinc-500 font-bold uppercase tracking-widest">
                   Certified Safe Platform
@@ -93,7 +93,7 @@ const TermsOfUse = () => {
           </div>
 
           {/* --- Detailed Legal Content --- */}
-          <div className="lg:col-span-8 space-y-12 prose prose-zinc dark:prose-invert max-w-none">
+          <div className="lg:col-span-8 space-y-12 prose prose-zinc max-w-none">
             <section>
               <div className="flex items-baseline gap-4 mb-4">
                 <span className="text-4xl font-black text-pink-500/20 italic">
@@ -101,7 +101,7 @@ const TermsOfUse = () => {
                 </span>
                 <h2 className="text-2xl font-bold m-0">Acceptance of Terms</h2>
               </div>
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-zinc-600  leading-relaxed">
                 By using this website, you confirm that you are at least 18
                 years of age. If you do not agree with any part of these terms,
                 you must immediately cease use of our services. Our gallery is
@@ -116,7 +116,7 @@ const TermsOfUse = () => {
                 </span>
                 <h2 className="text-2xl font-bold m-0">User Conduct</h2>
               </div>
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-zinc-600  leading-relaxed">
                 You agree not to use the platform to harass, abuse, or harm
                 another person. Any attempt to scrape data, use automated bots,
                 or misrepresent your identity will result in a permanent IP ban.
@@ -141,8 +141,8 @@ const TermsOfUse = () => {
                   Disclaimer of Liability
                 </h2>
               </div>
-              <div className="p-6 bg-zinc-50 dark:bg-zinc-900 border-l-4 border-pink-500 rounded-r-2xl">
-                <p className="text-sm italic text-zinc-600 dark:text-zinc-400 m-0">
+              <div className="p-6 bg-zinc-50  border-l-4 border-pink-500 rounded-r-2xl">
+                <p className="text-sm italic text-zinc-600  m-0">
                   "funwithjuli.in acts as a directory service. We do not employ
                   the individuals listed in our gallery and are not responsible
                   for interactions occurring outside of our platform."
@@ -159,7 +159,7 @@ const TermsOfUse = () => {
                   Intellectual Property
                 </h2>
               </div>
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-zinc-600  leading-relaxed">
                 All logos, designs, and curated content are the exclusive
                 property of funwithjuli.in. Unauthorized use of our trademark or
                 assets is strictly prohibited.
@@ -169,7 +169,7 @@ const TermsOfUse = () => {
         </main>
 
         {/* --- Final CTA Footer --- */}
-        <footer className="border-t border-zinc-200 dark:border-zinc-800 py-20 px-6">
+        <footer className="border-t border-zinc-200  py-20 px-6">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-4">
               <DocumentTextIcon className="h-10 w-10 text-zinc-300" />
@@ -182,7 +182,7 @@ const TermsOfUse = () => {
             </div>
             <button
               onClick={() => window.print()}
-              className="px-6 py-3 border border-zinc-200 dark:border-zinc-700 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+              className="px-6 py-3 border border-zinc-200  rounded-xl text-xs font-black uppercase tracking-widest hover:bg-zinc-50  transition-colors"
             >
               Download PDF
             </button>

@@ -22,21 +22,21 @@ const ScamReport = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 flex items-center justify-center p-6">
-        <div className="max-w-md w-full text-center space-y-6 p-10 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-xl">
-          <div className="mx-auto w-20 h-20 bg-green-100 dark:bg-green-500/10 rounded-full flex items-center justify-center">
-            <ShieldCheckIcon className="h-10 w-10 text-green-600 dark:text-green-400" />
+      <div className="min-h-screen bg-zinc-50 flex items-center justify-center p-6">
+        <div className="max-w-md w-full text-center space-y-6 p-10 bg-whiterounded-[2.5rem] border border-zinc-200  shadow-xl">
+          <div className="mx-auto w-20 h-20 bg-green-100  rounded-full flex items-center justify-center">
+            <ShieldCheckIcon className="h-10 w-10 text-green-600 " />
           </div>
-          <h2 className="text-2xl font-bold dark:text-white">
+          <h2 className="text-2xl font-bold ">
             Report Received
           </h2>
-          <p className="text-zinc-500 dark:text-zinc-400">
+          <p className="text-zinc-500 ">
             Thank you for keeping the community safe. Our moderators will review
             this profile immediately.
           </p>
           <button
             onClick={() => navigate("/")}
-            className="w-full py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl font-bold hover:opacity-90 transition-opacity"
+            className="w-full py-4 bg-zinc-900  text-white  rounded-2xl font-bold hover:opacity-90 transition-opacity"
           >
             Back to Home
           </button>
@@ -54,7 +54,7 @@ const ScamReport = () => {
         canonicalUrl="https://funwithjuli.in/scam-report"
         noIndex={true}
       />
-      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300 pb-20">
+      <div className="min-h-screen bg-zinc-50  text-zinc-900 transition-colors duration-300 pb-20">
         {/* --- Header Section --- */}
         <div className="max-w-4xl mx-auto px-6 pt-12">
           <button
@@ -71,7 +71,7 @@ const ScamReport = () => {
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
               Report a <span className="text-red-500">Scam</span>
             </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-lg max-w-2xl">
+            <p className="text-zinc-500  text-lg max-w-2xl">
               Help us maintain the integrity of funwithjuli.in. If you
               encountered a fake profile or fraudulent behavior, let us know.
             </p>
@@ -81,18 +81,18 @@ const ScamReport = () => {
         <main className="max-w-4xl mx-auto px-6 mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* --- Information Sidebar --- */}
           <div className="md:col-span-1 space-y-6">
-            <div className="p-6 bg-red-50 dark:bg-red-500/5 border border-red-100 dark:border-red-500/10 rounded-3xl">
+            <div className="p-6 bg-red-50  border border-red-100 rounded-3xl">
               <ExclamationTriangleIcon className="h-8 w-8 text-red-500 mb-4" />
-              <h3 className="font-bold text-red-900 dark:text-red-400">
+              <h3 className="font-bold text-red-900 ">
                 Quick Alert
               </h3>
-              <p className="text-sm text-red-700/80 dark:text-red-400/60 mt-2">
+              <p className="text-sm text-red-700/80 /60 mt-2">
                 Never share your OTP, bank details, or personal addresses with
                 anyone on the platform.
               </p>
             </div>
 
-            <div className="p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl">
+            <div className="p-6 bg-whiteborder border-zinc-200  rounded-3xl">
               <h4 className="font-bold text-sm uppercase tracking-widest mb-4">
                 What happens next?
               </h4>
@@ -118,7 +118,7 @@ const ScamReport = () => {
           <div className="md:col-span-2">
             <form
               onSubmit={handleSubmit}
-              className="space-y-6 bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm"
+              className="space-y-6 bg-whitep-8 md:p-10 rounded-[2.5rem] border border-zinc-200  shadow-sm"
             >
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider text-zinc-500">
@@ -128,7 +128,7 @@ const ScamReport = () => {
                   type="text"
                   required
                   placeholder="Who are you reporting?"
-                  className="w-full bg-zinc-100 dark:bg-zinc-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-red-500 transition-all outline-none"
+                  className="w-full bg-zinc-100 border-none rounded-2xl p-4 focus:ring-2 focus:ring-red-500 transition-all outline-none"
                 />
               </div>
 
@@ -136,7 +136,7 @@ const ScamReport = () => {
                 <label className="text-sm font-bold uppercase tracking-wider text-zinc-500">
                   Type of Issue
                 </label>
-                <select className="w-full bg-zinc-100 dark:bg-zinc-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-red-500 transition-all outline-none appearance-none">
+                <select className="w-full bg-zinc-100 border-none rounded-2xl p-4 focus:ring-2 focus:ring-red-500 transition-all outline-none appearance-none">
                   <option>Fake Photos / Misleading</option>
                   <option>Financial Fraud / Scam</option>
                   <option>Harassment</option>
@@ -153,7 +153,7 @@ const ScamReport = () => {
                   rows="4"
                   required
                   placeholder="Please describe what happened..."
-                  className="w-full bg-zinc-100 dark:bg-zinc-800 border-none rounded-2xl p-4 focus:ring-2 focus:ring-red-500 transition-all outline-none resize-none"
+                  className="w-full bg-zinc-100  border-none rounded-2xl p-4 focus:ring-2 focus:ring-red-500 transition-all outline-none resize-none"
                 ></textarea>
               </div>
 
@@ -161,7 +161,7 @@ const ScamReport = () => {
                 <label className="text-sm font-bold uppercase tracking-wider text-zinc-500">
                   Evidence (Optional)
                 </label>
-                <div className="border-2 border-dashed border-zinc-200 dark:border-zinc-700 rounded-2xl p-8 flex flex-col items-center justify-center hover:border-red-500 transition-colors cursor-pointer group">
+                <div className="border-2 border-dashed border-zinc-200 rounded-2xl p-8 flex flex-col items-center justify-center hover:border-red-500 transition-colors cursor-pointer group">
                   <CloudArrowUpIcon className="h-8 w-8 text-zinc-400 group-hover:text-red-500 transition-colors" />
                   <span className="text-sm text-zinc-500 mt-2">
                     Upload screenshots

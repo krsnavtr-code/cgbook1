@@ -135,7 +135,7 @@ const PhotoGallery = () => {
         canonicalUrl="https://funwithjuli.in/photos"
         structuredData={structuredData}
       />
-      <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
+      <div className="min-h-screen bg-white transition-colors duration-500">
         {/* --- HEADER --- */}
         <header className="relative py-24 px-4 overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-pink-500/10 via-indigo-500/5 to-transparent blur-3xl opacity-60" />
@@ -146,13 +146,13 @@ const PhotoGallery = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-6xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
+              <h1 className="text-6xl md:text-7xl font-black tracking-tight text-gray-900 mb-6">
                 HD{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-500">
                   Photo Gallery
                 </span>
               </h1>
-              <p className="text-gray-500 dark:text-gray-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
+              <p className="text-gray-500  text-xl max-w-2xl mx-auto font-light leading-relaxed">
                 A curated visual journey through our premium collections and
                 exclusive captures.
               </p>
@@ -168,7 +168,7 @@ const PhotoGallery = () => {
               {[...Array(8)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-full bg-gray-200 dark:bg-gray-800 rounded-3xl animate-pulse"
+                  className="w-full bg-gray-200 rounded-3xl animate-pulse"
                   style={{
                     height: `${Math.floor(Math.random() * (400 - 200 + 1) + 200)}px`,
                   }}
@@ -185,7 +185,7 @@ const PhotoGallery = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="relative group break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in bg-gray-100 dark:bg-gray-900 border border-transparent dark:border-gray-800 hover:border-pink-500/30 transition-all duration-300"
+                  className="relative group break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in bg-gray-100 border border-transparent hover:border-pink-500/30 transition-all duration-300"
                   onClick={() => setSelectedImage(item)}
                 >
                   <img

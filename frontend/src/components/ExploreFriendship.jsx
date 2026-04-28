@@ -62,24 +62,24 @@ const ExploreFriendship = () => {
   ];
 
   return (
-    <section className="pb-24 pt-14 bg-white dark:bg-gray-900 overflow-hidden">
+    <section className="pb-24 pt-14 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 text-center md:text-left">
           <div className="max-w-xl">
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl font-black text-gray-900  mb-4">
               More Than Just{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                 Meetings
               </span>
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 text-lg">
+            <p className="text-gray-500  text-lg">
               With so many options available, how do you decide? At funwithjuli,
               we suggest looking at your schedule and the nature of the meeting.
             </p>
           </div>
           {/* <div className="mt-8 md:mt-0">
-            <button className="px-8 py-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-bold rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-sm">
+            <button className="px-8 py-4 bg-gray-100  text-gray-900  font-bold rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-sm">
               Explore All Categories
             </button>
           </div> */}
@@ -90,7 +90,7 @@ const ExploreFriendship = () => {
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="group relative p-8 rounded-[2.5rem] bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 hover:border-cyan-500/50 transition-all duration-300"
+              className="group relative p-8 rounded-[2.5rem] bg-gray-50  border border-gray-100  hover:border-cyan-500/50 transition-all duration-300"
             >
               {/* Icon Circle */}
               <div
@@ -99,14 +99,14 @@ const ExploreFriendship = () => {
                 {cat.icon}
               </div>
 
-              <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-3">
+              <h3 className="text-2xl font-black text-gray-900 mb-3">
                 {cat.title}
               </h3>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              <p className="text-gray-500 leading-relaxed mb-6">
                 {cat.description}
               </p>
 
-              {/* <button className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-bold group-hover:gap-4 transition-all">
+              {/* <button className="flex items-center gap-2 text-cyan-600 font-bold group-hover:gap-4 transition-all">
                 Browse Profiles
                 <svg
                   className="w-5 h-5"
@@ -131,16 +131,16 @@ const ExploreFriendship = () => {
           ))}
         </div>
 
-        <section className="bg-gray-50 dark:bg-gray-950 mt-8">
+        <section className="bg-gray-50  mt-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* HEADER & SEARCH */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div>
-                <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+                <h2 className="text-4xl font-black text-gray-900 mb-4">
                   Easy Booking &{" "}
                   <span className="text-pink-600">100% Discreet Support</span>
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-gray-600 ">
                   Our platform offers an <strong>easy booking process</strong>{" "}
                   designed to save time while maintaining full privacy. Users
                   can browse verified profiles, choose their preference, and
@@ -172,10 +172,10 @@ const ExploreFriendship = () => {
         </section>
 
         {/* Professional Companionship Section */}
-        <section className="bg-white dark:bg-gray-900 mt-16">
+        <section className="bg-white  mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+              <h2 className="text-4xl font-black text-gray-900  mb-4">
                 Understanding the Need for{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                   Professional Companionship
@@ -183,7 +183,7 @@ const ExploreFriendship = () => {
               </h2>
             </div>
 
-            <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-400">
+            <div className="prose prose-lg max-w-none text-gray-600 ">
               <p className="text-lg leading-relaxed mb-6">
                 Life in a fast-paced city can be demanding. Often, individuals
                 seek a brief escape or a graceful partner to accompany them to
@@ -206,7 +206,7 @@ const ExploreFriendship = () => {
 
               {showFullContent && (
                 <>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
                     Elite Female Models Delhi: Beyond Just Beauty
                   </h3>
                   <p className="text-lg leading-relaxed mb-6">
@@ -226,7 +226,7 @@ const ExploreFriendship = () => {
                     including meaningful conversation and graceful presence.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
                     Seamless Integration of Services in NCR
                   </h3>
                   <p className="text-lg leading-relaxed mb-6">
@@ -244,7 +244,7 @@ const ExploreFriendship = () => {
                     high-end companionship is always accessible.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
                     Safety and Reliability
                   </h3>
                   <p className="text-lg leading-relaxed mb-6">
@@ -263,7 +263,7 @@ const ExploreFriendship = () => {
                     yourself.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
                     Serving the Modern Gentleman in the Digital Age
                   </h3>
                   <p className="text-lg leading-relaxed mb-6">
@@ -281,7 +281,7 @@ const ExploreFriendship = () => {
                     ensure that funwithjuli remains at the top of your list.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
                     Your Journey with funwithjuli Starts Here
                   </h3>
                   <p className="text-lg leading-relaxed mb-6">

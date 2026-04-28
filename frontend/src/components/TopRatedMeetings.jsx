@@ -67,20 +67,20 @@ const TopRatedMeetings = () => {
   ];
 
   return (
-    <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with "Elite" Styling */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-black text-amber-500 uppercase tracking-[0.3em] mb-3">
             The Gold Standard
           </h2>
-          <h3 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
+          <h3 className="text-4xl md:text-5xl font-black text-gray-900  mb-6">
             Top Rated{" "}
             <span className="underline decoration-amber-500 decoration-4 underline-offset-8">
               Companions
             </span>
           </h3>
-          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-500  max-w-2xl mx-auto text-lg">
             Hand-picked profiles with 100% verified reviews and exceptional
             service standards.
           </p>
@@ -93,10 +93,10 @@ const TopRatedMeetings = () => {
               className={`group relative rounded-[2rem] p-1 transition-all duration-500 hover:scale-[1.02] ${
                 index === 1
                   ? "bg-gradient-to-b from-amber-400 to-yellow-600 shadow-2xl shadow-amber-500/20"
-                  : "bg-gray-100 dark:bg-gray-800"
+                  : "bg-gray-100 "
               }`}
             >
-              <div className="bg-white dark:bg-gray-900 rounded-[1.8rem] overflow-hidden">
+              <div className="bg-white  rounded-[1.8rem] overflow-hidden">
                 {/* Image Section */}
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
@@ -130,7 +130,7 @@ const TopRatedMeetings = () => {
                 {/* Info Section */}
                 <div className="p-8 text-center">
                   <div className="flex justify-center items-center gap-2 mb-2">
-                    <h4 className="text-2xl font-black text-gray-900 dark:text-white">
+                    <h4 className="text-2xl font-black text-gray-900 ">
                       {profile.name}
                     </h4>
                     {profile.verified && (
@@ -149,7 +149,7 @@ const TopRatedMeetings = () => {
                       </div>
                     )}
                   </div>
-                  <p className="text-amber-600 dark:text-amber-400 text-sm font-bold uppercase tracking-widest mb-4">
+                  <p className="text-amber-600  text-sm font-bold uppercase tracking-widest mb-4">
                     {profile.category} • {profile.price}
                   </p>
 
@@ -164,7 +164,7 @@ const TopRatedMeetings = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     disabled={!ownerInfo || loading}
-                    className={`w-full py-4 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-black hover:bg-amber-500 dark:hover:bg-amber-500 dark:hover:text-white transition-all transform active:scale-95 text-center block ${
+                    className={`w-full py-4 rounded-2xl bg-gray-900 text-whitefont-black hover:bg-amber-500 transition-all transform active:scale-95 text-center block ${
                       !ownerInfo || loading
                         ? "opacity-70 cursor-not-allowed"
                         : ""

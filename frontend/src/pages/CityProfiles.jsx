@@ -79,7 +79,7 @@ const CityProfiles = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500"></div>
       </div>
     );
@@ -87,14 +87,14 @@ const CityProfiles = () => {
 
   if (error || profiles.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 ">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back
@@ -105,7 +105,7 @@ const CityProfiles = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 capitalize">
+            <h1 className="text-3xl font-bold text-gray-900mb-4 capitalize">
               {city}
             </h1>
             <div className="text-gray-400 text-lg mb-8">
@@ -120,7 +120,7 @@ const CityProfiles = () => {
               </button>
               <button
                 onClick={() => navigate("/meetings")}
-                className="px-6 py-3 border-2 border-pink-500 text-pink-500 rounded-xl font-bold hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all"
+                className="px-6 py-3 border-2 border-pink-500 text-pink-500 rounded-xl font-bold hover:bg-pink-50 transition-all"
               >
                 All Cities
               </button>
@@ -139,21 +139,21 @@ const CityProfiles = () => {
         keywords={`${city} escorts, ${city} call girls, premium escorts ${city}, ${city} escort service, verified companions ${city}, safe escort meetings`}
         canonicalUrl={`https://funwithjuli.in/meetings/${city.toLowerCase()}`}
       />
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back
               </button>
               <div className="flex items-center gap-2">
                 <MapPinIcon className="h-5 w-5 text-pink-500" />
-                <span className="text-gray-900 dark:text-white font-semibold capitalize">
+                <span className="text-gray-900 font-semibold capitalize">
                   {city}
                 </span>
               </div>
@@ -267,11 +267,11 @@ const CityProfiles = () => {
 
           {/* Contact Section */}
           {ownerInfo && (
-            <div className="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+            <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Interested in Multiple Profiles?
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-center mb-8">
+              <p className="text-gray-600 text-center mb-8">
                 Contact us directly for personalized recommendations and special
                 arrangements.
               </p>

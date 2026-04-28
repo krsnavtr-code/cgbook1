@@ -143,7 +143,7 @@ const HelpCenter = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500"></div>
       </div>
     );
@@ -158,19 +158,19 @@ const HelpCenter = () => {
         canonicalUrl="https://funwithjuli.in/help-center"
         noIndex={true}
       />
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <span className="mr-2">←</span>
                 Back
               </button>
-              <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <h1 className="text-xl font-semibold text-gray-900">
                 Help Center
               </h1>
               <div className="w-16"></div>
@@ -196,7 +196,7 @@ const HelpCenter = () => {
 
         {/* Search Bar */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+          <div className="bg-white rounded-2xl shadow-xl p-6">
             <div className="relative">
               <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
@@ -204,7 +204,7 @@ const HelpCenter = () => {
                 placeholder="Search for help articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -214,7 +214,7 @@ const HelpCenter = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Help Categories */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Help Categories
               </h2>
               <div className="space-y-4">
@@ -225,13 +225,13 @@ const HelpCenter = () => {
                   return (
                     <div
                       key={category.id}
-                      className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
+                      className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
                     >
                       <button
                         onClick={() =>
                           setExpandedCategory(isExpanded ? null : category.id)
                         }
-                        className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                        className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                       >
                         <div className="flex items-center gap-4">
                           <div
@@ -240,10 +240,10 @@ const HelpCenter = () => {
                             <Icon className="w-6 h-6 text-white" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-900 dark:text-white">
+                            <h3 className="font-semibold text-gray-900">
                               {category.title}
                             </h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="text-sm text-gray-500">
                               {category.items.length} articles
                             </p>
                           </div>
@@ -256,7 +256,7 @@ const HelpCenter = () => {
                       </button>
 
                       {isExpanded && (
-                        <div className="px-6 pb-6 border-t border-gray-200 dark:border-gray-700">
+                        <div className="px-6 pb-6 border-t border-gray-200">
                           <ul className="space-y-3 pt-4">
                             {category.items.map((item, index) => (
                               <li
@@ -264,9 +264,7 @@ const HelpCenter = () => {
                                 className="flex items-center gap-3"
                               >
                                 <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                <span className="text-gray-700 dark:text-gray-300">
-                                  {item}
-                                </span>
+                                <span className="text-gray-700">{item}</span>
                               </li>
                             ))}
                           </ul>
@@ -281,8 +279,8 @@ const HelpCenter = () => {
             {/* Quick Actions & Common Issues */}
             <div className="space-y-8">
               {/* Quick Contact */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 className="font-semibold text-gray-900 mb-4">
                   Quick Contact
                 </h3>
                 <div className="space-y-3">
@@ -291,23 +289,23 @@ const HelpCenter = () => {
                       href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                      className="flex items-center gap-3 p-3 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
                     >
                       <ChatBubbleLeftRightIcon className="w-5 h-5 text-green-600" />
-                      <span className="text-sm font-medium text-gray-900 dark:text-white">
+                      <span className="text-sm font-medium text-gray-900">
                         WhatsApp Support
                       </span>
                     </a>
                   )}
-                  <button className="w-full flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+                  <button className="w-full flex items-center gap-3 p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
                     <EnvelopeIcon className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-900 dark:text-white">
+                    <span className="text-sm font-medium text-gray-900">
                       Email Support
                     </span>
                   </button>
-                  <button className="w-full flex items-center gap-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+                  <button className="w-full flex items-center gap-3 p-3 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
                     <PhoneIcon className="w-5 h-5 text-purple-600" />
-                    <span className="text-sm font-medium text-gray-900 dark:text-white">
+                    <span className="text-sm font-medium text-gray-900">
                       Call Support
                     </span>
                   </button>
@@ -315,15 +313,15 @@ const HelpCenter = () => {
               </div>
 
               {/* Common Issues */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 className="font-semibold text-gray-900 mb-4">
                   Common Issues
                 </h3>
                 <div className="space-y-4">
                   {commonIssues.map((issue, index) => (
                     <div
                       key={index}
-                      className="border-l-4 border-gray-200 dark:border-gray-600 pl-4"
+                      className="border-l-4 border-gray-200 pl-4"
                     >
                       <div className="flex items-start gap-2">
                         {issue.severity === "high" && (
@@ -336,10 +334,10 @@ const HelpCenter = () => {
                           <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0 mt-1" />
                         )}
                         <div>
-                          <h4 className="font-medium text-gray-900 dark:text-white text-sm">
+                          <h4 className="font-medium text-gray-900 text-sm">
                             {issue.title}
                           </h4>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                          <p className="text-xs text-gray-500 mt-1">
                             {issue.solution}
                           </p>
                         </div>

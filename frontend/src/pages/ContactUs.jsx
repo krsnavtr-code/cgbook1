@@ -91,7 +91,7 @@ const ContactUs = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500"></div>
       </div>
     );
@@ -105,19 +105,19 @@ const ContactUs = () => {
         keywords="contact escort service, call FunwithJuli, Delhi escort contact, NCR escort service contact, escort booking, premium escort contact"
         canonicalUrl="https://funwithjuli.in/contact-us"
       />
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <span className="mr-2">←</span>
                 Back
               </button>
-              <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <h1 className="text-xl font-semibold text-gray-900">
                 Contact Us
               </h1>
               <div className="w-16"></div>
@@ -141,16 +141,16 @@ const ContactUs = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Send us a Message
               </h2>
 
               {formSubmitted ? (
                 <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg
-                      className="w-8 h-8 text-green-600 dark:text-green-400"
+                      className="w-8 h-8 text-green-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -163,10 +163,10 @@ const ContactUs = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Message Sent Successfully!
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600">
                     We'll get back to you within 24 hours.
                   </p>
                 </div>
@@ -174,7 +174,7 @@ const ContactUs = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
                         Your Name *
                       </label>
                       <input
@@ -183,12 +183,12 @@ const ContactUs = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-900"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -197,14 +197,14 @@ const ContactUs = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-900"
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
                     </label>
                     <input
@@ -212,13 +212,13 @@ const ContactUs = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-900"
                       placeholder="+91 98765 43210"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Subject *
                     </label>
                     <select
@@ -226,7 +226,7 @@ const ContactUs = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-900"
                     >
                       <option value="">Select a subject</option>
                       <option value="general">General Inquiry</option>
@@ -238,7 +238,7 @@ const ContactUs = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
                     </label>
                     <textarea
@@ -247,7 +247,7 @@ const ContactUs = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-900"
                       placeholder="Tell us more about your inquiry..."
                     />
                   </div>
@@ -266,8 +266,8 @@ const ContactUs = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               {/* Quick Contact */}
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <div className="bg-white rounded-2xl shadow-lg p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Quick Contact
                 </h2>
                 <div className="space-y-4">
@@ -276,18 +276,16 @@ const ContactUs = () => {
                       href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                      className="flex items-center gap-4 p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors"
                     >
                       <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
                         <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white">
+                        <h3 className="font-semibold text-gray-900">
                           WhatsApp
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-400">
-                          Chat with us instantly
-                        </p>
+                        <p className="text-gray-600">Chat with us instantly</p>
                       </div>
                     </a>
                   )}
@@ -295,51 +293,47 @@ const ContactUs = () => {
                   {phoneLink && (
                     <a
                       href={phoneLink}
-                      className="flex items-center gap-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+                      className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors"
                     >
                       <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
                         <PhoneIcon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white">
+                        <h3 className="font-semibold text-gray-900">
                           Phone Call
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-400">
+                        <p className="text-gray-600">
                           {whatsappNumber || "Call us directly"}
                         </p>
                       </div>
                     </a>
                   )}
 
-                  <div className="flex items-center gap-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <div className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl">
                     <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
                       <EnvelopeIcon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
-                        Email
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        support@funwithjuli.in
-                      </p>
+                      <h3 className="font-semibold text-gray-900">Email</h3>
+                      <p className="text-gray-600">support@funwithjuli.in</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Office Hours */}
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <div className="bg-white rounded-2xl shadow-lg p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Office Hours
                 </h2>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <ClockIcon className="w-6 h-6 text-pink-500" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                      <h3 className="font-semibold text-gray-900">
                         24/7 Available
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600">
                         We're always here to help you
                       </p>
                     </div>
@@ -347,10 +341,10 @@ const ContactUs = () => {
                   <div className="flex items-center gap-4">
                     <MapPinIcon className="w-6 h-6 text-pink-500" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                      <h3 className="font-semibold text-gray-900">
                         Pan India Service
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600">
                         Available in all major cities
                       </p>
                     </div>

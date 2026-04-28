@@ -20,12 +20,10 @@ const MediaUploader = ({
     <div className={`flex flex-col gap-6 ${className}`}>
       {/* --- Header --- */}
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Upload Media
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-900">Upload Media</h2>
         <Link
           to="/admin/media-gallery"
-          className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
         >
           <FaArrowLeft />
           Back to Gallery
@@ -33,16 +31,16 @@ const MediaUploader = ({
       </div>
 
       <div
-        className={`bg-white dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl overflow-hidden shadow-xl dark:shadow-none`}
+        className={`bg-white backdrop-blur-xl border border-gray-200 rounded-3xl overflow-hidden shadow-xl`}
       >
         {/* --- Tab Navigation --- */}
-        <div className="flex border-b border-gray-200 dark:border-white/10">
+        <div className="flex border-b border-gray-200">
           <button
             onClick={() => setActiveTab("image")}
             className={`flex-1 py-4 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider transition-all relative ${
               activeTab === "image"
-                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10"
-                : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                ? "text-blue-600 bg-blue-50"
+                : "text-gray-500 hover:bg-gray-50"
             }`}
           >
             <FaImage className="text-lg" /> Image Asset
@@ -58,8 +56,8 @@ const MediaUploader = ({
             onClick={() => setActiveTab("video")}
             className={`flex-1 py-4 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider transition-all relative ${
               activeTab === "video"
-                ? "text-[#F47C26] bg-orange-50 dark:bg-[#F47C26]/10"
-                : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                ? "text-[#F47C26] bg-orange-50"
+                : "text-gray-500 hover:bg-gray-50"
             }`}
           >
             <FaVideo className="text-lg" /> Video Asset
@@ -107,10 +105,10 @@ const MediaUploader = ({
           </AnimatePresence>
 
           {/* --- Footer Info --- */}
-          <div className="mt-6 flex items-start gap-3 p-4 bg-gray-50 dark:bg-black/20 rounded-xl border border-gray-100 dark:border-white/5">
+          <div className="mt-6 flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
             <FaInfoCircle className="text-gray-400 mt-0.5 shrink-0" />
-            <div className="text-xs text-gray-500 dark:text-gray-400 space-y-1 w-full">
-              <p className="font-bold text-gray-700 dark:text-gray-300">
+            <div className="text-xs text-gray-500 space-y-1 w-full">
+              <p className="font-bold text-gray-700">
                 {activeTab === "image"
                   ? "Image Guidelines"
                   : "Video Guidelines"}
@@ -134,7 +132,7 @@ const MediaUploader = ({
               )}
 
               {/* Visual Context: Processing Pipeline */}
-              <div className="mt-3 pt-3 border-t border-gray-200 dark:border-white/10 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="mt-3 pt-3 border-t border-gray-200 opacity-70 hover:opacity-100 transition-opacity">
                 <span className="uppercase tracking-widest text-[10px] font-bold text-gray-400 mb-2 block">
                   Processing Pipeline Status
                 </span>

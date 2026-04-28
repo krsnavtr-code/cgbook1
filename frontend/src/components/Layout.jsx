@@ -29,7 +29,7 @@ const Layout = () => {
       {/* Dark mode background added for auth pages */}
       <main
         className={`flex-grow ${
-          hideNavAndFooter ? "bg-gray-50 dark:bg-gray-900" : ""
+          hideNavAndFooter ? "bg-gray-50" : ""
         }`}
       >
         <Outlet />

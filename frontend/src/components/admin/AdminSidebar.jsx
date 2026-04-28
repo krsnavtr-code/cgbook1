@@ -49,18 +49,16 @@ const AdminSidebar = () => {
 
   return (
     <div
-      className={`h-screen bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ease-in-out ${isExpanded ? "w-64" : "w-20"} flex flex-col`}
+      className={`h-screen bg-white shadow-lg transition-all duration-300 ease-in-out ${isExpanded ? "w-64" : "w-20"} flex flex-col`}
     >
       {/* Logo */}
-      <div className="p-4 flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
+      <div className="p-4 flex items-center justify-between border-b border-gray-200">
         {isExpanded && (
-          <span className="text-xl font-bold text-gray-800 dark:text-white">
-            Admin Panel
-          </span>
+          <span className="text-xl font-bold text-gray-800">Admin Panel</span>
         )}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
+          className="p-2 rounded-lg hover:bg-gray-100 text-gray-600"
         >
           {isExpanded ? (
             <svg
@@ -114,8 +112,8 @@ const AdminSidebar = () => {
                 }
                   ${
                     location.pathname === item.path
-                      ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400"
-                      : "text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+                      ? "bg-indigo-50 text-indigo-600"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
               >
                 <span className="flex-shrink-0">{item.icon}</span>
@@ -127,7 +125,7 @@ const AdminSidebar = () => {
       </nav>
 
       {/* User Info & Logout */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+      <div className="p-4 border-t border-gray-200">
         <div
           className={`flex items-center ${
             isExpanded ? "justify-between" : "justify-center"
@@ -135,17 +133,17 @@ const AdminSidebar = () => {
         >
           {isExpanded && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+              <p className="text-sm font-medium text-gray-900 truncate">
                 Admin User
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+              <p className="text-xs text-gray-500 truncate">
                 admin@example.com
               </p>
             </div>
           )}
           <button
             onClick={logout}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
+            className="p-2 rounded-lg hover:bg-gray-100 text-gray-600"
             title="Logout"
           >
             <svg

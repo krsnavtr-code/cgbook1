@@ -58,7 +58,7 @@ const Meetings = () => {
       : profiles.filter((profile) => profile.location === selectedCity);
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section className="py-16 bg-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= HEADER SECTION ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -68,17 +68,14 @@ const Meetings = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
               </span>
-              <span className="text-pink-600 dark:text-pink-400 font-bold uppercase tracking-widest text-sm">
+              <span className="text-pink-600 font-bold uppercase tracking-widest text-sm">
                 Live & Local
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
-              Hot meetings in{" "}
-              <span className="text-indigo-600 dark:text-indigo-400">
-                your city
-              </span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900">
+              Hot meetings in <span className="text-indigo-600">your city</span>
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl">
+            <p className="text-gray-500 max-w-xl">
               Find your favourite companion in Skokka. Verified profiles with
               direct contact options.
             </p>
@@ -93,7 +90,7 @@ const Meetings = () => {
                 className={`px-5 py-2 rounded-full border text-sm font-bold whitespace-nowrap transition-all ${
                   selectedCity === city
                     ? "bg-pink-500 text-white border-pink-500"
-                    : "border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:bg-pink-500 hover:text-white"
+                    : "border-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white"
                 }`}
               >
                 {city}
@@ -104,7 +101,7 @@ const Meetings = () => {
 
         {/* How many Profile */}
         <div className="mb-8">
-          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+          <div className="flex items-center gap-2 text-gray-600">
             <span className="text-lg font-semibold">
               {filteredProfiles.length}
             </span>
@@ -122,7 +119,7 @@ const Meetings = () => {
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="bg-gray-200 dark:bg-gray-800 rounded-3xl animate-pulse"
+                className="bg-gray-200 rounded-3xl animate-pulse"
                 style={{ aspectRatio: "3/4" }}
               />
             ))}
@@ -132,7 +129,7 @@ const Meetings = () => {
             {filteredProfiles.map((profile) => (
               <div
                 key={profile._id || profile.id}
-                className="group relative bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2"
+                className="group relative bg-gray-100 rounded-3xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2"
               >
                 {/* Image Container */}
                 <div className="aspect-[3/4] overflow-hidden relative">
@@ -158,7 +155,7 @@ const Meetings = () => {
                     {profile.tags?.map((tag) => (
                       <span
                         key={tag}
-                        className="bg-white/90 dark:bg-gray-900/90 text-[10px] font-bold px-2 py-1 rounded-md shadow-lg"
+                        className="bg-white/90 text-[10px] font-bold px-2 py-1 rounded-md shadow-lg"
                       >
                         {tag}
                       </span>
@@ -169,7 +166,7 @@ const Meetings = () => {
                 {/* Info Overlay */}
                 <div className="p-5">
                   <div className="flex justify-between items-center mb-1">
-                    <h3 className="text-xl font-black text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-black text-gray-900">
                       {profile.name}, {profile.age}
                     </h3>
                     <div className="flex items-center gap-1 text-pink-500">
@@ -186,7 +183,7 @@ const Meetings = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm mb-4">
+                  <div className="flex items-center gap-1 text-gray-500 text-sm mb-4">
                     <svg
                       className="w-4 h-4"
                       fill="none"

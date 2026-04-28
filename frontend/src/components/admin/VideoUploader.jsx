@@ -8,7 +8,7 @@ import {
   FaSpinner,
   FaVideo,
 } from "react-icons/fa";
-import {api} from "../../utils/api"; 
+import { api } from "../../utils/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 const VideoUploader = ({
@@ -36,7 +36,7 @@ const VideoUploader = ({
       // Validate Type
       if (!validTypes.includes(file.type)) {
         toast.error(
-          `Skipped ${file.name}: Invalid codec. Accepted: MP4, WebM, MOV`
+          `Skipped ${file.name}: Invalid codec. Accepted: MP4, WebM, MOV`,
         );
         return;
       }
@@ -142,7 +142,7 @@ const VideoUploader = ({
           toast.error(
             `Failed to upload ${file.name}: ${
               error.response?.data?.message || "Unknown error"
-            }`
+            }`,
           );
         }
       }
@@ -168,8 +168,8 @@ const VideoUploader = ({
         layout="position"
         className={`relative w-full border-2 border-dashed rounded-2xl transition-all duration-300 overflow-hidden ${
           dragActive
-            ? "border-[#F47C26] bg-orange-50 dark:bg-[#F47C26]/10 scale-[1.02]"
-            : "border-gray-300 dark:border-white/10 hover:border-[#F47C26] dark:hover:border-[#F47C26]"
+            ? "border-[#F47C26] bg-orange-50 scale-[1.02]"
+            : "border-gray-300 hover:border-[#F47C26]"
         }`}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
@@ -181,14 +181,14 @@ const VideoUploader = ({
             // --- Preview State ---
             <div className="w-full p-4">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <h3 className="text-sm font-medium text-gray-700">
                   {files.length} {files.length === 1 ? "file" : "files"}{" "}
                   selected
                 </h3>
                 <button
                   type="button"
                   onClick={clearAll}
-                  className="text-xs text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300"
+                  className="text-xs text-red-500 hover:text-red-600"
                 >
                   Clear all
                 </button>
@@ -202,7 +202,7 @@ const VideoUploader = ({
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="relative group bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden aspect-video"
+                    className="relative group bg-black/5 rounded-xl overflow-hidden aspect-video"
                   >
                     <video
                       src={url}
@@ -244,13 +244,13 @@ const VideoUploader = ({
               htmlFor="video-upload"
               className="flex flex-col items-center justify-center w-full h-64 cursor-pointer group"
             >
-              <div className="w-16 h-16 mb-4 rounded-full bg-orange-50 dark:bg-[#F47C26]/10 flex items-center justify-center text-[#F47C26] group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 mb-4 rounded-full bg-orange-50 flex items-center justify-center text-[#F47C26] group-hover:scale-110 transition-transform duration-300">
                 <FaVideo size={32} />
               </div>
-              <p className="text-sm font-bold text-gray-700 dark:text-gray-300">
+              <p className="text-sm font-bold text-gray-700">
                 {dragActive ? "Initialize Stream" : label}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+              <p className="text-xs text-gray-500 mt-2">
                 MP4, WebM, MOV (Max {maxSizeMB}MB)
               </p>
 
@@ -276,9 +276,9 @@ const VideoUploader = ({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mt-4 flex justify-between items-center bg-gray-50 dark:bg-white/5 p-4 rounded-xl border border-gray-200 dark:border-white/10"
+            className="mt-4 flex justify-between items-center bg-gray-50 p-4 rounded-xl border border-gray-200"
           >
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
               <FaFilm className="text-[#F47C26]" />
               <span>Ready for transmission</span>
             </div>

@@ -29,9 +29,9 @@ const CookiesPolicy = () => {
         canonicalUrl="https://funwithjuli.in/cookies-policy"
         noIndex={true}
       />
-      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
+      <div className="min-h-screen bg-zinc-50 text-zinc-800 transition-colors duration-300">
         {/* --- Minimal Header --- */}
-        <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-zinc-950/80 border-b border-zinc-200 dark:border-zinc-800">
+        <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-zinc-200">
           <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
@@ -54,7 +54,7 @@ const CookiesPolicy = () => {
           <aside className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-32 space-y-8">
               <div>
-                <h1 className="text-3xl font-black mb-4 dark:text-white">
+                <h1 className="text-3xl font-black mb-4 text-zinc-900">
                   Cookies <br />
                   Policy
                 </h1>
@@ -71,7 +71,7 @@ const CookiesPolicy = () => {
                     href={`#${section.id}`}
                     className="text-sm font-bold text-zinc-400 hover:text-pink-500 transition-colors flex items-center gap-3 group"
                   >
-                    <span className="w-6 h-[1px] bg-zinc-300 dark:bg-zinc-800 group-hover:bg-pink-500 transition-colors" />
+                    <span className="w-6 h-[1px] bg-zinc-300 group-hover:bg-pink-500 transition-colors" />
                     {section.title}
                   </a>
                 ))}
@@ -84,11 +84,11 @@ const CookiesPolicy = () => {
             <section id="what" className="space-y-4">
               <div className="flex items-center gap-3 text-pink-500 mb-2">
                 <InformationCircleIcon className="h-6 w-6" />
-                <h2 className="text-xl font-bold uppercase tracking-tight dark:text-white">
+                <h2 className="text-xl font-bold uppercase tracking-tight text-zinc-900">
                   What are cookies?
                 </h2>
               </div>
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-zinc-600 leading-relaxed">
                 Cookies are small text files that are stored on your device when
                 you visit <strong>funwithjuli.in</strong>. They help us remember
                 your preferences, keep you logged in, and analyze how you
@@ -99,19 +99,19 @@ const CookiesPolicy = () => {
             <section id="how" className="space-y-6">
               <div className="flex items-center gap-3 text-pink-500 mb-2">
                 <FingerPrintIcon className="h-6 w-6" />
-                <h2 className="text-xl font-bold uppercase tracking-tight dark:text-white">
+                <h2 className="text-xl font-bold uppercase tracking-tight text-zinc-900">
                   How we use them
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl">
+                <div className="p-6 bg-white border border-zinc-200 rounded-3xl">
                   <h3 className="font-bold mb-2">Authentication</h3>
                   <p className="text-xs text-zinc-500">
                     To recognize you when you sign in so you don't have to enter
                     your password on every page.
                   </p>
                 </div>
-                <div className="p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl">
+                <div className="p-6 bg-white border border-zinc-200 rounded-3xl">
                   <h3 className="font-bold mb-2">Personalization</h3>
                   <p className="text-xs text-zinc-500">
                     To remember your preferred locations and categories across
@@ -124,13 +124,13 @@ const CookiesPolicy = () => {
             <section id="types" className="space-y-4">
               <div className="flex items-center gap-3 text-pink-500 mb-2">
                 <AdjustmentsHorizontalIcon className="h-6 w-6" />
-                <h2 className="text-xl font-bold uppercase tracking-tight dark:text-white">
+                <h2 className="text-xl font-bold uppercase tracking-tight text-zinc-900">
                   Types of cookies
                 </h2>
               </div>
-              <div className="overflow-x-auto border border-zinc-200 dark:border-zinc-800 rounded-2xl">
+              <div className="overflow-x-auto border border-zinc-200 rounded-2xl">
                 <table className="w-full text-left border-collapse">
-                  <thead className="bg-zinc-100 dark:bg-zinc-900">
+                  <thead className="bg-zinc-100">
                     <tr>
                       <th className="p-4 text-xs font-black uppercase tracking-widest">
                         Category
@@ -140,7 +140,7 @@ const CookiesPolicy = () => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
+                  <tbody className="divide-y divide-zinc-200">
                     <tr>
                       <td className="p-4 text-sm font-bold">Essential</td>
                       <td className="p-4 text-sm text-zinc-500">
@@ -167,11 +167,11 @@ const CookiesPolicy = () => {
 
             <section
               id="control"
-              className="p-8 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8"
+              className="p-8 bg-zinc-900 text-white rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8"
             >
               <div className="space-y-2 text-center md:text-left">
                 <h2 className="text-2xl font-bold">Your Preferences</h2>
-                <p className="text-zinc-400 dark:text-zinc-500 text-sm">
+                <p className="text-zinc-400 text-sm">
                   You can change your cookie settings at any time.
                 </p>
               </div>
@@ -183,8 +183,8 @@ const CookiesPolicy = () => {
         </main>
 
         {/* --- Footer --- */}
-        <footer className="py-20 text-center border-t border-zinc-200 dark:border-zinc-900">
-          <ShieldCheckIcon className="h-8 w-8 mx-auto text-zinc-300 dark:text-zinc-700 mb-4" />
+        <footer className="py-20 text-center border-t border-zinc-200">
+          <ShieldCheckIcon className="h-8 w-8 mx-auto text-zinc-300 mb-4" />
           <p className="text-[10px] text-zinc-400 uppercase tracking-[0.5em]">
             Secure & Encrypted • funwithjuli.in
           </p>

@@ -73,7 +73,7 @@ const ProfileDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500"></div>
       </div>
     );
@@ -81,9 +81,9 @@ const ProfileDetail = () => {
 
   if (error || !profile) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
             {error || "Profile Not Found"}
           </h1>
           <button
@@ -106,14 +106,14 @@ const ProfileDetail = () => {
         canonicalUrl={`https://funwithjuli.in/profile/${id}`}
         ogImage={profile?.images?.[0] || ""}
       />
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back
@@ -123,7 +123,7 @@ const ProfileDetail = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
                 </span>
-                <span className="text-pink-600 dark:text-pink-400 font-bold uppercase tracking-widest text-sm">
+                <span className="text-pink-600 font-bold uppercase tracking-widest text-sm">
                   Live & Local
                 </span>
               </div>
@@ -137,7 +137,7 @@ const ProfileDetail = () => {
             {/* Main Profile Section */}
             <div className="lg:col-span-2 space-y-6">
               {/* Profile Header */}
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className="relative">
                   {/* Cover Image */}
                   <div className="h-64 bg-gradient-to-r from-pink-500 to-rose-600"></div>
@@ -148,19 +148,19 @@ const ProfileDetail = () => {
                       <img
                         src={profile.img}
                         alt={profile.name}
-                        className="h-32 w-32 rounded-2xl object-cover ring-4 ring-white dark:ring-gray-800"
+                        className="h-32 w-32 rounded-2xl object-cover ring-4 ring-white"
                       />
                       {profile.status === "Online" && (
-                        <span className="absolute -bottom-2 -right-2 block h-6 w-6 rounded-full bg-green-500 border-4 border-white dark:border-gray-800 animate-pulse"></span>
+                        <span className="absolute -bottom-2 -right-2 block h-6 w-6 rounded-full bg-green-500 border-4 border-white animate-pulse"></span>
                       )}
                     </div>
                   </div>
 
                   {/* Profile Actions */}
                   <div className="absolute top-4 right-4 flex gap-2">
-                    <button className="p-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-white dark:hover:bg-gray-800 transition-all">
+                    <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
                       <svg
-                        className="h-5 w-5 text-gray-600 dark:text-gray-400"
+                        className="h-5 w-5 text-gray-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -173,9 +173,9 @@ const ProfileDetail = () => {
                         />
                       </svg>
                     </button>
-                    <button className="p-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-white dark:hover:bg-gray-800 transition-all">
+                    <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
                       <svg
-                        className="h-5 w-5 text-gray-600 dark:text-gray-400"
+                        className="h-5 w-5 text-gray-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -195,13 +195,13 @@ const ProfileDetail = () => {
                 <div className="px-8 pt-20 pb-6">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
                         {profile.name}
                         {profile.rating >= 4.8 && (
                           <CheckBadgeIcon className="h-6 w-6 text-blue-500" />
                         )}
                       </h1>
-                      <div className="flex items-center gap-4 mt-2 text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center gap-4 mt-2 text-gray-600">
                         <div className="flex items-center gap-1">
                           <MapPinIcon className="h-4 w-4" />
                           <span>{profile.location}</span>
@@ -220,8 +220,8 @@ const ProfileDetail = () => {
                     <span
                       className={`px-3 py-1 text-sm font-semibold rounded-full ${
                         profile.status === "Online"
-                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                          : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-800"
                       }`}
                     >
                       {profile.status}
@@ -233,7 +233,7 @@ const ProfileDetail = () => {
                     {profile.tags?.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-300 text-sm font-medium rounded-md"
+                        className="px-3 py-1 bg-pink-50 text-pink-600 text-sm font-medium rounded-md"
                       >
                         {tag}
                       </span>
@@ -243,10 +243,10 @@ const ProfileDetail = () => {
                   {/* Description */}
                   {profile.shortContent && (
                     <div className="mt-6">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         About
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed">
                         {profile.shortContent}
                       </p>
                     </div>
@@ -255,10 +255,10 @@ const ProfileDetail = () => {
                   {/* Long Content */}
                   {profile.longContent && (
                     <div className="mt-6">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         Detailed Description
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-wrap">
+                      <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">
                         {profile.longContent}
                       </p>
                     </div>
@@ -267,8 +267,8 @@ const ProfileDetail = () => {
               </div>
 
               {/* Contact Actions */}
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Get in Touch
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -306,7 +306,7 @@ const ProfileDetail = () => {
                   </a>
                 </div>
                 {!ownerInfo && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 text-center">
+                  <p className="text-sm text-gray-500 mt-3 text-center">
                     Contact information is currently unavailable
                   </p>
                 )}
@@ -316,42 +316,34 @@ const ProfileDetail = () => {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Quick Info */}
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Quick Info
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-400">
-                      Age
-                    </span>
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="text-gray-600">Age</span>
+                    <span className="font-medium text-gray-900">
                       {profile.age} years
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-400">
-                      Location
-                    </span>
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="text-gray-600">Location</span>
+                    <span className="font-medium text-gray-900">
                       {profile.location}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-400">
-                      Status
-                    </span>
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="text-gray-600">Status</span>
+                    <span className="font-medium text-gray-900">
                       {profile.status}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-400">
-                      Rating
-                    </span>
+                    <span className="text-gray-600">Rating</span>
                     <div className="flex items-center gap-1">
                       <StarIcon className="h-4 w-4 text-amber-400" />
-                      <span className="font-medium text-gray-900 dark:text-white">
+                      <span className="font-medium text-gray-900">
                         {profile.rating || 4.9}
                       </span>
                     </div>
@@ -361,22 +353,22 @@ const ProfileDetail = () => {
 
               {/* SEO Info (if available) */}
               {(profile.title || profile.metaTitle) && (
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
                     Profile Title
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600">
                     {profile.title || profile.metaTitle}
                   </p>
                 </div>
               )}
 
               {/* Safety Notice */}
-              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-2xl p-6">
-                <h3 className="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+              <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6">
+                <h3 className="text-lg font-semibold text-yellow-800 mb-2">
                   Safety Notice
                 </h3>
-                <p className="text-yellow-700 dark:text-yellow-300 text-sm">
+                <p className="text-yellow-700 text-sm">
                   Please verify the authenticity of profiles and practice
                   caution when sharing personal information. All profiles are
                   manually verified, but user discretion is advised. 18+ Only.

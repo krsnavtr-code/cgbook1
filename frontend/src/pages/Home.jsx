@@ -37,14 +37,14 @@ const Home = () => {
         canonicalUrl="https://funwithjuli.in/"
         structuredData={structuredData}
       />
-      <div className="relative isolate overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="relative isolate overflow-hidden bg-white transition-colors duration-300">
         {/* ================= BACKGROUND GLOW EFFECTS ================= */}
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-200 to-violet-400 dark:from-indigo-500 dark:to-purple-900 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-indigo-200 to-violet-400 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             style={{
               clipPath:
                 "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
@@ -55,15 +55,15 @@ const Home = () => {
         {/* ================= HERO SECTION ================= */}
         <Banner />
 
-        <section className="bg-gray-50 dark:bg-gray-950">
+        <section className="bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* HEADER & SEARCH */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div>
-                <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+                <h2 className="text-4xl font-black text-gray-900 mb-4">
                   Why funwithjuli is the Best Escort Service in Delhi NCR
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-gray-600 ">
                   What sets us apart from other agencies is our commitment to
                   quality over quantity. Rather than simply offering a list of
                   names, we provide a carefully curated experience tailored to
@@ -90,15 +90,15 @@ const Home = () => {
 
         <MeetingsByLocation />
 
-        <section className="bg-gray-50 dark:bg-gray-950">
+        <section className="bg-gray-50 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* HEADER & SEARCH */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div>
-                <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+                <h2 className="text-4xl font-black text-gray-900  mb-4">
                   About Us: The Story of funwithjuli
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-gray-600">
                   At the core of our operations is a simple philosophy: to
                   provide unmatched hospitality through companionship. As the
                   best escort service in Delhi NCR, funwithjuli was founded on
@@ -108,7 +108,7 @@ const Home = () => {
                   could find genuine, premium call girls in Delhi without any
                   stress.
                 </p>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-gray-600 ">
                   Our team works tirelessly to vet every individual who joins
                   our agency. We look for charm, personality, and a genuine
                   interest in social interaction. This meticulous selection
@@ -123,16 +123,16 @@ const Home = () => {
 
         <TopRatedMeetings />
 
-        <section className="bg-gray-50 dark:bg-gray-950">
+        <section className="bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* HEADER & SEARCH */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div>
-                <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+                <h2 className="text-4xl font-black text-gray-900 mb-4">
                   Why Choose Our Escort{" "}
                   <span className="text-pink-600">Service</span>
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
+                <p className="text-lg text-gray-600">
                   Choosing the right escort platform matters, and our service
                   stands out because of{" "}
                   <strong>trust, discretion, and professionalism</strong>. We

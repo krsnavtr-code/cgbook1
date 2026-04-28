@@ -448,16 +448,16 @@ const ImageGallery = () => {
   // --- Render ---
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen bg-gray-50 dark:bg-[#0a0f2d]">
+      <div className="flex justify-center items-center h-screen bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#F47C26]"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0a0f2d] text-gray-900 dark:text-white p-6 relative overflow-hidden font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 text-gray-900 p-6 relative overflow-hidden font-sans transition-colors duration-300">
       {/* Ambience (Dark Mode Only) */}
-      <div className="fixed inset-0 pointer-events-none hidden dark:block">
+      <div className="fixed inset-0 pointer-events-none hidden ">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F47C26]/5 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px]"></div>
       </div>
@@ -466,21 +466,21 @@ const ImageGallery = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
-            <h1 className="text-3xl font-black text-gray-900 dark:text-white">
+            <h1 className="text-3xl font-black text-gray-900">
               Manage Gallery
             </h1>
           </div>
 
           <div className="flex items-center gap-3">
             {isSelectionMode ? (
-              <div className="flex items-center gap-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-1.5 rounded-xl shadow-sm">
-                <span className="text-xs text-gray-600 dark:text-gray-300 px-2 font-medium">
+              <div className="flex items-center gap-2 bg-white border border-gray-200 p-1.5 rounded-xl shadow-sm">
+                <span className="text-xs text-gray-600  px-2 font-medium">
                   {selectedItems.size} selected
                 </span>
 
                 <button
                   onClick={selectAllMedia}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-gray-500  hover:text-gray-900  transition-colors"
                   title="Select All"
                 >
                   <FiCheckSquare size={16} />
@@ -488,7 +488,7 @@ const ImageGallery = () => {
 
                 <button
                   onClick={copySelectedUrls}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg text-blue-500 dark:text-blue-400 transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-blue-500  transition-colors"
                   title="Copy URLs"
                 >
                   <FiCopy size={16} />
@@ -500,7 +500,7 @@ const ImageGallery = () => {
                     setSelectedTagIds(commonTags);
                     setShowTagModal(true);
                   }}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg text-purple-500 dark:text-purple-400 transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-purple-500  transition-colors"
                   title="Add Tags"
                 >
                   <FiTag size={16} />
@@ -509,10 +509,10 @@ const ImageGallery = () => {
                 <div>
                   {showTagModal && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                      <div className="bg-white dark:bg-[#0a0f2d] rounded-2xl w-full max-w-md overflow-hidden shadow-xl border border-gray-200 dark:border-white/10">
+                      <div className="bg-white bg-gray-50 rounded-2xl w-full max-w-md overflow-hidden shadow-xl border border-gray-200">
                         <div className="p-6">
                           <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                            <h3 className="text-lg font-bold text-gray-900">
                               Add Tags to {selectedItems.size} Item(s)
                             </h3>
                             <button
@@ -520,14 +520,14 @@ const ImageGallery = () => {
                                 setShowTagModal(false);
                                 setSelectedTagIds(new Set());
                               }}
-                              className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+                              className="text-gray-400 hover:text-gray-500 ransition-colors"
                             >
                               <FaTimes />
                             </button>
                           </div>
 
                           <div className="mb-6">
-                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p className="text-sm text-gray-500  mb-4">
                               Select tags to add to the selected media:
                             </p>
 
@@ -540,7 +540,7 @@ const ImageGallery = () => {
                                     className={`px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 transition-colors ${
                                       selectedTagIds.has(tag._id)
                                         ? "bg-purple-500 text-white"
-                                        : "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
+                                        : "bg-gray-100 bg-white text-gray-700  hover:bg-gray-200 "
                                     }`}
                                   >
                                     {tag.name}
@@ -551,7 +551,7 @@ const ImageGallery = () => {
                                 ))}
                               </div>
                             ) : (
-                              <div className="text-center py-4 text-gray-500 dark:text-gray-400">
+                              <div className="text-center py-4 text-gray-500 ">
                                 <FaTags className="mx-auto text-2xl mb-2 opacity-50" />
                                 <p>
                                   No tags found. Create tags in the Media Tags
@@ -561,14 +561,14 @@ const ImageGallery = () => {
                             )}
                           </div>
 
-                          <div className="flex justify-end gap-3 pt-2 border-t border-gray-200 dark:border-white/10">
+                          <div className="flex justify-end gap-3 pt-2 border-t border-gray-200 border-gray-200">
                             <button
                               onClick={() => {
                                 setShowTagModal(false);
                                 setSelectedTagIds(new Set());
                               }}
                               disabled={isUpdatingTags}
-                              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-colors"
+                              className="px-4 py-2 text-sm font-medium text-gray-700  hover:bg-gray-100  rounded-lg transition-colors"
                             >
                               Cancel
                             </button>
@@ -579,7 +579,7 @@ const ImageGallery = () => {
                               }
                               className={`px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors flex items-center gap-2 ${
                                 selectedTagIds.size === 0 || isUpdatingTags
-                                  ? "bg-purple-400 dark:bg-purple-500/50 cursor-not-allowed"
+                                  ? "bg-purple-400  cursor-not-allowed"
                                   : "bg-purple-500 hover:bg-purple-600"
                               }`}
                             >
@@ -600,17 +600,17 @@ const ImageGallery = () => {
                 </div>
                 <button
                   onClick={deleteSelectedItems}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg text-red-500 dark:text-red-400 transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-red-500  transition-colors"
                   title="Delete Selected"
                 >
                   <FiTrash2 size={16} />
                 </button>
 
-                <div className="w-px h-6 bg-gray-200 dark:bg-white/10 mx-1"></div>
+                <div className="w-px h-6 bg-gray-200  mx-1"></div>
 
                 <button
                   onClick={clearSelection}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-gray-500  hover:text-gray-900  transition-colors"
                   title="Cancel"
                 >
                   <FiX size={16} />
@@ -619,7 +619,7 @@ const ImageGallery = () => {
             ) : (
               <button
                 onClick={() => setIsSelectionMode(true)}
-                className="px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-200 rounded-xl hover:bg-gray-50 dark:hover:bg-white/10 transition-colors flex items-center gap-2 font-medium"
+                className="px-4 py-2 bg-white border border-gray-200 text-gray-600  rounded-xl hover:bg-gray-50  transition-colors flex items-center gap-2 font-medium"
               >
                 <FiCheckSquare size={16} /> <span>Select</span>
               </button>
@@ -635,17 +635,17 @@ const ImageGallery = () => {
         </div>
 
         {/* Toolbar */}
-        <div className="bg-white dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 p-4 rounded-2xl mb-8 flex flex-col xl:flex-row gap-4 justify-between items-center shadow-sm">
+        <div className="bg-white backdrop-blur-xl border border-gray-200 p-4 rounded-2xl mb-8 flex flex-col xl:flex-row gap-4 justify-between items-center shadow-sm">
           {/* Tabs */}
-          <div className="flex bg-gray-100 dark:bg-black/20 p-1 rounded-xl w-full xl:w-auto overflow-x-auto">
+          <div className="flex bg-gray-100  p-1 rounded-xl w-full xl:w-auto overflow-x-auto">
             {["all", "image", "video"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2 ${
                   activeTab === tab
-                    ? "bg-white dark:bg-[#0a0f2d] text-[#F47C26] shadow-sm dark:shadow-md"
-                    : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                    ? "bg-white bg-gray-50 text-[#F47C26] shadow-sm"
+                    : "text-gray-500  hover:text-gray-900 "
                 }`}
               >
                 <span className="capitalize">
@@ -655,7 +655,7 @@ const ImageGallery = () => {
                   className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                     activeTab === tab
                       ? "bg-[#F47C26]/10 text-[#F47C26]"
-                      : "bg-gray-200 dark:bg-white/10 text-gray-500 dark:text-gray-400"
+                      : "bg-gray-200  text-gray-500 "
                   }`}
                 >
                   {tab === "all"
@@ -675,7 +675,7 @@ const ImageGallery = () => {
                 placeholder="Search filename..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-100 dark:bg-black/20 border border-transparent dark:border-white/10 focus:bg-white dark:focus:bg-black/40 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26] focus:ring-1 focus:ring-[#F47C26] transition-colors"
+                className="w-full pl-10 pr-4 py-2 bg-gray-100  border border-transparent border-gray-200 focus:bg-white  rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#F47C26] focus:ring-1 focus:ring-[#F47C26] transition-colors"
               />
             </div>
           </div>
@@ -685,12 +685,12 @@ const ImageGallery = () => {
         <div className="space-y-8 pb-20">
           {Object.entries(groupedMedia).map(([date, items]) => (
             <div key={date}>
-              <div className="flex items-center justify-between mb-4 border-b border-gray-200 dark:border-white/5 pb-2 sticky top-0 bg-gray-50/95 dark:bg-[#0a0f2d]/95 backdrop-blur-sm z-10 py-2">
+              <div className="flex items-center justify-between mb-4 border-b border-gray-200  pb-2 sticky top-0 bg-gray-50/95 bg-gray-50/95 backdrop-blur-sm z-10 py-2">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-gray-700 dark:text-gray-300 text-sm font-bold uppercase tracking-wider">
+                  <h3 className="text-gray-700  text-sm font-bold uppercase tracking-wider">
                     {date}
                   </h3>
-                  <span className="text-gray-500 dark:text-gray-600 text-xs font-normal bg-gray-200 dark:bg-white/5 px-2 py-0.5 rounded-full">
+                  <span className="text-gray-500 text-xs font-normal bg-gray-200 bg-white px-2 py-0.5 rounded-full">
                     {items.length} items
                   </span>
                 </div>
@@ -698,7 +698,7 @@ const ImageGallery = () => {
                 {/* --- Restore Date Group Selection --- */}
                 <button
                   onClick={(e) => toggleDateGroupSelection(items, e)}
-                  className="flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                  className="flex items-center gap-1 text-xs font-medium text-blue-600  hover:text-blue-700  transition-colors"
                 >
                   {items.every((item) => selectedItems.has(item.url)) ? (
                     <>
@@ -723,10 +723,10 @@ const ImageGallery = () => {
                       }
                       variants={itemVariants}
                       layout
-                      className={`group relative bg-white dark:bg-[#05081a] border rounded-xl overflow-hidden cursor-pointer transition-all shadow-sm hover:shadow-xl break-inside-avoid flex items-center gap-4 p-2 mb-2 h-16 ${
+                      className={`group relative bg-white  border rounded-xl overflow-hidden cursor-pointer transition-all shadow-sm hover:shadow-xl break-inside-avoid flex items-center gap-4 p-2 mb-2 h-16 ${
                         selectedItems.has(item.url)
-                          ? "border-blue-500 ring-2 ring-blue-500 dark:border-blue-400 dark:ring-blue-400"
-                          : "border-gray-200 dark:border-white/5 hover:border-[#F47C26]/50"
+                          ? "border-blue-500 ring-2 ring-blue-500  "
+                          : "border-gray-200  hover:border-[#F47C26]/50"
                       }`}
                       onClick={(e) => handleMediaClick(item, e)}
                     >
@@ -737,7 +737,7 @@ const ImageGallery = () => {
                             className={`w-5 h-5 rounded flex items-center justify-center transition-colors shadow-sm ${
                               selectedItems.has(item.url)
                                 ? "bg-blue-500 text-white"
-                                : "bg-white dark:bg-black/50 border border-gray-300 dark:border-white/30 text-transparent hover:border-blue-400"
+                                : "bg-white  border border-gray-300  text-transparent hover:border-blue-400"
                             }`}
                           >
                             <FiCheckSquare size={12} />
@@ -746,10 +746,10 @@ const ImageGallery = () => {
                       )}
 
                       {/* Thumbnail */}
-                      <div className="w-12 h-12 rounded-lg shrink-0 overflow-hidden relative bg-gray-100 dark:bg-black/20">
+                      <div className="w-12 h-12 rounded-lg shrink-0 overflow-hidden relative bg-gray-100 ">
                         {item.type === "video" ? (
                           <div className="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                            <FaPlay className="text-gray-400 dark:text-white/30 text-lg group-hover:text-[#F47C26] transition-colors relative z-10" />
+                            <FaPlay className="text-gray-400 text-gray-900/30 text-lg group-hover:text-[#F47C26] transition-colors relative z-10" />
                             <video
                               src={item.url}
                               className="absolute inset-0 w-full h-full object-cover opacity-60"
@@ -794,7 +794,7 @@ const ImageGallery = () => {
                                     cancelRenaming();
                                   }
                                 }}
-                                className="flex-1 px-2 py-1 text-sm border border-gray-300 dark:border-white/20 rounded bg-white dark:bg-black/40 text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26]"
+                                className="flex-1 px-2 py-1 text-sm border border-gray-300  rounded bg-white  text-gray-900 focus:outline-none focus:border-[#F47C26]"
                               />
                               <button
                                 onClick={(e) => {
@@ -816,7 +816,7 @@ const ImageGallery = () => {
                             </div>
                           ) : (
                             <>
-                              <p className="font-bold text-gray-900 dark:text-gray-200 truncate">
+                              <p className="font-bold text-gray-900  truncate">
                                 {item.name || item.filename}
                               </p>
                               <p className="text-xs text-gray-500">
@@ -827,7 +827,7 @@ const ImageGallery = () => {
                                   {item.tags.slice(0, 2).map((tag) => (
                                     <span
                                       key={tag._id}
-                                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
+                                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100  text-gray-700 "
                                       title={tag.name}
                                     >
                                       <FiTagIcon size={8} className="mr-1" />
@@ -846,7 +846,7 @@ const ImageGallery = () => {
                                   {item.tags.slice(0, 2).map((tag, idx) => (
                                     <span
                                       key={idx}
-                                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300"
+                                      className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100  text-gray-700 "
                                     >
                                       <FiTagIcon size={8} className="mr-1" />
                                       {tag.name}
@@ -868,7 +868,7 @@ const ImageGallery = () => {
                               e.stopPropagation();
                               startRenaming(item, e);
                             }}
-                            className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                            className="p-2 hover:bg-gray-100  rounded text-gray-500  hover:text-gray-900 "
                             title="Rename"
                           >
                             <FiEdit />
@@ -878,7 +878,7 @@ const ImageGallery = () => {
                               e.stopPropagation();
                               copyToClipboard(item.url);
                             }}
-                            className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                            className="p-2 hover:bg-gray-100  rounded text-gray-500  hover:text-gray-900 "
                             title="Copy Link"
                           >
                             <FiCopy />
@@ -888,7 +888,7 @@ const ImageGallery = () => {
                               e.stopPropagation();
                               handleDelete(item.name || item.filename, e);
                             }}
-                            className="p-2 hover:bg-red-50 dark:hover:bg-red-500/20 rounded text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500"
+                            className="p-2 hover:bg-red-50  rounded text-gray-500  hover:text-red-600 "
                             title="Delete"
                           >
                             <FiTrash2 />
@@ -906,7 +906,7 @@ const ImageGallery = () => {
                             <FaCheckCircle size={10} /> Used
                           </div>
                         )}
-                        <div className="px-1.5 py-0.5 bg-white/80 dark:bg-black/60 text-gray-700 dark:text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded">
+                        <div className="px-1.5 py-0.5 bg-white/80 text-gray-700 text-gray-900 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border border-gray-200 rounded">
                           {item.type === "video" ? "VID" : "IMG"}
                         </div>
                       </div>
@@ -918,14 +918,14 @@ const ImageGallery = () => {
           ))}
 
           {!isLoading && filteredMedia.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-20 bg-white dark:bg-white/5 rounded-3xl border border-dashed border-gray-300 dark:border-white/10">
-              <div className="w-20 h-20 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-400 mb-4">
+            <div className="flex flex-col items-center justify-center py-20 bg-white rounded-3xl border border-dashed border-gray-300 border-gray-200">
+              <div className="w-20 h-20 rounded-full bg-gray-100 bg-white flex items-center justify-center text-gray-400 mb-4">
                 <FaImage size={32} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-bold text-gray-900">
                 No media found
               </h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+              <p className="text-gray-500  text-sm mt-1">
                 Upload new assets or adjust filters.
               </p>
             </div>
@@ -947,33 +947,33 @@ const ImageGallery = () => {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="relative max-w-6xl w-full max-h-[90vh] bg-white dark:bg-[#0a0f2d] rounded-2xl overflow-hidden border border-gray-700 dark:border-white/10 flex flex-col shadow-2xl"
+              className="relative max-w-6xl w-full max-h-[90vh] bg-white bg-gray-50 rounded-2xl overflow-hidden border border-gray-700 border-gray-200 flex flex-col shadow-2xl"
             >
               {/* Lightbox Header */}
-              <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/20">
+              <div className="flex justify-between items-center p-4 border-b border-gray-200 border-gray-200 bg-gray-50 ">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="p-2 bg-gray-200 dark:bg-white/5 rounded-lg text-[#F47C26]">
+                  <div className="p-2 bg-gray-200 bg-white rounded-lg text-[#F47C26]">
                     {selectedMedia.type === "video" ? <FaFilm /> : <FaImage />}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-gray-900 dark:text-white font-bold truncate text-sm md:text-base">
+                    <h3 className="text-gray-900 font-bold truncate text-sm md:text-base">
                       {selectedMedia.name || selectedMedia.filename}
                     </h3>
-                    <p className="text-gray-500 dark:text-gray-500 text-xs uppercase tracking-wider">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider">
                       {selectedMedia.mimetype}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedMedia(null)}
-                  className="p-2 hover:bg-gray-200 dark:hover:bg-white/10 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="p-2 hover:bg-gray-200  rounded-lg text-gray-500  hover:text-gray-900  transition-colors"
                 >
                   <FiX size={24} />
                 </button>
               </div>
 
               {/* Lightbox Content */}
-              <div className="flex-1 bg-gray-100 dark:bg-black/50 flex items-center justify-center p-4 overflow-hidden relative">
+              <div className="flex-1 bg-gray-100  flex items-center justify-center p-4 overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
                 {selectedMedia.type === "video" ? (
                   <video
@@ -992,8 +992,8 @@ const ImageGallery = () => {
               </div>
 
               {/* Lightbox Footer */}
-              <div className="p-4 border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/20 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div className="text-xs text-gray-500 dark:text-gray-500 flex gap-4">
+              <div className="p-4 border-t border-gray-200 border-gray-200 bg-gray-50  flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div className="text-xs text-gray-500 flex gap-4">
                   <span>Size: {(selectedMedia.size / 1024).toFixed(2)} KB</span>
                   <span>
                     Dimensions:{" "}
@@ -1022,7 +1022,7 @@ const ImageGallery = () => {
                             cancelRenaming();
                           }
                         }}
-                        className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-white/20 rounded bg-white dark:bg-black/40 text-gray-900 dark:text-white focus:outline-none focus:border-[#F47C26]"
+                        className="flex-1 px-3 py-2 text-sm border border-gray-300  rounded bg-white  text-gray-900 focus:outline-none focus:border-[#F47C26]"
                         placeholder="Enter new filename"
                         autoFocus
                       />
@@ -1049,7 +1049,7 @@ const ImageGallery = () => {
                     <>
                       <button
                         onClick={() => startRenaming(selectedMedia)}
-                        className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50  text-gray-700 text-gray-900 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
                       >
                         <FiEdit /> Rename
                       </button>
@@ -1058,7 +1058,7 @@ const ImageGallery = () => {
                         download
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50  text-gray-700 text-gray-900 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
                       >
                         <FiDownload /> Download
                       </a>
@@ -1066,7 +1066,7 @@ const ImageGallery = () => {
                         href={selectedMedia.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 sm:flex-none px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50  text-gray-700 text-gray-900 text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
                       >
                         <FiExternalLink /> Open
                       </a>

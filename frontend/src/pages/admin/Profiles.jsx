@@ -199,17 +199,17 @@ const Profiles = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8">
+    <div className="min-h-screen bg-gray-50  p-4 md:p-8">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h1 className="text-3xl font-extrabold text-gray-900  tracking-tight">
             Profiles{" "}
-            <span className="text-indigo-600 dark:text-indigo-400">
+            <span className="text-indigo-600 ">
               Management
             </span>
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-gray-500  mt-1">
             {profiles.length} total profiles active on the platform.
           </p>
         </div>
@@ -218,7 +218,7 @@ const Profiles = () => {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white py-2 pl-10 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="appearance-none bg-white border border-gray-300  text-gray-900  py-2 pl-10 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             >
               {locations.map((location) => (
                 <option key={location} value={location}>
@@ -232,7 +232,7 @@ const Profiles = () => {
           </div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center justify-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95"
+            className="inline-flex items-center justify-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-indigo-200  transition-all active:scale-95"
           >
             <PlusIcon className="h-5 w-5 mr-2" />
             New Profile
@@ -241,11 +241,11 @@ const Profiles = () => {
       </div>
 
       {/* Main Content: Table Container */}
-      <div className="max-w-7xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+      <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100  overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-gray-50/50 dark:bg-gray-900/50 border-b border-gray-100 dark:border-gray-700">
+              <tr className="bg-gray-50/50 /50 border-b border-gray-100 ">
                 <th className="px-6 py-4 text-xs font-bold uppercase text-gray-400 tracking-wider">
                   S.No
                 </th>
@@ -263,27 +263,27 @@ const Profiles = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
+            <tbody className="divide-y divide-gray-50">
               {profiles.map((profile, index) => (
                 <tr
                   key={profile._id || profile.id}
-                  className="hover:bg-gray-50/80 dark:hover:bg-gray-700/30 transition-colors"
+                  className="hover:bg-gray-50/80 transition-colors"
                 >
                   <td className="px-6 py-5">{index + 1}</td>
                   <td className="px-6 py-5">
                     <div className="flex items-center gap-4">
                       <div className="relative">
                         <img
-                          className="h-12 w-12 rounded-2xl object-cover ring-2 ring-gray-100 dark:ring-gray-700"
+                          className="h-12 w-12 rounded-2xl object-cover ring-2 ring-gray-100 "
                           src={profile.img}
                           alt=""
                         />
                         {profile.status === "Online" && (
-                          <span className="absolute -bottom-1 -right-1 block h-3.5 w-3.5 rounded-full bg-green-500 border-2 border-white dark:border-gray-800 animate-pulse" />
+                          <span className="absolute -bottom-1 -right-1 block h-3.5 w-3.5 rounded-full bg-green-500 border-2 border-white  animate-pulse" />
                         )}
                       </div>
                       <div>
-                        <div className="font-bold text-gray-900 dark:text-white flex items-center gap-1">
+                        <div className="font-bold text-gray-900  flex items-center gap-1">
                           {profile.name}
                           {profile.rating >= 4.8 && (
                             <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
@@ -299,7 +299,7 @@ const Profiles = () => {
                   <td className="px-6 py-5">
                     <div className="flex items-center gap-2">
                       <StarIcon className="h-4 w-4 text-amber-400" />
-                      <span className="font-semibold text-gray-700 dark:text-gray-300">
+                      <span className="font-semibold text-gray-700 ">
                         {profile.rating}
                       </span>
                     </div>
@@ -309,7 +309,7 @@ const Profiles = () => {
                       {profile.tags?.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-[10px] font-bold uppercase rounded-md"
+                          className="px-2 py-0.5 bg-indigo-50  text-indigo-600 text-[10px] font-bold uppercase rounded-md"
                         >
                           {tag}
                         </span>
@@ -320,21 +320,21 @@ const Profiles = () => {
                     <div className="flex justify-end gap-2">
                       <button
                         onClick={() => handleViewDetails(profile)}
-                        className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
+                        className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
                         title="View Details"
                       >
                         <EyeIcon className="h-5 w-5" />
                       </button>
                       <button
                         onClick={() => handleEdit(profile)}
-                        className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-lg transition-all"
+                        className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50  rounded-lg transition-all"
                         title="Edit Profile"
                       >
                         <PencilSquareIcon className="h-5 w-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(profile._id || profile.id)}
-                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-all"
+                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50  rounded-lg transition-all"
                         title="Delete Profile"
                       >
                         <TrashIcon className="h-5 w-5" />
@@ -351,15 +351,15 @@ const Profiles = () => {
       {/* Add/Edit Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white dark:bg-gray-800">
+          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white ">
             <div className="mt-3">
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+              <h3 className="text-lg font-medium text-gray-900  mb-4">
                 {editingProfile ? "Edit Profile" : "Add New Profile"}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Name
                   </label>
                   <input
@@ -369,12 +369,12 @@ const Profiles = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Age
                   </label>
                   <input
@@ -389,12 +389,12 @@ const Profiles = () => {
                         age: parseInt(e.target.value),
                       })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Location
                   </label>
                   <select
@@ -403,7 +403,7 @@ const Profiles = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, location: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   >
                     <option value="">Select a location</option>
                     {LOCATIONS.map((location) => (
@@ -415,7 +415,7 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Status
                   </label>
                   <select
@@ -423,7 +423,7 @@ const Profiles = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, status: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   >
                     <option value="Online">Online</option>
                     <option value="Offline">Offline</option>
@@ -431,7 +431,7 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Tags (comma separated)
                   </label>
                   <input
@@ -439,15 +439,15 @@ const Profiles = () => {
                     value={formData.tagsInput}
                     onChange={handleTagsChange}
                     placeholder="Premium, Verified, Hot"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Profile Image
                   </label>
-                  <div className="border border-gray-300 dark:border-gray-600 rounded-md p-3 max-h-48 overflow-y-auto dark:bg-gray-700">
+                  <div className="border border-gray-300  rounded-md p-3 max-h-48 overflow-y-auto">
                     <div className="grid grid-cols-4 gap-2">
                       {images.map((image, index) => (
                         <div
@@ -461,7 +461,7 @@ const Profiles = () => {
                           className={`relative cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
                             formData.img === (image.url || image.name)
                               ? "border-indigo-500 ring-2 ring-indigo-200"
-                              : "border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500"
+                              : "border-gray-200  hover:border-gray-300"
                           }`}
                         >
                           <img
@@ -495,13 +495,13 @@ const Profiles = () => {
                       ))}
                     </div>
                     {images.length === 0 && (
-                      <div className="text-center text-gray-500 dark:text-gray-400 py-4">
+                      <div className="text-center text-gray-500  py-4">
                         No images available
                       </div>
                     )}
                   </div>
                   {formData.img && (
-                    <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                    <div className="mt-2 text-xs text-gray-600 ">
                       Selected:{" "}
                       {images.find(
                         (img) => (img.url || img.name) === formData.img,
@@ -512,7 +512,7 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Rating
                   </label>
                   <input
@@ -527,12 +527,12 @@ const Profiles = () => {
                         rating: parseFloat(e.target.value),
                       })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Title
                   </label>
                   <input
@@ -542,12 +542,12 @@ const Profiles = () => {
                       setFormData({ ...formData, title: e.target.value })
                     }
                     placeholder="Profile title for SEO"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Short Content
                   </label>
                   <textarea
@@ -558,12 +558,12 @@ const Profiles = () => {
                     placeholder="Brief description (150 chars max)"
                     maxLength="150"
                     rows="2"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Long Content
                   </label>
                   <textarea
@@ -573,12 +573,12 @@ const Profiles = () => {
                     }
                     placeholder="Detailed profile description"
                     rows="4"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Meta Title
                   </label>
                   <input
@@ -589,12 +589,12 @@ const Profiles = () => {
                     }
                     placeholder="SEO meta title (60 chars max)"
                     maxLength="60"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Meta Keywords
                   </label>
                   <input
@@ -604,12 +604,12 @@ const Profiles = () => {
                       setFormData({ ...formData, metaKeywords: e.target.value })
                     }
                     placeholder="Comma-separated keywords"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-sm font-medium text-gray-700  mb-1">
                     Meta Description
                   </label>
                   <textarea
@@ -623,7 +623,7 @@ const Profiles = () => {
                     placeholder="SEO meta description (160 chars max)"
                     maxLength="160"
                     rows="2"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                   />
                 </div>
 
@@ -640,7 +640,7 @@ const Profiles = () => {
                     />
                     <label
                       htmlFor="isActive"
-                      className="ml-2 block text-sm text-gray-900 dark:text-white"
+                      className="ml-2 block text-sm text-gray-900 "
                     >
                       Active
                     </label>
@@ -658,7 +658,7 @@ const Profiles = () => {
                     />
                     <label
                       htmlFor="isNew"
-                      className="ml-2 block text-sm text-gray-900 dark:text-white"
+                      className="ml-2 block text-sm text-gray-900 "
                     >
                       New Arrival
                     </label>
@@ -689,7 +689,7 @@ const Profiles = () => {
                         metaDescription: "",
                       });
                     }}
-                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                    className="px-4 py-2 border border-gray-300  rounded-md text-gray-700  hover:bg-gray-50 "
                   >
                     Cancel
                   </button>
@@ -709,9 +709,9 @@ const Profiles = () => {
       {/* Details Modal */}
       {isDetailsModalOpen && selectedProfile && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-10 mx-auto p-5 border w-full max-w-4xl shadow-lg rounded-md bg-white dark:bg-gray-800 max-h-[90vh] overflow-y-auto">
+          <div className="relative top-10 mx-auto p-5 border w-full max-w-4xl shadow-lg rounded-md bg-white max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-2xl font-bold text-gray-900 ">
                 Profile Details - {selectedProfile.name}
               </h3>
               <button
@@ -719,7 +719,7 @@ const Profiles = () => {
                   setIsDetailsModalOpen(false);
                   setSelectedProfile(null);
                 }}
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                className="text-gray-400 hover:text-gray-600"
               >
                 <svg
                   className="h-6 w-6"
@@ -744,10 +744,10 @@ const Profiles = () => {
                   <img
                     src={selectedProfile.img}
                     alt={selectedProfile.name}
-                    className="h-20 w-20 rounded-2xl object-cover ring-2 ring-gray-100 dark:ring-gray-700"
+                    className="h-20 w-20 rounded-2xl object-cover ring-2 ring-gray-100 "
                   />
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h4 className="text-xl font-bold text-gray-900 ">
                       {selectedProfile.name}, {selectedProfile.age}
                     </h4>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -762,8 +762,8 @@ const Profiles = () => {
                       <span
                         className={`px-2 py-1 text-xs font-semibold rounded-full ${
                           selectedProfile.status === "Online"
-                            ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                            : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                            ? "bg-green-100 text-green-800 "
+                            : "bg-gray-100 text-gray-800 "
                         }`}
                       >
                         {selectedProfile.status}
@@ -773,14 +773,14 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Tags
                   </h5>
                   <div className="flex flex-wrap gap-2">
                     {selectedProfile.tags?.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium rounded-md"
+                        className="px-3 py-1 bg-indigo-50  text-indigo-600 text-sm font-medium rounded-md"
                       >
                         {tag}
                       </span>
@@ -789,15 +789,15 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Profile Status
                   </h5>
                   <div className="flex items-center gap-2">
                     <span
                       className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
                         selectedProfile.isActive !== false
-                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                          : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                          ? "bg-green-100 text-green-800 "
+                          : "bg-red-100 text-red-800 "
                       }`}
                     >
                       {selectedProfile.isActive !== false
@@ -805,7 +805,7 @@ const Profiles = () => {
                         : "Inactive"}
                     </span>
                     {selectedProfile.isNew && (
-                      <span className="inline-flex px-3 py-1 text-sm font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                      <span className="inline-flex px-3 py-1 text-sm font-semibold rounded-full bg-blue-100 text-blue-800 ">
                         New Arrival
                       </span>
                     )}
@@ -816,19 +816,19 @@ const Profiles = () => {
               {/* Content Details */}
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Title
                   </h5>
-                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                  <p className="text-gray-600  bg-gray-50 p-3 rounded-md">
                     {selectedProfile.title || "No title set"}
                   </p>
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Short Content
                   </h5>
-                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                  <p className="text-gray-600  bg-gray-50 p-3 rounded-md">
                     {selectedProfile.shortContent || "No short content set"}
                   </p>
                   {selectedProfile.shortContent && (
@@ -839,10 +839,10 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Long Content
                   </h5>
-                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md whitespace-pre-wrap">
+                  <p className="text-gray-600  bg-gray-50 p-3 rounded-md whitespace-pre-wrap">
                     {selectedProfile.longContent || "No long content set"}
                   </p>
                 </div>
@@ -850,16 +850,16 @@ const Profiles = () => {
             </div>
 
             {/* SEO Details */}
-            <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            <div className="mt-8 border-t border-gray-200  pt-6">
+              <h4 className="text-lg font-bold text-gray-900  mb-4">
                 SEO Information
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Meta Title
                   </h5>
-                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                  <p className="text-gray-600  bg-gray-50 p-3 rounded-md">
                     {selectedProfile.metaTitle || "No meta title set"}
                   </p>
                   {selectedProfile.metaTitle && (
@@ -870,19 +870,19 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Meta Keywords
                   </h5>
-                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                  <p className="text-gray-600  bg-gray-50 p-3 rounded-md">
                     {selectedProfile.metaKeywords || "No meta keywords set"}
                   </p>
                 </div>
 
                 <div className="md:col-span-2">
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h5 className="font-semibold text-gray-900  mb-2">
                     Meta Description
                   </h5>
-                  <p className="text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
+                  <p className="text-gray-600  bg-gray-50 p-3 rounded-md">
                     {selectedProfile.metaDescription ||
                       "No meta description set"}
                   </p>
@@ -901,7 +901,7 @@ const Profiles = () => {
                   setIsDetailsModalOpen(false);
                   setSelectedProfile(null);
                 }}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                className="px-4 py-2 border border-gray-300  rounded-md text-gray-700  hover:bg-gray-50 "
               >
                 Close
               </button>

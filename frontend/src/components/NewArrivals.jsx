@@ -101,19 +101,19 @@ const NewArrivals = () => {
     : null;
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-950 overflow-hidden">
+    <section className="py-20 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="flex items-center justify-between mb-12">
           <div className="flex-1">
-            <h2 className="text-3xl font-black text-gray-900 dark:text-white flex items-center gap-3">
+            <h2 className="text-3xl font-black text-gray-900  flex items-center gap-3">
               New Arrivals
               <span className="flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-6 w-12 rounded-full bg-pink-400 opacity-20"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
               </span>
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">
+            <p className="text-gray-500  mt-2 font-medium">
               Our call <strong>girls and escort service in NCR</strong> focuses
               on transparency and professionalism. Profiles include clear
               details so users can make informed choices without confusion or
@@ -142,7 +142,7 @@ const NewArrivals = () => {
                 />
 
                 {/* Time Tag */}
-                <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur px-3 py-1 rounded-full shadow-md">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-md">
                   <p className="text-[10px] font-black text-pink-600 uppercase tracking-tighter">
                     {item.joined}
                   </p>

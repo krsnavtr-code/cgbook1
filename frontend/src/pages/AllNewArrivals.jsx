@@ -54,7 +54,7 @@ const AllNewArrivals = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white dark:bg-zinc-950 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-pink-500/20 border-t-pink-500 rounded-full animate-spin" />
           <span className="text-sm font-medium text-zinc-400 animate-pulse uppercase tracking-widest">
@@ -73,9 +73,9 @@ const AllNewArrivals = () => {
         keywords="new arrivals, latest escorts, new companions Delhi, fresh escort profiles, premium escorts NCR, verified new escorts, Delhi escort service"
         canonicalUrl="https://funwithjuli.in/new-arrivals"
       />
-      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+      <div className="min-h-screen bg-zinc-50 text-zinc-900 transition-colors duration-300">
         {/* --- Adaptive Navigation --- */}
-        <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-zinc-950/70 border-b border-zinc-200 dark:border-zinc-800">
+        <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-zinc-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
@@ -86,9 +86,9 @@ const AllNewArrivals = () => {
             </button>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200">
                 <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-tight text-zinc-500 dark:text-zinc-400">
+                <span className="text-[10px] font-bold uppercase tracking-tight text-zinc-500">
                   Live Feed
                 </span>
               </div>
@@ -98,21 +98,21 @@ const AllNewArrivals = () => {
 
         {/* --- Hero Section with Mesh Gradient --- */}
         <header className="relative pt-16 pb-12 overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-pink-500/10 dark:bg-pink-500/5 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-pink-500/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="relative max-w-7xl mx-auto px-6 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-500/10 border border-pink-100 dark:border-pink-500/20 text-pink-600 dark:text-pink-400 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-pink-600 mb-6">
               <SparklesIcon className="h-4 w-4" />
               <span className="text-xs font-bold uppercase tracking-widest">
                 Just Added
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-zinc-900 dark:text-white">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-zinc-900">
               New{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500">
                 Arrivals
               </span>
             </h1>
-            <p className="max-w-2xl mx-auto text-zinc-500 dark:text-zinc-400 text-lg">
+            <p className="max-w-2xl mx-auto text-zinc-500 text-lg">
               Experience the latest additions to our curated gallery. Fresh
               profiles, updated daily for premium quality.
             </p>
@@ -125,7 +125,7 @@ const AllNewArrivals = () => {
             {profiles.map((profile) => (
               <div
                 key={profile._id}
-                className="group relative flex flex-col bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-500"
+                className="group relative flex flex-col bg-white rounded-3xl overflow-hidden border border-zinc-200 hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-500"
               >
                 {/* Image with Dynamic Badges */}
                 <div className="relative aspect-[4/5] overflow-hidden">
@@ -157,7 +157,7 @@ const AllNewArrivals = () => {
                 {/* Profile Details */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-zinc-900">
                       {profile.name}
                     </h3>
                     <div className="flex items-center gap-1 text-amber-500">
@@ -168,14 +168,14 @@ const AllNewArrivals = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-zinc-500 dark:text-zinc-400 text-sm mb-4">
+                  <div className="flex items-center gap-1.5 text-zinc-500 text-sm mb-4">
                     <MapPinIcon className="h-4 w-4" />
                     {profile.location}
                   </div>
 
                   <button
                     onClick={() => navigate(`/profile/${profile._id}`)}
-                    className="w-full py-3 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white text-xs font-bold uppercase tracking-widest hover:bg-pink-500 hover:text-white dark:hover:bg-pink-600 transition-colors"
+                    className="w-full py-3 rounded-xl bg-zinc-100 text-zinc-900 text-xs font-bold uppercase tracking-widest hover:bg-pink-500 hover:text-white transition-colors"
                   >
                     View Full Gallery
                   </button>
@@ -186,12 +186,12 @@ const AllNewArrivals = () => {
 
           {/* --- Bento-Style Contact Section --- */}
           {ownerInfo && (
-            <div className="mt-24 p-8 md:p-12 rounded-[2.5rem] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="mt-24 p-8 md:p-12 rounded-[2.5rem] bg-zinc-100 border border-zinc-200 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-center md:text-left">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">
                   Need a recommendation?
                 </h2>
-                <p className="text-zinc-500 dark:text-zinc-400">
+                <p className="text-zinc-500">
                   Our support team can help you find exactly what you're looking
                   for.
                 </p>
@@ -199,14 +199,14 @@ const AllNewArrivals = () => {
               <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                 <a
                   href={whatsappLink}
-                  className="flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-2xl font-bold hover:scale-105 transition-transform"
+                  className="flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-2xl font-bold hover:scale-105 transition-transform"
                 >
                   <ChatBubbleLeftRightIcon className="h-5 w-5" />
                   WhatsApp Agent
                 </a>
                 <button
                   onClick={() => navigate("/meetings")}
-                  className="px-8 py-4 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl font-bold hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+                  className="px-8 py-4 bg-white border border-zinc-200 rounded-2xl font-bold hover:bg-zinc-50 transition-colors"
                 >
                   All Profiles
                 </button>
@@ -216,7 +216,7 @@ const AllNewArrivals = () => {
         </main>
 
         {/* --- Minimal Footer --- */}
-        <footer className="py-12 border-t border-zinc-200 dark:border-zinc-800 text-center text-zinc-400 dark:text-zinc-600 text-xs font-medium uppercase tracking-[0.3em]">
+        <footer className="py-12 border-t border-zinc-200 text-center text-zinc-400 text-xs font-medium uppercase tracking-[0.3em]">
           Handcrafted for Excellence • 2026
         </footer>
       </div>

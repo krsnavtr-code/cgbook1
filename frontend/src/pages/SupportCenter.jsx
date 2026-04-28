@@ -65,12 +65,12 @@ const SupportCenter = () => {
         canonicalUrl="https://funwithjuli.in/support-center"
         noIndex={true}
       />
-      <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+      <div className="min-h-screen bg-white  text-zinc-900  transition-colors duration-300">
         {/* --- Top Navigation --- */}
         <nav className="p-6">
           <button
             onClick={() => navigate(-1)}
-            className="group flex items-center gap-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all"
+            className="group flex items-center gap-2 text-zinc-500 hover:text-zinc-900 transition-all"
           >
             <ArrowLeftIcon className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
             <span className="font-bold text-xs uppercase tracking-[0.2em]">
@@ -90,7 +90,7 @@ const SupportCenter = () => {
               help?
             </span>
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-lg">
+          <p className="text-zinc-500  text-lg">
             Search our knowledge base or reach out to our dedicated support
             team.
           </p>
@@ -107,7 +107,7 @@ const SupportCenter = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-5 p-6 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-[2rem] hover:border-pink-500/50 transition-all group"
+              className="flex items-center gap-5 p-6 bg-zinc-50 /50 border border-zinc-100  rounded-[2rem] hover:border-pink-500/50 transition-all group"
             >
               <div className="bg-green-500/10 p-4 rounded-2xl group-hover:scale-110 transition-transform">
                 <ChatBubbleLeftRightIcon className="h-6 w-6 text-green-500" />
@@ -120,7 +120,7 @@ const SupportCenter = () => {
               </div>
             </a>
 
-            <div className="flex items-center gap-5 p-6 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 rounded-[2rem] hover:border-pink-500/50 transition-all group cursor-pointer">
+            <div className="flex items-center gap-5 p-6 bg-zinc-50 /50 border border-zinc-100  rounded-[2rem] hover:border-pink-500/50 transition-all group cursor-pointer">
               <div className="bg-blue-500/10 p-4 rounded-2xl group-hover:scale-110 transition-transform">
                 <EnvelopeIcon className="h-6 w-6 text-blue-500" />
               </div>
@@ -149,7 +149,7 @@ const SupportCenter = () => {
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm"
+                  className="bg-white  border border-zinc-100  rounded-3xl overflow-hidden shadow-sm"
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
@@ -163,7 +163,7 @@ const SupportCenter = () => {
                   <div
                     className={`px-6 transition-all duration-300 ease-in-out ${openFaq === index ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"}`}
                   >
-                    <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-zinc-500  leading-relaxed">
                       {faq.a}
                     </p>
                   </div>
@@ -172,13 +172,13 @@ const SupportCenter = () => {
             </div>
 
             {/* --- Search Box Replacement --- */}
-            <div className="mt-10 p-8 border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] flex flex-col items-center text-center">
+            <div className="mt-10 p-8 border-2 border-dashed border-zinc-200  rounded-[2.5rem] flex flex-col items-center text-center">
               <QuestionMarkCircleIcon className="h-10 w-10 text-zinc-300 mb-4" />
               <h3 className="font-bold mb-1">Still have questions?</h3>
               <p className="text-sm text-zinc-500 mb-6">
                 We're available 24/7 to assist you with any inquiries.
               </p>
-              <button className="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform">
+              <button className="px-8 py-3 bg-zinc-900  text-white  rounded-xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform">
                 Open a Ticket
               </button>
             </div>
@@ -186,7 +186,7 @@ const SupportCenter = () => {
         </main>
 
         {/* --- Simple Bottom Footer --- */}
-        <div className="border-t border-zinc-100 dark:border-zinc-900 py-10 text-center">
+        <div className="border-t border-zinc-100  py-10 text-center">
           <p className="text-[10px] text-zinc-400 uppercase tracking-[0.4em]">
             Help Center • funwithjuli.in
           </p>

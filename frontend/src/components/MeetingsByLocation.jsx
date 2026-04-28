@@ -47,15 +47,15 @@ const MeetingsByLocation = () => {
   );
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-950">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADER & SEARCH */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
           <div>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl font-black text-gray-900 mb-4">
               Extensive Presence Across Delhi NCR, Noida, and Gurgaon
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-gray-600">
               One of the main reasons we’re regarded as a leading escort service
               in Delhi NCR is our wide and reliable network across the region.
               We understand how vast the NCR is, so accessibility and prompt

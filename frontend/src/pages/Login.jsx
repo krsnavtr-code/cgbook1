@@ -45,7 +45,7 @@ const Login = () => {
         canonicalUrl="https://funwithjuli.in/login"
         noIndex={true}
       />
-      <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 transition-colors duration-300">
         {/* ================= BACKGROUND EFFECTS ================= */}
         <div className="absolute inset-0 w-full h-full">
           <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-indigo-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
@@ -54,11 +54,11 @@ const Login = () => {
         </div>
 
         {/* ================= GLASS CARD ================= */}
-        <div className="max-w-md w-full space-y-8 p-10 bg-white/80 dark:bg-gray-800/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/50 relative z-10 transition-colors duration-300">
+        <div className="max-w-md w-full space-y-8 p-10 bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 relative z-10 transition-colors duration-300">
           {/* Go to Home Link */}
           <Link
             to="/"
-            className="absolute top-6 left-6 flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group"
+            className="absolute top-6 left-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,14 +94,14 @@ const Login = () => {
                 />
               </svg>
             </div>
-            <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900 tracking-tight">
               Welcome Back
             </h2>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p className="mt-2 text-sm text-gray-600">
               Don't have an account?{" "}
               <Link
                 to="/register"
-                className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors"
+                className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
               >
                 Sign up for free
               </Link>
@@ -111,7 +111,7 @@ const Login = () => {
           {/* Error Message */}
           {error && (
             <div
-              className="flex items-center gap-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-xl text-sm"
+              className="flex items-center gap-3 bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm"
               role="alert"
             >
               <svg
@@ -137,7 +137,7 @@ const Login = () => {
               <div className="relative group">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 pl-1"
+                  className="block text-sm font-medium text-gray-700 mb-1 pl-1"
                 >
                   Email address
                 </label>
@@ -166,7 +166,7 @@ const Login = () => {
                     required
                     value={email}
                     onChange={onChange}
-                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-xl leading-5 bg-white dark:bg-gray-700/50 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 sm:text-sm transition-all"
+                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-all"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -176,7 +176,7 @@ const Login = () => {
               <div className="relative group">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 pl-1"
+                  className="block text-sm font-medium text-gray-700 mb-1 pl-1"
                 >
                   Password
                 </label>
@@ -205,14 +205,14 @@ const Login = () => {
                     required
                     value={password}
                     onChange={onChange}
-                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-xl leading-5 bg-white dark:bg-gray-700/50 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 sm:text-sm transition-all"
+                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-all"
                     placeholder="••••••••"
                   />
                 </div>
                 <div className="flex justify-end mt-1">
                   <a
                     href="#"
-                    className="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
+                    className="text-xs font-medium text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
                   </a>
@@ -223,7 +223,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-indigo-500/30"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-indigo-500/30"
               >
                 Sign in
               </button>

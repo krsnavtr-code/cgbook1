@@ -14,7 +14,7 @@ const AdminDashboard = () => {
       <div className="space-y-8">
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 ">
             Dashboard Overview
           </h1>
           <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition text-sm md:text-base">
@@ -25,37 +25,37 @@ const AdminDashboard = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Stat Card 1 */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <h3 className="text-gray-500 dark:text-gray-400 text-sm font-medium">
+          <div className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100 ">
+            <h3 className="text-gray-500  text-sm font-medium">
               Total Users
             </h3>
-            <p className="text-3xl font-bold text-gray-900 dark:text-white mt-2">
+            <p className="text-3xl font-bold text-gray-900  mt-2">
               1,234
             </p>
           </div>
           {/* Stat Card 2 */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <h3 className="text-gray-500 dark:text-gray-400 text-sm font-medium">
+          <div className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100 ">
+            <h3 className="text-gray-500  text-sm font-medium">
               Total Videos
             </h3>
-            <p className="text-3xl font-bold text-gray-900 dark:text-white mt-2">
+            <p className="text-3xl font-bold text-gray-900  mt-2">
               456
             </p>
           </div>
           {/* Stat Card 3 */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-            <h3 className="text-gray-500 dark:text-gray-400 text-sm font-medium">
+          <div className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100 ">
+            <h3 className="text-gray-500  text-sm font-medium">
               Total Photos
             </h3>
-            <p className="text-3xl font-bold text-gray-900 dark:text-white mt-2">
+            <p className="text-3xl font-bold text-gray-900  mt-2">
               890
             </p>
           </div>
         </div>
 
         {/* Placeholder Content Area */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8 text-center py-20">
-          <div className="inline-block p-4 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-4">
+        <div className="bg-white  rounded-2xl shadow-sm border border-gray-100  p-8 text-center py-20">
+          <div className="inline-block p-4 rounded-full bg-indigo-50  text-indigo-600  mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -71,10 +71,10 @@ const AdminDashboard = () => {
               />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <h2 className="text-xl font-semibold text-gray-900 ">
             Manage Content
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">
+          <p className="text-gray-500  mt-2">
             Select a category from the sidebar to manage videos, photos, or
             users.
           </p>
