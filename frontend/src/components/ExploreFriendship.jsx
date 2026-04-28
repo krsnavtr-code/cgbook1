@@ -4,6 +4,7 @@ import { getOwnerInfo } from "../api/ownerInfoApi";
 const ExploreFriendship = () => {
   const [ownerInfo, setOwnerInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showFullContent, setShowFullContent] = useState(false);
 
   useEffect(() => {
     const fetchOwnerInfo = async () => {
@@ -36,25 +37,25 @@ const ExploreFriendship = () => {
   const categories = [
     {
       id: 1,
-      title: "Travel Buddies",
+      title: "For Social Events",
       description:
-        "Find a partner for your next luxury getaway or weekend trip.",
+        "If you need a partner for a wedding or a gala, our luxury call girls in Delhi are the perfect choice. They carry themselves with poise and can blend into any high-society gathering.",
       icon: "✈️",
       color: "from-cyan-400 to-blue-500",
     },
     {
       id: 2,
-      title: "Dinner Dates",
+      title: "For Private Evenings",
       description:
-        "Discover charming companions for fine dining and deep conversations.",
+        "If you prefer a quiet night in your hotel or apartment, our premium call girls in Delhi offer a relaxed and attentive presence.",
       icon: "🍷",
       color: "from-indigo-400 to-purple-500",
     },
     {
       id: 3,
-      title: "Social Events",
+      title: "For Travel Companionship",
       description:
-        "Need a plus-one for a party or corporate event? Find them here.",
+        "If you are touring the NCR, having someone who knows the best spots in Gurgaon or the hidden gems of Delhi can make your trip much more enjoyable.",
       icon: "🎭",
       color: "from-rose-400 to-pink-500",
     },
@@ -73,9 +74,8 @@ const ExploreFriendship = () => {
               </span>
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-lg">
-              Explore the social side of funwithjuli.in. Connect with verified
-              individuals for companionship, social gatherings, and shared
-              experiences.
+              With so many options available, how do you decide? At funwithjuli,
+              we suggest looking at your schedule and the nature of the meeting.
             </p>
           </div>
           {/* <div className="mt-8 md:mt-0">
@@ -131,7 +131,7 @@ const ExploreFriendship = () => {
           ))}
         </div>
 
-        <section className="bg-gray-50 dark:bg-gray-950">
+        <section className="bg-gray-50 dark:bg-gray-950 mt-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* HEADER & SEARCH */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
@@ -160,10 +160,196 @@ const ExploreFriendship = () => {
                   <br />
                   With fast responses, clear communication, and dedicated
                   assistance, our platform delivers a stress-free experience.
-                  Whether you are booking a <strong>call girl service</strong>{" "}
+                  Whether you are booking a <strong>
+                    call girl service
+                  </strong>{" "}
                   or a premium escort option, our discreet support ensures peace
                   of mind at every step.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Professional Companionship Section */}
+        <section className="bg-white dark:bg-gray-900 mt-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+                Understanding the Need for{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+                  Professional Companionship
+                </span>
+              </h2>
+            </div>
+
+            <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-400">
+              <p className="text-lg leading-relaxed mb-6">
+                Life in a fast-paced city can be demanding. Often, individuals
+                seek a brief escape or a graceful partner to accompany them to
+                social events, dinners, or simply to spend quality time with.
+                This is where the best escort service in Delhi NCR becomes an
+                essential resource. We understand that every client is unique,
+                and so are their requirements. Our agency focuses on curating a
+                list of companions who are not only visually stunning but also
+                intellectually engaging.
+              </p>
+
+              <p className="text-lg leading-relaxed mb-6">
+                When you choose funwithjuli, you are choosing a brand that
+                values your time. We have streamlined our booking process to
+                ensure that you can find premium escort agency Delhi services
+                without any unnecessary hurdles. From the moment you contact us
+                at 9548679151, our team works to match you with a partner who
+                aligns with your preferences.
+              </p>
+
+              {showFullContent && (
+                <>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Elite Female Models Delhi: Beyond Just Beauty
+                  </h3>
+                  <p className="text-lg leading-relaxed mb-6">
+                    When people look for the best escort service in Delhi NCR,
+                    they often focus solely on physical appearance. While our
+                    elite female models Delhi are indeed striking, we believe
+                    that true companionship goes deeper. Our partners are
+                    individuals with their own interests, hobbies, and
+                    conversational skills.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    Whether you want to discuss global trends over a glass of
+                    wine or simply enjoy a quiet evening, our companions are
+                    capable of adapting to the mood. This versatility is a
+                    hallmark of the funwithjuli brand. We cater to a discerning
+                    clientele that appreciates the finer things in life,
+                    including meaningful conversation and graceful presence.
+                  </p>
+
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Seamless Integration of Services in NCR
+                  </h3>
+                  <p className="text-lg leading-relaxed mb-6">
+                    The beauty of the NCR region is its interconnectedness. You
+                    might start your day in Delhi and end it in a luxury suite
+                    in Noida. The best escort service in Delhi NCR must be able
+                    to follow that rhythm. At funwithjuli, we have logistics in
+                    place to ensure that our service is as mobile as you are.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    If you are looking for independent escorts Delhi NCR who can
+                    travel to your location, we facilitate those connections
+                    with ease. Our goal is to make sure that no matter where you
+                    are within the borders of the National Capital Region,
+                    high-end companionship is always accessible.
+                  </p>
+
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Safety and Reliability
+                  </h3>
+                  <p className="text-lg leading-relaxed mb-6">
+                    In an industry where trust is paramount, funwithjuli stands
+                    out by being a reliable partner. We encourage our clients to
+                    communicate their needs clearly. By calling 9548679151, you
+                    can speak with our coordinators who will guide you through
+                    the available options. Being the best escort service in
+                    Delhi NCR means we take responsibility for the safety and
+                    comfort of both our clients and our companions.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    We strictly adhere to professional standards. Our
+                    interactions are based on mutual respect. This creates a
+                    positive environment where you can truly relax and be
+                    yourself.
+                  </p>
+
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Serving the Modern Gentleman in the Digital Age
+                  </h3>
+                  <p className="text-lg leading-relaxed mb-6">
+                    The way people search for companionship has changed. Today,
+                    you want a website that is easy to navigate and information
+                    that is clear. At funwithjuli.in, we have designed our
+                    digital presence to be as professional as our physical
+                    services. We provide a clear overview of what we offer
+                    without using misleading imagery or complicated jargon.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    As the best escort service in Delhi NCR, we stay updated
+                    with the latest trends in hospitality and customer service.
+                    We listen to feedback and constantly refine our offerings to
+                    ensure that funwithjuli remains at the top of your list.
+                  </p>
+
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Your Journey with funwithjuli Starts Here
+                  </h3>
+                  <p className="text-lg leading-relaxed mb-6">
+                    Whether you are looking for elite female models Delhi or
+                    independent escorts Delhi NCR, your search for perfection
+                    ends with us. We have spent years building a brand that
+                    stands for quality, elegance, and reliability.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    Delhi, Noida, Gurgaon, and the entire NCR are vibrant
+                    places, and they deserve a companionship service that
+                    matches that energy. Don't settle for anything less than the
+                    best escort service in Delhi NCR. Contact funwithjuli today
+                    at 9548679151 and let us help you find the perfect partner
+                    for your next occasion. We are committed to making every
+                    moment count, ensuring that your experience is nothing short
+                    of exceptional.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    With funwithjuli, you are not just booking a service; you
+                    are choosing a lifestyle of luxury and comfort. We look
+                    forward to serving you across the National Capital Region
+                    and proving why we are the leaders in premium companionship.
+                  </p>
+                </>
+              )}
+
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setShowFullContent(!showFullContent)}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  {showFullContent ? (
+                    <>
+                      Show Less
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 15l7-7 7 7"
+                        />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      Read More
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>

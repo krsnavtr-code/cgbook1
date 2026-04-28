@@ -31,8 +31,8 @@ const Home = () => {
   return (
     <>
       <MetaTags
-        title="Premium Escort Service in Delhi NCR | Safe & Private Meetings"
-        description="Premium escort service in Delhi NCR offering safe, private meetings with verified companions. Professional escort services in Delhi, Noida, Gurgaon, Ghaziabad, and Greater Noida."
+        title="Best Escort Service in Delhi NCR | funwithjuli Premium Call Girls"
+        description="Looking for the best escort service in Delhi NCR? funwithjuli offers premium companions in Delhi, Noida, and Gurgaon. Call 9548679151 for elite female models today."
         keywords="escort service Delhi, call girls Delhi NCR, premium escort service, private meetings, safe escort service, Delhi escort, Noida escort, Gurgaon escort, Ghaziabad escort, Greater Noida escort, verified companions, discreet escort service"
         canonicalUrl="https://funwithjuli.in/"
         structuredData={structuredData}
@@ -61,32 +61,23 @@ const Home = () => {
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div>
                 <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
-                  Premium Escort Service for{" "}
-                  <span className="text-pink-600">Safe & Private Meetings</span>
+                  Why funwithjuli is the Best Escort Service in Delhi NCR
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-400">
-                  Our <strong>premium escort service</strong> is designed for
-                  people who value <strong>privacy, comfort, and safety</strong>{" "}
-                  above everything else. We focus on providing a professional
-                  platform where users can connect with{" "}
-                  <strong>trusted call girls and escort companions</strong> for
-                  strong, private meetings without stress or confusion. <br />
-                  Every interaction is handled with complete discretion,
-                  ensuring your personal details remain protected at all times.
-                  Our escort service follows strict quality guidelines so that
-                  clients receive a reliable and respectful experience. From
-                  first contact to final booking, the process is smooth,
-                  transparent, and confidential.
+                  What sets us apart from other agencies is our commitment to
+                  quality over quantity. Rather than simply offering a list of
+                  names, we provide a carefully curated experience tailored to
+                  your preferences. Our diverse portfolio includes both
+                  independent and agency-managed companions, giving you the
+                  flexibility to choose someone who matches your vibe.
                   <br />
-                  We understand that privacy matters, which is why our{" "}
-                  <strong>escort service for private meetings</strong> is
-                  structured around trust and secure communication. Whether you
-                  are looking for a premium experience or a discreet short-term
-                  booking, our platform offers dependable support. <br />
-                  With a strong focus on <strong>safe escort services</strong>,
-                  professional coordination, and client satisfaction, we aim to
-                  deliver a premium experience that feels comfortable and
-                  reliable every time.
+                  We prioritize discretion and handle all interactions with
+                  complete privacy, ensuring your confidentiality at every step.
+                  We also value your time, which is why punctuality is a key
+                  part of our service, whether you’re in Gurgaon or Noida. Above
+                  all, our companions maintain a high standard of
+                  professionalism, creating a comfortable and engaging
+                  experience from beginning to end.
                 </p>
               </div>
             </div>
@@ -105,35 +96,25 @@ const Home = () => {
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div>
                 <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
-                  City-Wise Escort Services in{" "}
-                  <span className="text-pink-600">Delhi NCR</span>
+                  About Us: The Story of funwithjuli
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-400">
-                  We offer{" "}
-                  <strong>city-wise escort services in Delhi NCR</strong>,
-                  making it easy to find trusted companions in your preferred
-                  location. Our services cover{" "}
-                  <strong>
-                    Delhi, Noida, Ghaziabad, Gurgaon, and Greater Noida,
-                  </strong>
-                  , each with dedicated listings and verified profiles.
-                  <br />
-                  This city-focused approach improves accessibility and ensures
-                  faster coordination. Users searching for{" "}
-                  <strong>escort services in Delhi NCR</strong> can easily
-                  choose their city and explore suitable options without
-                  confusion.
-                  <br />
-                  Each city page is optimized to provide local relevance,
-                  accurate information, and reliable service standards. Whether
-                  you need a <strong>call girls service in Delhi</strong> or a
-                  premium escort option in Gurgaon, our platform ensures
-                  consistent quality across all locations.
-                  <br />
-                  By offering structured{" "}
-                  <strong>city-wise escort services</strong>, we help users
-                  enjoy a smoother, safer, and more personalized booking
-                  experience throughout the Delhi NCR region.
+                  At the core of our operations is a simple philosophy: to
+                  provide unmatched hospitality through companionship. As the
+                  best escort service in Delhi NCR, funwithjuli was founded on
+                  the principles of transparency and customer satisfaction. We
+                  realized that the market was saturated with unreliable
+                  options, and we wanted to create a platform where clients
+                  could find genuine, premium call girls in Delhi without any
+                  stress.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-400">
+                  Our team works tirelessly to vet every individual who joins
+                  our agency. We look for charm, personality, and a genuine
+                  interest in social interaction. This meticulous selection
+                  process is what makes us a premium escort agency Delhi clients
+                  trust year after year. We are not just a service provider; we
+                  are a bridge between you and a memorable experience.
                 </p>
               </div>
             </div>

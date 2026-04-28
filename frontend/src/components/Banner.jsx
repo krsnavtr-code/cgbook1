@@ -11,7 +11,8 @@ const Banner = () => {
       try {
         const data = await getOwnerInfo();
         // Get the primary owner or first owner in the list
-        const primaryOwner = data.owners?.find(owner => owner.isPrimary) || data.owners?.[0];
+        const primaryOwner =
+          data.owners?.find((owner) => owner.isPrimary) || data.owners?.[0];
         if (primaryOwner) {
           setOwnerInfo(primaryOwner);
         }
@@ -27,14 +28,14 @@ const Banner = () => {
 
   // Format the WhatsApp number by removing any non-digit characters except the leading +
   const formatWhatsAppNumber = (number) => {
-    if (!number) return '';
+    if (!number) return "";
     // Remove all non-digit characters except the leading +
-    return number.replace(/^(\+?\d+)[\s-]*(\d+)$/, '$1$2');
+    return number.replace(/^(\+?\d+)[\s-]*(\d+)$/, "$1$2");
   };
 
-  const whatsappLink = ownerInfo?.whatsappNumber 
+  const whatsappLink = ownerInfo?.whatsappNumber
     ? `https://wa.me/${formatWhatsAppNumber(ownerInfo.whatsappNumber)}`
-    : '#';
+    : "#";
   return (
     <div className="relative overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Decorative Background Blobs */}
@@ -46,16 +47,15 @@ const Banner = () => {
         <div className="relative z-10 py-14 sm:py-20 lg:py-24 lg:flex lg:items-center lg:justify-between">
           {/* ================= TEXT CONTENT ================= */}
           <div className="text-center lg:text-left lg:w-1/2">
-            <h1 className="text-3xl font-black tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-              <span className="block">Explore the best</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-rose-500 to-indigo-600">
-                FullFun Creativity
-              </span>
+            <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              Best Escort Service in Delhi NCR: Premium Experience
             </h1>
             <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0">
-              Join the exclusive community of funwithjuli. Discover
-              premium videos, high-quality photos, and behind-the-scenes content
-              you won't find anywhere else.
+              Funwithjuli offers trusted, high-quality companionship across
+              Delhi NCR. Serving Delhi, Noida, and Gurgaon, we focus on
+              professionalism, discretion, and client satisfaction, ensuring a
+              seamless and sophisticated experience for residents and visitors
+              alike.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
