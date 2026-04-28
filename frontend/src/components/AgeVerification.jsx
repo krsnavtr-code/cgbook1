@@ -57,12 +57,12 @@ const AgeVerification = () => {
   if (isDeclined) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 max-w-md mx-4 text-center">
+        <div className="bg-white rounded-3xl p-8 max-w-md mx-4 text-center">
           <ExclamationTriangleIcon className="h-16 w-16 text-red-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-4 dark:text-white">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">
             Access Denied
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+          <p className="text-zinc-600 mb-4">
             You must be 18+ to access this website. You will be redirected in 3
             seconds...
           </p>
@@ -83,7 +83,7 @@ const AgeVerification = () => {
       }}
     >
       <div
-        className="bg-white dark:bg-zinc-900 rounded-3xl p-8 max-w-md mx-4 relative"
+        className="bg-white rounded-3xl p-8 max-w-md mx-4 relative"
         onClick={(e) => {
           // Prevent event bubbling
           e.stopPropagation();
@@ -91,7 +91,7 @@ const AgeVerification = () => {
       >
         <button
           onClick={() => (window.location.href = "https://www.google.com")}
-          className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
+          className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600"
         >
           <XMarkIcon className="h-6 w-6" />
         </button>
@@ -101,11 +101,11 @@ const AgeVerification = () => {
             <span className="text-white text-3xl font-bold">18+</span>
           </div>
 
-          <h1 className="text-2xl font-bold mb-4 dark:text-white">
+          <h1 className="text-2xl font-bold mb-4 text-gray-900">
             Age Verification Required
           </h1>
 
-          <p className="text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+          <p className="text-zinc-600 mb-6 leading-relaxed">
             This website contains adult content and is intended for individuals
             who are 18 years of age or older. By entering this website, you
             confirm that you are of legal age to view adult content in your
@@ -122,7 +122,7 @@ const AgeVerification = () => {
 
             <button
               onClick={handleDecline}
-              className="w-full py-3 px-6 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-zinc-700 dark:text-zinc-300 rounded-2xl font-bold transition-all duration-200"
+              className="w-full py-3 px-6 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 rounded-2xl font-bold transition-all duration-200"
             >
               I am under 18 - Leave
             </button>

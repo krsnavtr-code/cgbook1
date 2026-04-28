@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
 import { useAuth } from "../context/AuthContext";
 import { getOwnerInfo } from "../api/ownerInfoApi";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
-  Sun,
-  Moon,
   Phone,
   ChevronDown,
   LayoutDashboard,
@@ -18,7 +15,6 @@ import {
 import { LOCATIONS } from "../constants/locations";
 
 const Navbar = () => {
-  const { darkMode, toggleTheme } = useTheme();
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -54,9 +50,7 @@ const Navbar = () => {
       <Link
         to={to}
         className={`relative px-1 py-1 text-sm font-bold transition-colors ${
-          isActive
-            ? "text-pink-600 dark:text-pink-400"
-            : "text-gray-600 dark:text-gray-400 hover:text-pink-500"
+          isActive ? "text-pink-600" : "text-gray-600 hover:text-pink-500"
         } ${className}`}
       >
         {children}
@@ -71,7 +65,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-[100] w-full border-b border-pink-100/50 dark:border-gray-800 bg-white/80 dark:bg-gray-900/90 backdrop-blur-xl transition-all">
+    <nav className="sticky top-0 z-[100] w-full border-b border-pink-100/50 bg-white/80 backdrop-blur-xl transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* --- BRANDING --- */}
@@ -80,10 +74,10 @@ const Navbar = () => {
               <div className="w-11 h-11 bg-gradient-to-tr from-pink-500 via-rose-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-pink-500/20 group-hover:scale-105 transition-transform">
                 <span className="text-2xl font-black">J</span>
               </div>
-              <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-gray-900 rounded-full" />
+              <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full" />
             </div>
             <div className="hidden sm:flex flex-col">
-              <span className="text-xl font-black tracking-tight dark:text-white">
+              <span className="text-xl font-black tracking-tight text-gray-900">
                 funwithjuli<span className="text-pink-600">.in</span>
               </span>
               <span className="text-[10px] uppercase tracking-widest font-bold text-gray-400">
@@ -100,19 +94,19 @@ const Navbar = () => {
 
               {/* Refined Dropdown */}
               <div className="relative group py-4">
-                <button className="flex items-center gap-1 text-sm font-bold text-gray-600 dark:text-gray-400 hover:text-pink-500 transition-colors">
+                <button className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-pink-500 transition-colors">
                   Locations{" "}
                   <ChevronDown
                     size={14}
                     className="group-hover:rotate-180 transition-transform"
                   />
                 </button>
-                <div className="absolute top-full left-0 w-48 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 py-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                <div className="absolute top-full left-0 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
                   {LOCATIONS.map((city) => (
                     <Link
                       key={city}
                       to={`/meetings/${city.toLowerCase().replace(" ", "-")}`}
-                      className="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-pink-50 dark:hover:bg-pink-900/20 hover:text-pink-600"
+                      className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-600"
                     >
                       {city}
                     </Link>
@@ -123,16 +117,9 @@ const Navbar = () => {
               <NavLink to="/contact-us">Contact</NavLink>
             </div>
 
-            <div className="flex items-center pl-6 border-l border-gray-100 dark:border-gray-800 gap-4">
-              {/* <button
-                onClick={toggleTheme}
-                className="p-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-pink-500 transition-all"
-              >
-                {mounted && (darkMode ? <Moon size={20} /> : <Sun size={20} />)}
-              </button> */}
-
+            <div className="flex items-center pl-6 border-l border-gray-100 gap-4">
               {loading ? (
-                <div className="w-32 h-11 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
+                <div className="w-32 h-11 bg-gray-100 rounded-xl animate-pulse" />
               ) : (
                 phoneNumber && (
                   <a
@@ -148,7 +135,7 @@ const Navbar = () => {
               {isAuthenticated && isAdmin && (
                 <Link
                   to="/admin"
-                  className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-900/20 text-amber-600 border border-amber-100 dark:border-amber-900/50"
+                  className="p-2.5 rounded-xl bg-amber-50 text-amber-600 border border-amber-100"
                 >
                   <ShieldCheck size={20} />
                 </Link>
@@ -159,14 +146,8 @@ const Navbar = () => {
           {/* --- MOBILE TOGGLE --- */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={toggleTheme}
-              className="p-2 text-gray-500 dark:text-gray-400"
-            >
-              {mounted && (darkMode ? <Moon size={22} /> : <Sun size={22} />)}
-            </button>
-            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2.5 rounded-xl bg-pink-50 dark:bg-gray-800 text-pink-600 dark:text-pink-400"
+              className="p-2.5 rounded-xl bg-pink-50 text-pink-600"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -181,7 +162,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 overflow-hidden"
+            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
             <div className="p-4 space-y-2">
               {["Home", "Photos", "Videos", "Contact"].map((item) => (
@@ -189,13 +170,13 @@ const Navbar = () => {
                   key={item}
                   to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 font-bold text-gray-700 dark:text-gray-200 hover:bg-pink-50 dark:hover:bg-pink-900/10 transition-colors"
+                  className="flex items-center p-4 rounded-2xl bg-gray-50 font-bold text-gray-700 hover:bg-pink-50 transition-colors"
                 >
                   {item}
                 </Link>
               ))}
 
-              <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
+              <div className="pt-4 border-t border-gray-100">
                 {phoneNumber && (
                   <a
                     href={`tel:${phoneNumber}`}

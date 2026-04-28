@@ -37,7 +37,7 @@ const Banner = () => {
     ? `https://wa.me/${formatWhatsAppNumber(ownerInfo.whatsappNumber)}`
     : "#";
   return (
-    <div className="relative overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="relative overflow-hidden bg-white transition-colors duration-300">
       {/* Decorative Background Blobs */}
       <div className="absolute top-0 -left-4 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
@@ -47,10 +47,10 @@ const Banner = () => {
         <div className="relative z-10 py-14 sm:py-20 lg:py-24 lg:flex lg:items-center lg:justify-between">
           {/* ================= TEXT CONTENT ================= */}
           <div className="text-center lg:text-left lg:w-1/2">
-            <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h1 className="text-2xl font-black tracking-tight text-gray-900 sm:text-4xl">
               Best Escort Service in Delhi NCR: Premium Experience
             </h1>
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0">
+            <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
               Funwithjuli offers trusted, high-quality companionship across
               Delhi NCR. Serving Delhi, Noida, and Gurgaon, we focus on
               professionalism, discretion, and client satisfaction, ensuring a
@@ -77,7 +77,7 @@ const Banner = () => {
               </a>
               <Link
                 to="/videos"
-                className="px-8 py-4 text-lg font-bold text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 rounded-2xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all flex items-center justify-center gap-2"
+                className="px-8 py-4 text-lg font-bold text-gray-700 bg-gray-100 rounded-2xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2"
               >
                 <svg
                   className="w-5 h-5 text-pink-500"
@@ -95,29 +95,23 @@ const Banner = () => {
             </div>
 
             {/* Stats / Social Proof */}
-            <div className="mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100 dark:border-gray-800 pt-8">
+            <div className="mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100 pt-8">
               <div>
-                <p className="text-2xl font-black text-gray-900 dark:text-white">
-                  500+
-                </p>
+                <p className="text-2xl font-black text-gray-900">500+</p>
                 <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">
                   Photos
                 </p>
               </div>
-              <div className="h-10 w-px bg-gray-200 dark:bg-gray-700"></div>
+              <div className="h-10 w-px bg-gray-200"></div>
               <div>
-                <p className="text-2xl font-black text-gray-900 dark:text-white">
-                  100+
-                </p>
+                <p className="text-2xl font-black text-gray-900">100+</p>
                 <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">
                   Videos
                 </p>
               </div>
-              <div className="h-10 w-px bg-gray-200 dark:bg-gray-700"></div>
+              <div className="h-10 w-px bg-gray-200"></div>
               <div>
-                <p className="text-2xl font-black text-gray-900 dark:text-white">
-                  10k
-                </p>
+                <p className="text-2xl font-black text-gray-900">10k</p>
                 <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">
                   Fans
                 </p>
@@ -130,9 +124,9 @@ const Banner = () => {
             <div className="relative w-72 h-96 sm:w-80 sm:h-[450px]">
               {/* Main Image Frame */}
               <div className="absolute inset-0 bg-gradient-to-tr from-pink-500 to-indigo-600 rounded-[2rem] rotate-3 -z-10 opacity-20 animate-pulse"></div>
-              <div className="w-full h-full overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white dark:border-gray-800 transform -rotate-3 hover:rotate-0 transition-transform duration-500 group">
+              <div className="w-full h-full overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white transform -rotate-3 hover:rotate-0 transition-transform duration-500 group">
                 {/* Replace with actual image of Juli/Content */}
-                <div className="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                   <img
                     src="https://funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.41-pm--1--26042026-1110.jpeg"
                     alt="Featured Content"
@@ -140,27 +134,27 @@ const Banner = () => {
                   />
                 </div>
                 {/* Overlay Tag */}
-                <div className="absolute bottom-6 left-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg">
+                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg">
                   <p className="text-xs font-bold text-pink-600 uppercase">
                     New Release
                   </p>
-                  <p className="text-sm font-black dark:text-white">
+                  <p className="text-sm font-black text-gray-900">
                     Summer Collection 2024
                   </p>
                 </div>
               </div>
 
               {/* Small Floating Card */}
-              <div className="absolute -right-8 top-1/4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 hidden sm:block animate-bounce-slow">
+              <div className="absolute -right-8 top-1/4 bg-white p-4 rounded-2xl shadow-2xl border border-gray-100 hidden sm:block animate-bounce-slow">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
                     🔥
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400">
                       Trending Now
                     </p>
-                    <p className="text-sm font-black dark:text-white">
+                    <p className="text-sm font-black text-gray-900">
                       Live Stream 8PM
                     </p>
                   </div>

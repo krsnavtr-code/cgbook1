@@ -16,7 +16,7 @@
   .sidebar-exit-active {
     @apply transform -translate-x-full transition-transform duration-300 ease-in-out;
   }
-  
+
   /* Custom scrollbar for sidebar */
   .sidebar-scrollbar::-webkit-scrollbar {
     @apply w-1.5;
@@ -25,7 +25,7 @@
     @apply bg-transparent;
   }
   .sidebar-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-600 rounded-full hover:bg-gray-400 dark:hover:bg-gray-500;
+    @apply bg-gray-300 rounded-full hover:bg-gray-400;
   }
 }
 
@@ -63,28 +63,16 @@
 @layer base {
   :root {
     /* Light theme colors */
-    --primary-color: #4f46e5;       /* Indigo 600 */
-    --primary-hover: #4338ca;       /* Indigo 700 */
-    --secondary-color: #64748b;     /* Slate 500 */
-    --bg-body: #f8fafc;             /* Slate 50 */
+    --primary-color: #4f46e5; /* Indigo 600 */
+    --primary-hover: #4338ca; /* Indigo 700 */
+    --secondary-color: #64748b; /* Slate 500 */
+    --bg-body: #f8fafc; /* Slate 50 */
     --bg-card: #ffffff;
-    --text-main: #0f172a;           /* Slate 900 */
-    --text-muted: #64748b;          /* Slate 500 */
+    --text-main: #0f172a; /* Slate 900 */
+    --text-muted: #64748b; /* Slate 500 */
     --border-color: #e2e8f0;
     --radius: 8px;
-    --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  }
-
-  /* Dark theme overrides - using Tailwind's dark: variant */
-  .dark {
-    --primary-color: #818cf8;       /* Lighter indigo for dark mode */
-    --primary-hover: #a5b4fc;       /* Even lighter indigo for hover */
-    --secondary-color: #94a3b8;     /* Lighter slate for dark mode */
-    --bg-body: #0f172a;            /* Dark background */
-    --bg-card: #1e293b;            /* Dark card background */
-    --text-main: #f8fafc;          /* Light text */
-    --text-muted: #94a3b8;         /* Lighter muted text */
-    --border-color: #334155;       /* Darker border */
+    --font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   }
 
   /* Base styles */
@@ -92,26 +80,29 @@
     background-color: var(--bg-body);
     color: var(--text-main);
     font-family: var(--font-family);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
   }
-  
+
   /* Theme utility classes */
   .bg-theme-body {
     background-color: var(--bg-body);
   }
-  
+
   .bg-theme-card {
     background-color: var(--bg-card);
   }
-  
+
   .text-theme-main {
     color: var(--text-main);
   }
-  
+
   .text-theme-muted {
     color: var(--text-muted);
   }
-  
+
   .border-theme {
     border: 1px solid var(--border-color);
   }
@@ -161,7 +152,12 @@ body {
 /* =========================================
    3. BASIC ELEMENT STYLES
    ========================================= */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   margin-bottom: 1rem;
   font-weight: 700;
@@ -181,7 +177,9 @@ a:hover {
   color: var(--primary-hover);
 }
 
-img, video, svg {
+img,
+video,
+svg {
   max-width: 100%;
   display: block;
 }
