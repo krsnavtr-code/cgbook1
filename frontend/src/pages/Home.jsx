@@ -63,7 +63,7 @@ const Home = () => {
                 <h2 className="text-4xl font-black text-gray-900 mb-4">
                   Why funwithjuli is the Best Escort Service in Delhi NCR
                 </h2>
-                <p className="text-lg text-gray-600 ">
+                <p className="text-lg text-black ">
                   What sets us apart from other agencies is our commitment to
                   quality over quantity. Rather than simply offering a list of
                   names, we provide a carefully curated experience tailored to
@@ -98,7 +98,7 @@ const Home = () => {
                 <h2 className="text-4xl font-black text-gray-900  mb-4">
                   About Us: The Story of funwithjuli
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-black">
                   At the core of our operations is a simple philosophy: to
                   provide unmatched hospitality through companionship. As the
                   best escort service in Delhi NCR, funwithjuli was founded on
@@ -108,7 +108,7 @@ const Home = () => {
                   could find genuine, premium call girls in Delhi without any
                   stress.
                 </p>
-                <p className="text-lg text-gray-600 ">
+                <p className="text-lg text-black ">
                   Our team works tirelessly to vet every individual who joins
                   our agency. We look for charm, personality, and a genuine
                   interest in social interaction. This meticulous selection
@@ -132,7 +132,7 @@ const Home = () => {
                   Why Choose Our Escort{" "}
                   <span className="text-pink-600">Service</span>
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-black">
                   Choosing the right escort platform matters, and our service
                   stands out because of{" "}
                   <strong>trust, discretion, and professionalism</strong>. We

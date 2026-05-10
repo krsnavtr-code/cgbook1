@@ -204,12 +204,9 @@ const Profiles = () => {
       <div className="max-w-7xl mx-auto mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-extrabold text-gray-900  tracking-tight">
-            Profiles{" "}
-            <span className="text-indigo-600 ">
-              Management
-            </span>
+            Profiles <span className="text-indigo-600 ">Management</span>
           </h1>
-          <p className="text-gray-500  mt-1">
+          <p className="text-black  mt-1">
             {profiles.length} total profiles active on the platform.
           </p>
         </div>
@@ -289,7 +286,7 @@ const Profiles = () => {
                             <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
                           )}
                         </div>
-                        <div className="text-sm text-gray-500 flex items-center gap-1">
+                        <div className="text-sm text-black flex items-center gap-1">
                           <MapPinIcon className="h-3 w-3" /> {profile.location}{" "}
                           • {profile.age}y
                         </div>
@@ -495,7 +492,7 @@ const Profiles = () => {
                       ))}
                     </div>
                     {images.length === 0 && (
-                      <div className="text-center text-gray-500  py-4">
+                      <div className="text-center text-black  py-4">
                         No images available
                       </div>
                     )}
@@ -750,7 +747,7 @@ const Profiles = () => {
                     <h4 className="text-xl font-bold text-gray-900 ">
                       {selectedProfile.name}, {selectedProfile.age}
                     </h4>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2 text-sm text-black">
                       <MapPinIcon className="h-4 w-4" />
                       {selectedProfile.location}
                     </div>
@@ -773,9 +770,7 @@ const Profiles = () => {
                 </div>
 
                 <div>
-                  <h5 className="font-semibold text-gray-900  mb-2">
-                    Tags
-                  </h5>
+                  <h5 className="font-semibold text-gray-900  mb-2">Tags</h5>
                   <div className="flex flex-wrap gap-2">
                     {selectedProfile.tags?.map((tag) => (
                       <span
@@ -816,9 +811,7 @@ const Profiles = () => {
               {/* Content Details */}
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-semibold text-gray-900  mb-2">
-                    Title
-                  </h5>
+                  <h5 className="font-semibold text-gray-900  mb-2">Title</h5>
                   <p className="text-gray-600  bg-gray-50 p-3 rounded-md">
                     {selectedProfile.title || "No title set"}
                   </p>
@@ -832,7 +825,7 @@ const Profiles = () => {
                     {selectedProfile.shortContent || "No short content set"}
                   </p>
                   {selectedProfile.shortContent && (
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-black mt-1">
                       {selectedProfile.shortContent.length}/150 characters
                     </p>
                   )}
@@ -863,7 +856,7 @@ const Profiles = () => {
                     {selectedProfile.metaTitle || "No meta title set"}
                   </p>
                   {selectedProfile.metaTitle && (
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-black mt-1">
                       {selectedProfile.metaTitle.length}/60 characters
                     </p>
                   )}
@@ -887,7 +880,7 @@ const Profiles = () => {
                       "No meta description set"}
                   </p>
                   {selectedProfile.metaDescription && (
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-black mt-1">
                       {selectedProfile.metaDescription.length}/160 characters
                     </p>
                   )}

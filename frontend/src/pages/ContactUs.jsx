@@ -112,7 +112,7 @@ const ContactUs = () => {
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center text-black hover:text-gray-900 transition-colors"
               >
                 <span className="mr-2">←</span>
                 Back
@@ -166,7 +166,7 @@ const ContactUs = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Message Sent Successfully!
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-black">
                     We'll get back to you within 24 hours.
                   </p>
                 </div>
@@ -285,7 +285,7 @@ const ContactUs = () => {
                         <h3 className="font-semibold text-gray-900">
                           WhatsApp
                         </h3>
-                        <p className="text-gray-600">Chat with us instantly</p>
+                        <p className="text-black">Chat with us instantly</p>
                       </div>
                     </a>
                   )}
@@ -302,7 +302,7 @@ const ContactUs = () => {
                         <h3 className="font-semibold text-gray-900">
                           Phone Call
                         </h3>
-                        <p className="text-gray-600">
+                        <p className="text-black">
                           {whatsappNumber || "Call us directly"}
                         </p>
                       </div>
@@ -315,7 +315,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">Email</h3>
-                      <p className="text-gray-600">support@funwithjuli.in</p>
+                      <p className="text-black">support@funwithjuli.in</p>
                     </div>
                   </div>
                 </div>
@@ -333,7 +333,7 @@ const ContactUs = () => {
                       <h3 className="font-semibold text-gray-900">
                         24/7 Available
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-black">
                         We're always here to help you
                       </p>
                     </div>
@@ -344,7 +344,7 @@ const ContactUs = () => {
                       <h3 className="font-semibold text-gray-900">
                         Pan India Service
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-black">
                         Available in all major cities
                       </p>
                     </div>

@@ -165,7 +165,7 @@ const HelpCenter = () => {
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center text-black hover:text-gray-900 transition-colors"
               >
                 <span className="mr-2">←</span>
                 Back
@@ -243,7 +243,7 @@ const HelpCenter = () => {
                             <h3 className="font-semibold text-gray-900">
                               {category.title}
                             </h3>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-black">
                               {category.items.length} articles
                             </p>
                           </div>
@@ -337,7 +337,7 @@ const HelpCenter = () => {
                           <h4 className="font-medium text-gray-900 text-sm">
                             {issue.title}
                           </h4>
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-black mt-1">
                             {issue.solution}
                           </p>
                         </div>

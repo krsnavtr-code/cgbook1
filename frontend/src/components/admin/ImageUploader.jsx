@@ -249,7 +249,7 @@ const ImageUploader = ({
               <p className="text-sm font-bold text-gray-700">
                 {dragActive ? "Drop Asset Here" : label}
               </p>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-black mt-2">
                 JPG, PNG, WebP (Max {maxSizeMB}MB)
               </p>
 
@@ -277,7 +277,7 @@ const ImageUploader = ({
             exit={{ opacity: 0, y: 10 }}
             className="mt-4 flex justify-between items-center bg-gray-50 p-4 rounded-xl border border-gray-200"
           >
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-black">
               <FaImage className="text-blue-500" />
               <span>Ready for ingestion</span>
             </div>

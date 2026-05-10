@@ -80,7 +80,7 @@ const TopRatedMeetings = () => {
               Companions
             </span>
           </h3>
-          <p className="text-gray-500  max-w-2xl mx-auto text-lg">
+          <p className="text-black  max-w-2xl mx-auto text-lg">
             Hand-picked profiles with 100% verified reviews and exceptional
             service standards.
           </p>

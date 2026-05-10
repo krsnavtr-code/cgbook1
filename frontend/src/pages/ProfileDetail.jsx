@@ -113,7 +113,7 @@ const ProfileDetail = () => {
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center text-black hover:text-gray-900 transition-colors"
               >
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back
@@ -160,7 +160,7 @@ const ProfileDetail = () => {
                   <div className="absolute top-4 right-4 flex gap-2">
                     <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
                       <svg
-                        className="h-5 w-5 text-gray-600"
+                        className="h-5 w-5 text-black"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -175,7 +175,7 @@ const ProfileDetail = () => {
                     </button>
                     <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
                       <svg
-                        className="h-5 w-5 text-gray-600"
+                        className="h-5 w-5 text-black"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -201,7 +201,7 @@ const ProfileDetail = () => {
                           <CheckBadgeIcon className="h-6 w-6 text-blue-500" />
                         )}
                       </h1>
-                      <div className="flex items-center gap-4 mt-2 text-gray-600">
+                      <div className="flex items-center gap-4 mt-2 text-black">
                         <div className="flex items-center gap-1">
                           <MapPinIcon className="h-4 w-4" />
                           <span>{profile.location}</span>
@@ -246,7 +246,7 @@ const ProfileDetail = () => {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         About
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-black leading-relaxed">
                         {profile.shortContent}
                       </p>
                     </div>
@@ -258,7 +258,7 @@ const ProfileDetail = () => {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         Detailed Description
                       </h3>
-                      <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">
+                      <p className="text-black leading-relaxed whitespace-pre-wrap">
                         {profile.longContent}
                       </p>
                     </div>
@@ -306,7 +306,7 @@ const ProfileDetail = () => {
                   </a>
                 </div>
                 {!ownerInfo && (
-                  <p className="text-sm text-gray-500 mt-3 text-center">
+                  <p className="text-sm text-black mt-3 text-center">
                     Contact information is currently unavailable
                   </p>
                 )}
@@ -322,25 +322,25 @@ const ProfileDetail = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Age</span>
+                    <span className="text-black">Age</span>
                     <span className="font-medium text-gray-900">
                       {profile.age} years
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Location</span>
+                    <span className="text-black">Location</span>
                     <span className="font-medium text-gray-900">
                       {profile.location}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Status</span>
+                    <span className="text-black">Status</span>
                     <span className="font-medium text-gray-900">
                       {profile.status}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Rating</span>
+                    <span className="text-black">Rating</span>
                     <div className="flex items-center gap-1">
                       <StarIcon className="h-4 w-4 text-amber-400" />
                       <span className="font-medium text-gray-900">
@@ -357,7 +357,7 @@ const ProfileDetail = () => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">
                     Profile Title
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-black">
                     {profile.title || profile.metaTitle}
                   </p>
                 </div>

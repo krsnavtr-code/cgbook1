@@ -55,7 +55,7 @@ const MeetingsByLocation = () => {
             <h2 className="text-4xl font-black text-gray-900 mb-4">
               Extensive Presence Across Delhi NCR, Noida, and Gurgaon
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-black">
               One of the main reasons we’re regarded as a leading escort service
               in Delhi NCR is our wide and reliable network across the region.
               We understand how vast the NCR is, so accessibility and prompt
@@ -132,7 +132,7 @@ const MeetingsByLocation = () => {
         {/* EMPTY STATE */}
         {filteredCities.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-gray-500 text-xl font-bold">
+            <p className="text-black text-xl font-bold">
               No cities found matching "{searchTerm}"
             </p>
           </div>

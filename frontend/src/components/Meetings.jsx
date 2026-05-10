@@ -75,7 +75,7 @@ const Meetings = () => {
             <h2 className="text-3xl md:text-4xl font-black text-gray-900">
               Hot meetings in <span className="text-indigo-600">your city</span>
             </h2>
-            <p className="text-gray-500 max-w-xl">
+            <p className="text-black max-w-xl">
               Find your favourite companion in Skokka. Verified profiles with
               direct contact options.
             </p>
@@ -101,7 +101,7 @@ const Meetings = () => {
 
         {/* How many Profile */}
         <div className="mb-8">
-          <div className="flex items-center gap-2 text-gray-600">
+          <div className="flex items-center gap-2 text-black">
             <span className="text-lg font-semibold">
               {filteredProfiles.length}
             </span>
@@ -183,7 +183,7 @@ const Meetings = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1 text-gray-500 text-sm mb-4">
+                  <div className="flex items-center gap-1 text-black text-sm mb-4">
                     <svg
                       className="w-4 h-4"
                       fill="none"

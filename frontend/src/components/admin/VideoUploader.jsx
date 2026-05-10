@@ -250,7 +250,7 @@ const VideoUploader = ({
               <p className="text-sm font-bold text-gray-700">
                 {dragActive ? "Initialize Stream" : label}
               </p>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-black mt-2">
                 MP4, WebM, MOV (Max {maxSizeMB}MB)
               </p>
 
@@ -278,7 +278,7 @@ const VideoUploader = ({
             exit={{ opacity: 0, y: 10 }}
             className="mt-4 flex justify-between items-center bg-gray-50 p-4 rounded-xl border border-gray-200"
           >
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-black">
               <FaFilm className="text-[#F47C26]" />
               <span>Ready for transmission</span>
             </div>

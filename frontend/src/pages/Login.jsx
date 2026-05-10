@@ -58,7 +58,7 @@ const Login = () => {
           {/* Go to Home Link */}
           <Link
             to="/"
-            className="absolute top-6 left-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors group"
+            className="absolute top-6 left-6 flex items-center gap-2 text-sm font-medium text-black hover:text-indigo-600 transition-colors group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ const Login = () => {
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900 tracking-tight">
               Welcome Back
             </h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-black">
               Don't have an account?{" "}
               <Link
                 to="/register"

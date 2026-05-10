@@ -23,7 +23,7 @@ const MediaUploader = ({
         <h2 className="text-2xl font-bold text-gray-900">Upload Media</h2>
         <Link
           to="/admin/media-gallery"
-          className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+          className="flex items-center gap-2 text-sm font-medium text-black hover:text-blue-600 transition-colors"
         >
           <FaArrowLeft />
           Back to Gallery
@@ -40,7 +40,7 @@ const MediaUploader = ({
             className={`flex-1 py-4 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider transition-all relative ${
               activeTab === "image"
                 ? "text-blue-600 bg-blue-50"
-                : "text-gray-500 hover:bg-gray-50"
+                : "text-black hover:bg-gray-50"
             }`}
           >
             <FaImage className="text-lg" /> Image Asset
@@ -57,7 +57,7 @@ const MediaUploader = ({
             className={`flex-1 py-4 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider transition-all relative ${
               activeTab === "video"
                 ? "text-[#F47C26] bg-orange-50"
-                : "text-gray-500 hover:bg-gray-50"
+                : "text-black hover:bg-gray-50"
             }`}
           >
             <FaVideo className="text-lg" /> Video Asset
@@ -107,7 +107,7 @@ const MediaUploader = ({
           {/* --- Footer Info --- */}
           <div className="mt-6 flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
             <FaInfoCircle className="text-gray-400 mt-0.5 shrink-0" />
-            <div className="text-xs text-gray-500 space-y-1 w-full">
+            <div className="text-xs text-black space-y-1 w-full">
               <p className="font-bold text-gray-700">
                 {activeTab === "image"
                   ? "Image Guidelines"

@@ -50,7 +50,7 @@ const Banner = () => {
             <h1 className="text-2xl font-black tracking-tight text-gray-900 sm:text-4xl">
               Best Escort Service in Delhi NCR: Premium Experience
             </h1>
-            <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
+            <p className="mt-6 text-lg text-black max-w-2xl mx-auto lg:mx-0">
               Funwithjuli offers trusted, high-quality companionship across
               Delhi NCR. Serving Delhi, Noida, and Gurgaon, we focus on
               professionalism, discretion, and client satisfaction, ensuring a
@@ -98,21 +98,21 @@ const Banner = () => {
             <div className="mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100 pt-8">
               <div>
                 <p className="text-2xl font-black text-gray-900">500+</p>
-                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">
+                <p className="text-sm text-black uppercase tracking-widest font-bold">
                   Photos
                 </p>
               </div>
               <div className="h-10 w-px bg-gray-200"></div>
               <div>
                 <p className="text-2xl font-black text-gray-900">100+</p>
-                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">
+                <p className="text-sm text-black uppercase tracking-widest font-bold">
                   Videos
                 </p>
               </div>
               <div className="h-10 w-px bg-gray-200"></div>
               <div>
                 <p className="text-2xl font-black text-gray-900">10k</p>
-                <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">
+                <p className="text-sm text-black uppercase tracking-widest font-bold">
                   Fans
                 </p>
               </div>

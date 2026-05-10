@@ -113,7 +113,7 @@ const NewArrivals = () => {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
               </span>
             </h2>
-            <p className="text-gray-500  mt-2 font-medium">
+            <p className="text-black  mt-2 font-medium">
               Our call <strong>girls and escort service in NCR</strong> focuses
               on transparency and professionalism. Profiles include clear
               details so users can make informed choices without confusion or

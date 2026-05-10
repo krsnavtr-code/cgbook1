@@ -94,7 +94,7 @@ const CityProfiles = () => {
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center text-black hover:text-gray-900 transition-colors"
               >
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back
@@ -146,7 +146,7 @@ const CityProfiles = () => {
             <div className="flex items-center justify-between h-16">
               <button
                 onClick={() => navigate(-1)}
-                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center text-black hover:text-gray-900 transition-colors"
               >
                 <ArrowLeftIcon className="h-5 w-5 mr-2" />
                 Back
@@ -271,7 +271,7 @@ const CityProfiles = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Interested in Multiple Profiles?
               </h3>
-              <p className="text-gray-600 text-center mb-8">
+              <p className="text-black text-center mb-8">
                 Contact us directly for personalized recommendations and special
                 arrangements.
               </p>

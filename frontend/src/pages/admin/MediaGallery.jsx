@@ -474,13 +474,13 @@ const ImageGallery = () => {
           <div className="flex items-center gap-3">
             {isSelectionMode ? (
               <div className="flex items-center gap-2 bg-white border border-gray-200 p-1.5 rounded-xl shadow-sm">
-                <span className="text-xs text-gray-600  px-2 font-medium">
+                <span className="text-xs text-black  px-2 font-medium">
                   {selectedItems.size} selected
                 </span>
 
                 <button
                   onClick={selectAllMedia}
-                  className="p-2 hover:bg-gray-100  rounded-lg text-gray-500  hover:text-gray-900  transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-black  hover:text-gray-900  transition-colors"
                   title="Select All"
                 >
                   <FiCheckSquare size={16} />
@@ -520,14 +520,14 @@ const ImageGallery = () => {
                                 setShowTagModal(false);
                                 setSelectedTagIds(new Set());
                               }}
-                              className="text-gray-400 hover:text-gray-500 ransition-colors"
+                              className="text-gray-400 hover:text-black ransition-colors"
                             >
                               <FaTimes />
                             </button>
                           </div>
 
                           <div className="mb-6">
-                            <p className="text-sm text-gray-500  mb-4">
+                            <p className="text-sm text-black  mb-4">
                               Select tags to add to the selected media:
                             </p>
 
@@ -551,7 +551,7 @@ const ImageGallery = () => {
                                 ))}
                               </div>
                             ) : (
-                              <div className="text-center py-4 text-gray-500 ">
+                              <div className="text-center py-4 text-black ">
                                 <FaTags className="mx-auto text-2xl mb-2 opacity-50" />
                                 <p>
                                   No tags found. Create tags in the Media Tags
@@ -610,7 +610,7 @@ const ImageGallery = () => {
 
                 <button
                   onClick={clearSelection}
-                  className="p-2 hover:bg-gray-100  rounded-lg text-gray-500  hover:text-gray-900  transition-colors"
+                  className="p-2 hover:bg-gray-100  rounded-lg text-black  hover:text-gray-900  transition-colors"
                   title="Cancel"
                 >
                   <FiX size={16} />
@@ -619,7 +619,7 @@ const ImageGallery = () => {
             ) : (
               <button
                 onClick={() => setIsSelectionMode(true)}
-                className="px-4 py-2 bg-white border border-gray-200 text-gray-600  rounded-xl hover:bg-gray-50  transition-colors flex items-center gap-2 font-medium"
+                className="px-4 py-2 bg-white border border-gray-200 text-black  rounded-xl hover:bg-gray-50  transition-colors flex items-center gap-2 font-medium"
               >
                 <FiCheckSquare size={16} /> <span>Select</span>
               </button>
@@ -645,7 +645,7 @@ const ImageGallery = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2 ${
                   activeTab === tab
                     ? "bg-white bg-gray-50 text-[#F47C26] shadow-sm"
-                    : "text-gray-500  hover:text-gray-900 "
+                    : "text-black  hover:text-gray-900 "
                 }`}
               >
                 <span className="capitalize">
@@ -655,7 +655,7 @@ const ImageGallery = () => {
                   className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                     activeTab === tab
                       ? "bg-[#F47C26]/10 text-[#F47C26]"
-                      : "bg-gray-200  text-gray-500 "
+                      : "bg-gray-200  text-black "
                   }`}
                 >
                   {tab === "all"
@@ -690,7 +690,7 @@ const ImageGallery = () => {
                   <h3 className="text-gray-700  text-sm font-bold uppercase tracking-wider">
                     {date}
                   </h3>
-                  <span className="text-gray-500 text-xs font-normal bg-gray-200 bg-white px-2 py-0.5 rounded-full">
+                  <span className="text-black text-xs font-normal bg-gray-200 bg-white px-2 py-0.5 rounded-full">
                     {items.length} items
                   </span>
                 </div>
@@ -819,7 +819,7 @@ const ImageGallery = () => {
                               <p className="font-bold text-gray-900  truncate">
                                 {item.name || item.filename}
                               </p>
-                              <p className="text-xs text-gray-500">
+                              <p className="text-xs text-black">
                                 {item.type} • {(item.size / 1024).toFixed(1)} KB
                               </p>
                               {item.tags && item.tags.length > 0 && (
@@ -868,7 +868,7 @@ const ImageGallery = () => {
                               e.stopPropagation();
                               startRenaming(item, e);
                             }}
-                            className="p-2 hover:bg-gray-100  rounded text-gray-500  hover:text-gray-900 "
+                            className="p-2 hover:bg-gray-100  rounded text-black  hover:text-gray-900 "
                             title="Rename"
                           >
                             <FiEdit />
@@ -878,7 +878,7 @@ const ImageGallery = () => {
                               e.stopPropagation();
                               copyToClipboard(item.url);
                             }}
-                            className="p-2 hover:bg-gray-100  rounded text-gray-500  hover:text-gray-900 "
+                            className="p-2 hover:bg-gray-100  rounded text-black  hover:text-gray-900 "
                             title="Copy Link"
                           >
                             <FiCopy />
@@ -888,7 +888,7 @@ const ImageGallery = () => {
                               e.stopPropagation();
                               handleDelete(item.name || item.filename, e);
                             }}
-                            className="p-2 hover:bg-red-50  rounded text-gray-500  hover:text-red-600 "
+                            className="p-2 hover:bg-red-50  rounded text-black  hover:text-red-600 "
                             title="Delete"
                           >
                             <FiTrash2 />
@@ -925,7 +925,7 @@ const ImageGallery = () => {
               <h3 className="text-lg font-bold text-gray-900">
                 No media found
               </h3>
-              <p className="text-gray-500  text-sm mt-1">
+              <p className="text-black  text-sm mt-1">
                 Upload new assets or adjust filters.
               </p>
             </div>
@@ -959,14 +959,14 @@ const ImageGallery = () => {
                     <h3 className="text-gray-900 font-bold truncate text-sm md:text-base">
                       {selectedMedia.name || selectedMedia.filename}
                     </h3>
-                    <p className="text-gray-500 text-xs uppercase tracking-wider">
+                    <p className="text-black text-xs uppercase tracking-wider">
                       {selectedMedia.mimetype}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedMedia(null)}
-                  className="p-2 hover:bg-gray-200  rounded-lg text-gray-500  hover:text-gray-900  transition-colors"
+                  className="p-2 hover:bg-gray-200  rounded-lg text-black  hover:text-gray-900  transition-colors"
                 >
                   <FiX size={24} />
                 </button>
@@ -993,7 +993,7 @@ const ImageGallery = () => {
 
               {/* Lightbox Footer */}
               <div className="p-4 border-t border-gray-200 border-gray-200 bg-gray-50  flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div className="text-xs text-gray-500 flex gap-4">
+                <div className="text-xs text-black flex gap-4">
                   <span>Size: {(selectedMedia.size / 1024).toFixed(2)} KB</span>
                   <span>
                     Dimensions:{" "}

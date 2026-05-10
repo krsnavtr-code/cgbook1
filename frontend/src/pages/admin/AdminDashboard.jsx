@@ -26,30 +26,18 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Stat Card 1 */}
           <div className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100 ">
-            <h3 className="text-gray-500  text-sm font-medium">
-              Total Users
-            </h3>
-            <p className="text-3xl font-bold text-gray-900  mt-2">
-              1,234
-            </p>
+            <h3 className="text-black  text-sm font-medium">Total Users</h3>
+            <p className="text-3xl font-bold text-gray-900  mt-2">1,234</p>
           </div>
           {/* Stat Card 2 */}
           <div className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100 ">
-            <h3 className="text-gray-500  text-sm font-medium">
-              Total Videos
-            </h3>
-            <p className="text-3xl font-bold text-gray-900  mt-2">
-              456
-            </p>
+            <h3 className="text-black  text-sm font-medium">Total Videos</h3>
+            <p className="text-3xl font-bold text-gray-900  mt-2">456</p>
           </div>
           {/* Stat Card 3 */}
           <div className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100 ">
-            <h3 className="text-gray-500  text-sm font-medium">
-              Total Photos
-            </h3>
-            <p className="text-3xl font-bold text-gray-900  mt-2">
-              890
-            </p>
+            <h3 className="text-black  text-sm font-medium">Total Photos</h3>
+            <p className="text-3xl font-bold text-gray-900  mt-2">890</p>
           </div>
         </div>
 
@@ -74,7 +62,7 @@ const AdminDashboard = () => {
           <h2 className="text-xl font-semibold text-gray-900 ">
             Manage Content
           </h2>
-          <p className="text-gray-500  mt-2">
+          <p className="text-black  mt-2">
             Select a category from the sidebar to manage videos, photos, or
             users.
           </p>

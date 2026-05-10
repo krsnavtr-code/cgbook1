@@ -51,44 +51,44 @@ const MediaTags = () => {
     visible: { opacity: 1, x: 0 },
   };
 
-const fetchTags = async () => {
-  try {
-    setLoading(true);
-    const params = {
-      page: currentPage,
-      limit: itemsPerPage,
-      search: searchTerm,
-    };
+  const fetchTags = async () => {
+    try {
+      setLoading(true);
+      const params = {
+        page: currentPage,
+        limit: itemsPerPage,
+        search: searchTerm,
+      };
 
-    const response = await getMediaTags(params);
+      const response = await getMediaTags(params);
 
-    // If we have a total count but no tags, try to fetch all tags without pagination
-    if (
-      response?.total > 0 &&
-      (!response.data?.tags || response.data.tags.length === 0)
-    ) {
-      const allResponse = await getMediaTags({
-        ...params,
-        limit: 1000,
-        page: 1,
-      });
+      // If we have a total count but no tags, try to fetch all tags without pagination
+      if (
+        response?.total > 0 &&
+        (!response.data?.tags || response.data.tags.length === 0)
+      ) {
+        const allResponse = await getMediaTags({
+          ...params,
+          limit: 1000,
+          page: 1,
+        });
 
-      const allTags = allResponse?.data?.tags || allResponse?.data || [];
-      setTags(Array.isArray(allTags) ? allTags : []);
-      setTotalCount(allResponse?.total || allTags.length || 0);
-    } else {
-      // Normal case
-      const tagsData = response?.data?.tags || response?.data || [];
-      setTags(Array.isArray(tagsData) ? tagsData : []);
-      setTotalCount(response?.total || tagsData.length || 0);
+        const allTags = allResponse?.data?.tags || allResponse?.data || [];
+        setTags(Array.isArray(allTags) ? allTags : []);
+        setTotalCount(allResponse?.total || allTags.length || 0);
+      } else {
+        // Normal case
+        const tagsData = response?.data?.tags || response?.data || [];
+        setTags(Array.isArray(tagsData) ? tagsData : []);
+        setTotalCount(response?.total || tagsData.length || 0);
+      }
+    } catch (error) {
+      console.error("Error fetching tags:", error);
+      toast.error(error.message || "Failed to fetch tags");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error("Error fetching tags:", error);
-    toast.error(error.message || "Failed to fetch tags");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   useEffect(() => {
     fetchTags();
@@ -315,7 +315,7 @@ const fetchTags = async () => {
                       <tr>
                         <td
                           colSpan="5"
-                          className="px-6 py-12 text-center text-gray-500"
+                          className="px-6 py-12 text-center text-black"
                         >
                           <FaTags className="mx-auto text-4xl mb-3 opacity-20" />
                           <p>No tags found. Create one to get started.</p>

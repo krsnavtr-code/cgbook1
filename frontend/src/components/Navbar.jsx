@@ -50,7 +50,7 @@ const Navbar = () => {
       <Link
         to={to}
         className={`relative px-1 py-1 text-sm font-bold transition-colors ${
-          isActive ? "text-pink-600" : "text-gray-600 hover:text-pink-500"
+          isActive ? "text-pink-600" : "text-black hover:text-pink-500"
         } ${className}`}
       >
         {children}
@@ -94,7 +94,7 @@ const Navbar = () => {
 
               {/* Refined Dropdown */}
               <div className="relative group py-4">
-                <button className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-pink-500 transition-colors">
+                <button className="flex items-center gap-1 text-sm font-bold text-black hover:text-pink-500 transition-colors">
                   Locations{" "}
                   <ChevronDown
                     size={14}

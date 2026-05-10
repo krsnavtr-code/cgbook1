@@ -58,7 +58,7 @@ const AdminSidebar = () => {
         )}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="p-2 rounded-lg hover:bg-gray-100 text-gray-600"
+          className="p-2 rounded-lg hover:bg-gray-100 text-black"
         >
           {isExpanded ? (
             <svg
@@ -113,7 +113,7 @@ const AdminSidebar = () => {
                   ${
                     location.pathname === item.path
                       ? "bg-indigo-50 text-indigo-600"
-                      : "text-gray-600 hover:bg-gray-100"
+                      : "text-black hover:bg-gray-100"
                   }`}
               >
                 <span className="flex-shrink-0">{item.icon}</span>
@@ -136,14 +136,12 @@ const AdminSidebar = () => {
               <p className="text-sm font-medium text-gray-900 truncate">
                 Admin User
               </p>
-              <p className="text-xs text-gray-500 truncate">
-                admin@example.com
-              </p>
+              <p className="text-xs text-black truncate">admin@example.com</p>
             </div>
           )}
           <button
             onClick={logout}
-            className="p-2 rounded-lg hover:bg-gray-100 text-gray-600"
+            className="p-2 rounded-lg hover:bg-gray-100 text-black"
             title="Logout"
           >
             <svg

@@ -73,7 +73,7 @@ const ExploreFriendship = () => {
                 Meetings
               </span>
             </h2>
-            <p className="text-gray-500  text-lg">
+            <p className="text-black  text-lg">
               With so many options available, how do you decide? At funwithjuli,
               we suggest looking at your schedule and the nature of the meeting.
             </p>
@@ -102,7 +102,7 @@ const ExploreFriendship = () => {
               <h3 className="text-2xl font-black text-gray-900 mb-3">
                 {cat.title}
               </h3>
-              <p className="text-gray-500 leading-relaxed mb-6">
+              <p className="text-black leading-relaxed mb-6">
                 {cat.description}
               </p>
 
@@ -140,7 +140,7 @@ const ExploreFriendship = () => {
                   Easy Booking &{" "}
                   <span className="text-pink-600">100% Discreet Support</span>
                 </h2>
-                <p className="text-lg text-gray-600 ">
+                <p className="text-lg text-black ">
                   Our platform offers an <strong>easy booking process</strong>{" "}
                   designed to save time while maintaining full privacy. Users
                   can browse verified profiles, choose their preference, and
@@ -183,7 +183,7 @@ const ExploreFriendship = () => {
               </h2>
             </div>
 
-            <div className="prose prose-lg max-w-none text-gray-600 ">
+            <div className="prose prose-lg max-w-none text-black ">
               <p className="text-lg leading-relaxed mb-6">
                 Life in a fast-paced city can be demanding. Often, individuals
                 seek a brief escape or a graceful partner to accompany them to

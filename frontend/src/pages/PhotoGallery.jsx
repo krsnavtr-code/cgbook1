@@ -152,7 +152,7 @@ const PhotoGallery = () => {
                   Photo Gallery
                 </span>
               </h1>
-              <p className="text-gray-500  text-xl max-w-2xl mx-auto font-light leading-relaxed">
+              <p className="text-black  text-xl max-w-2xl mx-auto font-light leading-relaxed">
                 A curated visual journey through our premium collections and
                 exclusive captures.
               </p>

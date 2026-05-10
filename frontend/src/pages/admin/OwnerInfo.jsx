@@ -142,7 +142,7 @@ const OwnerInfo = () => {
           <h1 className="text-3xl font-bold text-gray-900 ">
             Accounts Information
           </h1>
-          <p className="text-gray-500  mt-1">
+          <p className="text-black  mt-1">
             Manage contact details displayed to your users.
           </p>
         </div>
@@ -196,16 +196,14 @@ const OwnerInfo = () => {
 
               {/* Avatar & Name */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-500  text-xl font-bold">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-black  text-xl font-bold">
                   {owner.name ? owner.name.charAt(0).toUpperCase() : <FaUser />}
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-900  leading-tight">
                     {owner.name}
                   </h3>
-                  <p className="text-sm text-gray-500 ">
-                    Owner
-                  </p>
+                  <p className="text-sm text-black ">Owner</p>
                 </div>
               </div>
 
@@ -240,7 +238,7 @@ const OwnerInfo = () => {
           {/* Empty State */}
           {watchedOwners?.length === 0 && (
             <div className="col-span-full text-center py-12 bg-gray-50 /50 rounded-2xl border-2 border-dashed border-gray-300">
-              <p className="text-gray-500">No Accounts added yet.</p>
+              <p className="text-black">No Accounts added yet.</p>
             </div>
           )}
         </div>
@@ -266,7 +264,9 @@ const OwnerInfo = () => {
                   }`}
                   title="Set as Primary"
                 >
-                  {watchedOwners[index]?.isPrimary ? "This is Primary" : "Set as Primary"}
+                  {watchedOwners[index]?.isPrimary
+                    ? "This is Primary"
+                    : "Set as Primary"}
                 </button>
                 <button
                   type="button"
@@ -347,7 +347,7 @@ const OwnerInfo = () => {
                 isPrimary: false,
               })
             }
-            className="w-full py-4 border-2 border-dashed border-gray-300 rounded-2xl text-gray-500 hover:text-indigo-600 hover:border-indigo-300 hover:bg-indigo-50 transition-all font-medium flex items-center justify-center gap-2"
+            className="w-full py-4 border-2 border-dashed border-gray-300 rounded-2xl text-black hover:text-indigo-600 hover:border-indigo-300 hover:bg-indigo-50 transition-all font-medium flex items-center justify-center gap-2"
           >
             <FaPlus /> Add Another Account
           </button>
@@ -361,7 +361,7 @@ const OwnerInfo = () => {
 
 const ContactItem = ({ icon, label, value }) => (
   <div className="flex items-center gap-3 text-sm">
-    <div className="w-8 h-8 rounded-lg bg-gray-50   flex items-center justify-center text-gray-500 ">
+    <div className="w-8 h-8 rounded-lg bg-gray-50   flex items-center justify-center text-black ">
       {icon}
     </div>
     <div className="flex flex-col">
@@ -384,7 +384,7 @@ const InputGroup = ({
   pattern,
 }) => (
   <div className="w-full">
-    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+    <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-2">
       {label} {required && <span className="text-red-500">*</span>}
     </label>
     <div className="relative">
@@ -400,9 +400,7 @@ const InputGroup = ({
             : undefined,
         })}
         className={`w-full pl-10 pr-3 py-2.5 bg-gray-50  border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all ${
-          error
-            ? "border-red-500 focus:ring-red-200"
-            : "border-gray-200"
+          error ? "border-red-500 focus:ring-red-200" : "border-gray-200"
         }`}
         placeholder={`Enter ${label.toLowerCase()}...`}
       />

@@ -52,7 +52,7 @@ const Footer = () => {
                 <span className="text-gray-900">.in</span>
               </span>
             </Link>
-            <p className="text-gray-500 leading-relaxed max-w-sm">
+            <p className="text-black leading-relaxed max-w-sm">
               The ultimate destination for exclusive visual storytelling. Join
               our premium community and experience creativity like never before.
             </p>
@@ -67,7 +67,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact-us"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -75,7 +75,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/help-center"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Help Center
                 </Link>
@@ -83,7 +83,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/photos"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   HD Photo Sets
                 </Link>
@@ -91,7 +91,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/scam-report"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Scam Report
                 </Link>
@@ -108,7 +108,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/privacy-policy"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Privacy Policy
                 </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/terms-of-use"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Terms of Use
                 </Link>
@@ -124,7 +124,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/cookies-policy"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Cookies Policy
                 </Link>
@@ -132,7 +132,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/support-center"
-                  className="text-gray-500 hover:text-pink-600 font-medium transition-colors"
+                  className="text-black hover:text-pink-600 font-medium transition-colors"
                 >
                   Support Center
                 </Link>
@@ -145,7 +145,7 @@ const Footer = () => {
             <h3 className="text-sm font-black text-gray-900 uppercase tracking-widest mb-4">
               Need Assistance?
             </h3>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-sm text-black mb-6">
               Our support team is available for any account or billing queries.
             </p>
 
@@ -181,7 +181,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-100 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-gray-500 font-medium">
+          <p className="text-sm text-black font-medium">
             &copy; {new Date().getFullYear()}{" "}
             <span className="text-gray-900 font-bold">funwithjuli.in</span>. All
             rights reserved.

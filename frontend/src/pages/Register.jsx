@@ -61,7 +61,7 @@ const Register = () => {
         <div className="max-w-md w-full space-y-8 p-10 bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 relative z-10 transition-colors duration-300">
           <Link
             to="/"
-            className="absolute top-6 left-6 flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors group"
+            className="absolute top-6 left-6 flex items-center gap-2 text-sm font-medium text-black hover:text-indigo-600 transition-colors group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ const Register = () => {
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900 tracking-tight">
               Create Account
             </h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-black">
               Already have an account?{" "}
               <Link
                 to="/login"
