@@ -29,11 +29,9 @@ const CityProfiles = () => {
         const profilesData =
           profilesResponse.data?.profiles || profilesResponse.data || [];
 
-        // Filter profiles by city (case-insensitive) and only show non-new arrivals
+        // Filter profiles by city (case-insensitive) and show all profiles
         const cityProfiles = profilesData.filter(
-          (profile) =>
-            profile.location?.toLowerCase() === city?.toLowerCase() &&
-            profile.isNew !== true,
+          (profile) => profile.location?.toLowerCase() === city?.toLowerCase(),
         );
 
         setProfiles(cityProfiles);
