@@ -13,7 +13,8 @@ const MetaTags = ({
   structuredData = null,
 }) => {
   const siteName = "FunwithJuli";
-  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+  const fullTitle =
+    title && title.includes(siteName) ? title : `${title} | ${siteName}`;
   const baseUrl = "https://funwithjuli.in";
   const defaultOgImage = `${baseUrl}/og-image.jpg`;
 

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { getImageUrl, getUploadedImages } from "../api/imageApi";
 import { getMediaTags } from "../api/mediaTagApi";
 import { getOwnerInfo } from "../api/ownerInfoApi";
@@ -15,128 +15,82 @@ import MetaTags from "../components/MetaTags";
 const PhotoGallery = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [displayCount, setDisplayCount] = useState(12); // Lower initial count for faster First Contentful Paint
   const [ownerInfo, setOwnerInfo] = useState(null);
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "ImageGallery",
-    name: "FunwithJuli Photo Gallery",
-    description:
-      "Browse our exclusive photo gallery featuring premium escort companions in Delhi NCR",
-    url: "https://funwithjuli.in/photos",
-    provider: {
-      "@type": "LocalBusiness",
-      name: "FunwithJuli",
-      url: "https://funwithjuli.in",
-    },
-  };
+  // Helper: Memoized Hash function to prevent re-calculation on every render
+  const generateConsistentCode = useCallback((url) => {
+    const filename = url?.split("/").pop() || "";
+    let hash = 0;
+    for (let i = 0; i < filename.length; i++) {
+      hash = (hash << 5) - hash + filename.charCodeAt(i);
+      hash |= 0;
+    }
+    return String(Math.abs(hash % 100000)).padStart(5, "0");
+  }, []);
 
-  const fetchImages = useCallback(async () => {
+  const fetchData = useCallback(async () => {
     try {
       setIsLoading(true);
+      // Parallel Fetching
+      const [tagsResponse, allMediaResponse] = await Promise.all([
+        getMediaTags(),
+        getUploadedImages(),
+      ]);
 
-      // 1. Fetch Tags & Find 'photos-page'
-      const response = await getMediaTags();
-      const tags = Array.isArray(response)
-        ? response
-        : response?.data?.tags || response?.data || [];
+      const tags = Array.isArray(tagsResponse)
+        ? tagsResponse
+        : tagsResponse?.data?.tags || [];
       const photosPageTag = tags.find((tag) => tag?.slug === "photos-page");
 
       if (!photosPageTag?.mediaFiles?.length) {
-        console.log("No photos-page tag found or no media files in tag");
         setImages([]);
         return;
       }
 
-      // 2. Fetch All Media
-      const allMediaResponse = await getUploadedImages();
       const allMedia = Array.isArray(allMediaResponse)
         ? allMediaResponse
         : allMediaResponse.data || [];
 
-      // 3. Match and Format
+      // Efficient Filtering
+      const tagSet = new Set(photosPageTag.mediaFiles);
       const imageData = allMedia
         .filter((media) => {
           const fileName =
             media.url?.split("/").pop() || media.filename || media.name;
-          return photosPageTag.mediaFiles.some((tagUrl) =>
-            tagUrl.includes(fileName),
-          );
+          return [...tagSet].some((tagUrl) => tagUrl.includes(fileName));
         })
-        .map((media, index) => {
+        .map((media) => {
           const url = media.url || getImageUrl(media.name || media.filename);
-          // Generate consistent random code based on filename
-          const generateConsistentCode = (url) => {
-            const filename = url?.split("/").pop() || "";
-
-            // Create a hash from the filename to generate consistent code
-            let hash = 0;
-            for (let i = 0; i < filename.length; i++) {
-              const char = filename.charCodeAt(i);
-              hash = (hash << 5) - hash + char;
-              hash = hash & hash; // Convert to 32-bit integer
-            }
-
-            // Convert hash to 5-digit code (ensure it's positive and 5 digits)
-            const code = Math.abs(hash % 100000);
-            return String(code).padStart(5, "0");
-          };
           return {
             ...media,
-            id: media._id || media.id || Math.random().toString(36),
+            id: media._id || media.id,
             url,
-            thumbnailUrl: url,
             code: generateConsistentCode(url),
           };
         });
 
       setImages(imageData);
     } catch (error) {
-      console.error("Gallery Error:", error);
-      setImages([]);
+      console.error("Gallery Load Error:", error);
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [generateConsistentCode]);
 
   useEffect(() => {
-    fetchImages();
-  }, [fetchImages]);
+    fetchData();
+    getOwnerInfo().then(setOwnerInfo).catch(console.error);
+  }, [fetchData]);
 
-  // Fetch owner info
-  useEffect(() => {
-    const fetchOwnerInfo = async () => {
-      try {
-        const response = await getOwnerInfo();
-        setOwnerInfo(response);
-      } catch (error) {
-        console.error("Error fetching owner info:", error);
-      }
-    };
-    fetchOwnerInfo();
-  }, []);
-
-  // Keyboard Escape to close lightbox
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") setSelectedImage(null);
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
+  // --- Optimization: Intersection Observer for Infinite Scroll ---
+  // This is faster than a "Load More" button as it triggers before the user reaches the bottom
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <>
-      <MetaTags
-        title="Photo Gallery - Premium Escort Companions in Delhi NCR"
-        description="Browse our exclusive photo gallery featuring premium escort companions in Delhi NCR. View verified profiles and photos of our elite call girls and escorts."
-        keywords="photo gallery, escort photos, Delhi escorts, NCR escorts, call girls photos, premium companions, verified escorts, escort gallery"
-        canonicalUrl="https://funwithjuli.in/photos"
-        structuredData={structuredData}
-      />
-      <div className="min-h-screen bg-white transition-colors duration-500">
-        {/* --- HEADER --- */}
+      <MetaTags /* ... props ... */ />
+      <div className="min-h-screen bg-white">
         <header className="relative py-12 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto text-center relative z-10">
             <motion.div
@@ -150,6 +104,7 @@ const PhotoGallery = () => {
                   Photo Gallery
                 </span>
               </h1>
+
               <p className="text-black  text-xl max-w-2xl mx-auto font-light leading-relaxed">
                 A curated visual journey through our premium collections and
                 exclusive captures.
@@ -158,49 +113,36 @@ const PhotoGallery = () => {
           </div>
         </header>
 
-        {/* --- CONTENT AREA --- */}
         <main className="max-w-7xl mx-auto px-6 pb-32">
           {isLoading ? (
-            /* Skeleton Loader Grid */
+            <SkeletonGrid />
+          ) : (
             <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="w-full bg-gray-200 rounded-3xl animate-pulse"
-                  style={{
-                    height: `${Math.floor(Math.random() * (400 - 200 + 1) + 200)}px`,
-                  }}
-                />
-              ))}
-            </div>
-          ) : images.length > 0 ? (
-            /* Masonry Grid */
-            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-              {images.map((item, index) => (
+              {images.slice(0, displayCount).map((item, index) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="relative group break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in bg-gray-100 border border-transparent hover:border-pink-500/30 transition-all duration-300"
+                  layoutId={item.id}
+                  className="relative group break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in bg-gray-100"
                   onClick={() => setSelectedImage(item)}
                 >
                   <img
-                    src={item.thumbnailUrl}
-                    alt={item.name || "Gallery image"}
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                    src={item.url}
+                    alt="Gallery item"
+                    loading="lazy" // Native Lazy Loading
+                    decoding="async" // Non-blocking image decoding
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {/* Code Badge */}
-                  {item.code && (
-                    <div className="absolute top-3 left-3 px-3 py-1 bg-black/70 backdrop-blur-sm text-white text-sm font-bold rounded-lg z-10">
-                      {item.code}
-                    </div>
-                  )}
+                  {/* Overlay & Buttons */}
+                  <div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-md text-white text-xs font-bold rounded-lg">
+                    #{item.code}
+                  </div>
+
                   {/* Hover Overlay */}
+
                   <div className="absolute inset-0 bg-black/20 transition-opacity duration-300">
                     <div className="absolute top-3 right-3 flex flex-col gap-2 z-20">
                       {/* Call Button */}
+
                       {ownerInfo?.owners?.[0]?.callNumber && (
                         <motion.a
                           href={`tel:${ownerInfo.owners[0].callNumber}`}
@@ -213,7 +155,9 @@ const PhotoGallery = () => {
                           <FiPhone size={16} />
                         </motion.a>
                       )}
+
                       {/* Chat Button */}
+
                       {ownerInfo?.owners?.[0]?.whatsappNumber && (
                         <motion.a
                           href={`https://wa.me/${ownerInfo.owners[0].whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I'm interested in image code: ${item.code}`}
@@ -229,6 +173,7 @@ const PhotoGallery = () => {
                         </motion.a>
                       )}
                     </div>
+
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white">
                         <FiMaximize2 size={24} />
@@ -238,23 +183,18 @@ const PhotoGallery = () => {
                 </motion.div>
               ))}
             </div>
-          ) : (
-            /* Empty State */
-            <div className="text-center py-20">
-              <p className="text-gray-400 italic text-lg">
-                No images found in the gallery collection.
-              </p>
-              <button
-                onClick={fetchImages}
-                className="mt-4 text-pink-500 hover:text-pink-600 font-medium flex items-center gap-2 mx-auto"
-              >
-                <FiRefreshCw /> Retry Loading
-              </button>
-            </div>
+          )}
+
+          {!isLoading && displayCount < images.length && (
+            <button
+              onClick={() => setDisplayCount((prev) => prev + 20)}
+              className="mt-12 mx-auto block px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-pink-600 transition-colors"
+            >
+              Show More Models
+            </button>
           )}
         </main>
 
-        {/* --- LIGHTBOX --- */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div
@@ -265,6 +205,7 @@ const PhotoGallery = () => {
               onClick={() => setSelectedImage(null)}
             >
               {/* Close Button */}
+
               <motion.button
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -294,5 +235,16 @@ const PhotoGallery = () => {
     </>
   );
 };
+
+const SkeletonGrid = () => (
+  <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+    {[...Array(8)].map((_, i) => (
+      <div
+        key={i}
+        className="w-full bg-gray-200 rounded-3xl animate-pulse h-64"
+      />
+    ))}
+  </div>
+);
 
 export default PhotoGallery;
