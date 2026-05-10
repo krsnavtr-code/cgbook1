@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProfiles, getLocations } from "../api/profileApi";
 import { LOCATIONS_WITH_ALL } from "../constants/locations";
+import { ChatBubbleLeftRightIcon } from "@heroicons/react/24/solid";
 
 const Meetings = () => {
   const navigate = useNavigate();
@@ -206,16 +207,27 @@ const Meetings = () => {
                     {profile.location}
                   </div>
 
-                  <button
-                    onClick={() =>
-                      navigate(
-                        `/profile/${profile.name.toLowerCase().replace(/\s+/g, "-")}`,
-                      )
-                    }
-                    className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all active:scale-95"
-                  >
-                    View Profile
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() =>
+                        navigate(
+                          `/profile/${profile.name.toLowerCase().replace(/\s+/g, "-")}`,
+                        )
+                      }
+                      className="flex-1 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all active:scale-95"
+                    >
+                      View Profile
+                    </button>
+                    <a
+                      href={`https://wa.me/91${profile.whatsapp || "9876543210"}?text=Hi! I'm interested in ${profile.name}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-green-500/20 hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-2 no-underline hover:no-underline hover:text-white focus:text-white visited:text-white"
+                    >
+                      <ChatBubbleLeftRightIcon className="h-4 w-4" />
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

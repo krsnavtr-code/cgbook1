@@ -137,16 +137,14 @@ const PhotoGallery = () => {
       />
       <div className="min-h-screen bg-white transition-colors duration-500">
         {/* --- HEADER --- */}
-        <header className="relative py-24 px-4 overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-pink-500/10 via-indigo-500/5 to-transparent blur-3xl opacity-60" />
-
+        <header className="relative py-12 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-6xl md:text-7xl font-black tracking-tight text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 mb-6">
                 HD{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-500">
                   Photo Gallery

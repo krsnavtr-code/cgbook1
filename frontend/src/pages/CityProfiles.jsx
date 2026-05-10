@@ -140,37 +140,12 @@ const CityProfiles = () => {
         canonicalUrl={`https://funwithjuli.in/meetings/${city.toLowerCase()}`}
       />
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <button
-                onClick={() => navigate(-1)}
-                className="flex items-center text-black hover:text-gray-900 transition-colors"
-              >
-                <ArrowLeftIcon className="h-5 w-5 mr-2" />
-                Back
-              </button>
-              <div className="flex items-center gap-2">
-                <MapPinIcon className="h-5 w-5 text-pink-500" />
-                <span className="text-gray-900 font-semibold capitalize">
-                  {city}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-pink-500 to-rose-600 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-black text-white mb-4 capitalize">
-              Profiles in {city}
+        <div className="bg-gradient-to-r from-pink-500 to-rose-600 py-4">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-3xl font-black text-white capitalize">
+              Best Escorts in {city}
             </h1>
-            <p className="text-pink-100 text-lg">
-              {profiles.length} {profiles.length === 1 ? "Profile" : "Profiles"}{" "}
-              Available
-            </p>
           </div>
         </div>
 
@@ -282,19 +257,33 @@ const CityProfiles = () => {
                   href={phoneLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all"
+                  disabled={!ownerInfo}
+                  className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 active:scale-95 transition-all no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
+                    !ownerInfo ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
+                  title={
+                    !ownerInfo ? "Contact number not available" : "Call now"
+                  }
                 >
                   <PhoneIcon className="h-5 w-5" />
-                  Call Now
+                  {loading ? "Loading..." : "Call Now"}
                 </a>
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all"
+                  disabled={!ownerInfo}
+                  className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 active:scale-95 transition-all no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
+                    !ownerInfo ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
+                  title={
+                    !ownerInfo
+                      ? "WhatsApp number not available"
+                      : "Chat on WhatsApp"
+                  }
                 >
                   <ChatBubbleLeftRightIcon className="h-5 w-5" />
-                  WhatsApp
+                  {loading ? "Loading..." : "WhatsApp"}
                 </a>
               </div>
             </div>

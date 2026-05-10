@@ -179,13 +179,13 @@ const NewArrivals = () => {
               </div>
 
               {/* Quick Action Hover Button */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10 w-full px-8">
+              <div className="w-full px-8">
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   disabled={!ownerInfo || loading}
-                  className={`w-full py-3 bg-pink-600 text-white rounded-xl font-bold shadow-xl shadow-pink-500/40 text-sm text-center block transition-all ${
+                    className={`flex-1 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-green-500/20 hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-2 no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
                     !ownerInfo || loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                   title={

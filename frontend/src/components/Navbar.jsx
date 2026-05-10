@@ -78,7 +78,7 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:flex flex-col">
               <span className="text-xl font-black tracking-tight text-gray-900">
-                funwithjuli<span className="text-pink-600">.in</span>
+                funwithjuli
               </span>
               <span className="text-[10px] uppercase tracking-widest font-bold text-gray-400">
                 Premium Escapes

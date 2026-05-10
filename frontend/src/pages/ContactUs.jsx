@@ -106,27 +106,8 @@ const ContactUs = () => {
         canonicalUrl="https://funwithjuli.in/contact-us"
       />
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <button
-                onClick={() => navigate(-1)}
-                className="flex items-center text-black hover:text-gray-900 transition-colors"
-              >
-                <span className="mr-2">←</span>
-                Back
-              </button>
-              <h1 className="text-xl font-semibold text-gray-900">
-                Contact Us
-              </h1>
-              <div className="w-16"></div>
-            </div>
-          </div>
-        </div>
-
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-pink-500 to-rose-600 py-16">
+        <div className="bg-gradient-to-r from-pink-500 to-rose-600 py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-black text-white mb-4">
               Get in Touch
