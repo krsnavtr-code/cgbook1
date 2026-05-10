@@ -1,32 +1,32 @@
-import { api } from './axios';
+import { api } from "./axios";
 
 // Get all profiles
 export const getProfiles = async (params = {}) => {
   try {
-    const response = await api.get('/profiles', { params });
+    const response = await api.get("/profiles", { params });
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || 'Error fetching profiles';
+    throw error.response?.data?.message || "Error fetching profiles";
   }
 };
 
-// Get a single profile by ID
-export const getProfile = async (id) => {
+// Get a single profile by ID or name
+export const getProfile = async (identifier) => {
   try {
-    const response = await api.get(`/profiles/${id}`);
+    const response = await api.get(`/profiles/${identifier}`);
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || 'Error fetching profile';
+    throw error.response?.data?.message || "Error fetching profile";
   }
 };
 
 // Create a new profile (admin only)
 export const createProfile = async (profileData) => {
   try {
-    const response = await api.post('/profiles', profileData);
+    const response = await api.post("/profiles", profileData);
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || 'Error creating profile';
+    throw error.response?.data?.message || "Error creating profile";
   }
 };
 
@@ -36,7 +36,7 @@ export const updateProfile = async (id, profileData) => {
     const response = await api.patch(`/profiles/${id}`, profileData);
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || 'Error updating profile';
+    throw error.response?.data?.message || "Error updating profile";
   }
 };
 
@@ -46,16 +46,16 @@ export const deleteProfile = async (id) => {
     const response = await api.delete(`/profiles/${id}`);
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || 'Error deleting profile';
+    throw error.response?.data?.message || "Error deleting profile";
   }
 };
 
 // Get available locations
 export const getLocations = async () => {
   try {
-    const response = await api.get('/profiles/locations');
+    const response = await api.get("/profiles/locations");
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || 'Error fetching locations';
+    throw error.response?.data?.message || "Error fetching locations";
   }
 };

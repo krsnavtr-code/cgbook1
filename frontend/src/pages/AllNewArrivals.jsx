@@ -174,7 +174,11 @@ const AllNewArrivals = () => {
                   </div>
 
                   <button
-                    onClick={() => navigate(`/profile/${profile._id}`)}
+                    onClick={() =>
+                      navigate(
+                        `/profile/${profile.name.toLowerCase().replace(/\s+/g, "-")}`,
+                      )
+                    }
                     className="w-full py-3 rounded-xl bg-zinc-100 text-zinc-900 text-xs font-bold uppercase tracking-widest hover:bg-pink-500 hover:text-white transition-colors"
                   >
                     View Full Gallery

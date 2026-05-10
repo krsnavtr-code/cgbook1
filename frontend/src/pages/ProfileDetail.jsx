@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProfile } from "../api/profileApi";
+import { getProfiles, getProfile } from "../api/profileApi";
 import { getOwnerInfo } from "../api/ownerInfoApi";
 import {
   MapPinIcon,
@@ -13,7 +13,7 @@ import {
 import MetaTags from "../components/MetaTags";
 
 const ProfileDetail = () => {
-  const { id } = useParams();
+  const { name } = useParams();
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const [ownerInfo, setOwnerInfo] = useState(null);
@@ -25,10 +25,38 @@ const ProfileDetail = () => {
       try {
         setLoading(true);
 
-        // Fetch profile data
-        const profileResponse = await getProfile(id);
-        const profileData =
-          profileResponse.data?.profile || profileResponse.data;
+        // First try to get profile by name (in case backend supports it)
+        let profileData = null;
+        try {
+          const profileResponse = await getProfile(name);
+          profileData = profileResponse.data?.profile || profileResponse.data;
+        } catch (nameError) {
+          console.log(
+            "Backend does not support name lookup, trying fallback method",
+          );
+
+          // Fallback: Fetch all profiles and find by name
+          const allProfilesResponse = await getProfiles({ limit: 1000 });
+          const allProfiles =
+            allProfilesResponse.data?.profiles ||
+            allProfilesResponse.data ||
+            [];
+
+          // Format the name from URL (replace hyphens with spaces and capitalize)
+          const formattedName = name
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (l) => l.toUpperCase());
+
+          // Find profile by name (case-insensitive)
+          profileData = allProfiles.find(
+            (p) => p.name.toLowerCase() === formattedName.toLowerCase(),
+          );
+        }
+
+        if (!profileData) {
+          throw new Error("Profile not found");
+        }
+
         setProfile(profileData);
 
         // Fetch owner info for contact details
@@ -51,10 +79,10 @@ const ProfileDetail = () => {
       }
     };
 
-    if (id) {
+    if (name) {
       fetchData();
     }
-  }, [id]);
+  }, [name]);
 
   // Create contact links
   const whatsappNumber =
@@ -103,34 +131,10 @@ const ProfileDetail = () => {
         title={`${profile?.name || "Profile"} - Premium Escort Companion | FunwithJuli`}
         description={`Meet ${profile?.name || "our premium companion"}, a verified escort offering exclusive services in ${profile?.location || "Delhi NCR"}. Professional, discreet, and high-quality companion services.`}
         keywords={`${profile?.name} escort, ${profile?.location} companion, premium escort service, verified companion, Delhi NCR escorts, professional escort ${profile?.name}`}
-        canonicalUrl={`https://funwithjuli.in/profile/${id}`}
+        canonicalUrl={`https://funwithjuli.in/profile/${name}`}
         ogImage={profile?.images?.[0] || ""}
       />
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <button
-                onClick={() => navigate(-1)}
-                className="flex items-center text-black hover:text-gray-900 transition-colors"
-              >
-                <ArrowLeftIcon className="h-5 w-5 mr-2" />
-                Back
-              </button>
-              <div className="flex items-center gap-2">
-                <span className="flex h-3 w-3 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
-                </span>
-                <span className="text-pink-600 font-bold uppercase tracking-widest text-sm">
-                  Live & Local
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Profile Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -139,11 +143,8 @@ const ProfileDetail = () => {
               {/* Profile Header */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className="relative">
-                  {/* Cover Image */}
-                  <div className="h-64 bg-gradient-to-r from-pink-500 to-rose-600"></div>
-
                   {/* Profile Image */}
-                  <div className="absolute -bottom-16 left-8">
+                  <div className="absolute top-4 left-4">
                     <div className="relative">
                       <img
                         src={profile.img}
@@ -156,8 +157,22 @@ const ProfileDetail = () => {
                     </div>
                   </div>
 
+                  {/* Tags - Top Right */}
+                  <div className="absolute top-4 right-4">
+                    <div className="flex flex-wrap gap-1 max-w-xs">
+                      {profile.tags?.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-white/90 backdrop-blur-sm text-pink-600 text-xs font-medium rounded-md shadow-lg"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Profile Actions */}
-                  <div className="absolute top-4 right-4 flex gap-2">
+                  <div className="absolute top-16 right-4 flex gap-2">
                     <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
                       <svg
                         className="h-5 w-5 text-black"
@@ -192,7 +207,7 @@ const ProfileDetail = () => {
                 </div>
 
                 {/* Profile Info */}
-                <div className="px-8 pt-20 pb-6">
+                <div className="px-8 pt-44 pb-6">
                   <div className="flex items-start justify-between">
                     <div>
                       <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
@@ -226,18 +241,6 @@ const ProfileDetail = () => {
                     >
                       {profile.status}
                     </span>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {profile.tags?.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 bg-pink-50 text-pink-600 text-sm font-medium rounded-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
                   </div>
 
                   {/* Description */}
@@ -277,7 +280,7 @@ const ProfileDetail = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     disabled={!ownerInfo}
-                    className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all active:scale-95 ${
+                    className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 active:scale-95 transition-all no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
                       !ownerInfo ? "opacity-70 cursor-not-allowed" : ""
                     }`}
                     title={
@@ -292,7 +295,7 @@ const ProfileDetail = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     disabled={!ownerInfo}
-                    className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all active:scale-95 ${
+                    className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 active:scale-95 transition-all no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
                       !ownerInfo ? "opacity-70 cursor-not-allowed" : ""
                     }`}
                     title={

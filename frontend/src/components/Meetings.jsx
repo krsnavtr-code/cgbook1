@@ -208,7 +208,9 @@ const Meetings = () => {
 
                   <button
                     onClick={() =>
-                      navigate(`/profile/${profile._id || profile.id}`)
+                      navigate(
+                        `/profile/${profile.name.toLowerCase().replace(/\s+/g, "-")}`,
+                      )
                     }
                     className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all active:scale-95"
                   >

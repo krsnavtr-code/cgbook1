@@ -43,7 +43,7 @@ function App() {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="scam-report" element={<ScamReport />} />
         <Route path="photos" element={<PhotoGallery />} />
-        <Route path="profile/:id" element={<ProfileDetail />} />
+        <Route path="profile/:name" element={<ProfileDetail />} />
         <Route path="meetings/:city" element={<CityProfiles />} />
         <Route path="new-arrivals" element={<AllNewArrivals />} />
       </Route>

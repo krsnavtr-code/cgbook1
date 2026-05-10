@@ -235,7 +235,9 @@ const CityProfiles = () => {
                       <div className="flex gap-2">
                         <button
                           onClick={() =>
-                            navigate(`/profile/${profile._id || profile.id}`)
+                            navigate(
+                              `/profile/${profile.name.toLowerCase().replace(/\s+/g, "-")}`,
+                            )
                           }
                           className="flex-1 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg font-medium text-sm hover:bg-white/30 transition-all"
                         >
