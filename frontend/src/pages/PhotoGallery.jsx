@@ -89,7 +89,12 @@ const PhotoGallery = () => {
 
   return (
     <>
-      <MetaTags /* ... props ... */ />
+      <MetaTags
+        title="HD Photo Gallery | FunwithJuli Premium Escorts"
+        description="Browse our exclusive HD photo gallery featuring premium escorts in Delhi NCR. Verified profiles with professional photography."
+        keywords="escort photo gallery, call girl photos, verified escort photos, premium escort gallery"
+
+      />
       <div className="min-h-screen bg-white">
         <header className="relative py-12 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto text-center relative z-10">

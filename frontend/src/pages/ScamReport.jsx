@@ -27,9 +27,7 @@ const ScamReport = () => {
           <div className="mx-auto w-20 h-20 bg-green-100  rounded-full flex items-center justify-center">
             <ShieldCheckIcon className="h-10 w-10 text-green-600 " />
           </div>
-          <h2 className="text-2xl font-bold ">
-            Report Received
-          </h2>
+          <h2 className="text-2xl font-bold ">Report Received</h2>
           <p className="text-zinc-500 ">
             Thank you for keeping the community safe. Our moderators will review
             this profile immediately.
@@ -51,7 +49,6 @@ const ScamReport = () => {
         title="Scam Report - Report Fraud | FunwithJuli Escort Service"
         description="Report scams, fraud, or suspicious activity on FunwithJuli. Help us maintain a safe escort platform. Your report will be handled confidentially."
         keywords="scam report, fraud report, escort scam, report suspicious activity, FunwithJuli safety, escort platform security, report fake profiles"
-        canonicalUrl="https://funwithjuli.in/scam-report"
         noIndex={true}
       />
       <div className="min-h-screen bg-zinc-50  text-zinc-900 transition-colors duration-300 pb-20">
@@ -83,9 +80,7 @@ const ScamReport = () => {
           <div className="md:col-span-1 space-y-6">
             <div className="p-6 bg-red-50  border border-red-100 rounded-3xl">
               <ExclamationTriangleIcon className="h-8 w-8 text-red-500 mb-4" />
-              <h3 className="font-bold text-red-900 ">
-                Quick Alert
-              </h3>
+              <h3 className="font-bold text-red-900 ">Quick Alert</h3>
               <p className="text-sm text-red-700/80 /60 mt-2">
                 Never share your OTP, bank details, or personal addresses with
                 anyone on the platform.

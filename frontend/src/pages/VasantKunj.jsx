@@ -58,6 +58,7 @@ const VasantKunj = () => {
         title="Escort Service in Vasant Kunj - Premium Call Girl by FunwithJuli"
         description="Premium escort service in Vasant Kunj. Get 100% verified call girls, Russian escorts, and high-profile models. Safe, private, and 24/7 service in Vasant Kunj."
         keywords="escort service vasant kunj, call girl vasant kunj, vasant kunj escort, russian call girls vasant kunj, independent escorts vasant kunj, high profile call girls delhi"
+
       />
 
       {/* Hero Section - Light & Airy Luxury */}

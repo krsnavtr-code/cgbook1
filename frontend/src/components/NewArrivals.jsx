@@ -53,7 +53,7 @@ const NewArrivals = () => {
             name: "Kiara",
             joined: "2 hours ago",
             location: "Mumbai",
-            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.29.56-pm--2--21012026-0640.jpeg",
+            img: "https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.29.56-pm--2--21012026-0640.jpeg",
             type: "Video",
           },
           {
@@ -61,7 +61,7 @@ const NewArrivals = () => {
             name: "Mehak",
             joined: "5 hours ago",
             location: "Pune",
-            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm--1--21012026-0640.jpeg",
+            img: "https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.29.58-pm--1--21012026-0640.jpeg",
             type: "Photos",
           },
           {
@@ -69,7 +69,7 @@ const NewArrivals = () => {
             name: "Zoya",
             joined: "1 day ago",
             location: "Delhi",
-            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm-21012026-0640.jpeg",
+            img: "https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.30.01-pm-21012026-0640.jpeg",
             type: "Video",
           },
           {
@@ -77,7 +77,7 @@ const NewArrivals = () => {
             name: "Tanya",
             joined: "2 days ago",
             location: "Bangalore",
-            img: "https://funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.30.03-pm-21012026-0640.jpeg",
+            img: "https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-01-15-at-2.30.03-pm-21012026-0640.jpeg",
             type: "Photos",
           },
         ]);
@@ -185,7 +185,7 @@ const NewArrivals = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   disabled={!ownerInfo || loading}
-                    className={`flex-1 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-green-500/20 hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-2 no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
+                  className={`flex-1 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-green-500/20 hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-2 no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
                     !ownerInfo || loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                   title={

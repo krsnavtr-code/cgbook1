@@ -42,7 +42,6 @@ const Login = () => {
         title="Login - Access Your FunwithJuli Account"
         description="Login to your FunwithJuli account to access premium escort services in Delhi NCR. Secure and discreet login for verified members."
         keywords="login FunwithJuli, escort service login, Delhi escort login, NCR escort login, premium escort account, secure login"
-        canonicalUrl="https://funwithjuli.in/login"
         noIndex={true}
       />
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50 transition-colors duration-300">

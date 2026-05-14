@@ -26,7 +26,6 @@ const CookiesPolicy = () => {
         title="Cookies Policy - FunwithJuli Escort Service"
         description="FunwithJuli's cookies policy explains how we use cookies and tracking technologies to enhance your experience on our premium escort platform."
         keywords="cookies policy, privacy policy, escort service cookies, data tracking, FunwithJuli cookies, browser cookies, privacy settings"
-        canonicalUrl="https://funwithjuli.in/cookies-policy"
         noIndex={true}
       />
       <div className="min-h-screen bg-zinc-50 text-zinc-800 transition-colors duration-300">

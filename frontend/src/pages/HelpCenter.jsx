@@ -155,7 +155,6 @@ const HelpCenter = () => {
         title="Help Center - Complete Guide | FunwithJuli Escort Service"
         description="Comprehensive help guide for FunwithJuli escort services. Learn about booking, safety, payments, and more. Get answers to all your questions."
         keywords="escort help guide, FunwithJuli help, escort booking guide, escort service FAQ, Delhi escort help, escort service tutorial"
-        canonicalUrl="https://funwithjuli.in/help-center"
         noIndex={true}
       />
       <div className="min-h-screen bg-gray-50">

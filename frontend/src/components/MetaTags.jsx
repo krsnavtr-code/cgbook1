@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useCanonicalUrl } from "../hooks/useCanonicalUrl";
 
 const MetaTags = ({
   title,
   description,
   keywords,
   canonicalUrl,
+  customPath = null,
   ogImage,
   ogType = "website",
   twitterCard = "summary_large_image",
@@ -15,8 +17,15 @@ const MetaTags = ({
   const siteName = "FunwithJuli";
   const fullTitle =
     title && title.includes(siteName) ? title : `${title} | ${siteName}`;
-  const baseUrl = "https://funwithjuli.in";
+  const baseUrl =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : "https://www.funwithjuli.in";
   const defaultOgImage = `${baseUrl}/og-image.jpg`;
+
+  // Auto-generate canonical URL if not provided
+  const autoCanonicalUrl = useCanonicalUrl(customPath);
+  const finalCanonicalUrl = canonicalUrl || autoCanonicalUrl;
 
   // Force meta tag updates by adding timestamp
   useEffect(() => {
@@ -53,11 +62,11 @@ const MetaTags = ({
       <meta name="language" content="English" />
 
       {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl} />
+      <link rel="canonical" href={finalCanonicalUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={finalCanonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage || defaultOgImage} />
@@ -67,7 +76,7 @@ const MetaTags = ({
 
       {/* Twitter */}
       <meta property="twitter:card" content={twitterCard} />
-      <meta property="twitter:url" content={canonicalUrl} />
+      <meta property="twitter:url" content={finalCanonicalUrl} />
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={ogImage || defaultOgImage} />

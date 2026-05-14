@@ -15,7 +15,7 @@ const Home = () => {
     name: "FunwithJuli - Premium Escort Service",
     description:
       "Premium escort service in Delhi NCR offering safe, private meetings with verified companions",
-    url: "https://funwithjuli.in",
+    url: "https://www.funwithjuli.in",
     telephone: "+91-XXXXXXXXXX",
     address: {
       "@type": "PostalAddress",
@@ -34,7 +34,6 @@ const Home = () => {
         title="Best Escort Service in Delhi NCR | funwithjuli Premium Call Girls"
         description="Looking for the best escort service in Delhi NCR? funwithjuli offers premium companions in Delhi, Noida, and Gurgaon. Call 9548679151 for elite female models today."
         keywords="escort service Delhi, call girls Delhi NCR, premium escort service, private meetings, safe escort service, Delhi escort, Noida escort, Gurgaon escort, Ghaziabad escort, Greater Noida escort, verified companions, discreet escort service"
-        canonicalUrl="https://funwithjuli.in/"
         structuredData={structuredData}
       />
       <div className="relative isolate overflow-hidden bg-white transition-colors duration-300">

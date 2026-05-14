@@ -13,8 +13,8 @@ export const getImageUrl = (filename) => {
     ? getFilename(new URL(filename).pathname)
     : getFilename(filename);
 
-  // Always return URLs starting with https://funwithjuli.in/api/ as requested
-  const baseUrl = "https://funwithjuli.in/api";
+  // Always return URLs starting with https://www.funwithjuli.in/api/ as requested
+  const baseUrl = "https://www.funwithjuli.in/api";
 
   return `${baseUrl}/upload/file/${encodeURIComponent(cleanFilename)}`;
 };
@@ -31,9 +31,9 @@ export const getUploadedImages = async () => {
       const ensureCorrectBaseUrl = (url) => {
         if (!url) return getImageUrl(file.name || file.path);
         // If URL doesn't start with the correct base, update it
-        if (!url.startsWith("https://funwithjuli.in/api/")) {
+        if (!url.startsWith("https://www.funwithjuli.in/api/")) {
           const filename = getFilename(url);
-          return `https://funwithjuli.in/api/upload/file/${encodeURIComponent(filename)}`;
+          return `https://www.funwithjuli.in/api/upload/file/${encodeURIComponent(filename)}`;
         }
         return url;
       };

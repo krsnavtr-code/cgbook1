@@ -9,35 +9,35 @@ const MeetingsByLocation = () => {
       id: 2,
       name: "Delhi",
       profiles: "180+",
-      img: "https://funwithjuli.in/api/upload/file/juli-delhi-26042026-1233.webp",
+      img: "https://www.funwithjuli.in/api/upload/file/juli-delhi-26042026-1233.webp",
       trending: true,
     },
     {
       id: 3,
       name: "Gurugram",
       profiles: "150+",
-      img: "https://funwithjuli.in/api/upload/file/juli-gurugram-26042026-1233.webp",
+      img: "https://www.funwithjuli.in/api/upload/file/juli-gurugram-26042026-1233.webp",
       trending: false,
     },
     {
       id: 4,
       name: "Noida",
       profiles: "90+",
-      img: "https://funwithjuli.in/api/upload/file/juli-noida-26042026-1233.webp",
+      img: "https://www.funwithjuli.in/api/upload/file/juli-noida-26042026-1233.webp",
       trending: false,
     },
     {
       id: 5,
       name: "Greater Noida",
       profiles: "110+",
-      img: "https://funwithjuli.in/api/upload/file/juli-greater-noida-26042026-1233.webp",
+      img: "https://www.funwithjuli.in/api/upload/file/juli-greater-noida-26042026-1233.webp",
       trending: false,
     },
     {
       id: 6,
       name: "Ghaziabad",
       profiles: "70+",
-      img: "https://funwithjuli.in/api/upload/file/juli-ghaziabad-26042026-1233.webp",
+      img: "https://www.funwithjuli.in/api/upload/file/juli-ghaziabad-26042026-1233.webp",
       trending: true,
     },
   ];
@@ -85,7 +85,7 @@ const MeetingsByLocation = () => {
                 src={city.img}
                 alt={city.name}
                 loading="eager"
-                fetchpriority="high"
+                fetchPriority="high"
                 decoding="async"
                 className="w-full h-full object-cover"
               />

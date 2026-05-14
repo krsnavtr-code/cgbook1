@@ -26,7 +26,6 @@ const TermsOfUse = () => {
         title="Terms of Use - FunwithJuli Escort Service Agreement"
         description="Read FunwithJuli's terms of use and service agreement. Understand the guidelines for using our premium escort platform and legal requirements."
         keywords="terms of use, service agreement, escort terms, legal terms, FunwithJuli terms, platform guidelines, user agreement"
-        canonicalUrl="https://funwithjuli.in/terms-of-use"
         noIndex={true}
       />
       <div className="min-h-screen bg-white  text-zinc-900  transition-colors duration-300">
