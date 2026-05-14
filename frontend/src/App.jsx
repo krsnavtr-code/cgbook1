@@ -26,6 +26,10 @@ import SupportCenter from "./pages/SupportCenter";
 import HelpCenter from "./pages/HelpCenter";
 import ContactUs from "./pages/ContactUs";
 import ScamReport from "./pages/ScamReport";
+import Mahipalpur from "./pages/Mahipalpur";
+import VasantKunj from "./pages/VasantKunj";
+import LaxmiNagar from "./pages/LaxmiNagar";
+import Saket from "./pages/Saket";
 
 function App() {
   return (
@@ -44,8 +48,12 @@ function App() {
         <Route path="scam-report" element={<ScamReport />} />
         <Route path="photos" element={<PhotoGallery />} />
         <Route path="profile/:name" element={<ProfileDetail />} />
-        <Route path="meetings/:city" element={<CityProfiles />} />
         <Route path="new-arrivals" element={<AllNewArrivals />} />
+        <Route path="escort-service-mahipalpur" element={<Mahipalpur />} />
+        <Route path="escort-service-vasant-kunj" element={<VasantKunj />} />
+        <Route path="escort-service-laxmi-nagar" element={<LaxmiNagar />} />
+        <Route path="escort-service-saket" element={<Saket />} />
+        <Route path="escort-service-:city" element={<CityProfiles />} />
       </Route>
 
       {/* Admin Routes - Protected and Admin Only */}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getProfiles, getLocations } from "../api/profileApi";
 import { LOCATIONS_WITH_ALL } from "../constants/locations";
 import { ChatBubbleLeftRightIcon } from "@heroicons/react/24/solid";
+import { getOwnerInfo } from "../api/ownerInfoApi";
 
 const Meetings = () => {
   const navigate = useNavigate();
@@ -12,6 +13,29 @@ const Meetings = () => {
   const [availableLocations, setAvailableLocations] =
     useState(LOCATIONS_WITH_ALL);
   const [loading, setLoading] = useState(true);
+
+  const [ownerInfo, setOwnerInfo] = useState(null);
+  const [ownerLoading, setOwnerLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOwnerInfo = async () => {
+      try {
+        const data = await getOwnerInfo();
+        // Get the primary owner or first owner in the list
+        const primaryOwner =
+          data.owners?.find((owner) => owner.isPrimary) || data.owners?.[0];
+        if (primaryOwner) {
+          setOwnerInfo(primaryOwner);
+        }
+      } catch (error) {
+        console.error("Error fetching owner info:", error);
+      } finally {
+        setOwnerLoading(false);
+      }
+    };
+
+    fetchOwnerInfo();
+  }, []);
 
   // Fetch profiles and locations on component mount
   useEffect(() => {
@@ -51,6 +75,13 @@ const Meetings = () => {
 
     fetchData();
   }, []);
+
+  // Format the WhatsApp number by removing any non-digit characters except the leading +
+  const formatWhatsAppNumber = (number) => {
+    if (!number) return "";
+    // Remove all non-digit characters except the leading +
+    return number.replace(/^(\+?\d+)[\s-]*(\d+)$/, "$1$2");
+  };
 
   // Filter profiles based on selected city
   const filteredProfiles =
@@ -127,7 +158,11 @@ const Meetings = () => {
           </div>
         ) : filteredProfiles.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProfiles.map((profile) => (
+            {filteredProfiles.map((profile) => {
+              const whatsappLink = ownerInfo?.whatsappNumber
+                ? `https://wa.me/${formatWhatsAppNumber(ownerInfo.whatsappNumber)}?text=Hi! I'm interested in ${profile.name}`
+                : "#";
+              return (
               <div
                 key={profile._id || profile.id}
                 className="group relative bg-gray-100 rounded-3xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2"
@@ -219,10 +254,17 @@ const Meetings = () => {
                       View Profile
                     </button>
                     <a
-                      href={`https://wa.me/91${profile.whatsapp || "9876543210"}?text=Hi! I'm interested in ${profile.name}`}
+                      href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-green-500/20 hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-2 no-underline hover:no-underline hover:text-white focus:text-white visited:text-white"
+                      className={`flex-1 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-green-500/20 hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-2 no-underline hover:no-underline hover:text-white focus:text-white visited:text-white ${
+                        !ownerInfo ? "opacity-70 cursor-not-allowed" : ""
+                      }`}
+                      title={
+                        !ownerInfo
+                          ? "WhatsApp number not available"
+                          : "Contact on WhatsApp"
+                      }
                     >
                       <ChatBubbleLeftRightIcon className="h-4 w-4" />
                       WhatsApp
@@ -230,7 +272,7 @@ const Meetings = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ) })}
           </div>
         ) : (
           <div className="text-center py-16">

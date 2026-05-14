@@ -90,12 +90,12 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center space-x-6">
               <NavLink to="/">Home</NavLink>
-              <NavLink to="/photos">HD Photos</NavLink>
+              
 
               {/* Refined Dropdown */}
               <div className="relative group py-4">
                 <button className="flex items-center gap-1 text-sm font-bold text-black hover:text-pink-500 transition-colors">
-                  Locations{" "}
+                  In Delhi{" "}
                   <ChevronDown
                     size={14}
                     className="group-hover:rotate-180 transition-transform"
@@ -105,7 +105,7 @@ const Navbar = () => {
                   {LOCATIONS.map((city) => (
                     <Link
                       key={city}
-                      to={`/meetings/${city.toLowerCase().replace(" ", "-")}`}
+                      to={`/escort-service-${city.toLowerCase().replace(" ", "-")}`}
                       className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-600"
                     >
                       {city}
@@ -113,6 +113,10 @@ const Navbar = () => {
                   ))}
                 </div>
               </div>
+
+              <NavLink to="/new-arrivals">New Arrivals</NavLink>
+
+              <NavLink to="/photos">HD Photos</NavLink>
 
               <NavLink to="/contact-us">Contact</NavLink>
             </div>

@@ -76,7 +76,7 @@ const MeetingsByLocation = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {filteredCities.map((city) => (
             <Link
-              to={`/meetings/${city.name.toLowerCase()}`}
+              to={`/escort-service-${city.name.toLowerCase()}`}
               key={city.id}
               className="relative h-64 rounded-[2.5rem] overflow-hidden shadow-lg block"
             >

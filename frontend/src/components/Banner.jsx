@@ -76,7 +76,7 @@ const Banner = () => {
                 {loading ? "Loading..." : "Book Now"}
               </a>
               <Link
-                to="/videos"
+                to="/photos"
                 className="px-8 py-4 text-lg font-bold text-gray-700 bg-gray-100 rounded-2xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2"
               >
                 <svg
@@ -90,28 +90,28 @@ const Banner = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                Browse Videos
+                Browse Photos
               </Link>
             </div>
 
             {/* Stats / Social Proof */}
             <div className="mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100 pt-8">
               <div>
-                <p className="text-2xl font-black text-gray-900">500+</p>
+                <p className="text-2xl font-black text-gray-900">150+</p>
                 <p className="text-sm text-black uppercase tracking-widest font-bold">
                   Photos
                 </p>
               </div>
               <div className="h-10 w-px bg-gray-200"></div>
               <div>
-                <p className="text-2xl font-black text-gray-900">100+</p>
+                <p className="text-2xl font-black text-gray-900">Multiple</p>
                 <p className="text-sm text-black uppercase tracking-widest font-bold">
-                  Videos
+                  Locations
                 </p>
               </div>
               <div className="h-10 w-px bg-gray-200"></div>
               <div>
-                <p className="text-2xl font-black text-gray-900">10k</p>
+                <p className="text-2xl font-black text-gray-900">1200+</p>
                 <p className="text-sm text-black uppercase tracking-widest font-bold">
                   Fans
                 </p>

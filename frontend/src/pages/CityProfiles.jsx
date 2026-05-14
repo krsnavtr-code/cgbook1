@@ -117,7 +117,7 @@ const CityProfiles = () => {
                 Back to Home
               </button>
               <button
-                onClick={() => navigate("/meetings")}
+                onClick={() => navigate("/escort-service")}
                 className="px-6 py-3 border-2 border-pink-500 text-pink-500 rounded-xl font-bold hover:bg-pink-50 transition-all"
               >
                 All Cities
@@ -135,7 +135,7 @@ const CityProfiles = () => {
         title={`${city.charAt(0).toUpperCase() + city.slice(1)} Escorts - Premium Companions | FunwithJuli`}
         description={`Find premium escorts and companions in ${city.charAt(0).toUpperCase() + city.slice(1)}. Verified profiles, safe meetings, and professional escort services in ${city}.`}
         keywords={`${city} escorts, ${city} call girls, premium escorts ${city}, ${city} escort service, verified companions ${city}, safe escort meetings`}
-        canonicalUrl={`https://funwithjuli.in/meetings/${city.toLowerCase()}`}
+        canonicalUrl={`https://funwithjuli.in/escort-service-${city.toLowerCase()}`}
       />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

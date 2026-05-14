@@ -209,7 +209,7 @@ const AllNewArrivals = () => {
                   WhatsApp Agent
                 </a>
                 <button
-                  onClick={() => navigate("/meetings")}
+                  onClick={() => navigate("/escort-service")}
                   className="px-8 py-4 bg-white border border-zinc-200 rounded-2xl font-bold hover:bg-zinc-50 transition-colors"
                 >
                   All Profiles

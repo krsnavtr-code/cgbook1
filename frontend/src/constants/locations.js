@@ -1,14 +1,6 @@
 // Standardized locations for the entire project
-export const LOCATIONS = [
-  "Delhi",
-  "Ghaziabad", 
-  "Gurugram",
-  "Noida"
-];
+export const LOCATIONS = ["Mahipalpur", "Vasant Kunj", "Laxmi Nagar", "Saket"];
 
-export const LOCATIONS_WITH_ALL = [
-  "All Cities",
-  ...LOCATIONS
-];
+export const LOCATIONS_WITH_ALL = ["All Cities", ...LOCATIONS];
 
-export const DEFAULT_LOCATION = "Delhi";
+export const DEFAULT_LOCATION = "Mahipalpur";
