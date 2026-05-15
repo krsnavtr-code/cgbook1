@@ -62,129 +62,116 @@ const ExploreFriendship = () => {
   ];
 
   return (
-    <section className="pb-24 pt-14 bg-white overflow-hidden">
+    <section className="pb-12 pt-8 md:pb-24 md:pt-14 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-16 text-center md:text-left">
+        {/* ================= SECTION HEADER ================= */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-10 md:mb-16 text-center md:text-left gap-4">
           <div className="max-w-xl">
-            <h2 className="text-4xl font-black text-gray-900  mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 tracking-tight">
               More Than Just{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                 Meetings
               </span>
             </h2>
-            <p className="text-black  text-lg">
+            <p className="text-gray-800 text-sm md:text-lg leading-relaxed">
               With so many options available, how do you decide? At funwithjuli,
               we suggest looking at your schedule and the nature of the meeting.
             </p>
           </div>
-          {/* <div className="mt-8 md:mt-0">
-            <button className="px-8 py-4 bg-gray-100  text-gray-900  font-bold rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-sm">
-              Explore All Categories
-            </button>
-          </div> */}
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* ================= FEATURE CARDS GRID ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:grid-cols-3 lg:gap-8">
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="group relative p-8 rounded-[2.5rem] bg-gray-50  border border-gray-100  hover:border-cyan-500/50 transition-all duration-300"
+              className="group relative p-6 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-gray-50 border border-gray-100/80 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Icon Circle */}
-              <div
-                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center text-3xl shadow-lg mb-6 transform group-hover:rotate-6 transition-transform`}
-              >
-                {cat.icon}
+              <div>
+                {/* Icon Circle */}
+                <div
+                  className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center text-2xl md:text-3xl shadow-lg mb-5 md:mb-6 transform group-hover:rotate-6 transition-transform`}
+                >
+                  {cat.icon}
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2 md:mb-3">
+                  {cat.title}
+                </h3>
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+                  {cat.description}
+                </p>
               </div>
 
-              <h3 className="text-2xl font-black text-gray-900 mb-3">
-                {cat.title}
-              </h3>
-              <p className="text-black leading-relaxed mb-6">
-                {cat.description}
-              </p>
-
-              {/* <button className="flex items-center gap-2 text-cyan-600 font-bold group-hover:gap-4 transition-all">
-                Browse Profiles
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button> */}
-
               {/* Decorative background element */}
-              <div className="absolute top-0 right-0 p-4 opacity-5">
-                <span className="text-8xl font-black">{cat.id}</span>
+              <div className="absolute top-0 right-0 p-4 opacity-[0.03] select-none pointer-events-none">
+                <span className="text-7xl md:text-8xl font-black">
+                  {cat.id}
+                </span>
               </div>
             </div>
           ))}
         </div>
 
-        <section className="bg-gray-50  mt-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* HEADER & SEARCH */}
+        {/* ================= BOOKING INFO SECTION ================= */}
+        <section className="bg-gray-50/70 rounded-3xl p-6 md:p-10 mt-12 md:mt-16 border border-gray-100">
+          <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-              <div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4">
+              <div className="text-left">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
                   Easy Booking &{" "}
-                  <span className="text-pink-600">100% Discreet Support</span>
+                  <span className="text-pink-600 block sm:inline">
+                    100% Discreet Support
+                  </span>
                 </h2>
-                <p className="text-lg text-black ">
-                  Our platform offers an <strong>easy booking process</strong>{" "}
-                  designed to save time while maintaining full privacy. Users
-                  can browse verified profiles, choose their preference, and
-                  connect through a secure system without unnecessary
-                  complications.
-                  <br />
-                  We provide <strong>100% discreet support</strong>, ensuring
-                  that every inquiry and booking is handled confidentially. Our
-                  support team is available to assist with questions,
-                  coordination, and general guidance, making the process smooth
-                  and reliable.
-                  <br />
-                  Privacy is our priority, which is why we avoid sharing
-                  personal information and focus on secure communication. This
-                  makes our <strong>escort booking service</strong> suitable for
-                  users who value discretion and professionalism.
-                  <br />
-                  With fast responses, clear communication, and dedicated
-                  assistance, our platform delivers a stress-free experience.
-                  Whether you are booking a <strong>
-                    call girl service
-                  </strong>{" "}
-                  or a premium escort option, our discreet support ensures peace
-                  of mind at every step.
-                </p>
+                <div className="text-sm md:text-base text-gray-800 space-y-4 leading-relaxed font-medium">
+                  <p>
+                    Our platform offers an <strong>easy booking process</strong>{" "}
+                    designed to save time while maintaining full privacy. Users
+                    can browse verified profiles, choose their preference, and
+                    connect through a secure system without unnecessary
+                    complications.
+                  </p>
+                  <p>
+                    We provide <strong>100% discreet support</strong>, ensuring
+                    that every inquiry and booking is handled confidentially.
+                    Our support team is available to assist with questions,
+                    coordination, and general guidance, making the process
+                    smooth and reliable.
+                  </p>
+                  <p>
+                    Privacy is our priority, which is why we avoid sharing
+                    personal information and focus on secure communication. This
+                    makes our <strong>escort booking service</strong> suitable
+                    for users who value discretion and professionalism.
+                  </p>
+                  <p>
+                    With fast responses, clear communication, and dedicated
+                    assistance, our platform delivers a stress-free experience.
+                    Whether you are booking a <strong>call girl service</strong>{" "}
+                    or a premium escort option, our discreet support ensures
+                    peace of mind at every step.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Professional Companionship Section */}
-        <section className="bg-white  mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-gray-900  mb-4">
+        {/* ================= COMPANIONSHIP SECTION ================= */}
+        <section className="bg-white mt-12 md:mt-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
                 Understanding the Need for{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+                <span className="block md:inline text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                   Professional Companionship
                 </span>
               </h2>
             </div>
 
-            <div className="prose prose-lg max-w-none text-black ">
-              <p className="text-lg leading-relaxed mb-6">
+            <div className="text-gray-800 text-sm md:text-base leading-relaxed space-y-4 md:space-y-6 text-left">
+              <p>
                 Life in a fast-paced city can be demanding. Often, individuals
                 seek a brief escape or a graceful partner to accompany them to
                 social events, dinners, or simply to spend quality time with.
@@ -195,7 +182,7 @@ const ExploreFriendship = () => {
                 intellectually engaging.
               </p>
 
-              <p className="text-lg leading-relaxed mb-6">
+              <p>
                 When you choose funwithjuli, you are choosing a brand that
                 values your time. We have streamlined our booking process to
                 ensure that you can find premium escort agency Delhi services
@@ -204,12 +191,15 @@ const ExploreFriendship = () => {
                 aligns with your preferences.
               </p>
 
-              {showFullContent && (
-                <>
-                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
+              {/* Collapsible Content Module */}
+              <div
+                className={`transition-all duration-500 overflow-hidden ${showFullContent ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}
+              >
+                <div className="space-y-6 pt-4">
+                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
                     Elite Female Models Delhi: Beyond Just Beauty
                   </h3>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     When people look for the best escort service in Delhi NCR,
                     they often focus solely on physical appearance. While our
                     elite female models Delhi are indeed striking, we believe
@@ -217,7 +207,7 @@ const ExploreFriendship = () => {
                     individuals with their own interests, hobbies, and
                     conversational skills.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     Whether you want to discuss global trends over a glass of
                     wine or simply enjoy a quiet evening, our companions are
                     capable of adapting to the mood. This versatility is a
@@ -226,17 +216,17 @@ const ExploreFriendship = () => {
                     including meaningful conversation and graceful presence.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
+                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
                     Seamless Integration of Services in NCR
                   </h3>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     The beauty of the NCR region is its interconnectedness. You
                     might start your day in Delhi and end it in a luxury suite
                     in Noida. The best escort service in Delhi NCR must be able
                     to follow that rhythm. At funwithjuli, we have logistics in
                     place to ensure that our service is as mobile as you are.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     If you are looking for independent escorts Delhi NCR who can
                     travel to your location, we facilitate those connections
                     with ease. Our goal is to make sure that no matter where you
@@ -244,10 +234,10 @@ const ExploreFriendship = () => {
                     high-end companionship is always accessible.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
+                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
                     Safety and Reliability
                   </h3>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     In an industry where trust is paramount, funwithjuli stands
                     out by being a reliable partner. We encourage our clients to
                     communicate their needs clearly. By calling 9548679151, you
@@ -256,17 +246,17 @@ const ExploreFriendship = () => {
                     Delhi NCR means we take responsibility for the safety and
                     comfort of both our clients and our companions.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     We strictly adhere to professional standards. Our
                     interactions are based on mutual respect. This creates a
                     positive environment where you can truly relax and be
                     yourself.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
+                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
                     Serving the Modern Gentleman in the Digital Age
                   </h3>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     The way people search for companionship has changed. Today,
                     you want a website that is easy to navigate and information
                     that is clear. At funwithjuli.in, we have designed our
@@ -274,23 +264,23 @@ const ExploreFriendship = () => {
                     services. We provide a clear overview of what we offer
                     without using misleading imagery or complicated jargon.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     As the best escort service in Delhi NCR, we stay updated
                     with the latest trends in hospitality and customer service.
                     We listen to feedback and constantly refine our offerings to
                     ensure that funwithjuli remains at the top of your list.
                   </p>
 
-                  <h3 className="text-2xl font-bold text-gray-900  mt-8 mb-4">
+                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
                     Your Journey with funwithjuli Starts Here
                   </h3>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     Whether you are looking for elite female models Delhi or
                     independent escorts Delhi NCR, your search for perfection
                     ends with us. We have spent years building a brand that
                     stands for quality, elegance, and reliability.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6">
+                  <p>
                     Delhi, Noida, Gurgaon, and the entire NCR are vibrant
                     places, and they deserve a companionship service that
                     matches that energy. Don't settle for anything less than the
@@ -300,85 +290,61 @@ const ExploreFriendship = () => {
                     moment count, ensuring that your experience is nothing short
                     of exceptional.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6">
-                    With funwithjuli, you are not just booking a service; you
-                    are choosing a lifestyle of luxury and comfort. We look
-                    forward to serving you across the National Capital Region
-                    and proving why we are the leaders in premium companionship.
-                  </p>
-                </>
-              )}
+                </div>
+              </div>
 
-              <div className="text-center mt-8">
+              {/* Trigger Toggle Button */}
+              <div className="text-center pt-4">
                 <button
                   onClick={() => setShowFullContent(!showFullContent)}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 md:px-8 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all shadow-md active:scale-[0.98] text-sm md:text-base"
                 >
-                  {showFullContent ? (
-                    <>
-                      Show Less
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 15l7-7 7 7"
-                        />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      Read More
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </>
-                  )}
+                  <span>{showFullContent ? "Show Less" : "Read More"}</span>
+                  <svg
+                    className={`w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 ${showFullContent ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Community Invite Banner */}
-        <div className="mt-20 bg-gradient-to-r from-indigo-600 to-blue-700 rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl">
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div className="text-center md:text-left">
-              <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+        {/* ================= COMMUNITY INVITE BANNER ================= */}
+        <div className="mt-14 md:mt-20 bg-gradient-to-r from-indigo-600 to-blue-700 rounded-3xl md:rounded-[3rem] p-6 sm:p-10 md:p-16 relative overflow-hidden shadow-xl">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-10">
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-2 md:mb-4 tracking-tight">
                 Become a Partner?
               </h3>
-              <p className="text-blue-100 text-lg max-w-md">
+              <p className="text-blue-100 text-sm md:text-lg max-w-md mx-auto lg:mx-0">
                 Join our verified network and get matched with people looking
                 for high-end companionship and social dates.
               </p>
             </div>
+
             <a
-              href={whatsappLink}
-              target="_blank"
+              href={whatsappLink || "#"}
+              target={whatsappLink ? "_blank" : "_self"}
               rel="noopener noreferrer"
-              disabled={!ownerInfo || loading}
-              className={`whitespace-nowrap px-10 py-5 bg-white text-indigo-600 font-black rounded-2xl shadow-xl hover:scale-105 transition-transform active:scale-95 text-center block ${
-                !ownerInfo || loading ? "opacity-70 cursor-not-allowed" : ""
+              className={`w-full lg:w-auto whitespace-nowrap px-8 py-4 md:px-10 md:py-5 bg-white text-indigo-600 font-black rounded-xl md:rounded-2xl shadow-md hover:shadow-xl transition-all active:scale-[0.98] text-center block text-sm md:text-base ${
+                !whatsappLink
+                  ? "opacity-60 cursor-not-allowed pointer-events-none"
+                  : ""
               }`}
               title={
-                !ownerInfo || loading
-                  ? "Contact number not available"
-                  : "Contact on WhatsApp"
+                !whatsappLink
+                  ? "Contact details unavailable"
+                  : "Connect via WhatsApp"
               }
             >
               {loading
@@ -389,9 +355,9 @@ const ExploreFriendship = () => {
             </a>
           </div>
 
-          {/* Abstract Shapes */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-64 h-64 bg-cyan-400/20 rounded-full blur-2xl"></div>
+          {/* Canvas Decorative Background Glow Shapes */}
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-72 h-72 md:w-96 md:h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-48 h-48 md:w-64 md:h-64 bg-cyan-400/20 rounded-full blur-2xl pointer-events-none"></div>
         </div>
       </div>
     </section>

@@ -61,13 +61,13 @@ const Mahipalpur = () => {
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-pink-700 to-purple-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-30"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-28 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
             Escort Service in Mahipalpur <br />
             <span className="text-pink-500">Premium Call Girls</span> by
             <span className="text-white"> FunwithJuli</span>
           </h1>
-          <p className="text-lg md:text-xl mb-10 text-pink-100 max-w-7xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 text-pink-100 max-w-7xl mx-auto">
             Are you Looking for Private time or Satisfaction from call girl in
             mahipalpur, you jump at the exact right place at FunWithJuli we
             provide trusted and premium{" "}
@@ -80,12 +80,12 @@ const Mahipalpur = () => {
             Mahipalpur focuses on your privacy, comfort, and 100% customer
             satisfaction.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
             <a
               href={phoneNumber ? `tel:${phoneNumber}` : "#"}
-              className="flex items-center justify-center px-10 py-5 bg-white text-pink-600 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl"
+              className="flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 bg-white text-pink-600 rounded-full font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-2xl"
             >
-              <PhoneIcon className="w-6 h-6 mr-2" /> Call Now:{" "}
+              <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2" /> Call Now:{" "}
               {phoneNumber || "Contact Us"}
             </a>
             <a
@@ -96,17 +96,20 @@ const Mahipalpur = () => {
               }
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-pink-600 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl"
+              className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-4 sm:py-5 bg-white text-pink-600 rounded-full font-bold text-base sm:text-lg hover:scale-105 transition-transform shadow-2xl"
             >
               {/* Adding a WhatsApp Icon for better UX */}
-              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6 fill-current"
+                viewBox="0 0 24 24"
+              >
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48 2.245 2.244 3.481 5.229 3.481 8.408 0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.963-.51-5.703-1.477l-6.281 1.648zm6.26-4.223l.348.207c1.479.878 3.189 1.341 4.931 1.341 5.176 0 9.387-4.212 9.387-9.388 0-2.507-.977-4.863-2.75-6.637-1.774-1.774-4.131-2.75-6.637-2.75-5.176 0-9.388 4.212-9.388 9.388 0 1.761.493 3.48 1.425 4.986l.228.368-1.01 3.692 3.785-.993z" />
               </svg>
               Chat on WhatsApp
             </a>
             <Link
               to="/photos"
-              className="flex items-center justify-center px-10 py-5 bg-pink-600 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-pink-600 transition-all"
+              className="flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 bg-pink-600 border-2 border-white text-white rounded-full font-bold text-base sm:text-lg hover:bg-white hover:text-pink-600 transition-all"
             >
               View Gallery & Book
             </Link>
@@ -115,8 +118,8 @@ const Mahipalpur = () => {
       </div>
 
       {/* Main Content Section */}
-      <section className="pt-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="pt-12 sm:pt-16 md:pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="w-full">
             {/* Main Container with Orange Background */}
             <div className="relative overflow-hidden">
@@ -126,17 +129,17 @@ const Mahipalpur = () => {
                 style={{ clipPath: "polygon(0 0, 100% 0, 100% 30%, 0 80%)" }}
               ></div>
 
-              <div className="flex flex-col lg:flex-row gap-12 items-center">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
                 {/* Left Content Column */}
                 <div className="lg:w-1/2 text-left z-10">
-                  <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6">
                     Best Escort Service in Delhi: <br />
-                    <span className="font-medium text-2xl md:text-3xl">
+                    <span className="font-medium text-xl sm:text-2xl md:text-3xl">
                       Crafted for High-Class Gentlemen
                     </span>
                   </h2>
 
-                  <div className="space-y-6 text-gray-800 text-lg leading-relaxed">
+                  <div className="space-y-4 sm:space-y-6 text-gray-800 text-base sm:text-lg leading-relaxed">
                     <p>
                       The real splendor of our{" "}
                       <strong>Best escort service in Delhi</strong> is that it
@@ -161,14 +164,14 @@ const Mahipalpur = () => {
 
                   <a
                     href={phoneNumber ? `tel:${phoneNumber}` : "#"}
-                    className="mt-8 inline-block bg-[#5D2E17] hover:bg-[#432111] text-white font-bold py-3 px-10 rounded transition-colors uppercase tracking-widest"
+                    className="mt-6 sm:mt-8 inline-block bg-[#5D2E17] hover:bg-[#432111] text-white font-bold py-3 px-8 sm:px-10 rounded transition-colors uppercase tracking-widest text-sm sm:text-base"
                   >
                     Contact Us
                   </a>
                 </div>
 
                 {/* Right Image Gallery Column */}
-                <div className="lg:w-1/2 flex gap-2 h-[450px] items-center">
+                <div className="lg:w-1/2 flex gap-1 sm:gap-2 h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] items-center">
                   {/* Profile 1 */}
                   <div className="flex-1 h-[90%] rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
                     <img
@@ -178,7 +181,7 @@ const Mahipalpur = () => {
                     />
                   </div>
                   {/* Profile 2 (Offset) */}
-                  <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 -translate-y-4">
+                  <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 -translate-y-2 sm:-translate-y-4">
                     <img
                       src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.43-pm-26042026-1110.jpeg"
                       alt="Profile 2"
@@ -194,7 +197,7 @@ const Mahipalpur = () => {
                     />
                   </div>
                   {/* Profile 4 (Offset) */}
-                  <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 translate-y-4">
+                  <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 translate-y-2 sm:translate-y-4">
                     <img
                       src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.47-pm--1--26042026-1110.jpeg"
                       alt="Profile 4"
@@ -215,10 +218,10 @@ const Mahipalpur = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-gray-800 mt-10">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-8 sm:mt-10">
               Russian Call Girls in Mahipalpur
             </h3>
-            <p>
+            <p className="text-base sm:text-lg">
               The demand for <strong>Russian call girls in Mahipalpur</strong>{" "}
               is increasing. FunwithJuli offers international-style
               companionship, including body-to-body massage and premium fun.
@@ -230,12 +233,12 @@ const Mahipalpur = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-3 gap-12">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
-            <div className="prose prose-lg text-gray-700 space-y-6 max-w-none">
+            <div className="prose prose-sm sm:prose-base md:prose-lg text-gray-700 space-y-4 sm:space-y-6 max-w-none">
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mt-10">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-8 sm:mt-10">
                   Why Choose FunwithJuli for Escort Service in Mahipalpur
                 </h3>
                 <p>
@@ -247,7 +250,7 @@ const Mahipalpur = () => {
                   satisfaction , safety and personal time with our{" "}
                   <strong>service call girl in mahipalpur delhi</strong>.
                 </p>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 list-none p-0">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 list-none p-0">
                   <li className="flex items-center space-x-2">
                     <CheckCircleIcon className="w-5 h-5 text-pink-500" />
                     <span>Thousands of Verified Profiles</span>
@@ -301,7 +304,7 @@ const Mahipalpur = () => {
               </div>
 
               <div className="w-full bg-gray-50 py-6">
-                <div className="relative max-w-7xl mx-auto bg-white p-8 md:p-12 lg:p-16 rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+                <div className="relative max-w-7xl mx-auto bg-white p-6 sm:p-8 md:p-12 lg:p-16 rounded-3xl shadow-lg overflow-hidden border border-gray-100">
                   <div
                     className="absolute top-0 left-0 w-full h-10 bg-white"
                     style={{
@@ -311,11 +314,11 @@ const Mahipalpur = () => {
                     <div className="w-full h-full bg-[#E5D7B7] rounded-b-[40%]" />{" "}
                   </div>
 
-                  <div className="flex flex-col lg:flex-row gap-16 items-center pt-8">
-                    <div className="lg:w-1/2 flex gap-3 h-[500px] items-center relative order-2 lg:order-1">
-                      <div className="absolute -top-16 -left-16 w-40 h-40 bg-[#E5D7B7]/60 rounded-full blur-3xl z-0" />
+                  <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center pt-6 sm:pt-8">
+                    <div className="lg:w-1/2 flex gap-2 sm:gap-3 h-[300px] sm:h-[400px] md:h-[500px] items-center relative order-2 lg:order-1">
+                      <div className="absolute -top-8 -left-8 sm:-top-12 sm:-left-12 lg:-top-16 lg:-left-16 w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-[#E5D7B7]/60 rounded-full blur-3xl z-0" />
 
-                      <div className="flex-1 h-[90%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 z-10">
+                      <div className="flex-1 h-[90%] rounded-2xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white/90 z-10">
                         <img
                           src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.44.45-pm-26042026-1122.jpeg"
                           alt="Companion Portrait"
@@ -323,7 +326,7 @@ const Mahipalpur = () => {
                         />
                       </div>
 
-                      <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 -translate-y-6 z-10">
+                      <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white/90 -translate-y-3 sm:-translate-y-6 z-10">
                         <img
                           src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.44.46-pm--3--26042026-1122.jpeg"
                           alt="Lace Profile"
@@ -331,7 +334,7 @@ const Mahipalpur = () => {
                         />
                       </div>
 
-                      <div className="flex-1 h-[90%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 z-10">
+                      <div className="flex-1 h-[90%] rounded-2xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white/90 z-10">
                         <img
                           src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.50.20-pm--1--26042026-1122.jpeg"
                           alt="Casual Portrait"
@@ -339,7 +342,7 @@ const Mahipalpur = () => {
                         />
                       </div>
 
-                      <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 translate-y-6 z-10">
+                      <div className="flex-1 h-full rounded-2xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white/90 translate-y-3 sm:translate-y-6 z-10">
                         <img
                           src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.50.21-pm--2--26042026-1122.jpeg"
                           alt="Full Body Portrait"
@@ -350,11 +353,11 @@ const Mahipalpur = () => {
 
                     {/* [Right Content Column - Existing Text] */}
                     <div className="lg:w-1/2 text-left z-10 order-1 lg:order-2">
-                      <h3 className="text-xl font-black text-gray-900 leading-tight mb-8">
+                      <h3 className="text-lg sm:text-xl font-black text-gray-900 leading-tight mb-6 sm:mb-8">
                         Call Girls in Mahipalpur for Premium Experience
                       </h3>
 
-                      <div className="space-y-2 text-gray-800 text-sm leading-relaxed">
+                      <div className="space-y-2 text-gray-800 text-sm sm:text-base leading-relaxed">
                         <p>
                           Many visitors and local clients search for trusted{" "}
                           <strong className="text-pink-700">
@@ -375,7 +378,7 @@ const Mahipalpur = () => {
                           time, we offer options according to your preference.
                         </p>
 
-                        <p className="italic bg-pink-50 p-5 rounded-xl border-l-4 border-pink-500 text-pink-900 shadow-inner">
+                        <p className="italic bg-pink-50 p-4 sm:p-5 rounded-xl border-l-4 border-pink-500 text-pink-900 shadow-inner">
                           We focus on your comfort and provide professional
                           support and directly provide you the call girl to your
                           hotel room.
@@ -398,7 +401,7 @@ const Mahipalpur = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mt-10">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-8 sm:mt-10">
                   Call Girl in Mahipalpur Delhi with Safe and Private Booking
                 </h3>
                 <p>
@@ -422,10 +425,10 @@ const Mahipalpur = () => {
                 </p>
               </div>
 
-              <div className="relative mt-12 overflow-hidden rounded-3xl bg-[#0f172a] shadow-2xl border border-slate-800">
+              <div className="relative mt-8 sm:mt-12 overflow-hidden rounded-3xl bg-[#0f172a] shadow-2xl border border-slate-800">
                 <div className="flex flex-col lg:flex-row">
                   {/* Left Side: Single Image Container */}
-                  <div className="relative w-full lg:w-1/3 h-64 lg:h-auto overflow-hidden">
+                  <div className="relative w-full lg:w-1/3 h-48 sm:h-56 md:h-64 lg:h-auto overflow-hidden">
                     <img
                       src="https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.50.22-pm-26042026-1122.jpeg"
                       alt="Premium Russian Model"
@@ -436,16 +439,16 @@ const Mahipalpur = () => {
                   </div>
 
                   {/* Right Side: Content Column */}
-                  <div className="flex flex-col justify-center p-6 lg:w-2/3 lg:p-10">
+                  <div className="flex flex-col justify-center p-4 sm:p-6 lg:w-2/3 lg:p-10">
                     <div className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-widest text-pink-500 uppercase bg-pink-500/10 rounded-full w-fit">
                       International Premium
                     </div>
 
-                    <h3 className="text-2xl font-extrabold text-white md:text-3xl mb-3">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-3">
                       Russian Call Girls in Mahipalpur
                     </h3>
 
-                    <div className="space-y-3 text-gray-300 text-base leading-snug">
+                    <div className="space-y-3 text-gray-300 text-sm sm:text-base leading-snug">
                       <p>
                         The demand for{" "}
                         <strong className="text-white">
@@ -458,7 +461,7 @@ const Mahipalpur = () => {
                       </p>
 
                       {/* Tight Grid for Services */}
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-2 py-2 border-y border-white/5">
+                      <div className="grid grid-cols-2 gap-x-3 sm:gap-x-4 gap-y-2 py-2 border-y border-white/5">
                         {[
                           "Professional behavior",
                           "Clean & safe environment",
@@ -480,12 +483,14 @@ const Mahipalpur = () => {
                                 clipRule="evenodd"
                               />
                             </svg>
-                            <span className="text-sm font-medium">{item}</span>
+                            <span className="text-xs sm:text-sm font-medium">
+                              {item}
+                            </span>
                           </div>
                         ))}
                       </div>
 
-                      <p className="text-sm italic text-gray-400">
+                      <p className="text-xs sm:text-sm italic text-gray-400">
                         Available for 2 hours, 6 hours, or full-night stays. Our
                         service ensures
                         <span className="text-pink-400">
@@ -496,10 +501,10 @@ const Mahipalpur = () => {
                       </p>
                     </div>
 
-                    <div className="mt-6 flex items-center space-x-4">
+                    <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center gap-3 sm:space-x-4">
                       <a
                         href={phoneNumber ? `tel:${phoneNumber}` : "#"}
-                        className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-pink-600/20 active:scale-95"
+                        className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-pink-600/20 active:scale-95 text-center"
                       >
                         Book Now
                       </a>
@@ -515,7 +520,7 @@ const Mahipalpur = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mt-10">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-8 sm:mt-10">
                   Professional Call Girl in Mahipalpur for Every Occasion-
                   Starting at @2000
                 </h3>
@@ -541,7 +546,7 @@ const Mahipalpur = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mt-10">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-8 sm:mt-10">
                   Book Escort Service in Mahipalpur Today
                 </h3>
                 <p>
@@ -562,7 +567,7 @@ const Mahipalpur = () => {
 
           {/* Sidebar Booking Card */}
           <div
-            className="relative p-8 rounded-3xl shadow-xl border border-pink-100 h-fit lg:sticky lg:top-28 overflow-hidden group"
+            className="relative p-6 sm:p-8 rounded-3xl shadow-xl border border-pink-100 h-fit lg:sticky lg:top-28 overflow-hidden group"
             style={{
               backgroundImage: `url('https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.48-pm-26042026-1110.jpeg')`,
               backgroundSize: "cover",
@@ -574,34 +579,39 @@ const Mahipalpur = () => {
 
             {/* Content (Must be relative to sit above the overlay) */}
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                <SparklesIcon className="w-6 h-6 text-pink-500 mr-2" /> Booking
-                Info
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
+                <SparklesIcon className="w-5 h-5 sm:w-6 sm:h-6 text-pink-500 mr-2" />{" "}
+                Booking Info
               </h3>
 
-              <div className="mb-6">
-                <p className="text-sm text-gray-500 mb-2">Starting Price</p>
-                <div className="text-4xl font-bold text-pink-600">
-                  ₹2,000<span className="text-lg text-gray-400">/hr</span>
+              <div className="mb-4 sm:mb-6">
+                <p className="text-xs sm:text-sm text-gray-500 mb-2">
+                  Starting Price
+                </p>
+                <div className="text-3xl sm:text-4xl font-bold text-pink-600">
+                  ₹2,000
+                  <span className="text-base sm:text-lg text-gray-400">
+                    /hr
+                  </span>
                 </div>
               </div>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 <div className="flex items-start text-gray-800">
-                  <ClockIcon className="w-5 h-5 text-purple-600 mt-1 mr-2" />
-                  <span className="font-medium">
+                  <ClockIcon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mt-1 mr-2" />
+                  <span className="font-medium text-sm sm:text-base">
                     Available 24/7 & 7 Days a week
                   </span>
                 </div>
                 <div className="flex items-start text-gray-800">
-                  <MapPinIcon className="w-5 h-5 text-purple-600 mt-1 mr-2" />
-                  <span className="font-medium">
+                  <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mt-1 mr-2" />
+                  <span className="font-medium text-sm sm:text-base">
                     Direct service to your Hotel Room
                   </span>
                 </div>
                 <div className="flex items-start text-gray-800">
-                  <CreditCardIcon className="w-5 h-5 text-purple-600 mt-1 mr-2" />
-                  <span className="font-medium">
+                  <CreditCardIcon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mt-1 mr-2" />
+                  <span className="font-medium text-sm sm:text-base">
                     Cash, UPI, GPay, Paytm & Cards
                   </span>
                 </div>
@@ -609,7 +619,7 @@ const Mahipalpur = () => {
 
               <a
                 href={phoneNumber ? `tel:${phoneNumber}` : "#"}
-                className="block text-center bg-purple-700 text-white hover:text-white py-4 rounded-xl font-bold hover:bg-purple-800 transition-all transform hover:scale-105 shadow-lg"
+                className="block text-center bg-purple-700 text-white hover:text-white py-3 sm:py-4 rounded-xl font-bold hover:bg-purple-800 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base"
               >
                 Book via Call Now
               </a>
@@ -619,12 +629,12 @@ const Mahipalpur = () => {
       </section>
 
       {/* Pricing/Category Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
             Professional Companions for Every Occasion
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 type: "Indian Call Girls",
@@ -644,11 +654,15 @@ const Mahipalpur = () => {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="p-8 border border-pink-100 rounded-3xl hover:shadow-2xl transition-all text-center"
+                className="p-6 sm:p-8 border border-pink-100 rounded-3xl hover:shadow-2xl transition-all text-center"
               >
-                <h3 className="text-2xl font-bold mb-4">{item.type}</h3>
-                <p className="text-gray-600 mb-6">{item.desc}</p>
-                <div className="text-pink-600 font-black text-2xl">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+                  {item.type}
+                </h3>
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+                  {item.desc}
+                </p>
+                <div className="text-pink-600 font-black text-xl sm:text-2xl">
                   Starting @ {item.price}/-
                 </div>
               </div>
@@ -658,70 +672,70 @@ const Mahipalpur = () => {
       </section>
 
       {/* Trust & Payment Section */}
-      <section className="py-16 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-10">
+      <section className="py-12 sm:py-16 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10">
             Safe & Easy Payment Methods
           </h2>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
             <div className="flex flex-col items-center">
-              <BanknotesIcon className="w-12 h-12 text-pink-500 mb-2" />
-              <span>Cash</span>
+              <BanknotesIcon className="w-10 h-10 sm:w-12 sm:h-12 text-pink-500 mb-2" />
+              <span className="text-sm sm:text-base">Cash</span>
             </div>
             <div className="flex flex-col items-center">
-              <CreditCardIcon className="w-12 h-12 text-pink-500 mb-2" />
-              <span>Debit/Credit Card</span>
+              <CreditCardIcon className="w-10 h-10 sm:w-12 sm:h-12 text-pink-500 mb-2" />
+              <span className="text-sm sm:text-base">Debit/Credit Card</span>
             </div>
             <div className="flex flex-col items-center">
-              <CurrencyRupeeIcon className="w-12 h-12 text-pink-500 mb-2" />
-              <span>UPI / GPay / PhonePe</span>
+              <CurrencyRupeeIcon className="w-10 h-10 sm:w-12 sm:h-12 text-pink-500 mb-2" />
+              <span className="text-sm sm:text-base">UPI / GPay / PhonePe</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-6">
-            <div className="p-6 bg-pink-50 rounded-2xl">
-              <h3 className="font-bold text-lg mb-2">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="p-5 sm:p-6 bg-pink-50 rounded-2xl">
+              <h3 className="font-bold text-base sm:text-lg mb-2">
                 How to book an escort service in Mahipalpur discreetly?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-sm sm:text-base">
                 To book, simply search for FunWithJuli on Google or call us
                 directly. We ensure all your details are kept 100% private and
                 deleted after service.
               </p>
             </div>
-            <div className="p-6 bg-pink-50 rounded-2xl">
-              <h3 className="font-bold text-lg mb-2">
+            <div className="p-5 sm:p-6 bg-pink-50 rounded-2xl">
+              <h3 className="font-bold text-base sm:text-lg mb-2">
                 What are the typical rates for private companions in Mahipalpur?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-sm sm:text-base">
                 Rates vary by category. Indian call girls are more affordable
                 (starting @2000), while Russian and international models have
                 higher premium rates.
               </p>
             </div>
-            <div className="p-6 bg-pink-50 rounded-2xl">
-              <h3 className="font-bold text-lg mb-2">
+            <div className="p-5 sm:p-6 bg-pink-50 rounded-2xl">
+              <h3 className="font-bold text-base sm:text-lg mb-2">
                 How to verify authenticity of private escorts?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-sm sm:text-base">
                 You can verify our services through user reviews and
                 testimonials. We provide 100% genuine photos on WhatsApp before
                 booking.
               </p>
             </div>
-            <div className="p-6 bg-pink-50 rounded-2xl">
-              <h3 className="font-bold text-lg mb-2">
+            <div className="p-5 sm:p-6 bg-pink-50 rounded-2xl">
+              <h3 className="font-bold text-base sm:text-lg mb-2">
                 Are services available for full night?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-sm sm:text-base">
                 Yes, we offer hourly, 6-hour, and full-night packages for all
                 categories including Indian and Russian girls.
               </p>
@@ -731,10 +745,10 @@ const Mahipalpur = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div
-            className="relative rounded-[3rem] p-12 text-center text-white shadow-2xl overflow-hidden"
+            className="relative rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 text-center text-white shadow-2xl overflow-hidden"
             style={{
               backgroundImage: `url('https://www.funwithjuli.in/api/upload/file/whatsapp-image-2026-04-26-at-4.36.41-pm--1--26042026-1110.jpeg')`,
               backgroundSize: "cover",
@@ -748,21 +762,21 @@ const Mahipalpur = () => {
 
             {/* Content - Wrapped in relative z-10 to stay on top of overlay */}
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
                 Don't Spend Your Night Alone!
               </h2>
-              <p className="text-xl mb-10 opacity-95 font-medium max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-10 opacity-95 font-medium max-w-2xl mx-auto">
                 Enjoy safe, private, and premium moments with our professional
                 companions. We are available 24/7 to serve you.
               </p>
 
               <a
                 href={phoneNumber ? `tel:${phoneNumber}` : "#"}
-                className="inline-flex items-center gap-3 px-12 py-5 bg-white text-pink-600 rounded-full font-black text-xl hover:scale-105 transition-transform shadow-2xl hover:bg-gray-100"
+                className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-12 py-4 sm:py-5 bg-white text-pink-600 rounded-full font-black text-base sm:text-xl hover:scale-105 transition-transform shadow-2xl hover:bg-gray-100"
               >
                 {/* Added a small icon for better look */}
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -779,8 +793,8 @@ const Mahipalpur = () => {
         </div>
       </section>
 
-      <footer className="py-10 bg-gray-50 border-t border-gray-200 text-center text-gray-500 text-sm">
-        <div className="max-w-7xl mx-auto px-4">
+      <footer className="py-8 sm:py-10 bg-gray-50 border-t border-gray-200 text-center text-gray-500 text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <p>
             © 2024-2026 FunwithJuli. All Rights Reserved. | Escort Service
             Mahipalpur
