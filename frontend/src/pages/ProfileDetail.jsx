@@ -92,7 +92,7 @@ const ProfileDetail = () => {
     ownerInfo?.owners?.[0]?.callNumber;
 
   const whatsappLink = whatsappNumber
-    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi! I'm interested in your profile`
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=Hi ${profile.name}! I'm interested in your profile`
     : null;
 
   const phoneLink = whatsappNumber
@@ -172,36 +172,36 @@ const ProfileDetail = () => {
 
                   {/* Profile Actions */}
                   <div className="absolute top-16 right-4 flex gap-2">
-                    <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
-                      <svg
-                        className="h-5 w-5 text-black"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                    </button>
-                    <button className="p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all">
-                      <svg
-                        className="h-5 w-5 text-black"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m9.032 4.026a9.001 9.001 0 01-7.432 0m9.032-4.026A9.001 9.001 0 0112 3c-4.474 0-8.268 3.12-9.032 7.326m0 0A9.001 9.001 0 0012 21c4.474 0 8.268-3.12 9.032-7.326"
-                        />
-                      </svg>
-                    </button>
+                    <a
+                      href={phoneLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      disabled={!ownerInfo}
+                      className={`p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all no-underline hover:no-underline ${
+                        !ownerInfo ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                      title={
+                        !ownerInfo ? "Contact number not available" : "Call now"
+                      }
+                    >
+                      <PhoneIcon className="h-5 w-5 text-gray-700" />
+                    </a>
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      disabled={!ownerInfo}
+                      className={`p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hover:bg-gray-100 transition-all no-underline hover:no-underline ${
+                        !ownerInfo ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                      title={
+                        !ownerInfo
+                          ? "WhatsApp number not available"
+                          : "Chat on WhatsApp"
+                      }
+                    >
+                      <ChatBubbleLeftRightIcon className="h-5 w-5 text-gray-700" />
+                    </a>
                   </div>
                 </div>
 

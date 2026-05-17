@@ -73,30 +73,8 @@ const AllNewArrivals = () => {
         keywords="new arrivals, latest escorts, new companions Delhi, fresh escort profiles, premium escorts NCR, verified new escorts, Delhi escort service"
       />
       <div className="min-h-screen bg-zinc-50 text-zinc-900 transition-colors duration-300">
-        {/* --- Adaptive Navigation --- */}
-        <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-zinc-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <button
-              onClick={() => navigate(-1)}
-              className="flex items-center gap-2 text-sm font-semibold hover:text-pink-500 transition-colors"
-            >
-              <ArrowLeftIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Back</span>
-            </button>
-
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200">
-                <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-tight text-zinc-500">
-                  Live Feed
-                </span>
-              </div>
-            </div>
-          </div>
-        </nav>
-
         {/* --- Hero Section with Mesh Gradient --- */}
-        <header className="relative pt-16 pb-12 overflow-hidden">
+        <header className="relative pt-6 pb-12 overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-pink-500/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="relative max-w-7xl mx-auto px-6 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-pink-600 mb-6">
@@ -105,13 +83,13 @@ const AllNewArrivals = () => {
                 Just Added
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-zinc-900">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
               New{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500">
                 Arrivals
               </span>
             </h1>
-            <p className="max-w-2xl mx-auto text-zinc-500 text-lg">
+            <p className="max-w-4xl mx-auto text-lg">
               Experience the latest additions to our curated gallery. Fresh
               profiles, updated daily for premium quality.
             </p>
@@ -143,7 +121,7 @@ const AllNewArrivals = () => {
                   </div>
 
                   {/* Floating Action Button on Hover */}
-                  <div className="absolute bottom-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-4 right-4">
                     <a
                       href={whatsappLink}
                       className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pink-500 text-white shadow-xl shadow-pink-500/40 hover:bg-pink-600"
@@ -207,12 +185,12 @@ const AllNewArrivals = () => {
                   <ChatBubbleLeftRightIcon className="h-5 w-5" />
                   WhatsApp Agent
                 </a>
-                <button
+                {/* <button
                   onClick={() => navigate("/escort-service")}
                   className="px-8 py-4 bg-white border border-zinc-200 rounded-2xl font-bold hover:bg-zinc-50 transition-colors"
                 >
                   All Profiles
-                </button>
+                </button> */}
               </div>
             </div>
           )}
