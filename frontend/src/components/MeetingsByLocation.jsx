@@ -47,15 +47,15 @@ const MeetingsByLocation = () => {
   );
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADER & SEARCH */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16">
           <div>
-            <h2 className="text-4xl font-black text-gray-900 mb-4">
+            <h2 className="text-lg md:text-3xl font-black text-gray-900 mb-4">
               Extensive Presence Across Delhi NCR, Noida, and Gurgaon
             </h2>
-            <p className="text-lg text-black">
+            <p className="text-sm md:text-lg text-black">
               One of the main reasons we’re regarded as a leading escort service
               in Delhi NCR is our wide and reliable network across the region.
               We understand how vast the NCR is, so accessibility and prompt
@@ -127,6 +127,31 @@ const MeetingsByLocation = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12">
+          <h2>Areas Covered by Fun with Juli Our Escort Service in Delhi</h2>
+          <p>
+            Funwith Juli covers many important areas of Delhi and NCR. This
+            helps clients get faster service according to their location.
+          </p>
+          <h3>Popular Areas</h3>
+          <ul className="list-disc list-inside">
+            <li>Saket</li>
+            <li>Vasant Kunj</li>
+            <li>Mahipalpur</li>
+            <li>Connaught Place</li>
+            <li>Laxmi Nagar</li>
+            <li>Dwarka</li>
+            <li>Noida</li>
+            <li>Gurgaon</li>
+            <li>Ghaziabad</li>
+            <li>Faridabad</li>
+          </ul>
+          <p>
+            No matter where you are staying, we try to provide quick and quality
+            service.
+          </p>
         </div>
 
         {/* EMPTY STATE */}

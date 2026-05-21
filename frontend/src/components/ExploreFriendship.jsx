@@ -67,13 +67,13 @@ const ExploreFriendship = () => {
         {/* ================= SECTION HEADER ================= */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 md:mb-16 text-center md:text-left gap-4">
           <div className="max-w-xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 tracking-tight">
+            <h2 className="text-xl md:text-3xl font-black text-gray-900 mb-3 tracking-tight">
               More Than Just{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                 Meetings
               </span>
             </h2>
-            <p className="text-gray-800 text-sm md:text-lg leading-relaxed">
+            <p className=" text-sm md:text-lg leading-relaxed">
               With so many options available, how do you decide? At funwithjuli,
               we suggest looking at your schedule and the nature of the meeting.
             </p>
@@ -81,11 +81,11 @@ const ExploreFriendship = () => {
         </div>
 
         {/* ================= FEATURE CARDS GRID ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:grid-cols-3 lg:gap-8">
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="group relative p-6 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-gray-50 border border-gray-100/80 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between"
+              className="group relative p-2 md:p-8 rounded-3xl md:rounded-[2.5rem] bg-gray-50 border border-gray-100/80 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Icon Circle */}
@@ -98,7 +98,7 @@ const ExploreFriendship = () => {
                 <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2 md:mb-3">
                   {cat.title}
                 </h3>
-                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+                <p className=" text-sm md:text-base leading-relaxed mb-4">
                   {cat.description}
                 </p>
               </div>
@@ -114,7 +114,7 @@ const ExploreFriendship = () => {
         </div>
 
         {/* ================= BOOKING INFO SECTION ================= */}
-        <section className="bg-gray-50/70 rounded-3xl p-6 md:p-10 mt-12 md:mt-16 border border-gray-100">
+        <section className="bg-gray-50/70 rounded-3xl mt-12 md:mt-16 border border-gray-100">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div className="text-left">
@@ -124,7 +124,7 @@ const ExploreFriendship = () => {
                     100% Discreet Support
                   </span>
                 </h2>
-                <div className="text-sm md:text-base text-gray-800 space-y-4 leading-relaxed font-medium">
+                <div className="text-sm md:text-base  space-y-4 leading-relaxed font-medium">
                   <p>
                     Our platform offers an <strong>easy booking process</strong>{" "}
                     designed to save time while maintaining full privacy. Users
@@ -162,7 +162,7 @@ const ExploreFriendship = () => {
         <section className="bg-white mt-12 md:mt-16">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+              <h2 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight">
                 Understanding the Need for{" "}
                 <span className="block md:inline text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                   Professional Companionship
@@ -170,7 +170,48 @@ const ExploreFriendship = () => {
               </h2>
             </div>
 
-            <div className="text-gray-800 text-sm md:text-base leading-relaxed space-y-4 md:space-y-6 text-left">
+            <div className=" text-sm md:text-base leading-relaxed space-y-4 md:space-y-6 text-left">
+              <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
+                Delhi Escort Services with Desi Call Girl
+              </h3>
+              <p>
+                If you book our service, you will get sexy, hot desi call girl
+                in delhi, she will gives you a pleasure you never had before,
+                Our Desi Girls are very horny and sexy they are very good in bed
+                for oral sex, cumshot, doggystyle and kissing.
+                <br />
+                she will give you a girlfriend like experience. One important
+                reason why people choose Desi girl are they’re fresh college
+                girl, or school girls. College girls are usually virgin and seal
+                packed you will get a smooth experience. We never share customer
+                information, booking details, or personal data. We take care
+                about client no matter if you want oral sex, anal sex or cumshot
+                in mouth we will provide you everything at one place. We provide
+                service in another all over delhi ncr as Escort service in
+                mahipalpur also as you know mahipalpur is highly rush area
+                people comes here from every state for business, enjoying
+                nightlife and travel.
+                <br />
+                We understand that many clients are professionals, business
+                owners, or travelers who want a secure experience without
+                complications. That is why our support team handles every
+                booking carefully.
+              </p>
+              <h4 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight">
+                Our Privacy Features
+              </h4>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Secure communication</li>
+                <li>Private booking process</li>
+                <li>No hidden information sharing</li>
+                <li>Respectful behavior</li>
+                <li>Safe meeting arrangements</li>
+              </ul>
+              <p className="">
+                We believe trust is the most important part of any premium
+                service.
+              </p>
+
               <p>
                 Life in a fast-paced city can be demanding. Often, individuals
                 seek a brief escape or a graceful partner to accompany them to
@@ -187,7 +228,7 @@ const ExploreFriendship = () => {
                 values your time. We have streamlined our booking process to
                 ensure that you can find premium escort agency Delhi services
                 without any unnecessary hurdles. From the moment you contact us
-                at 9548679151, our team works to match you with a partner who
+                on WhatsApp, our team works to match you with a partner who
                 aligns with your preferences.
               </p>
 
@@ -196,7 +237,110 @@ const ExploreFriendship = () => {
                 className={`transition-all duration-500 overflow-hidden ${showFullContent ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}
               >
                 <div className="space-y-6 pt-4">
-                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
+                  <h3> Call Girls in South Delhi - Stylish and Premium</h3>
+                  <p>
+                    Funwithjuli offers premium services with trusted call girls
+                    in South Delhi for travelers and business owners who want
+                    private and comfortable company. South Delhi is known for
+                    its luxury lifestyle, luxury cafes, hotels, and nightlife,
+                    making it a popular choice for call girl in south delhi .
+                    Our service focuses on privacy, friendly communication, and
+                    a smooth experience so clients can enjoy relaxed and
+                    stress-free personal time in areas like Saket, Hauz Khas,
+                    and Vasant Kunj.
+                  </p>
+
+                  <h3>Hire Sexy Russian Call Girls in Delhi – Funwithjuli</h3>
+                  <p>
+                    Russian call girls in Delhi are highly demanded call girls,
+                    delhi people are crazy for russian escort service in delhi,
+                    Many travelers and professionals prefer russian call girl
+                    because of their confident personality and friendly nature
+                    also their pink pussy. No matter what is the timing whenever
+                    you want we will provide cheap Russian escort in delhi for
+                    you. we help make your experience more enjoyable and
+                    memorable with our russian call girls.
+                  </p>
+
+                  <h3> High Profile Call Girls in Delhi – Funwithjuli</h3>
+                  <p>
+                    Funwithjuli is known for offering trusted high profile call
+                    girls in Delhi for clients who prefer luxury sex with high
+                    profile call girls in Delhi fully private and secure. High
+                    profile call girl from south delhi and another posh area
+                    from delhi ncr are available for you 24*7 and 7 days in a
+                    week, who will satisfy your desire and your need.
+                  </p>
+                  <h3> Get Hot African Call Girls in Delhi – Funwithjuli</h3>
+                  <p>
+                    African Girls is also known as black beauty we offers
+                    African call girls in Delhi for clients who want unique and
+                    comfortable companionship experiences. Our companions are
+                    known for their warm personality, confidence, and easy
+                    communication. We provide private and secure services for
+                    travelers, tourists, and professionals staying in Delhi NCR.
+                    From hotel meetups to personal outings, our goal is to make
+                    every experience relaxed, respectful, and enjoyable for our
+                    clients.
+                  </p>
+
+                  <h2> 100% Trusted and Verified Call girls in Delhi</h2>
+                  <p>
+                    Our call girl are 100% verified and trusted by thousands of
+                    clients across delhi ncr, we have more than 500+ call girls
+                    across delhi NCR, If you are searching for a trusted and
+                    verified <strong>Call girl in Delhi service</strong> you can
+                    directly call or send a message in whatsapp. We have
+                    verified photo in our website also, it’s mean 100%
+                    transparent call girl work with us.
+                  </p>
+                  <h3>Benefits for Travelers</h3>
+                  <ul className="list-disc list-inside">
+                    <li>Fast response time</li>
+                    <li>Hotel-friendly service</li>
+                    <li>Easy communication</li>
+                    <li>Multiple location coverage</li>
+                    <li>Flexible timings</li>
+                    <li>Professional companions</li>
+                  </ul>
+                  <p>
+                    Whether you are visiting Delhi for one day or one week, we
+                    help make your trip more enjoyable.
+                  </p>
+                  <h2> Call Girls in New Delhi for Premium Experience</h2>
+                  <p>
+                    Funwith Juli offers elegant and stylish{" "}
+                    <strong>call girls in New Delhi</strong> who understand
+                    client expectations. We focus on quality, comfort, and
+                    customer satisfaction. <br />
+                    Our companions are chosen for their personality,
+                    communication skills, and professionalism. We believe
+                    companionship should feel respectful and enjoyable for both
+                    sides.
+                    <br />
+                    Many clients prefer our service because we maintain high
+                    standards and provide a smooth experience from start to
+                    finish.
+                  </p>
+                  <h3> Simple Booking Process at Escort service in Delhi</h3>
+                  <p>
+                    We keep the booking process simple so clients do not face
+                    confusion or delays. Our support team is available to help
+                    with all questions and booking details.
+                  </p>
+                  <h3> Booking Steps for Delhi call girl Service</h3>
+                  <ul className="list-disc list-inside">
+                    <li>Contact us on whatsapp or call</li>
+                    <li>Share your preferred location and timing</li>
+                    <li>Choose a call girl</li>
+                    <li>Confirm your booking with payement</li>
+                    <li>
+                      Enjoy a private and sexy night with call girl hourly or
+                      full night.
+                    </li>
+                  </ul>
+
+                  <h3 className="">
                     Elite Female Models Delhi: Beyond Just Beauty
                   </h3>
                   <p>
@@ -216,9 +360,7 @@ const ExploreFriendship = () => {
                     including meaningful conversation and graceful presence.
                   </p>
 
-                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
-                    Seamless Integration of Services in NCR
-                  </h3>
+                  <h3 className="">Seamless Integration of Services in NCR</h3>
                   <p>
                     The beauty of the NCR region is its interconnectedness. You
                     might start your day in Delhi and end it in a luxury suite
@@ -234,9 +376,7 @@ const ExploreFriendship = () => {
                     high-end companionship is always accessible.
                   </p>
 
-                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
-                    Safety and Reliability
-                  </h3>
+                  <h3 className="">Safety and Reliability</h3>
                   <p>
                     In an industry where trust is paramount, funwithjuli stands
                     out by being a reliable partner. We encourage our clients to
@@ -253,7 +393,7 @@ const ExploreFriendship = () => {
                     yourself.
                   </p>
 
-                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
+                  <h3 className="">
                     Serving the Modern Gentleman in the Digital Age
                   </h3>
                   <p>
@@ -271,7 +411,7 @@ const ExploreFriendship = () => {
                     ensure that funwithjuli remains at the top of your list.
                   </p>
 
-                  <h3 className="text-xl md:text-2xl font-black text-gray-900 tracking-tight mt-4">
+                  <h3 className="">
                     Your Journey with funwithjuli Starts Here
                   </h3>
                   <p>
@@ -290,6 +430,21 @@ const ExploreFriendship = () => {
                     moment count, ensuring that your experience is nothing short
                     of exceptional.
                   </p>
+
+                  Conclusion: Best Choice for Premium Companionship in Delhi
+                  It's a very challenging part to find call girls in Delhi or a
+                  private escort service in Delhi, Her at Funwith Juli is here to
+                  provide a smooth and premium experience. We take care about
+                  your, privacy, safety and hygine so clients can enjoy quality
+                  time without stress.
+                  Our service is designed for business owners, travelers, and
+                  people who value private and classy experiences. From New
+                  Delhi to NCR locations, our team works hard to maintain
+                  quality and customer satisfaction.
+                  Funwith Juli continues to be a trusted name for thousands of
+                  people looking for premium escort service Delhi. Whether you
+                  need someone for dinner, travel, or personal time, we are
+                  here to help you enjoy every moment comfortably and privately.
                 </div>
               </div>
 

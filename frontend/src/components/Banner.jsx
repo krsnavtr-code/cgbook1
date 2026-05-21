@@ -44,18 +44,19 @@ const Banner = () => {
       <div className="absolute -bottom-8 left-20 w-72 h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 py-14 sm:py-20 lg:py-24 lg:flex lg:items-center lg:justify-between">
+        <div className="relative z-10 py-4 sm:py-12 lg:py-14 lg:flex lg:items-center lg:justify-between">
           {/* ================= TEXT CONTENT ================= */}
           <div className="text-center lg:text-left lg:w-1/2">
-            <h1 className="text-2xl font-black tracking-tight text-gray-900 sm:text-4xl">
-              Best Escort Service in Delhi NCR: Premium Experience
+            <h1 className="text-xl md:text-2xl font-black tracking-tight text-gray-900 sm:text-4xl">
+              Escort Service in Delhi at Funwith Juli - Premium Call Girls in
+              Delhi
             </h1>
-            <p className="mt-6 text-lg text-black max-w-2xl mx-auto lg:mx-0">
-              Funwithjuli offers trusted, high-quality companionship across
-              Delhi NCR. Serving Delhi, Noida, and Gurgaon, we focus on
-              professionalism, discretion, and client satisfaction, ensuring a
-              seamless and sophisticated experience for residents and visitors
-              alike.
+            <p className="mt-6 text-sm md:text-lg text-black max-w-2xl mx-auto lg:mx-0">
+              Delhi is a hub of business, travelers, people travel from all
+              around the country here, people come here for different purposes
+              some for business, travel, enjoy, night out and other things. If
+              you’re one of them you’re at the right spot at Fun with Juli we
+              offer trusted and friendly <strong>call girls in Delhi</strong>.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -95,7 +96,7 @@ const Banner = () => {
             </div>
 
             {/* Stats / Social Proof */}
-            <div className="mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100 pt-8">
+            <div className="hidden md:flex mt-10 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100 pt-8">
               <div>
                 <p className="text-2xl font-black text-gray-900">150+</p>
                 <p className="text-sm text-black uppercase tracking-widest font-bold">
@@ -116,6 +117,27 @@ const Banner = () => {
                   Fans
                 </p>
               </div>
+            </div>
+
+            <div className="md:hidden mt-10 grid grid-cols-1 gap-2 border-t border-gray-100 pt-8">
+              <p className="text-2xl font-black text-gray-900">
+                150+{" "}
+                <span className="text-sm text-black uppercase tracking-widest font-bold">
+                  Photos
+                </span>
+              </p>
+              <p className="text-2xl font-black text-gray-900">
+                Multiple{" "}
+                <span className="text-sm text-black uppercase tracking-widest font-bold">
+                  Locations
+                </span>
+              </p>
+              <p className="text-2xl font-black text-gray-900">
+                1200+{" "}
+                <span className="text-sm text-black uppercase tracking-widest font-bold">
+                  Fans
+                </span>
+              </p>
             </div>
           </div>
 
@@ -163,6 +185,28 @@ const Banner = () => {
             </div>
           </div>
         </div>
+        <p className="mx-auto">
+          We are known for offering a safe, private, and premium{" "}
+          <strong>escort service in Delhi</strong> for business owners,
+          travelers, and people who want quality companionship. Whether you are
+          visiting Delhi for work, staying in a hotel, or living in the city,
+          our service is made to give you comfort, privacy, and a good
+          experience.
+        </p>
+        <p className="mx-auto">
+          At Funwith Juli, we understand that every person has different needs.
+          No Matter if you’re looking for dinner partner, party night with
+          female escort in delhi or full night spend with call girl Our{" "}
+          <strong>escort service in Delhi</strong> focuses on making every
+          meeting smooth, respectful, and enjoyable. We believe that you should
+          feel natural, stress-free, and comfortable.
+        </p>
+        <p className="mx-auto">
+          Our platform Fun with Juli is designed for people who want trusted and
+          verified companions without wasting time. With our premium{" "}
+          <strong>escort service in Delhi</strong>, you can connect with
+          experienced and stylish call girl in different parts of Delhi NCR.
+        </p>
       </div>
     </div>
   );

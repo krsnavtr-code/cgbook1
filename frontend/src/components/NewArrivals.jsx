@@ -101,19 +101,32 @@ const NewArrivals = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Block Section */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 md:mb-12">
-          <div className="max-w-3xl text-left">
-            <h2 className="text-2xl md:text-3xl font-black text-gray-900 flex items-center gap-3">
+          <div className="max-w-5xl text-left">
+            <p className="text-2xl md:text-3xl font-black text-gray-900 flex items-center gap-3">
               New Arrivals
               <span className="flex h-3 w-3 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
               </span>
+            </p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mt-2">
+              Premium Escort Service in Delhi for Business Owners and Travelers
             </h2>
-            <p className="text-gray-700 text-sm md:text-base mt-2 font-medium leading-relaxed">
-              Our call <strong>girls and escort service in NCR</strong> focuses
-              on transparency and professionalism. Profiles include clear
-              details so users can make informed choices without confusion or
-              miscommunication.
+            <p className="text-sm md:text-base">
+              Delhi is a busy city where thousands of business owners and
+              travelers come every day. Long meetings, travel stress, and busy
+              schedules can make people feel tired. That is why many
+              professionals choose an <strong>Escort service Delhi</strong> to relax and enjoy
+              their free time.
+              <br />
+              Funwith Juli provides classy and smooth companions who understand
+              how to behave professionally. Whether you want someone for a
+              dinner date, hotel meetup, event, or city outing, our service
+              gives you the right companion according to your preference.
+              <br />
+              Business travelers often look for comfort, privacy, and good
+              communication. Our companions know how to make conversations
+              interesting and create a relaxed atmosphere.
             </p>
           </div>
           <button

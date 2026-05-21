@@ -67,20 +67,20 @@ const TopRatedMeetings = () => {
   ];
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-14 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with "Elite" Styling */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-black text-amber-500 uppercase tracking-[0.3em] mb-3">
             The Gold Standard
           </h2>
-          <h3 className="text-4xl md:text-5xl font-black text-gray-900  mb-6">
+          <h3 className="text-lg md:text-3xl font-black text-gray-900  mb-6">
             Top Rated{" "}
             <span className="underline decoration-amber-500 decoration-4 underline-offset-8">
               Companions
             </span>
           </h3>
-          <p className="text-black  max-w-2xl mx-auto text-lg">
+          <p className="text-black  max-w-2xl mx-auto text-sm md:text-lg">
             Hand-picked profiles with 100% verified reviews and exceptional
             service standards.
           </p>

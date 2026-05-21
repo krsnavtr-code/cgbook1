@@ -78,7 +78,7 @@ const Meetings = () => {
       : profiles.filter((profile) => profile.location === selectedCity);
 
   return (
-    <section className="py-10 md:py-16 bg-white transition-colors duration-300">
+    <section className="py-6 md:py-14 bg-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= HEADER SECTION ================= */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 md:mb-12">
@@ -93,30 +93,38 @@ const Meetings = () => {
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
-              Hot meetings in <span className="text-indigo-600">your city</span>
+              Trusted Escort Services in Delhi for{" "}
+              <span className="text-indigo-600">Private Night</span>
             </h2>
-            <p className="text-gray-700 text-sm md:text-base max-w-xl leading-relaxed">
-              Find your favourite companion in Skokka. Verified profiles with
-              direct contact options.
+            <p className="text-gray-700 text-sm md:text-base max-w-6xl leading-relaxed">
+              Funwith Juli offers premium <strong>escort services in Delhi</strong> for different
+              types of occasions. Some clients book call girls in delhi for
+              social events, while others want someone for travel companionship
+              or nightlife experiences in delhi ncr, you can book any type of
+              call girl directly from the given whatsapp or calling number, we
+              also provide vip call girl in delhi directly home delivery to your
+              hotel or room.
+              <br />
+              Our service is designed to fit your comfort level and schedule. We
+              always try to provide a smooth experience from booking to meeting.
             </p>
           </div>
-
-          {/* Touch-Friendly Drag-Scroll City Filter */}
-          <div className="w-full lg:w-auto overflow-x-auto pb-3 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 flex items-center gap-2 scrollbar-none snap-x snap-mandatory">
-            {availableLocations.map((city) => (
-              <button
-                key={city}
-                onClick={() => setSelectedCity(city)}
-                className={`px-4 py-2 rounded-full border text-xs md:text-sm font-bold whitespace-nowrap transition-all snap-start ${
-                  selectedCity === city
-                    ? "bg-pink-500 text-white border-pink-500 shadow-md shadow-pink-500/20"
-                    : "border-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white"
-                }`}
-              >
-                {city}
-              </button>
-            ))}
-          </div>
+        </div>
+        {/* Touch-Friendly Drag-Scroll City Filter */}
+        <div className="w-full lg:w-auto overflow-x-auto pb-3 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 flex items-center gap-2 scrollbar-none snap-x snap-mandatory">
+          {availableLocations.map((city) => (
+            <button
+              key={city}
+              onClick={() => setSelectedCity(city)}
+              className={`px-4 py-2 rounded-full border text-xs md:text-sm font-bold whitespace-nowrap transition-all snap-start ${
+                selectedCity === city
+                  ? "bg-pink-500 text-white border-pink-500 shadow-md shadow-pink-500/20"
+                  : "border-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white"
+              }`}
+            >
+              {city}
+            </button>
+          ))}
         </div>
 
         {/* Counter Info Strip */}
@@ -289,10 +297,25 @@ const Meetings = () => {
         )}
 
         {/* ================= FOOTNOTE ================= */}
-        <div className="mt-10 md:mt-14 text-center">
+        <div className="mt-8">
           <p className="text-gray-400 text-[10px] md:text-xs tracking-wide">
             * All profiles are manually verified. User discretion is advised.
             18+ Only.
+          </p>
+
+          <h4 className="text-lg font-bold">You Can Book Our Service For:</h4>
+          <ul className="mt-0 list-disc list-inside">
+            <li>Business trips</li>
+            <li>Hotel companionship</li>
+            <li>Dinner dates</li>
+            <li>Private parties</li>
+            <li>Travel companionship</li>
+            <li>Nightlife outings</li>
+            <li>Weekend relaxation</li>
+          </ul>
+          <p>
+            No matter the reason, our team focuses on making your experience
+            safe and enjoyable.
           </p>
         </div>
       </div>
