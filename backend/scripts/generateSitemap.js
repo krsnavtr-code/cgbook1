@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 
 // Configuration
 const BASE_URL = "https://www.funwithjuli.in";
-const SITEMAP_PATH = path.join(__dirname, "../../sitemap.xml");
+const SITEMAP_PATH = path.join(__dirname, "../../frontend/public/sitemap.xml");
 
 // Static URLs with SEO attributes
 const staticUrls = [
