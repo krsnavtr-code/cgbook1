@@ -103,7 +103,7 @@ const Navbar = () => {
                     <Link
                       key={city}
                       to={`/escort-service-${city.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-600"
+                      className="block px-4 py-0.5 text-sm font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-600"
                     >
                       {city}
                     </Link>
