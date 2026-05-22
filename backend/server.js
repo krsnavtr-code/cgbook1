@@ -13,7 +13,7 @@ import uploadRoutes from "./routes/upload.route.js";
 import adminRoutes from "./routes/admin.routes.js";
 import ownerInfoRoutes from "./routes/ownerInfo.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
-import generateSitemap from "./scripts/generateSitemap.js";
+// import generateSitemap from "./scripts/generateSitemap.js";
 
 import dns from "dns";
 // Only set DNS in development/local environment
@@ -214,30 +214,30 @@ app.use("/owner-info", ownerInfoRoutes);
 app.use("/profiles", profileRoutes);
 
 // Sitemap generation endpoint (protected)
-app.post("/api/generate-sitemap", async (req, res) => {
-  try {
-    const result = await generateSitemap();
-    if (result.success) {
-      res.json({
-        success: true,
-        message: "Sitemap generated successfully",
-        data: result,
-      });
-    } else {
-      res.status(500).json({
-        success: false,
-        message: "Failed to generate sitemap",
-        error: result.error,
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error generating sitemap",
-      error: error.message,
-    });
-  }
-});
+// app.post("/api/generate-sitemap", async (req, res) => {
+//   try {
+//     const result = await generateSitemap();
+//     if (result.success) {
+//       res.json({
+//         success: true,
+//         message: "Sitemap generated successfully",
+//         data: result,
+//       });
+//     } else {
+//       res.status(500).json({
+//         success: false,
+//         message: "Failed to generate sitemap",
+//         error: result.error,
+//       });
+//     }
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: "Error generating sitemap",
+//       error: error.message,
+//     });
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

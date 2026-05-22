@@ -34,12 +34,34 @@ const Footer = () => {
     ? formatPhoneNumber(ownerInfo.callNumber)
     : "";
 
+  const keyframesStyle = `
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  `;
+
+  // 2. Container ki custom styles ka object
+  const containerStyle = {
+    background: "linear-gradient(135deg, #f0f4ff, #fff1f2, #fef9c3, #ecfeff)",
+    backgroundSize: "400% 400%",
+    animation: "gradientShift 10s ease infinite",
+    borderRadius: "16px",
+    padding: "3rem 2rem",
+    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.03)",
+    border: "1px solid rgba(255, 255, 255, 0.6)",
+  };
+
   return (
     <footer className="relative mt-auto border-t border-pink-50 bg-white transition-colors duration-300 pt-10 pb-6 md:pt-16 md:pb-8 overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute bottom-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-pink-100/20 rounded-full blur-3xl -z-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        style={containerStyle}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         {/* Responsive Grid Setup */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-12 mb-10 md:mb-14">
           {/* Brand Column */}
@@ -146,9 +168,659 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Bottom Footer - All Pages Interlinking */}
+
+        {/* React tarike se CSS Keyframes inject karna */}
+        <style>{keyframesStyle}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-4">
+            {/* Main Pages */}
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-wider mb-2">
+                Main
+              </h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/photos"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Photo Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/new-arrivals"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    New Arrivals
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Core Hub Zones */}
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-wider mb-2">
+                Regional Hubs
+              </h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/meetings/delhi"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Delhi Hub
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/meetings/noida"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Noida Hub
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/meetings/gurugram"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Gurugram Hub
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/meetings/ghaziabad"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Ghaziabad Hub
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Central & South Sectors */}
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-wider mb-2">
+                Central & South
+              </h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/escort-service-connaught-place"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Connaught Place
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-karol-bagh"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Karol Bagh
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-south-delhi"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    South Delhi
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-saket"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Saket
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-hauz-khas"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Hauz Khas
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-malviya-nagar"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Malviya Nagar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-lajpat-nagar"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Lajpat Nagar
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* West & East Sectors */}
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-wider mb-2">
+                West & East Areas
+              </h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/escort-service-dwarka"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Dwarka
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-janakpuri"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Janakpuri
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-tilak-nagar"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Tilak Nagar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-patel-nagar"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Patel Nagar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-palam"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Palam
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-laxmi-nagar"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Laxmi Nagar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-new-ashok-nagar"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    New Ashok Nagar
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Airport & Business Hubs */}
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-wider mb-2">
+                Transit & Commercial
+              </h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/escort-service-aerocity"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Aerocity
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-mahipalpur"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Mahipalpur
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-vasant-kunj"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Vasant Kunj
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-munirka"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Munirka
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/escort-service-nehru-place"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Nehru Place
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support & Legal */}
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-black text-gray-900 uppercase tracking-wider mb-2">
+                System Support
+              </h4>
+              <ul className="space-y-1">
+                <li>
+                  <Link
+                    to="/contact-us"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/help-center"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/support-center"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Support Center
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/scam-report"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Scam Report
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy-policy"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terms-of-use"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Terms of Use
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/cookies-policy"
+                    className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+                  >
+                    Cookies Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 mt-4">
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Sonam"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Sonam
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Parul"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Photo Gallery
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Nilam"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Nilam
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Salu"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Salu
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Kajal"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Kajal
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Soniya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Soniya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Riya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Riya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Vandna"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Vandna
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Ragni"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Ragni
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Mina"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Mina
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Shiwani"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Shiwani
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Kavya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Kavya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Manisha"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Manisha
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Vidya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Vidya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Nitya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Nitya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Neha"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Neha
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Anushka"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Anushka
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Aarti"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Aarti
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Nisha"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Nisha
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Meera"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Meera
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Kiara"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Kiara
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Anaya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Anaya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Myra"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Myra
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Avni"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Avni
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Ishita"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Ishita
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Diya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Diya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Saanvi"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Saanvi
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Aadhya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Aadhya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Vanya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Vanya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Zoya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Zoya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Navya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Navya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Avni"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Avni
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Pooja"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Pooja
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Somiya"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Somiya
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/sabnam"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                sabnam
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Rukshar"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Rukshar
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/shuhana"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                shuhana
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Bulbul"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Bulbul
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Manisha"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Manisha
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="https://www.funwithjuli.in/profile/Nikita"
+                className="text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors"
+              >
+                Nikita
+              </Link>
+            </p>
+          </div>
+        </div>
+
         {/* Sub-Footer Base Area */}
         <div className="border-t border-gray-100 pt-6 flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-center md:text-left">
-          <p className="text-xs text-gray-500 font-medium">
+          <p className="text-xs font-bold font-medium">
             &copy; {new Date().getFullYear()}{" "}
             <span className="text-gray-900 font-bold">funwithjuli.in</span>. All
             rights reserved.
