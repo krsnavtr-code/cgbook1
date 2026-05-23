@@ -23,10 +23,10 @@ const staticUrls = [
   { path: "/", priority: 1.0, changefreq: "daily" },
   { path: "/photos", priority: 0.9, changefreq: "weekly" },
   { path: "/new-arrivals", priority: 0.9, changefreq: "weekly" },
-  { path: "/meetings/delhi", priority: 0.8, changefreq: "weekly" },
-  { path: "/meetings/noida", priority: 0.8, changefreq: "weekly" },
-  { path: "/meetings/gurugram", priority: 0.8, changefreq: "weekly" },
-  { path: "/meetings/ghaziabad", priority: 0.8, changefreq: "weekly" },
+  // { path: "/meetings/delhi", priority: 0.8, changefreq: "weekly" },
+  // { path: "/meetings/noida", priority: 0.8, changefreq: "weekly" },
+  // { path: "/meetings/gurugram", priority: 0.8, changefreq: "weekly" },
+  // { path: "/meetings/ghaziabad", priority: 0.8, changefreq: "weekly" },
   { path: "/escort-service-munirka", priority: 0.8, changefreq: "weekly" },
   { path: "/escort-service-mahipalpur", priority: 0.8, changefreq: "weekly" },
   { path: "/escort-service-vasant-kunj", priority: 0.8, changefreq: "weekly" },
@@ -116,19 +116,19 @@ async function generateSitemap() {
     });
 
     // Add dynamic profile URLs if database was connected and profiles found
-    if (profiles.length > 0) {
-      profiles.forEach((profile) => {
-        const profileUrl = {
-          path: `/profile/${encodeURIComponent(profile.name)}`,
-          priority: 0.8,
-          changefreq: "weekly",
-        };
-        const lastmod = profile.updatedAt
-          ? profile.updatedAt.toISOString().split("T")[0]
-          : today;
-        sitemap += generateUrlEntry(profileUrl, lastmod) + "\n";
-      });
-    }
+    // if (profiles.length > 0) {
+    //   profiles.forEach((profile) => {
+    //     const profileUrl = {
+    //       path: `/profile/${encodeURIComponent(profile.name)}`,
+    //       priority: 0.8,
+    //       changefreq: "weekly",
+    //     };
+    //     const lastmod = profile.updatedAt
+    //       ? profile.updatedAt.toISOString().split("T")[0]
+    //       : today;
+    //     sitemap += generateUrlEntry(profileUrl, lastmod) + "\n";
+    //   });
+    // }
 
     // Close sitemap XML
     sitemap += `</urlset>
